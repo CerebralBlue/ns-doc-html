@@ -6,5 +6,6 @@ There is another repo `knowledge` from which under `/neuralseek/doc` the markdow
 
 Following is how the publishing step works
 
-1. Documentation changes are pushed into the `main` branch of `knowledge` repo and previewed here as well.
+1. Documentation changes are pushed into, and previewed in, the `main` branch of `knowledge` repo.
 2. Running the 'publish' action on the `knowledge` repo will run our documentation builder and push the resulting html to this repo.
+3. Any pushes to this repo will trigger the static.yml action, which pushes our site to github pages.

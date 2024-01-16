@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://cerebralblue.github.io/nsweb-test/integrations/rest_api/rest_api/">
+    <link rel="shortcut icon" href="../../../images/ns-white.svg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>REST API - NeuralSeek Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/colors.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Overview", url: "#overview", children: [
+              {title: "Example of curl command to invoke REST API", url: "#example-of-curl-command-to-invoke-rest-api" },
+              {title: "Example of JSON Response", url: "#example-of-json-response" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="overview">Overview</h1>
+<p>Virtual Agents, chatbots, and applications can send user questions and receive answers via NeuralSeek’s REST API. In the <code>Integrate &gt; API</code>, you can access its openAPI documentation that covers its service endpoints, and also can test its executions, as well as access the message schema. For more information, please refer to <a href="https://api.neuralseek.com/">https://api.neuralseek.com/</a>.</p>
+<h2 id="example-of-curl-command-to-invoke-rest-api">Example of curl command to invoke REST API</h2>
+<pre><code class="language-bash">curl -X 'POST' \
+  'http://localhost:2755/v1/test/seek' \
+  -H 'accept: application/json' \
+  -H 'apikey: xxxbbfxf-xxx84x90-xxxa7ex3-xxxba06x' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  &quot;question&quot;: &quot;I wan to know more about NeuralSeek&quot;,
+  &quot;context&quot;: {},
+  &quot;user_session&quot;: {
+    &quot;metadata&quot;: {
+      &quot;user_id&quot;: &quot;string&quot;
+    },
+    &quot;system&quot;: {
+      &quot;session_id&quot;: &quot;string&quot;
+    }
+  },
+  &quot;options&quot;: {
+    &quot;personalize&quot;: {
+      &quot;preferredName&quot;: &quot;string&quot;,
+      &quot;noWelcome&quot;: &quot;string&quot;,
+      &quot;forceFirstPerson&quot;: &quot;string&quot;,
+      &quot;products&quot;: [
+        &quot;string&quot;
+      ],
+      &quot;additionalDetails&quot;: &quot;string&quot;
+    },
+    &quot;language&quot;: &quot;string&quot;,
+    &quot;filter&quot;: &quot;string&quot;,
+    &quot;company&quot;: &quot;string&quot;,
+    &quot;semanticScore&quot;: {
+      &quot;enabled&quot;: &quot;string&quot;,
+      &quot;primary&quot;: &quot;string&quot;
+    },
+    &quot;lastTurn&quot;: {
+      &quot;input&quot;: &quot;string&quot;,
+      &quot;response&quot;: &quot;string&quot;
+    },
+    &quot;pullToCompany&quot;: &quot;string&quot;,
+    &quot;promptEngineering&quot;: &quot;string&quot;,
+    &quot;promptEngineeringPhrase&quot;: &quot;string&quot;,
+    &quot;answerEngineering&quot;: &quot;[{'\''re'\'':'\''/hi/gi'\'', '\''rp'\'':'\''Bye!'\''}]&quot;,
+    &quot;warnConfidence&quot;: &quot;5&quot;,
+    &quot;warnConfidenceText&quot;: &quot;string&quot;,
+    &quot;minConfidence&quot;: &quot;0&quot;,
+    &quot;minConfidenceText&quot;: &quot;string&quot;,
+    &quot;misTolerance&quot;: &quot;0&quot;,
+    &quot;sensitiveText&quot;: &quot;string&quot;,
+    &quot;minText&quot;: &quot;string&quot;,
+    &quot;maxWords&quot;: &quot;string&quot;,
+    &quot;url&quot;: &quot;string&quot;,
+    &quot;stump&quot;: &quot;string&quot;,
+    &quot;includeSourceResults&quot;: &quot;string&quot;
+  }
+}'
+</code></pre>
+<h2 id="example-of-json-response">Example of JSON Response</h2>
+<pre><code class="language-json">{
+  &quot;answer&quot;: &quot;Hello string,\n\nNeuralSeek is an AI-powered Answers-as-a-Service, designed to enhance information sharing and customer support within organizations’ virtual agents. It works by leveraging the capabilities of a sophisticated Large Language Model and the users’ corporate KnowledgeBase, allowing virtual agents to provide concise and contextually relevant responses to user queries. \n\nNeuralSeek offers a clickable path to fact-check AI response, utilization of data analytics to enhance AI natural language capabilities and comprehensive step-by-step instructions for maintaining accuracy and clean resource data. It also features an advanced Personal Identifiable Information (PII) detection routine that automatically identifies any PII within user inputs. \n\nIt was created in October of 2022, by CerebralBlue. It can be used either in IBM cloud or Amazon Web Services (AWS).&quot;,
+  &quot;cachedResult&quot;: false,
+  &quot;langCode&quot;: &quot;string&quot;,
+  &quot;sentiment&quot;: 5,
+  &quot;totalCount&quot;: 25,
+  &quot;KBscore&quot;: 100,
+  &quot;score&quot;: 100,
+  &quot;url&quot;: &quot;https://uneven-base-562.com/Overview-4faf22fbaa3343fba8a4d0594dc7789&quot;,
+  &quot;document&quot;: &quot;https://uneven-base-562.com/Overview-4faf22fbaa3343fba8a4d0594dc7789&quot;,
+  &quot;kbTime&quot;: 6173,
+  &quot;kbCoverage&quot;: 88,
+  &quot;time&quot;: 20928
+}
+</code></pre>
+
+  <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+</footer>
+
+<script src="../../../scripts/watson.js"></script>
+<script> if(is_top_frame) loadWatson(); </script>
+</body>
+</html>

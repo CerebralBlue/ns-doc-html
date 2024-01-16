@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://cerebralblue.github.io/nsweb-test/main_features/pii_detection/pii_detection/">
+    <link rel="shortcut icon" href="../../../images/ns-white.svg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>PII Detection - NeuralSeek Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/colors.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Overview", url: "#overview", children: [
+              {title: "What is it?", url: "#what-is-it" },
+              {title: "Why is it important?", url: "#why-is-it-important" },
+              {title: "How does it work?", url: "#how-does-it-work" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="overview">Overview</h1>
+<h2 id="what-is-it">What is it?</h2>
+<p>NeuralSeek features an advanced Personal Identifiable Information (PII) detection routine that automatically identifies any PII within user inputs. It allows users to flag, mask, hide, or delete the detected PII.</p>
+<h2 id="why-is-it-important">Why is it important?</h2>
+<p>Users can maintain a secure environment while providing accurate responses to user queries, ensuring compliance with data privacy regulations and protecting sensitive information.</p>
+<h2 id="how-does-it-work">How does it work?</h2>
+<p>Common and well known PII detection is enabled by default in NeuralSeek. When you enter a PII information, for example, when you enter a credit card number in Seek:</p>
+<p><img alt="entering PII" src="../images/image_001.png" /></p>
+<p>In NeuralSeek, the question above will be logged and flagged as containing PII information and warns user about a potential risk.</p>
+<p><img alt="detecting PII" src="../images/image_002.png" /></p>
+<p>The credit card number is also masked and removed, so that the data is protected from from being viewed. The answers to these questions also indicate that they were generated from a question with PII in it, so that you can easily identify them.</p>
+<p><img alt="masking PII" src="../images/image_003.png" /></p>
+<h3 id="defining-a-specific-pii">Defining a specific PII</h3>
+<p>However, this is what NeuralSeek does against common PII patterns, and there may be a specific PII that you would like to hide for your specific business needs. If you want to help NeuralSeek better detect and process PII for that, you can configure it under <code>Configure &gt; Personal Identifiable Information (PII)</code> Handling in the top menu:</p>
+<p><img alt="defining pii" src="../images/image_004.png" /></p>
+<p>How it works is based on example sentence, and does not have to be an exact pattern or rules. For example, setting the example sentence as:</p>
+<pre><code>My name is Howard Yoo and my blood type is O, and I live in Chicago.
+</code></pre>
+<p>For each PII element in that sentence, you can define the PII elements in that sentence delimited by comma as such:</p>
+<pre><code>Howard Yoo, 0
+</code></pre>
+<p>So, next time, when somebody enters a PII matching the example as such:</p>
+<pre><code>This is my blood type: A
+</code></pre>
+<p>NeuralSeek now detects that and masks the blood type that the user provided from being exposed:</p>
+<p><img alt="masking PII result" src="../images/image_005.png" /></p>
+<h3 id="ignoring-certain-pii">Ignoring certain PII</h3>
+<p>You can also make NeuralSeek ignore certain PII by entering “No PII” to the element. For example, by setting the element as “No PII” with a given example sentence, NeuralSeek will not filter out the question even though it would contain an PII element:</p>
+<p><img alt="ignoring pii" src="../images/image_006.png" /></p>
+<p>Therefore, when asked about a similar question, notice how dog’s name is now visible as not a PII information:</p>
+<p><img alt="ignoring pii result" src="../images/image_007.png" /></p>
+<p>The base reason to use this is that sometimes, NeuralSeek would mistake certain question to be containing PII, even though the sentence may clearly not contain any such data. In that case, setting what not to consider as PII would be very helpful.</p>
+
+  <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+</footer>
+
+<script src="../../../scripts/watson.js"></script>
+<script> if(is_top_frame) loadWatson(); </script>
+</body>
+</html>

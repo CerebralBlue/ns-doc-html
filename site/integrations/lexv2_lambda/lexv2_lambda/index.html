@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://cerebralblue.github.io/nsweb-test/integrations/lexv2_lambda/lexv2_lambda/">
+    <link rel="shortcut icon" href="../../../images/ns-white.svg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>LexV2 Lambda - NeuralSeek Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/colors.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Overview", url: "#overview", children: [
+              {title: "Set by step instruction", url: "#set-by-step-instruction" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="overview">Overview</h1>
+<p>Use the pre-configured AWS Lambda Archive to setup and send user input that are routed through the Lex FallbackIntent to NeuralSeek.</p>
+<h2 id="set-by-step-instruction">Set by step instruction</h2>
+<ol>
+<li>Open the Functions page on the Lambda console.</li>
+<li>Select "Create function".</li>
+<li>Create a function from scratch.</li>
+<li>In the Code Source pane, choose Upload from and then .zip file.</li>
+<li>Choose Upload to select your Lambda Archive .zip file.</li>
+<li>Choose Save.</li>
+<li>Click on index.mjs and enter your API key and instance URL.</li>
+<li>Click "Deploy".</li>
+<li>Select "Configuration" tab.</li>
+<li>Select "General Configuration" pane.</li>
+<li>Click "Edit".</li>
+<li>Update under Timeout, set min to be 1 and sec to be 0.</li>
+<li>Click "Save".</li>
+<li>Open the Amazon Lex console at <a href="https://console.aws.amazon.com/lexv2/home#bots">https://console.aws.amazon.com/lexv2/home#bots</a></li>
+<li>From the list of bots, choose the name of the bot that you want to use.</li>
+<li>Under "Deployment" on the left panel select "Aliases".</li>
+<li>From the list of aliases, choose the name of the alias that you want to use.</li>
+<li>From the list of supported languages, choose the language that the Lambda function is used for.</li>
+<li>Choose the name of the Lambda function to use, then choose the version or alias of the function.</li>
+<li>Choose Save to save your changes.</li>
+<li>On the left panel under "All languages", select "Intents" under the language that the fallback intent is used for.</li>
+<li>Select "FallbackIntent".</li>
+<li>Under "Fulfillment" set to Active by clicking the select box next to "Active".</li>
+<li>Under "Fulfillment" Click "Advanced options".</li>
+<li>Check the checkbox next to "Use a Lambda function for fulfillment".</li>
+<li>Click "Updated options".</li>
+<li>Click "Save intent".</li>
+<li>Click "Build" to build the bot.</li>
+</ol>
+
+  <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+</footer>
+
+<script src="../../../scripts/watson.js"></script>
+<script> if(is_top_frame) loadWatson(); </script>
+</body>
+</html>

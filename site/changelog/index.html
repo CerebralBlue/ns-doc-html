@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://cerebralblue.github.io/nsweb-test/changelog/">
+    <link rel="shortcut icon" href="../images/ns-white.svg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Changelog - NeuralSeek Documentation</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/colors.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "December 2023", url: "#december-2023", children: [
+          ]},
+          {title: "November 2023", url: "#november-2023", children: [
+          ]},
+          {title: "October 2023", url: "#october-2023", children: [
+          ]},
+          {title: "September 2023", url: "#september-2023", children: [
+          ]},
+          {title: "August 2023", url: "#august-2023", children: [
+          ]},
+          {title: "July 2023", url: "#july-2023", children: [
+          ]},
+          {title: "June 2023", url: "#june-2023", children: [
+          ]},
+          {title: "May 2023", url: "#may-2023", children: [
+          ]},
+          {title: "April 2023", url: "#april-2023", children: [
+          ]},
+          {title: "March 2023", url: "#march-2023", children: [
+          ]},
+          {title: "February 2023", url: "#february-2023", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h2 id="december-2023">December 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>Multilingual chain-of-thought prompting to enhance smaller LLMs like Llama and Granite for non-English languages.</li>
+<li>ElasticSearch / Watsonx Discovery Vector Search setup for hybrid or full vector search capabilities.</li>
+<li>KB ReRanker for custom result prioritization by field/tag and value lists.</li>
+<li>Profanity Filter implemented for multi-language profanity and hate speech filtering across all LLMs.</li>
+<li>Role-based access control for managing user permissions within the NeuralSeek UI.</li>
+<li>Explore enhancements:</li>
+<li>OpenAPI spec generator for easy integration with Watson Assistant.</li>
+<li>Inspector tool for debugging the Explore flow and variable states.</li>
+<li>REST connector for making various HTTP requests and auto-parsing JSON into variables.</li>
+<li>JSON to Variables stage for automatic variable creation from JSON input.</li>
+<li>Output Variables formatting to match input parameters for seamless chaining in Explore.</li>
+<li>Import/Export functionality for sharing templates across instances.</li>
+<li>New functionality:<ul>
+<li>DB2 database connector</li>
+<li>Table Prep (convert tables into natural language statements)</li>
+<li>KB search filters</li>
+<li>Stump for Seek (to sideload trusted data)</li>
+<li>Regex </li>
+<li>Several new example templates</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>New integrations</strong></p>
+<ul>
+<li>Added Llama-2-chat Portuguese 13B to Watsonx Tech Preview.</li>
+<li>Release of Granite V2 in the model cards, offering improved performance over V1.</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>Watsonx.ai models transitioned to streaming for improved timeout handling.</li>
+<li>Enhanced error reporting in the UI for Knowledge Bases (KBs) to show more detailed configuration feedback.</li>
+<li>Semantic Scoring model improvements with lemmatization consideration for partial match scoring.</li>
+<li>Watsonx Discovery automatic API key generation for simplified access.</li>
+</ul>
+</li>
+</ul>
+<h2 id="november-2023">November 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>Explore:</li>
+<li>Expanded NTL-based explore functionality with drag-and-drop simplicity for building Explore routines.</li>
+<li>Added the ability to create and save templates within the UI.</li>
+<li>Introduced variables for easy API calling by passing template name and variable values.</li>
+<li>Dynamic Variable Setting - Introduce the ability to dynamically set variables within a chain or flow, capture outputs into variables for endless reuse, and return all variables via the API (multi-output capability).</li>
+<li>Recursion / Chained Explore - Enabled the creation of small, repeatable task templates that can be called from other explore templates, with shared variable memory space across templates, facilitating the creation of complex flows with ease.</li>
+<li>New functionality:<ul>
+<li>Math Equations - Implemented full graphing-calculator level equations, overcoming the LLM's limitations with math by allowing users to set variables with LLMs, perform calculations in the math node, and then provide correct answers back into the LLM.</li>
+<li>Force Numeric - Added a feature to extract numbers from text, ensuring that when a number is requested from the LLM, a numeric response is provided.</li>
+<li>Split - Automated the removal of document headers and footers, enabling users to extract the content they need with ease.</li>
+<li>POST - Provided the ability to call any REST service to submit data or initiate a downstream process.</li>
+<li>Email - Introduced the functionality to send the output of a flow or variable content directly via email.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>Semantic Details on Seek - Unveiled the math behind the semantic score through a new modal on the seek tab, previously exclusive to API/developer use.</li>
+<li>Enhanced context keeping and semantic score for improved abilities in Spanish.</li>
+<li>Rolled out a new Spanish micro-model to assist with Spanish NLP.</li>
+<li>Updated base weights and prompting to counter GPT's recent drifting.</li>
+<li>Semantic Scoring now has the ability to consider document title and URL, capturing unique words that may be missing in the document itself.</li>
+<li>Added the ability to pass a filter column for regression testing.</li>
+</ul>
+</li>
+</ul>
+<h2 id="october-2023">October 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>"Generate Data" options in Explore tab – Send to LLM, Table Understanding</li>
+<li>"Logs" tab - See history of questions/answers given</li>
+<li>Hyper-personalization (Corporate document filtering)</li>
+<li>Corporate Logging - Connect NeuralSeek to an ElasticSearch instance to log everything around Seek, updates, edits, changes</li>
+<li>Configuration Logs - History of changed settings</li>
+<li>Enhancements to Explore:</li>
+<li>"Seek" data</li>
+<li>PII removal</li>
+<li>Table Understanding</li>
+</ul>
+</li>
+<li>
+<p><strong>New integrations</strong></p>
+<ul>
+<li>Elastic Search integration</li>
+<li>Multi-Turn Conversation Generation for Cognigy</li>
+<li>Mistral 7B Model support  </li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>Released On-Prem "Flex" plan</li>
+<li>Added version numbering to "Integrate" tab sidebar</li>
+<li>Seek tab - "Show generated" option when the minimum confidence is not met</li>
+</ul>
+</li>
+</ul>
+<h2 id="september-2023">September 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>Explore: An Open-Ended Retrieval Augmented Generation Playground</li>
+<li>Vector Similarity for Intent Matching</li>
+</ul>
+</li>
+<li>
+<p><strong>New integrations</strong></p>
+<ul>
+<li>Kore.ai Round Trip Monitoring</li>
+<li>IBM watsonx Granite Models Supported</li>
+<li>AWS Bedrock Integration / Models Supported</li>
+<li>Llama 2 Chat Model Support</li>
+<li>OpenSearch Integration</li>
+<li>HuggingFace Integration for Supported Models</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>Refinements to Vector Similarity Matching</li>
+</ul>
+</li>
+</ul>
+<h2 id="august-2023">August 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>BYO-LLM plans – IBM watsonx language translation</li>
+<li>Option for summarization of document passage results from KB</li>
+<li>Option for Link Summarization of NeuralSeek Results, 1-5 Result Links</li>
+<li>'Bring Your Own' Large Language Model (BYO-LLM) cards – ability to use multiple LLMs for a specific task</li>
+</ul>
+</li>
+<li>
+<p><strong>New integrations</strong></p>
+<ul>
+<li>IBM Watson Assistant Dialog Multi-Turn Conversation Templates</li>
+<li>AWS Kendra Integration</li>
+<li>AWS Lex Multi-Turn Conversation Generation Templates</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>New ‘Seek’ Parameter Call to Indicate LLM Preference</li>
+<li>Ability to set specific language on each LLM – e.g., “use THIS model for Spanish Seek / Translation”</li>
+</ul>
+</li>
+</ul>
+<h2 id="july-2023">July 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>Slot Filler - Ability to auto-fill slots when gathering information</li>
+<li>Offline spreadsheet editing with upload to Curate tab</li>
+<li>ConsoleAPI under Integrate tab</li>
+<li>Answer Streaming – users can now enable streaming responses from NeuralSeek with supported LLMs</li>
+<li>Translate Endpoint</li>
+<li>Curate to CSV / Upload Curated QA from CSV</li>
+<li>On-Prem deployment support</li>
+<li>New 'Identify Language' Endpoint</li>
+<li>Entity Extraction feature - Custom Entity Creation</li>
+</ul>
+</li>
+<li>
+<p><strong>New integrations</strong></p>
+<ul>
+<li>IBM watsonx Model Compatibility</li>
+<li>AWS Lex Round-Trip Monitoring</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>KnowledgeBase translation updated – questions now get translated to KnowledgeBase source language for summarization</li>
+<li>Cross-lingual support when using language code “xx” (Match Input) enhanced</li>
+<li>Semantic Match Analysis to describe the logic for the Semantic Score enhanced</li>
+</ul>
+</li>
+</ul>
+<h2 id="june-2023">June 2023</h2>
+<ul>
+<li>
+<p><strong>New integrations</strong></p>
+<ul>
+<li>IBM watsonx (LLM) connector</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>AWS Partnership Announcement</li>
+<li>Improvements to Caching</li>
+<li>Confidence and Coverage Score Graphs added to Curate tab</li>
+</ul>
+</li>
+</ul>
+<h2 id="may-2023">May 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>Analytics API endpoint</li>
+<li>Table Extraction model to enable answers from tabular data</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>Data Cleanser for non-HTML enabled</li>
+</ul>
+</li>
+</ul>
+<h2 id="april-2023">April 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>New plan - 'Bring Your Own' Large Language Model (BYO-LLM)</li>
+<li>Semantic Score Model, Improved Provenance and Semantic Source Re-Rank</li>
+</ul>
+</li>
+<li>
+<p><strong>New integrations</strong></p>
+<ul>
+<li>Curate answers to Kore.ai, Cognigy, AWS Lex</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>IBM Frankfurt (FRA) data center availability</li>
+<li>IBM Sydney (SYD) data center availability</li>
+</ul>
+</li>
+</ul>
+<h2 id="march-2023">March 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>Personal Identifiable Information (PII) Detection</li>
+<li>Sentiment Analysis</li>
+<li>Source Document Monitoring and Answer Regeneration</li>
+</ul>
+</li>
+<li>
+<p><strong>New integrations</strong></p>
+<ul>
+<li>Watson Assistant Round-Trip Logging</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>User-specified input length enabled</li>
+</ul>
+</li>
+</ul>
+<h2 id="february-2023">February 2023</h2>
+<ul>
+<li>
+<p><strong>New features</strong></p>
+<ul>
+<li>Personalization of generated answers</li>
+</ul>
+</li>
+<li>
+<p><strong>New integrations</strong></p>
+<ul>
+<li>Auto-Build Watson Assistant Multi-Step Action</li>
+</ul>
+</li>
+<li>
+<p><strong>Updates</strong></p>
+<ul>
+<li>Additional languages enabled (Chinese, Czech, Dutch, Indonesian, Japanese)</li>
+<li>Enhanced API to allow run-time modification of all parameters</li>
+<li>KB tuning parameters enabled</li>
+<li>Large Language Model (LLM) tuning</li>
+</ul>
+</li>
+</ul>
+
+  <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+</footer>
+
+<script src="../scripts/watson.js"></script>
+<script> if(is_top_frame) loadWatson(); </script>
+</body>
+</html>

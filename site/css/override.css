@@ -1,0 +1,9 @@
+.wm-page-content ul > li > ul {
+  padding-bottom: 10px;
+}
+.wm-page-content ul > li > strong, .wm-page-content ul > li > p > strong {
+  font-size: medium;
+}
+.wm-page-content ol > li::marker {
+  font-weight: bold;
+}

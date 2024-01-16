@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://cerebralblue.github.io/nsweb-test/how-tos/backup_and_restore/backup_and_restore/">
+    <link rel="shortcut icon" href="../../../images/ns-white.svg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Backup and Restore - NeuralSeek Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/colors.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Overview", url: "#overview", children: [
+          ]},
+          {title: "Backup / Restore Settings", url: "#backup-restore-settings", children: [
+          ]},
+          {title: "Curated Data (Backup)", url: "#curated-data-backup", children: [
+          ]},
+          {title: "Curated Data (Restore)", url: "#curated-data-restore", children: [
+          ]},
+          {title: "Data Policy", url: "#data-policy", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h2 id="overview">Overview</h2>
+<p><strong>This document outlines available options for backing up and restoring NeuralSeek instance data.</strong></p>
+<h2 id="backup-restore-settings">Backup / Restore Settings</h2>
+<ol>
+<li>Open NeuralSeek's Configure tab, and select "Show advanced options" (if not already shown):
+<img alt="show_advanced_settings" src="../images/show_advanced_settings.png" /></li>
+<li>From here, you are now offered the option to download/backup and upload/restore your instance settings.
+<img alt="show_download_settings" src="../images/show_download_settings.png" /></li>
+</ol>
+<h2 id="curated-data-backup">Curated Data (Backup)</h2>
+<ol>
+<li>Open NeuralSeek's Curate tab
+<img alt="show_curate_tab" src="../images/show_curate_tab.png" /></li>
+<li>Select some, or all, curated intents to backup
+<img alt="show_download_csv" src="../images/show_download_csv.png" /></li>
+<li>As seen above, upon selecting curated intents, you are offered a "Download to CSV" button. This is useful not only for backing up your curated data, but also for allowing subject matter experts to edit curated Q&amp;A content without direct access to the UI. After editing, you're able to re-upload the curated content in the next set of steps (Restore).</li>
+</ol>
+<h2 id="curated-data-restore">Curated Data (Restore)</h2>
+<ol>
+<li>When no intents are selected, you are offered a "Load Q&amp;A" button near the top-right:
+<img alt="show_curate_tab" src="../images/show_curate_tab.png" /></li>
+<li>This takes us to the Q&amp;A Upload page:
+<img alt="show_upload_qa" src="../images/show_upload_qa.png" /></li>
+<li>From here, we are able to upload a Curated Q&amp;A CSV file (downloaded from previous steps). For Restoring purposes, you will not want to use "Improve my answers".</li>
+</ol>
+<h2 id="data-policy">Data Policy</h2>
+<p>All user data and generated answers are owned by and for the sole use of the customer. </p>
+<p>It is your responsibility to regularly backup curated content. There is no option to configure product availablilty at this time.</p>
+
+  <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+</footer>
+
+<script src="../../../scripts/watson.js"></script>
+<script> if(is_top_frame) loadWatson(); </script>
+</body>
+</html>

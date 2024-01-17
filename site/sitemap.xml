@@ -1,232 +1,232 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/</loc>
+         <loc>https://documentation.neuralseek.com/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/changelog/</loc>
+         <loc>https://documentation.neuralseek.com/changelog/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/data_security_and_privacy/</loc>
+         <loc>https://documentation.neuralseek.com/data_security_and_privacy/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/how_to_use/</loc>
+         <loc>https://documentation.neuralseek.com/how_to_use/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/how-tos/backup_and_restore/backup_and_restore/</loc>
+         <loc>https://documentation.neuralseek.com/how-tos/backup_and_restore/backup_and_restore/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/how-tos/training_virtual_agents/training_virtual_agents/</loc>
+         <loc>https://documentation.neuralseek.com/how-tos/training_virtual_agents/training_virtual_agents/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/integrations/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/integrations/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/lexv2_lambda/lexv2_lambda/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/lexv2_lambda/lexv2_lambda/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/lexv2_logs/lexv2_logs/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/lexv2_logs/lexv2_logs/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/rest_api/rest_api/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/rest_api/rest_api/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/supported_knowledgebases/supported_knowledgebases/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/supported_knowledgebases/supported_knowledgebases/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/supported_llms/supported_llms/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/supported_llms/supported_llms/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/supported_roundtrip_monitoring/supported_roundtrip_monitoring/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/supported_roundtrip_monitoring/supported_roundtrip_monitoring/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/supported_virtual_agents/supported_virtual_agents/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/supported_virtual_agents/supported_virtual_agents/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/watson_assistant_custom_extension/watson_assistant_custom_extension/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/watson_assistant_custom_extension/watson_assistant_custom_extension/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/integrations/watson_logs/watson_logs/</loc>
+         <loc>https://documentation.neuralseek.com/integrations/watson_logs/watson_logs/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/main_features/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/main_features/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/automatic_data_cleansing_and_preparation/automatic_data_cleansing_and_preparation/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/automatic_data_cleansing_and_preparation/automatic_data_cleansing_and_preparation/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/caching/caching/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/caching/caching/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/content_analytics/content_analytics/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/content_analytics/content_analytics/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/conversational_context/conversational_context/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/conversational_context/conversational_context/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/curation_of_answers/curation_of_answers/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/curation_of_answers/curation_of_answers/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/dynamic_personalization/dynamic_personalization/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/dynamic_personalization/dynamic_personalization/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/entity_extraction/entity_extraction/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/entity_extraction/entity_extraction/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/explore_platform/explore_platform/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/explore_platform/explore_platform/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/explore_platform/ntl/ntl/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/explore_platform/ntl/ntl/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/explore_platform/visual_editor/visual_editor/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/explore_platform/visual_editor/visual_editor/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/identify_language/identify_language/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/identify_language/identify_language/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/intent_categorization/intent_categorization/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/intent_categorization/intent_categorization/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/language_translation/language_translation/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/language_translation/language_translation/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/multi_language_support/multi_language_support/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/multi_language_support/multi_language_support/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/pii_detection/pii_detection/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/pii_detection/pii_detection/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/round_trip_logging/round_trip_logging/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/round_trip_logging/round_trip_logging/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/semantic_analytics/semantic_analytics/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/semantic_analytics/semantic_analytics/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/sentiment_analysis/sentiment_analysis/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/sentiment_analysis/sentiment_analysis/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/main_features/table_understanding/table_understanding/</loc>
+         <loc>https://documentation.neuralseek.com/main_features/table_understanding/table_understanding/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/user_interface/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/user_interface/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/analytics/analytics/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/analytics/analytics/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/configure/configure/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/configure/configure/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/curate/curate/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/curate/curate/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/explore/explore/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/explore/explore/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/extract/extract/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/extract/extract/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/home/home/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/home/home/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/integrate/integrate/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/integrate/integrate/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/logs/logs/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/logs/logs/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cerebralblue.github.io/nsweb-test/user_interface/seek/seek/</loc>
+         <loc>https://documentation.neuralseek.com/user_interface/seek/seek/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://documentation.neuralseek.com/main_features/user_interface/user_interface/">
+    <link rel="shortcut icon" href="../../../images/ns-white.svg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>NeuralSeek User Interface - NeuralSeek Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/colors.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../../css/highlightjs-copy.css">
+    <link href="../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.min.js"></script>
+    <script src="../../../js/highlightjs-copy.min.js"></script>
+    
+    <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Home", url: "#home", children: [
+          ]},
+          {title: "Configure", url: "#configure", children: [
+          ]},
+          {title: "Integrate", url: "#integrate", children: [
+          ]},
+          {title: "Extract", url: "#extract", children: [
+          ]},
+          {title: "Explore", url: "#explore", children: [
+          ]},
+          {title: "Seek", url: "#seek", children: [
+          ]},
+          {title: "Curate", url: "#curate", children: [
+          ]},
+          {title: "Analytics", url: "#analytics", children: [
+          ]},
+          {title: "Logs", url: "#logs", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+ <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="home">Home</h1>
+<p><a class="glightbox" href="../images/home.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="home" src="../images/home.png" /></a></p>
+<ul>
+<li>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>The home page is where users can get started interacting with NeuralSeek and quickly set up a chatbot in a matter of moments (see NeuralSeek onboarding).</li>
+</ul>
+</li>
+<li>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>The home page of NeuralSeek is a crucial feature for swift chatbot deployment. Users can efficiently set up their virtual agents by providing organization details, connecting to their KnowledgeBase, and selecting a preferred Large Language Model. The option to configure organization details, tune documentation parameters, and auto-generate actions streamlines the process. Additionally, NeuralSeek addresses a common challenge by offering automated question generation based on the KnowledgeBase content, saving time and improving interaction quality. The ability to input, categorize, and review questions, along with uploading test questions for analytics, makes it an indispensable tool for users aiming to create effective and responsive virtual agents in a matter of moments.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li><strong>Basics</strong>: User provides general information about their organization with NeuralSeek.</li>
+<li><strong>Data</strong>: Where users connect to their KnowledgeBase (can also be done under the “Configure” tab).</li>
+<li><strong>LLM</strong>: (only available with Bring Your Own LLM plan) Users can select their preferred LLM (Large Language Model) of choice. Users are required to enter the appropriate integration information (e.g. API key of their LLM) in order to continue.</li>
+<li><strong>About:</strong> Describing the organization and use case preferences.</li>
+<li><strong>Tune:</strong> Provide information about the documentation/KnowledgeBase.</li>
+<li><strong>Q&amp;A:</strong> Auto-generate a list of actions to set up a virtual agent in minutes.</li>
+</ul>
+<p>User can also perform the following actions through the home page:</p>
+<ul>
+<li><strong>Auto-generate questions</strong>: Virtual Agents would typically require an adequate number of questions for creating meaningful intentions and dialogs. This process would typically involve having to manually create them. However, NeuralSeek can generate, based on the contents of your KnowledgeBase, a good set of commonly asked questions for you.</li>
+<li><strong>Manually Input questions</strong>: If you already have a good set of questions that your user frequently asks, you can upload them into NeuralSeek and NeuralSeek could categorize and create their answers for you to later review and curate them.</li>
+<li><strong>Upload Test questions</strong>: If you want to test out your set of questions, and validate whether their coverage or confidence score is good enough, or find out how their analytics look like, use this. A template CSV file is given for you to use it.</li>
+</ul>
+</li>
+</ul>
+<h1 id="configure">Configure</h1>
+<p><a class="glightbox" href="../images/configure.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="configure" src="../images/configure.png" /></a></p>
+<ul>
+<li><strong>What is it?</strong><ul>
+<li>The Configure tab allows users to modify settings for NeuralSeek features.</li>
+</ul>
+</li>
+<li><strong>Why is it important?</strong><ul>
+<li>This functionality allows for a highly customizable and adaptable user experience, enabling organizations to optimize the performance of NeuralSeek in accordance with their unique use cases. Whether it involves adjusting default configurations for standard use or delving into advanced configurations for more nuanced preferences, the "Configure" tab empowers users to fine-tune NeuralSeek's capabilities. This level of customization ensures that NeuralSeek becomes a versatile and effective tool, capable of delivering optimal results across diverse organizational contexts. </li>
+</ul>
+</li>
+<li><strong>How does it work?</strong><ul>
+<li>For more information refer to our <a href="../../../reference_material/configuration/">Reference Material - Configuration</a> section.</li>
+</ul>
+</li>
+</ul>
+<h1 id="integrate">Integrate</h1>
+<p><a class="glightbox" href="../images/integrate_updated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="integrate_updated.png" src="../images/integrate_updated.png" /></a></p>
+<ul>
+<li><strong>What is it?</strong><ul>
+<li>The Integrate tab provides users with detailed instruction on integration of NeuralSeek with selected Virtual Agents, WebHook, API, or self-hosted LLM. </li>
+</ul>
+</li>
+<li><strong>Why is it important?</strong><ul>
+<li>NeuralSeek provides comprehensive guidance on selected integrations which allows for a more user-friendly experience.  </li>
+</ul>
+</li>
+<li>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>The Integrate tab on NeuralSeek's user interface provides step-by-step instructions on how to connect to various virtual agent frameworks. Once connected, users are able to call on NeuralSeek through the chosen framework as either a "fallback intent" or other action. </li>
+</ul>
+</li>
+<li>
+<p><strong>Custom Extension:</strong> This contains the information to build a custom NeuralSeek extension within Watson Assistant.</p>
+</li>
+<li><strong>LexV2 Lambda:</strong> Use the AWS Lambda to send user input that routes the Lex FallbackIntent to NeuralSeek. Used in conjunction with AWS LexV2.</li>
+<li><strong>LexV2 Logs:</strong> How to enable Round-Trip Logging using LexV2 Logs, to monitor the usage of curated intents. The purpose of round-trip logging is to improve the virtual agent’s performance by analyzing the data and identifying areas for improvement.</li>
+<li><strong>Watson Logs</strong>: How to enable Round-Trip Logging using Watson Logs, to monitor the usage of curated intents. The purpose of round-trip logging is to improve the virtual agent’s performance by analyzing the data and identifying areas for improvement.</li>
+<li><strong>WebHook</strong>: This is the backbone of NeuralSeek, how users connect and communicate with the solution. One can make a call to this WebHook from any applications (e.g. slack, servicenow, etc.) that can forward its question to it and receive answers from.</li>
+<li><strong>API (REST)</strong>: Where to find necessary information regarding how to invoke NeuralSeek’s REST API, and navigate and test it right on its openAPI generated page. You can get examples of JSON message requests and responses, as well as JSON schema of the message payloads.</li>
+<li><strong>KoreAI</strong>: Activate Round-Trip monitoring for deployed NeuralSeek Intents. This feature enables NeuralSeek to continuously monitor the usage of its curated intents through KoreAI event Tasks. It will promptly alert you if any curated intents require updates due to changes in the associated KnowledgeBase documents.</li>
+<li><strong>Console API</strong>: This integration allows users to access debugging and monitoring features conveniently from within the NeuralSeek application, simplifying tasks such as error identification, performance analysis, and data insights without the need to switch between different tools or interfaces. It enhances the user experience by providing seamless access to the Console API's functionality within NeuralSeek's interface, streamlining development and monitoring tasks</li>
+</ul>
+<h1 id="extract">Extract</h1>
+<p><a class="glightbox" href="../images/extract.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="extract" src="../images/extract.png" /></a></p>
+<ul>
+<li>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>Extract lets users extract detected <code>entities</code> found inside a user provided text. The interface let's users enter texts, and from there it will automatically try to extract found entities and provide its list. You can also add, update, or delete any number of <code>custom entities</code> if you may want to better specify certain entities, or create a new type of entity. For more information, see <a href="../../conversational_capabilities/conversational_capabilities/#entity-extraction">entity extraction</a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>This feature is integral for efficient entity extraction from user-provided text. Its user-friendly interface simplifies the process, allowing users to input text seamlessly and receive an automatic extraction of entities, presented in a comprehensive list. The added functionality of custom entities further enhances precision, enabling users to refine entity specifications or introduce new types. This flexibility is crucial for tailoring the extraction process to specific needs, ensuring accuracy, and accommodating diverse use cases. The ability to add, update, or delete custom entities reflects the adaptability of the tool, making it a valuable asset for tasks requiring nuanced entity recognition and management.</li>
+</ul>
+</li>
+<li><strong>How does it work?</strong><ul>
+<li>Users will input text and click the 'Extract' button next to the text box. Below, users will be able to see relevant information automatically extracted and matched to NeuralSeek's current system entities, without having to pre-specify. By defining custom entities, users are able to streamline extraction to their specifications. </li>
+</ul>
+</li>
+</ul>
+<h1 id="explore">Explore</h1>
+<p><a class="glightbox" href="../images/explore1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="exlpore1" src="../images/explore1.png" /></a>
+<a class="glightbox" href="../images/explore2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="explore2" src="../images/explore2.png" /></a></p>
+<ul>
+<li><strong>What is it?</strong><ul>
+<li>NeuralSeek offers a feature called "Explore" which is a versatile and innovative platform, offering an open-ended playground for "retrieval augmented generation". It empowers users to seamlessly integrate their preferred Language Model (LLM), select from a range of data sources including Knowledge Bases, websites, local files, or typed text, and employ the NeuralSeek Template Language (NTL) markup for dynamic content retrieval. Notably, "Explore" enhances data by incorporating features like summarization, stopwords removal, and keyword extraction, all while providing expert guidance with LLM prompt syntax and base weighting. With the ability to output results to an editor or directly to a Word document, "Explore" delivers a powerful and user-friendly experience, making it a standout feature in content generation and retrieval.</li>
+</ul>
+</li>
+<li>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>
+<p>The "Explore" feature within NeuralSeek is important for several reasons:</p>
+<ul>
+<li><strong>Efficient Content Retrieval</strong>
+    "Explore" simplifies the process of accessing and retrieving content from various sources. This efficiency is crucial for anyone who relies on accurate and relevant information.</li>
+<li><strong>Enhanced Data Quality</strong>
+    The feature enhances data quality by providing tools for summarization, stopwords removal, and keyword extraction. This ensures that the retrieved content is refined, concise, and tailored to the user's needs, saving time and effort in manual data preprocessing.</li>
+<li><strong>User-Friendly Interface</strong>
+    "Explore" offers a user-friendly interface that makes interacting with Language Models and crafting dynamic prompts accessible to a broader audience. This accessibility is vital for individuals who may not have advanced technical skills but still require the benefits of advanced language models.</li>
+<li><strong>Expert Guidance</strong>
+    This feature provides users with expert guidance by offering correct LLM prompt parameters and model-specific base weights. This guidance helps users achieve optimal results without the need for in-depth knowledge of language model intricacies.</li>
+<li><strong>Output Flexibility</strong>
+    The ability to output results to an editor or directly to a Word document enhances flexibility and convenience for users, allowing them to seamlessly integrate the generated content into their workflows.</li>
+<li><strong>Semantic Scoring</strong>
+    The incorporation of a Semantic Scoring model allows users to assess the relevance and alignment of generated content with their specific requirements. This feature adds a layer of precision and control to the content generation process.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>"Explore" streamlines the interaction with Language Models, making it accessible and user-friendly while providing powerful tools for content retrieval and enhancement. Users can seamlessly integrate retrieved content into their workflows with precision and control, making it a valuable asset for various professional fields. </li>
+<li>For more information refer to our Reference Material sections: <a href="../../../reference_material/explore/explore/">Explore Visual Editor</a> and <a href="../../../reference_material/explore/ntl_and_functions/">Explore Functions and NTL</a>. </li>
+</ul>
+</li>
+</ul>
+<h1 id="seek">Seek</h1>
+<p><a class="glightbox" href="../images/seek_updated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="seek_updated" src="../images/seek_updated.png" /></a></p>
+<ul>
+<li>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>NeuralSeek’s "Seek" feature enables users to test questions and generate answers using content from their connected KnowledgeBase. To ensure transparency between the sources and answers, NeuralSeek highlights where the answers are coming from within the KnowledgeBase. Semantic match scores are employed to compare the generated responses with the original documentation, providing a clear understanding of the alignment between the response and the meaning conveyed in source documents. This process ensures accuracy and instills confidence in the reliability of the responses generated by NeuralSeek.</li>
+</ul>
+</li>
+<li>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>This feature empowers users to obtain precise and well-contextualized answers by allowing users to pose queries and generate relevant responses using information extracted from the linked documentation. The emphasis on transparency is a key strength, with NeuralSeek highlighting the specific sources within the KnowledgeBase to enhance accountability and traceability of information. The incorporation of semantic match scores adds an extra layer of assurance. This process not only guarantees accuracy but also instills confidence in the reliability of the answers provided by NeuralSeek, making it an invaluable tool for users seeking trustworthy and well-supported information.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>
+<p>Users begin by inputting a query, defining the language of the query, and then clicking the 'Seek' button. A relevant answer will automatically generate below for the user to review. Other features on the page include: </p>
+<ul>
+<li>
+<p><strong>User ID</strong>: Users are able to view and set a User ID to test conversations. </p>
+</li>
+<li>
+<p><strong>Session ID</strong>: A unique "Session ID" number is generated. Users are able to revert to a new session with a unique "Session ID" number by clicking the red arrow next to "Session Turns".  </p>
+</li>
+<li>
+<p><strong>Session Turns</strong>: A "Session Turns" number is generated, which allows the user to view how many turns were generated in the corresponding Session ID. </p>
+</li>
+<li>
+<p><strong>Highlight Answer Provenance</strong>: Enabling this feature reveals how the majority of responses are formed by the trained answer and additional components that came in from the KnowledgeBase itself. Users are able to enable or disable.</p>
+</li>
+<li>
+<p><strong>Answer Streaming</strong>: Streaming is available to enable or disable. Enabling this feature allows for the response to be generated word-by-word. Disabling this feature allows for the whole response to be generated at once. </p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Information Output</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Total Response Time</strong></td>
+<td>This number indicates the total amount of time for a response to generate in seconds.</td>
+</tr>
+<tr>
+<td><strong>Semantic Match %</strong></td>
+<td>This percentage is the overall match score that indicates how much NeuralSeek believes that the responses are well aligned with the underlying ground truth from the KnowledgeBase. The higher the percentage is, the more accurate and relevant the answer is based on the truth.</td>
+</tr>
+<tr>
+<td><strong>Semantic Analysis</strong></td>
+<td>A summary describing why NeuralSeek calculated the matching score in an easy-to-understand syntax. This gives users a good understanding why the answer was given either a high or low score.</td>
+</tr>
+<tr>
+<td><strong>KnowledgeBase Confidence %</strong></td>
+<td>This percentage indicates how confident the KnowledgeBase thinks the retrieved sources are related to the given question.</td>
+</tr>
+<tr>
+<td><strong>KnowledgeBase Coverage %</strong></td>
+<td>This percentage indicates how much coverage the KnowledgeBase thinks the retrieved sources are related to the given question.</td>
+</tr>
+<tr>
+<td><strong>KnowledgeBase Response Time</strong></td>
+<td>This number indicates the amount of time for the KnowledgeBase to generate a response in seconds.</td>
+</tr>
+<tr>
+<td><strong>KnowledgeBase Results</strong></td>
+<td>This number indicates the amount of retrieved sources the KnowledgeBase thinks are related to the given question.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other Uses</strong></p>
+<p>Users are able to provide feedback on answers by clicking the "Thumbs Up" or "Thumbs Down" icons. </p>
+<p><a class="glightbox" href="../images/seek_thumbsup.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="seek_thumbsup" src="../images/seek_thumbsup.png" /></a></p>
+<p><a class="glightbox" href="../images/seek_thumbsdown.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="seek_thumbsdown" src="../images/seek_thumbsdown.png" /></a></p>
+<p>Users can personalize and filter through their KnowledgeBase documents on the Seek tab as well.</p>
+<p><a class="glightbox" href="../images/seek_personalize.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="seek_personalize" src="../images/seek_personalize.png" /></a></p>
+<p><a class="glightbox" href="../images/seek_filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="seek_filter" src="../images/seek_filter.png" /></a></p>
+<p>Users are able to see what an answer would have been when using the "minimum confidence" icon on Seek's with low semantic match scores.</p>
+<p><a class="glightbox" href="../images/minconfidence_seek1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="minconfidence_seek1" src="../images/minconfidence_seek1.png" /></a></p>
+<p><a class="glightbox" href="../images/minconfidence_seek2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="minconfidence_seek2" src="../images/minconfidence_seek2.png" /></a></p>
+<blockquote>
+<p>For more information, see <a href="../../advanced_features/advanced_features/#semantic-analytics">Semantic Analytics</a>.</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="curate">Curate</h1>
+<p><a class="glightbox" href="../images/curate.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="curate" src="../images/curate.png" /></a></p>
+<ul>
+<li>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>
+<p>NeuralSeek's "Curate" features allows users to view intents generated from the KnowledgeBase, import and export intents into the virtual agent, and manage example questions and answers. The content and parameters of each 'Intent' can be adapted and adjusted to accommodate employee and customer needs.</p>
+</li>
+<li>
+<p>Users can also view the results of other features as well, such as round trip logging, merge/unmerge actions, whether the intent contains any Personally Identifiable Information (P.I.I.), and whether the source KnowledgeBase information has changed so that users can easily detect whether the answers that were generated needs to be updated or not.</p>
+</li>
+<li>
+<p>Sometimes, it is easier to curate all the questions and answers outside of NeuralSeek, and upload them in batch. Use the "Curate" feature to upload and update the curated Q&amp;A's (supports CSV format). A template CSV file is given for you to use it.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>This feature enhances the user experience by providing a streamlined and accessible interface. Additionally, it enables users to closely monitor incoming queries and the corresponding generated answers, allowing for a better understanding of user interactions. Users are able to easily identify outdated information within the connected documentation through the displayed coverage and confidence scores, facilitated by the built-in semantic scoring model. Furthermore, the ability to adjust answers and parameters ensures customization to better align with user queries and intents. Lastly, the feature allows users to view and modify auto-generated queries for each intent, providing a comprehensive toolkit for refining and optimizing responses. Overall, these functionalities collectively contribute to a more effective and tailored knowledge management experience.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>The Curate feature in NeuralSeek's UI allows users to manage intents and answers efficiently. Accessed through the 'Curate' tab, the UI comprises columns like Intent, displaying categorized questions with indicators for status; Q&amp;A, indicating the number of questions and answers per intent; Coverage %, showing KnowledgeBase contribution; and Confidence %, reflecting the likelihood of user satisfaction. The trend graphs use color codes for coverage and confidence states. Users can hover over the graph to observe changes over time. Intents and answers can be displayed, searched, and filtered based on various criteria. Users can edit, delete, or backup answers, and perform operations on intents, such as merging or renaming. Caution is advised for irreversible actions like deletion and merging.</li>
+<li>See <a href="../../conversational_capabilities/conversational_capabilities/#curation-of-answers">Curation of Answers</a> for more info.</li>
+</ul>
+</li>
+</ul>
+<h1 id="analytics">Analytics</h1>
+<p><a class="glightbox" href="../images/analytics.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="analytics" src="../images/analytics.png" /></a></p>
+<ul>
+<li>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>
+<p>Users can work backwards from the Analytics tab to see and understand where the confidence and coverage scores of different actions are coming from. The Analytics feature reveals the relationship between each action’s coverage and confidence scores, and can direct users to each specific action found in the “Curate” section of the UI.</p>
+</li>
+<li>
+<p>You can see the changes up to 30 days, and also see the trend of whether the coverage or confidence has gone up or down in the past.</p>
+</li>
+<li>
+<p>For auto-categorization of intents, check out <a href="../../language_capabilities/language_capabilities/#intent-categorization">Intent Categorization</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>The Analytics feature is crucial for helping to maintain relevance. Ultimately having updated documentation is key, but the analytics tab allows for users to monitor areas of improvement within the documentation through both the displayed coverage and confidence scores, and by utilizing the 30 day lookback period sliding scale.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>Slide the Lookback Period scale to get an idea of where users are asking questions, how well questions are being covered by the KnowledgeBase, and where a user might want to update their KnowledgeBase content based on the given coverage and confidence scores. Intents are categorized by frequency as well for easier viewing. </li>
+</ul>
+</li>
+</ul>
+<h1 id="logs">Logs</h1>
+<p><a class="glightbox" href="../images/logs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Logs" src="../images/logs.png" /></a></p>
+<ul>
+<li>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>In NeuralSeek, users can access the usage log generated from interactions with the "Seek" feature through the "Logs" tab. This feature allows users to efficiently filter their log history by date, session ID, question, and answer for a more streamlined and informative experience.</li>
+</ul>
+</li>
+<li>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>This feature empowers users to analyze and track user interactions with the "Seek" feature, offering valuable insights into system performance. The efficient filtering options enhance the usability of the log, providing a streamlined experience. This functionality is important for troubleshooting, understanding user behavior, and making informed decisions to improve the overall efficiency and effectiveness of the "Seek" feature within NeuralSeek.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>Users are able to view the history of questions and answers, search for specifics using the magnifying glass icon, or filter by date, session ID, question, and answer using the arrows provided. </li>
+</ul>
+</li>
+</ul>
+
+  <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+</footer>
+
+<script src="../../../scripts/watson.js"></script>
+<script> if(is_top_frame) loadWatson(); </script>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

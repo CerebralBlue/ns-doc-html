@@ -1,6 +1,7 @@
 body {
     background-color: var(--color-canvas-default);
     font-family: 'Inter', sans-serif;
+    font-size: 1.8rem;
 }
 
 /***********************************************************************
@@ -22,7 +23,7 @@ body {
 }
 
 .wm-page-content {
-  max-width: 80%;
+  max-width: 90%;
   position: relative;
 }
 
@@ -37,7 +38,7 @@ body {
   width: 0px;
   height: 50px;
   color: var(--color-logo-top);
-  font-size: 18px;
+  font-size: 2rem;
   white-space: nowrap;
   text-decoration: none;
 }
@@ -75,7 +76,7 @@ body {
   border-radius: 3px;
   padding: 0px 5px;
   color: #ddd;
-  font-size: 8pt;
+  font-size: 0.5rem;
 }
 
 .wm-top-tool {
@@ -140,8 +141,7 @@ body {
   top: 0px;
   padding-top: 70px;
   height: 100%;
-  min-width: 250px;
-  max-width: 300px;
+  width: 300px;
   z-index: 1;
   background-color: var(--color-canvas-sidebar);
   border-right: 1px solid #e0e0e0;
@@ -160,7 +160,7 @@ body {
   height: 100%;
   width: 100%;
   z-index: 0;
-  padding-left: 250px;
+  padding-left: 300px;
   transition: padding-left 0.3s;
   /* required for iPhone to scroll the contained iframe */
   -webkit-overflow-scrolling: touch;
@@ -265,6 +265,7 @@ body {
   display: block;
   padding: 4px;
   cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .wm-toc-lev1 > .wm-toc-text { padding-left: 14px; }
@@ -290,7 +291,7 @@ body {
   content: "\25B6 \FE0E";
   display: inline-block;
   vertical-align: middle;
-  font-size: 8px;
+  font-size: 9px;
   width: 14px;
 }
 
@@ -317,8 +318,8 @@ body {
 }
 
 .wm-toc-li-nested.wm-page-toc {
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
   overflow: hidden;
   border-left: 1px solid var(--color-fg-accent);
 }
@@ -333,7 +334,7 @@ body {
   content: "\25BA";
   display: inline-block;
   vertical-align: middle;
-  font-size: 8px;
+  font-size: 10px;
   padding-right: 5px;
 }
 
@@ -355,7 +356,7 @@ body {
 .wm-article {
   width: 1px;
   min-width: 100%;
-  height: 100%;
+  height: 99%;
   border: none;
 }
 
@@ -378,14 +379,17 @@ body {
 }
 
 .wm-page-content img {
-  max-width: 100%;
+  max-width: 45%;
   display: inline-block;
   padding: 4px;
   line-height: 1.428571429;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin: 20px auto 30px auto;
+}
+
+p:has(.glightbox) {
+  margin: 20px auto 30px 20px;
 }
 
 .wm-page-content a {
@@ -432,7 +436,7 @@ body {
 }
 
 .search-link {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .search-title {
@@ -487,9 +491,7 @@ body {
 h1 {
     color: var(--color-fg-accent);
     font-weight: 400;
-    font-size: 42px;
     font: bold;
-
 }
 
 h2, h3, h4, h5, h6 {
@@ -520,6 +522,7 @@ code {
     color: #333;
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-family: monospace,serif;
 }
 
 pre code {
@@ -527,9 +530,9 @@ pre code {
     border: none;
     white-space: pre;
     word-wrap: normal;
-    /* font-family: monospace,serif; */
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-family: monospace,serif;
+    /* font-family: 'Inter', sans-serif; */
+    font-size: 1.4rem;
 }
 
 a code {
@@ -544,7 +547,7 @@ footer {
     margin-bottom: 10px;
     text-align: center;
     font-weight: 200;
-    font-size: smaller;
+    font-size: 1.1rem;
 }
 
 .modal-dialog {
@@ -554,7 +557,7 @@ footer {
 .headerlink {
     /* font-family: FontAwesome; */
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 2rem;
     display: none;
     padding-left: .5em;
 }

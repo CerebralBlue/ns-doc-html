@@ -18,7 +18,8 @@
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/colors.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="stylesheet" href="../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../css/highlightjs-copy.css">
     <link href="../css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,9 +29,15 @@
 
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/highlight.min.js"></script>
+    <script src="../js/highlightjs-copy.min.js"></script>
     
     <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
     <script>
       var base_url = '..';
       var is_top_frame = false;
@@ -50,7 +57,11 @@
       
         gtag('config', 'G-LE5XX6X6Z7');
       </script> 
-</head>
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
 
 <body>
 <script>
@@ -84,5 +95,5 @@ issuing delete requests on all generated answers. For enterprise customers these
 
 <script src="../scripts/watson.js"></script>
 <script> if(is_top_frame) loadWatson(); </script>
-</body>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

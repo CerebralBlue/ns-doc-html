@@ -1,9 +1,43 @@
 .wm-page-content ul > li > ul {
   padding-bottom: 10px;
 }
-.wm-page-content ul > li > strong, .wm-page-content ul > li > p > strong {
-  font-size: medium;
-}
 .wm-page-content ol > li::marker {
   font-weight: bold;
+}
+.wm-page-content .twemoji {
+  display: inline-block;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+}
+
+img[src*="fullsize-images/"] {
+  max-width:100%;
+}
+
+.table {
+  margin: 30px auto 30px auto;
+}
+
+td:has(.twemoji) {
+  text-align: center;
+  margin: auto;
+  vertical-align: middle !important;
+}
+
+th {
+  vertical-align: middle !important;
+}
+
+p {
+  padding-left: 10px;
+}
+
+pre {
+  margin-left: 15px;
+}
+
+h4 {
+  font-weight: 550;
+  padding-left: 5px;
 }

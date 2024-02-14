@@ -18,7 +18,8 @@
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/colors.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link rel="stylesheet" href="../../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../../css/highlightjs-copy.css">
     <link href="../../../css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,15 +29,21 @@
 
     <script src="../../../js/jquery-3.2.1.min.js"></script>
     <script src="../../../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../../../js/highlight.pack.js"></script>
+    <script src="../../../js/highlight.min.js"></script>
+    <script src="../../../js/highlightjs-copy.min.js"></script>
     
     <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
     <script>
       var base_url = '../../..';
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Overview", url: "#overview", children: [
+          {title: "Supported Virtual Agents", url: "#supported-virtual-agents", children: [
           ]},
         ];
 
@@ -50,7 +57,11 @@
       
         gtag('config', 'G-LE5XX6X6Z7');
       </script> 
-</head>
+ <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 
 <body>
 <script>
@@ -63,14 +74,83 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h1 id="overview">Overview</h1>
-<p>The following Virtual Agents are directly supported by NeuralSeek, as of July of 2023:</p>
+    <h2 id="supported-virtual-agents">Supported Virtual Agents</h2>
+<table>
+<thead>
+<tr>
+<th>Virtual Agent Platform</th>
+<th>Answer Curation</th>
+<th>Round-Trip Monitoring</th>
+<th>Fallback Search Template/Extension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.ibm.com/products/watsonx-assistant">watsonx Assistant</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+</tr>
+<tr>
+<td><a href="https://aws.amazon.com/lex/">AWS Lex</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+</tr>
+<tr>
+<td><a href="https://kore.ai/">kore.ai</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+<tr>
+<td><a href="https://www.cognigy.com/">Cognigy</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+<tr>
+<td><a href="https://azure.microsoft.com/en-us/products/ai-services/ai-bot-service">Azure AI Bot</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>AWS Lex V2</li>
-<li>Azure Knowledge Base</li>
-<li>Cognigy</li>
-<li>Kore.ai</li>
-<li>Watson Assistant</li>
+<li>
+<p><strong>What is Fallback Search?</strong></p>
+<ul>
+<li>Fallback search is sometimes also known as "RAG". This allows you to helpfully answer customer/user questions where there is no intent/dialog mapping in your chatbot solution, providing an enhanced user experience.</li>
+<li>We offer templates for some chatbot platforms to quick-start, eg watsonx Assistant and AWS Lex.</li>
+<li>With the REST API, any platform that is able to utilize REST APIs are able to integrate with NeuralSeek.</li>
+</ul>
+</li>
+<li>
+<p><strong>What is Answer Curation?</strong></p>
+<ul>
+<li>
+<p>NeuralSeek offers an option to export questions and answers previously generated in a format compatible with some existing chatbot solutions, allowing users to "Curate" or import these generated answers directly into their chatbot service. </p>
+<ul>
+<li>
+<p>Pros of this can be: Faster answers, reduced cost of language generation.</p>
+</li>
+<li>
+<p>Cons of this can be: Stagnant pools of answers that manually need updating. However, we do offer Round-trip monitoring to help with this task.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>What is Round-Trip Monitoring?</strong></p>
+<ul>
+<li>NeuralSeek will monitor the usage of NeuralSeek-curated intents that have been imported into your chatbot solution, and will inform you of any curated intents that may need to be updated, based on changes to relevant documents in the connected KnowledgeBase.</li>
+</ul>
+</li>
+<li>
+<p><strong>REST API</strong></p>
+</li>
 </ul>
 
   <br>
@@ -81,5 +161,5 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <script src="../../../scripts/watson.js"></script>
 <script> if(is_top_frame) loadWatson(); </script>
-</body>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

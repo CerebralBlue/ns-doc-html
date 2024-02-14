@@ -18,7 +18,8 @@
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/colors.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link rel="stylesheet" href="../../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../../css/highlightjs-copy.css">
     <link href="../../../css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,18 +29,23 @@
 
     <script src="../../../js/jquery-3.2.1.min.js"></script>
     <script src="../../../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../../../js/highlight.pack.js"></script>
+    <script src="../../../js/highlight.min.js"></script>
+    <script src="../../../js/highlightjs-copy.min.js"></script>
     
     <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
     <script>
       var base_url = '../../..';
       var is_top_frame = false;
         
         var pageToc = [
           {title: "Overview", url: "#overview", children: [
-              {title: "LLM Capabilities / Notes", url: "#llm-capabilities-notes" },
           ]},
-          {title: "Step by step instruction", url: "#step-by-step-instruction", children: [
+          {title: "Configuring a LLM", url: "#configuring-a-llm", children: [
           ]},
         ];
 
@@ -53,7 +59,11 @@
       
         gtag('config', 'G-LE5XX6X6Z7');
       </script> 
-</head>
+ <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 
 <body>
 <script>
@@ -74,6 +84,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#Amazon Bedrock - Claude v2">Amazon Bedrock - Claude v2</a></li>
 <li><a href="#Amazon Bedrock - Jurassic-2 Mid">Amazon Bedrock - Jurassic-2 Mid</a></li>
 <li><a href="#Amazon Bedrock - Jurassic-2 Ultra">Amazon Bedrock - Jurassic-2 Ultra</a></li>
+<li><a href="#Amazon Bedrock - Llama-2-chat 13B">Amazon Bedrock - Llama-2-chat 13B</a></li>
 <li><a href="#Amazon Bedrock - Titan">Amazon Bedrock - Titan</a></li>
 <li><a href="#Azure Cognitive Services - GPT3.5">Azure Cognitive Services - GPT3.5</a></li>
 <li><a href="#Azure Cognitive Services - GPT4">Azure Cognitive Services - GPT4</a></li>
@@ -83,29 +94,41 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#HuggingFace - Llama-2">HuggingFace - Llama-2</a></li>
 <li><a href="#HuggingFace - Llama-2-chat">HuggingFace - Llama-2-chat</a></li>
 <li><a href="#HuggingFace - Mistral-7B-Instruct">HuggingFace - Mistral-7B-Instruct</a></li>
+<li><a href="#HuggingFace - Mixtral-8x7B-Instruct">HuggingFace - Mixtral-8x7B-Instruct</a></li>
 <li><a href="#HuggingFace - MPT-7B-instruct">HuggingFace - MPT-7B-instruct</a></li>
 <li><a href="#OpenAI - GPT3.5">OpenAI - GPT3.5</a></li>
 <li><a href="#OpenAI - GPT3.5 (16K)">OpenAI - GPT3.5 (16K)</a></li>
 <li><a href="#OpenAI - GPT4">OpenAI - GPT4</a></li>
 <li><a href="#OpenAI - GPT4 (32K)">OpenAI - GPT4 (32K)</a></li>
+<li><a href="#OpenAI - GPT4 Turbo (Preview)">OpenAI - GPT4 Turbo (Preview)</a></li>
 <li><a href="#Self-Hosted - Flan-t5-xxl">Self-Hosted - Flan-t5-xxl</a></li>
 <li><a href="#Self-Hosted - Flan-ul2">Self-Hosted - Flan-ul2</a></li>
 <li><a href="#Self-Hosted - Llama-2">Self-Hosted - Llama-2</a></li>
 <li><a href="#Self-Hosted - Llama-2-chat">Self-Hosted - Llama-2-chat</a></li>
 <li><a href="#Self-Hosted - Mistral-7B-Instruct">Self-Hosted - Mistral-7B-Instruct</a></li>
 <li><a href="#Self-Hosted - MPT-7B-instruct">Self-Hosted - MPT-7B-instruct</a></li>
+<li><a href="#together.ai - Llama-2 Chat 13B">together.ai - Llama-2 Chat 13B</a></li>
+<li><a href="#together.ai - Llama-2 Chat 70B">together.ai - Llama-2 Chat 70B</a></li>
+<li><a href="#together.ai - Llama-2 Chat 7B">together.ai - Llama-2 Chat 7B</a></li>
+<li><a href="#together.ai - llama-2-13b">together.ai - llama-2-13b</a></li>
+<li><a href="#together.ai - llama-2-70b">together.ai - llama-2-70b</a></li>
+<li><a href="#together.ai - LLaMA-2-7B-32K-Instruct">together.ai - LLaMA-2-7B-32K-Instruct</a></li>
+<li><a href="#together.ai - Mistral-7B-Instruct">together.ai - Mistral-7B-Instruct</a></li>
+<li><a href="#together.ai - Mixtral-8x7B-Instruct">together.ai - Mixtral-8x7B-Instruct</a></li>
 <li><a href="#watsonx - Flan-t5-xxl">watsonx - Flan-t5-xxl</a></li>
 <li><a href="#watsonx - Flan-ul2">watsonx - Flan-ul2</a></li>
 <li><a href="#watsonx - granite-13b-chat-v1">watsonx - granite-13b-chat-v1</a></li>
+<li><a href="#watsonx - granite-13b-chat-v2">watsonx - granite-13b-chat-v2</a></li>
 <li><a href="#watsonx - granite-13b-instruct-v1">watsonx - granite-13b-instruct-v1</a></li>
-<li><a href="#watsonx - Llama-2-chat">watsonx - Llama-2-chat</a></li>
+<li><a href="#watsonx - granite-13b-instruct-v2">watsonx - granite-13b-instruct-v2</a></li>
+<li><a href="#watsonx - Llama-2-chat 13B">watsonx - Llama-2-chat 13B</a></li>
+<li><a href="#watsonx - Llama-2-chat 70B">watsonx - Llama-2-chat 70B</a></li>
 <li><a href="#watsonx - MPT-7B-instruct2">watsonx - MPT-7B-instruct2</a></li>
 <li><a href="#watsonx (Tech Preview - Deprecated) - Flan-t5-xxl">watsonx (Tech Preview - Deprecated) - Flan-t5-xxl</a></li>
 <li><a href="#watsonx (Tech Preview - Deprecated) - Flan-ul2">watsonx (Tech Preview - Deprecated) - Flan-ul2</a></li>
+<li><a href="#watsonx (Tech Preview - Deprecated) - Llama-2-chat portuguese 13B">watsonx (Tech Preview - Deprecated) - Llama-2-chat portuguese 13B</a></li>
 <li><a href="#watsonx (Tech Preview - Deprecated) - MPT-7B-instruct">watsonx (Tech Preview - Deprecated) - MPT-7B-instruct</a></li>
 </ul>
-<p>Not all LLMs are equal. The table below summarizes some of the capabilities for each model.</p>
-<h2 id="llm-capabilities-notes">LLM Capabilities / Notes</h2>
 <table>
 <thead>
 <tr>
@@ -139,6 +162,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <td>Amazon Bedrock</td>
 <td>Jurassic-2 Ultra</td>
 <td><span id="Amazon Bedrock - Jurassic-2 Ultra">Jurassic-2 Ultra is AI21’s most powerful model offering exceptional quality. Apply Jurassic-2 Ultra to complex tasks that require advanced text generation and comprehension. Popular use cases include question answering, summarization, long-form copy generation, advanced information extraction, and more.</span></td>
+</tr>
+<tr>
+<td>Amazon Bedrock</td>
+<td>Llama-2-chat 13B</td>
+<td><span id="Amazon Bedrock - Llama-2-chat 13B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
 </tr>
 <tr>
 <td>Amazon Bedrock</td>
@@ -187,6 +215,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </tr>
 <tr>
 <td>HuggingFace</td>
+<td>Mixtral-8x7B-Instruct</td>
+<td><span id="HuggingFace - Mixtral-8x7B-Instruct">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
+</tr>
+<tr>
+<td>HuggingFace</td>
 <td>MPT-7B-instruct</td>
 <td><span id="HuggingFace - MPT-7B-instruct">The mpt-7b-instruct2 model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases. </span></td>
 </tr>
@@ -209,6 +242,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <td>OpenAI</td>
 <td>GPT4 (32K)</td>
 <td><span id="OpenAI - GPT4 (32K)">GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout. The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
+</tr>
+<tr>
+<td>OpenAI</td>
+<td>GPT4 Turbo (Preview)</td>
+<td><span id="OpenAI - GPT4 Turbo (Preview)">GPT-4 Turbo provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
 </tr>
 <tr>
 <td>Self-Hosted</td>
@@ -241,6 +279,46 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <td><span id="Self-Hosted - MPT-7B-instruct">The mpt-7b-instruct2 model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases. </span></td>
 </tr>
 <tr>
+<td>together.ai</td>
+<td>Llama-2 Chat 13B</td>
+<td><span id="together.ai - Llama-2 Chat 13B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
+</tr>
+<tr>
+<td>together.ai</td>
+<td>Llama-2 Chat 70B</td>
+<td><span id="together.ai - Llama-2 Chat 70B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
+</tr>
+<tr>
+<td>together.ai</td>
+<td>Llama-2 Chat 7B</td>
+<td><span id="together.ai - Llama-2 Chat 7B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
+</tr>
+<tr>
+<td>together.ai</td>
+<td>llama-2-13b</td>
+<td><span id="together.ai - llama-2-13b">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf) </span></td>
+</tr>
+<tr>
+<td>together.ai</td>
+<td>llama-2-70b</td>
+<td><span id="together.ai - llama-2-70b">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf) </span></td>
+</tr>
+<tr>
+<td>together.ai</td>
+<td>LLaMA-2-7B-32K-Instruct</td>
+<td><span id="together.ai - LLaMA-2-7B-32K-Instruct">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf) </span></td>
+</tr>
+<tr>
+<td>together.ai</td>
+<td>Mistral-7B-Instruct</td>
+<td><span id="together.ai - Mistral-7B-Instruct">Mistral brings capabilities similar to many popular commercial models. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
+</tr>
+<tr>
+<td>together.ai</td>
+<td>Mixtral-8x7B-Instruct</td>
+<td><span id="together.ai - Mixtral-8x7B-Instruct">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
+</tr>
+<tr>
 <td>watsonx</td>
 <td>Flan-t5-xxl</td>
 <td><span id="watsonx - Flan-t5-xxl">The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</span></td>
@@ -257,13 +335,28 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </tr>
 <tr>
 <td>watsonx</td>
+<td>granite-13b-chat-v2</td>
+<td><span id="watsonx - granite-13b-chat-v2">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
+</tr>
+<tr>
+<td>watsonx</td>
 <td>granite-13b-instruct-v1</td>
 <td><span id="watsonx - granite-13b-instruct-v1">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
 </tr>
 <tr>
 <td>watsonx</td>
-<td>Llama-2-chat</td>
-<td><span id="watsonx - Llama-2-chat">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
+<td>granite-13b-instruct-v2</td>
+<td><span id="watsonx - granite-13b-instruct-v2">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
+</tr>
+<tr>
+<td>watsonx</td>
+<td>Llama-2-chat 13B</td>
+<td><span id="watsonx - Llama-2-chat 13B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
+</tr>
+<tr>
+<td>watsonx</td>
+<td>Llama-2-chat 70B</td>
+<td><span id="watsonx - Llama-2-chat 70B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
 </tr>
 <tr>
 <td>watsonx</td>
@@ -282,6 +375,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </tr>
 <tr>
 <td>watsonx (Tech Preview - Deprecated)</td>
+<td>Llama-2-chat portuguese 13B</td>
+<td><span id="watsonx (Tech Preview - Deprecated) - Llama-2-chat portuguese 13B">Llama-2 Portuguese brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
+</tr>
+<tr>
+<td>watsonx (Tech Preview - Deprecated)</td>
 <td>MPT-7B-instruct</td>
 <td><span id="watsonx (Tech Preview - Deprecated) - MPT-7B-instruct">The mpt-7b-instruct model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases. </span></td>
 </tr>
@@ -291,7 +389,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>💡 LLM choice is available with NeuralSeek’s BYOLLM (bring your own Large Language Model) plan.</p>
 <p>💡 LLMs can vary in their capabilities and performances. Some LLM can take up to 30 seconds and longer to generate a full response. Use caution when using in conjunction with a virtual agent platform that imposes a strict timeout.</p>
 </blockquote>
-<h1 id="step-by-step-instruction">Step by step instruction</h1>
+<h1 id="configuring-a-llm">Configuring a LLM</h1>
 <blockquote>
 <p>⚠️ In order to configure a LLM, make sure that you have subscribed to the Bring Your Own LLM (BYOLLM) plan. All other plans will default to NeuralSeek's curated LLM, and this option will not be available.</p>
 </blockquote>
@@ -317,5 +415,5 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <script src="../../../scripts/watson.js"></script>
 <script> if(is_top_frame) loadWatson(); </script>
-</body>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

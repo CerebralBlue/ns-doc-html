@@ -18,7 +18,8 @@
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/colors.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link rel="stylesheet" href="../../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../../css/highlightjs-copy.css">
     <link href="../../../css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,16 +29,21 @@
 
     <script src="../../../js/jquery-3.2.1.min.js"></script>
     <script src="../../../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../../../js/highlight.pack.js"></script>
+    <script src="../../../js/highlight.min.js"></script>
+    <script src="../../../js/highlightjs-copy.min.js"></script>
     
     <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
     <script>
       var base_url = '../../..';
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Overview", url: "#overview", children: [
-              {title: "Step by step instruction", url: "#step-by-step-instruction" },
+          {title: "Supported KnowledgeBases", url: "#supported-knowledgebases", children: [
           ]},
         ];
 
@@ -51,7 +57,11 @@
       
         gtag('config', 'G-LE5XX6X6Z7');
       </script> 
-</head>
+ <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 
 <body>
 <script>
@@ -64,29 +74,50 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h1 id="overview">Overview</h1>
-<p>NeuralSeek supports the following KnowledgeBases:</p>
-<ul>
-<li>Watson Discovery (<a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-about">https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-about</a>)</li>
-<li>Elastic AppSearch (<a href="https://www.elastic.co/guide/en/app-search/current/index.html">https://www.elastic.co/guide/en/app-search/current/index.html</a>)</li>
-<li>Amazon Kendra Support (<a href="https://aws.amazon.com/kendra/">https://aws.amazon.com/kendra/</a>)</li>
-<li>OpenSearch (<a href="https://opensearch.org/">https://opensearch.org/</a>)</li>
-</ul>
-<p>Setting up the integration to KnowledgeBase is done in <code>Configure &gt; Corporate Knowledge Base Details</code> page.</p>
-<h2 id="step-by-step-instruction">Step by step instruction</h2>
-<ol>
-<li>In NeuralSeek UI, navigate to <code>Configure &gt; Corporate Knowledge Base Details</code> page, using the top menu.</li>
-<li>Select the KnowledgeBase type:<ol>
-<li>Watson Discovery</li>
-<li>Watson Discovery CP4D (CloudPak for Data)</li>
-<li>Elastic AppSearch</li>
-<li>AWS Kendra </li>
-<li>OpenSearch</li>
-</ol>
-</li>
-<li>Enter necessary information such as service URL, API Key, and additional information like project ID, etc.</li>
-<li>Click Save.</li>
-</ol>
+    <h2 id="supported-knowledgebases">Supported KnowledgeBases</h2>
+<table>
+<thead>
+<tr>
+<th>KnowledgeBase</th>
+<th>Relevance Tuning</th>
+<th>Dynamic Filter Query</th>
+<th>Vector Search</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-about">Watson Discovery</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+<tr>
+<td><a href="https://www.elastic.co/guide/en/app-search/current/index.html">Elastic AppSearch</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+<tr>
+<td><a href="https://www.elastic.co/elasticsearch">ElasticSearch</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+</tr>
+<tr>
+<td><a href="https://aws.amazon.com/kendra/">Amazon Kendra</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+<tr>
+<td><a href="https://opensearch.org/">OpenSearch</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
+<p>Setting up the integration to KnowledgeBase is done in <code>Configure &gt; Corporate Knowledge Base Details</code> page. See the <code>Configure</code> reference page for more details.</p>
 
   <br>
 </div>
@@ -96,5 +127,5 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <script src="../../../scripts/watson.js"></script>
 <script> if(is_top_frame) loadWatson(); </script>
-</body>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

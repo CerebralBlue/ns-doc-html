@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://documentation.neuralseek.com/main_features/conversational_capabilities/conversational_capabilities/">
+    <link rel="shortcut icon" href="../../../images/ns-white.svg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Conversational Capabilities - NeuralSeek Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/colors.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../../css/highlightjs-copy.css">
+    <link href="../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.min.js"></script>
+    <script src="../../../js/highlightjs-copy.min.js"></script>
+    
+    <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Conversational Context", url: "#conversational-context", children: [
+          ]},
+          {title: "Curation of Answers", url: "#curation-of-answers", children: [
+              {title: "Curating Intents and Answers", url: "#curating-intents-and-answers" },
+              {title: "Searching the intent", url: "#searching-the-intent" },
+              {title: "Filtering the intent", url: "#filtering-the-intent" },
+              {title: "Editing the Answer", url: "#editing-the-answer" },
+              {title: "Deleting Questions and Answers", url: "#deleting-questions-and-answers" },
+          ]},
+          {title: "Dynamic Personalization", url: "#dynamic-personalization", children: [
+          ]},
+          {title: "Entity Extraction", url: "#entity-extraction", children: [
+              {title: "Entity Extraction From Conversation", url: "#entity-extraction-from-conversation" },
+              {title: "Custom Entities", url: "#custom-entities" },
+              {title: "Entity Extraction REST API", url: "#entity-extraction-rest-api" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+ <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="conversational-context">Conversational Context</h1>
+<ul>
+<li><strong>What is it?</strong><ul>
+<li>NeuralSeek maintains context during each user interaction (conversation). When initiating a conversation, a session token is generated. Using this token and several Natural Language Processing (NLP) models, NeuralSeek tracks the topic of conversation to keep interactions focused and structured, allowing it to follow-up on questions that do not directly refer to the topic. In addition, these NLP models enable NeuralSeek to filter corporate knowledge topically by date to ensure that the information being returned is focused on the time period of the question.</li>
+</ul>
+</li>
+<li><strong>Why is it important?</strong><ul>
+<li>Conversational Context allows for NeuralSeek to answer questions without users being specific about their language for every turn of the conversation.  This enables higher containment rates in customer-facing conversations.</li>
+</ul>
+</li>
+<li><strong>How does it work?</strong><ul>
+<li>NeuralSeek employs several NLP models to identify and extract meaning, intent, and main subject from user questions and generated responses.  These then inform later turns of the conversation so that the proper context can be brought forward from the KnowledgeBase and used for answer formation.  It also weighs heavily on caching and how the data can be cached.  For example - The answer to a user question like "how does it work" depends heavily on the previous statements from a user.  NeuralSeek requires that you pass an ID that can uniquely identify a user's session to enable this conversational context.  The can be either or both the user_id and the session_id properties on the seek request. You do not need to maintain consistent id's over time for a specific actual person - the id must just be constant for the session that you wish to maintain context for.</li>
+</ul>
+</li>
+</ul>
+<h1 id="curation-of-answers">Curation of Answers</h1>
+<ul>
+<li><strong>What is it?</strong><ul>
+<li>NeuralSeek is directly trained off of the documentation loaded into the KnowledgeBase. If there are undesired answers from NeuralSeek, the first step is to review the documentation within the KnowledgeBase, and effectively curate the answer which can then be used by NeuralSeek to train itself better the next time it answers.</li>
+</ul>
+</li>
+<li><strong>Why is it important?</strong><ul>
+<li>One of the key factors in reducing costs is the utilization of curated answers sourced from a pool of responses, which proves to be more economical. Also, when the collection of answers becomes stagnant, potentially leading to outdated information, this feature will be able to detect it and refresh those with less manual process.</li>
+</ul>
+</li>
+<li><strong>How does it work?</strong><ul>
+<li>To tackle this challenge, NeuralSeek provides a solution by automatically monitoring the sources of information. It continuously tracks and compares the generated responses with the source documents to determine if any changes have occurred. By doing so, NeuralSeek ensures that the answers remain up-to-date and relevant. This eliminates the need for manual intervention and the potential for outdated information, allowing users to trust the accuracy and currency of the answers provided.</li>
+</ul>
+</li>
+</ul>
+<h2 id="curating-intents-and-answers">Curating Intents and Answers</h2>
+<p><a class="glightbox" href="../images/image-001.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="curate" src="../images/image-001.png" /></a></p>
+<p>Let's first visit the UI page for curating intents and answers. Click the <code>Curate</code> tab on the top menu. </p>
+<p>The UI is composed of the following columns:</p>
+<ul>
+<li><strong>Intent</strong>: <ul>
+<li>Intents are a collection of questions that may be related to the similar <code>intent</code> of the question. It is prefixed by certain types of intents, such as <code>FAQ</code>, followed by the question's subject areas. By default, all the intents do fall under a category <code>Others</code>, but you can also define your own category in NeuralSeek's configuration.</li>
+<li>Intents also have a number of indicators that help users to understand the status of the intent. For example, it can show whether the intent has any new answers, whether the intent contains any PII (personally identifiable information), or whether the intent's underlying data has been outdated, etc.</li>
+</ul>
+</li>
+<li><strong>Q&amp;A</strong>: <ul>
+<li>Shows the number of questions (white dialog icon) and answers (blue dialog icon) that this particular intent contains.</li>
+</ul>
+</li>
+<li><strong>Coverage %</strong>: <ul>
+<li>Indicates how much the KnowledgeBase has contributed to the answer's coverage. If NeuralSeek was able to find all the necessary information from the KnowledgeBase, this percentage is going to be very high.</li>
+</ul>
+</li>
+<li><strong>Confidence %</strong>: <ul>
+<li>Indicates how much NeuralSeek's answer is most likely to satisfy the user. If this score is high, it means the answer has a high score of being legitimate and true to the facts.</li>
+</ul>
+</li>
+</ul>
+<h3 id="reading-the-trend">Reading the trend</h3>
+<p><a class="glightbox" href="../images/image-002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="graph and color" src="../images/image-002.png" /></a></p>
+<p>Each of the graphs (coverage and confidence) has color codes that lets users visibly understand the state and trend. Coverage uses blue color with intensity that changes as its coverage is low or high. Confidence shows green to display high confidence to red meaning low confidence. You may also notice the slope has different heights, which gets smaller as there are more <code>changes</code> on its value.</p>
+<p>Hovering over the graph would reveal the trend of changes:</p>
+<p><a class="glightbox" href="../images/image-003.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="changes" src="../images/image-003.png" /></a></p>
+<p>In this case, there were instances of when the confidence had dropped from 83% to 22%, over the period between 14:07:31 to 14:12:15 on July 20th.</p>
+<h3 id="displaying-intents-and-answers">Displaying Intents and Answers</h3>
+<p>If you click the <code>⌄</code> Arrow next to the intent name, you will see the list of example questions and its generated answers:</p>
+<p><a class="glightbox" href="../images/image-004.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../images/image-004.png" /></a></p>
+<p>The example questions have either black color or gray color, depending on how they were created. The black colored examples are the ones that were actually submitted by the user's question. NeuralSeek automatically generates similar meaning questions per each question that it receives.</p>
+<p>As necessary, you can also enter your own Example question in addition to the ones that NeuralSeek generates.</p>
+<p><a class="glightbox" href="../images/image-005.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../images/image-005.png" /></a></p>
+<blockquote>
+<p>It is also possible to add Notes that may save additional information regarding this particular intent.</p>
+</blockquote>
+<h2 id="searching-the-intent">Searching the intent</h2>
+<p>The size of intent can vary but could grow over multiple pages, so you may want to search for a particular intent from time to time. You could do that by using the search form at the top of the page. Enter the keyword and it will narrow down your search.</p>
+<p><a class="glightbox" href="../images/image-010.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="search" src="../images/image-010.png" /></a></p>
+<h2 id="filtering-the-intent">Filtering the intent</h2>
+<p>There is a more fine-grained way of filtering intents based on criteria such as whether they were edited, or a new answer was added, flagged, or out-of-date data was found. Click the filter button, set the criterias that you want, and the page will only show the ones that meet the filtering condition.</p>
+<p><a class="glightbox" href="../images/image-011.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="filter" src="../images/image-011.png" /></a></p>
+<h2 id="editing-the-answer">Editing the Answer</h2>
+<p>On all the answers generated, you can curate any answer by editing it. One of the reasons why you may need to edit it is because the generated answer could be better by editing, or you could add more details to it that were originally missing. Edited answers will be saved and will be considered higher priority over non-edited answers, to ensure that what you edited will be picked out first.</p>
+<p>Editing can be done by clicking the answer, modifying its content, and saving it.</p>
+<p><a class="glightbox" href="../images/image-006.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="editing" src="../images/image-006.png" /></a></p>
+<p>After saving, you will see that the answer that you edited will be marked as <code>Edited</code>.</p>
+<p><a class="glightbox" href="../images/image-007.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../images/image-007.png" /></a></p>
+<h2 id="deleting-questions-and-answers">Deleting Questions and Answers</h2>
+<p>If you wish to delete either the question or answer under the intent, you can do so by clicking the <code>circle with i</code> icon and selecting <code>Remove</code>.</p>
+<p><a class="glightbox" href="../images/image-008.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="remove" src="../images/image-008.png" /></a></p>
+<blockquote>
+<p>⚠️ Once they are removed, there is no way to roll back the removal, so be careful.</p>
+</blockquote>
+<h3 id="deleting-all-data">Deleting all data</h3>
+<p>You can delete all data by selecting the gear icon at the top and selecting:</p>
+<p><a class="glightbox" href="../images/image-009.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="deletion" src="../images/image-009.png" /></a></p>
+<ul>
+<li>Delete all data</li>
+<li>Delete all analytics</li>
+<li>Delete all unEdited Answers</li>
+</ul>
+<p>These are a useful feature if you wish to simply reset all of these data and start from the scratch.</p>
+<h3 id="intent-operations">Intent operations</h3>
+<p>When you select an intent, a popup will be displayed which shows you the operations that you can do with the selected intent.</p>
+<p><a class="glightbox" href="../images/image-012.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="operations" src="../images/image-012.png" /></a></p>
+<ul>
+<li>Edit category - will let you edit the current category</li>
+<li>Download to CSV - will export this into a CSV file. It will have the following format: <code>ID,question,score,kbCoverage,answer,category,intent,pii</code></li>
+<li>Generate Conversation - This will convert the intent into conversation, instead of a simple question and answer. This will give a better context for the NeuralSeek to generate answers from.</li>
+<li>Flag - Will flag the intent so that you can quickly find it later.</li>
+<li>Rename - Will let you rename its name</li>
+<li>Delete - Deletes the selected intent(s).</li>
+<li>Backup - Backs up the intent for later recovery. Note that the backed up file is not a text file, but in binary format.</li>
+<li>Merge - appears only when two or more intents are selected. It merges all of their questions and answers into a single intent.</li>
+</ul>
+<blockquote>
+<p>There is no option to rollback the merge, so do it with caution.</p>
+</blockquote>
+<h1 id="dynamic-personalization">Dynamic Personalization</h1>
+<ul>
+<li><strong>What is it?</strong><ul>
+<li>One way NeuralSeek quickly ties into the users business is by automatically personalizing results based on information from their Customer Relationship Management (CRM) system. By analyzing user data such as past interactions, preferences, purchase history, and demographic information, NeuralSeek can dynamically adjust its outputs to match the specific needs and preferences of each individual user.</li>
+</ul>
+</li>
+<li><strong>Why is it important?</strong><ul>
+<li>Personalized answers tend to engage users more, and can result in higher satisfaction and containment.</li>
+</ul>
+</li>
+<li><strong>How does it work?</strong><ul>
+<li>This can be previewed in the “Seek” tab of the NeuralSeek UI, and in production environments users will pass the personalization details via our API as the REST call to when /seek is made. </li>
+</ul>
+</li>
+</ul>
+<h1 id="entity-extraction">Entity Extraction</h1>
+<ul>
+<li><strong>What is it?</strong><ul>
+<li>NeuralSeek has a feature called ‘Extract’ which is a service to let users extract entities within a given user text. Users can also define their custom entities and provide descriptions for NeuralSeek to detect and extract entities that are defined by users. The service is provided with a REST endpoint which can be used by external applications such as virtual agents or chat bots to invoke it within their conversational flow to enhance their capabilities to detect entities within it.</li>
+</ul>
+</li>
+<li>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>Virtual Agents can define various ‘entities’, which may have values that need to be categorized into concepts or types that can play various roles during their request handling. For example, when a user types a question like:</li>
+</ul>
+<blockquote>
+<p>“I would like to buy a movie ticket.”</p>
+</blockquote>
+<p>The term “movie ticket” could be categorized as “product” that the virtual agent might need to understand so that the agent could start a dialog that would continue like:</p>
+<blockquote>
+<p>“Sure, what kind of movie ticket do you want to purchase?”</p>
+</blockquote>
+<p>Knowing that the user is interested in buying (intent) a movie ticket (product), the agent should perform an action of providing a list of the movies, as well as letting the user choose the date and time, and ultimately proceeding with billing and payment.</p>
+<p>The inherent challenge in configuring virtual agents is to make sure these entities are accurately identified by providing various patterns, values, or an entity type, so that when those words appear in the conversation, such entities can be identified.</p>
+<p>An example of that is how IBM Watson Assistant in dialog mode can define entity and its related values as such:</p>
+<p><a class="glightbox" href="../images/ee_image_001.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="wa entities" src="../images/ee_image_001.png" /></a></p>
+<p>In the above example, the entity ‘product’ would be identified in the dialog if the user mentioned these words such as ‘movie reservation,’ ‘movie ticket,’ or simply ‘ticket.’ Watson Assistant also provides fuzzy matching to match any incorrect spellings or slight deviation from these words to help it better cope with the request.</p>
+<p>However, there are obviously clear limitations and caveats in doing this approach.</p>
+<ul>
+<li>You have to provide every possible value necessary for the bot to understand it as a certain type of entity. Anything out of the given value might not be categorized at all, or even categorized incorrectly.</li>
+<li>Maintaining a large set of entities and its subsequent values can be costly and time consuming.</li>
+<li>If you have to support multiple languages, you may need to provide all the possible values as legal vocabularies which can then be a pretty challenging feat.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>NeuralSeek’s Entity Extraction uses natural language processing to extract key entities that your virtual agent needs to understand, without requiring you to specify possible values or patterns and having the burden of constantly maintaining it.</li>
+</ul>
+</li>
+</ul>
+<h2 id="entity-extraction-from-conversation">Entity Extraction From Conversation</h2>
+<p>Let’s take a look at the above example of defining a movie ticket as a product. In the tab ‘Extract,’ enter the same text of ‘I would like to buy a movie ticket’ and click the ‘Extract’ button.</p>
+<p><a class="glightbox" href="../images/ee_image_002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="buying a movie ticket" src="../images/ee_image_002.png" /></a></p>
+<p>You will see NeuralSeek, without specifying anything, was able to identify the <code>movie ticket</code> as an entity of <code>product</code> and properly extracted it from the given string.</p>
+<p>Moreover, you can ask the phrase in different languages, and NeuralSeek’s entity extraction will still work, without you doing anything!</p>
+<p><a class="glightbox" href="../images/ee_image_003.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="buying a movie ticket in Korean" src="../images/ee_image_003.png" /></a></p>
+<h2 id="custom-entities">Custom Entities</h2>
+<p>In case there is a specific way that you need to categorize an entity, NeuralSeek provides a simpler and better way to define what your entity is, by using Custom Entity definition.</p>
+<p><a class="glightbox" href="../images/ee_image_004.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom entities" src="../images/ee_image_004.png" /></a></p>
+<p>Using this, Neural Seek can perform entity extraction in much more robust way:</p>
+<p><a class="glightbox" href="../images/ee_image_005.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom entities result" src="../images/ee_image_005.png" /></a>
+<a class="glightbox" href="../images/ee_image_006.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom entities result" src="../images/ee_image_006.png" /></a>
+<a class="glightbox" href="../images/ee_image_007.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom entities result" src="../images/ee_image_007.png" /></a></p>
+<p>And obviously, this single customer entity definition would work in other languages too!</p>
+<p><a class="glightbox" href="../images/ee_image_008.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom entities result" src="../images/ee_image_008.png" /></a></p>
+<h2 id="entity-extraction-rest-api">Entity Extraction REST API</h2>
+<p>NeuralSeek’s entity extraction supports integration via REST API, so it makes calling the service easy with any external applications such as virtual agents or chatbots. It is easy to test its functionality by using API documentation located under the <code>Integrate</code> tab.</p>
+<p><a class="glightbox" href="../images/ee_image_009.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="entity extraction in REST API" src="../images/ee_image_009.png" /></a></p>
+<p>This will return the following JSON type response:</p>
+<p><a class="glightbox" href="../images/ee_image_010.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="entity extraction in REST API" src="../images/ee_image_010.png" /></a></p>
+
+  <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+</footer>
+
+<script src="../../../scripts/watson.js"></script>
+<script> if(is_top_frame) loadWatson(); </script>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

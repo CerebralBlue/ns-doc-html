@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/configuration/">
+    <link rel="shortcut icon" href="../../images/ns-white.svg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Configuration - NeuralSeek Documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/colors.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../css/highlightjs-copy.css">
+    <link href="../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.min.js"></script>
+    <script src="../../js/highlightjs-copy.min.js"></script>
+    
+    <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Configure Feature", url: "#configure-feature", children: [
+              {title: "Default Configurations", url: "#default-configurations" },
+              {title: "Advanced Configurations", url: "#advanced-configurations" },
+              {title: "Advanced Setting Options", url: "#advanced-setting-options" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+ <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="configure-feature">Configure Feature</h1>
+<p><a class="glightbox" href="../images/configure_updated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="configure" src="../images/configure_updated.png" /></a></p>
+<p>This location of NeuralSeek is where users can edit the configurations for NeuralSeek’s features. There are two types of configurations: Default Configurations and Advanced Configurations.</p>
+<h2 id="default-configurations">Default Configurations</h2>
+<ul>
+<li><strong>KnowledgeBase Connection:</strong> Users can change their KnowledgeBase type along with the associated url, API keys, project ID, and other relevant information. Use the drop down arrows to manually configure the fields of the schema in the connected KnowledgeBase.<ul>
+<li><strong>Curation data field:</strong> select where your FAQ content/document body is located.</li>
+<li><strong>Document name field:</strong> select what is displayed for the title.</li>
+<li><strong>Link field:</strong> select the URL below the title, or what will be served in the Virtual Agent chat bubble as a link.</li>
+<li><strong>Filter field:</strong> select the field you want to filter by. For example, you can filter for a specfic document type in your KnowledgeBase and only return PDF's.</li>
+</ul>
+</li>
+</ul>
+<p>Users have the option to enable or diasble attributing sources inside LLM context by document name. For example, when disabled the output will be formatted with only the document contents. When enabled, the output will be formatted with an introductory sentance that attritubes the 'document content' to the appropriate document 'name' (e.g. "The document 'name' states that: 'document content').</p>
+<p>Users are able to enter a prioritized list of values that you want to re-rank above other results, regardless of KB score. This can be modified under the Re-Sort values list menu.</p>
+<p>See our supported <a href="../../integrations/supported_knowledgebases/supported_knowledgebases/">KnowledgeBase page</a> for more information on supported KnowledgeBases.</p>
+<ul>
+<li>
+<p><strong>LLM Details:</strong> This is where users can add a LLM of choice, and set or modify their LLM model settings. By clicking "Add an LLM", users will be prompted to select an LLM from their platform of choice and enter the relevant information such as API keys, endpoint URLs, project ID's, etc. Use the drop down arrow to enable languages of choice: there are a total of 56 supported LLM languages. Users can also modify which NeuralSeek functions to enable for the added LLM. Note that you must add at least one LLM. If you add multiple, NeuralSeek will load-balance across them for the selected functions that have multiple LLM's. Features that an LLM are not capable of will be unselectable. If you do not provide an LLM for a function, there is no fallback and that function of NeuralSeek will be disabled. </p>
+<blockquote>
+<p><strong>This section is only available if you are using BYOLLM (bring your own LLM) plan of NeuralSeek</strong>.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Company/Organization Preferences:</strong> This is where you can enter your company name, and description of what the company primarily focuses on. Note that the description is also used as a <code>stump speech</code> which is a block of text to be used to help generate a response when all else fails, and the answer needs to fall back to it. Users can also select whether to add or not add Company Response Affinity which adds affinity to the company on top of any affinity that may be already present in your KnowledgeBase and Stump Speeches.</p>
+</li>
+<li>
+<p><strong>Platform Preferences:</strong> This is where you can set up your primary default language (e.g. English), whether the response would contain the embedded link into returned responses, a list of custom stopwords if you want to override the NeuralSeek default stopwords, and also a virtual agent type that NeuralSeek can generate its questions and answers to. See our supported <a href="../../integrations/supported_virtual_agents/supported_virtual_agents/">Virtual Agent platforms page</a>.</p>
+</li>
+<li>
+<p><strong>Intent Categorization:</strong> This is where you can create type of categories and their descriptions to control how some of the intents in user question can be categorized into. Usually a question would be automatically categorized as <code>FAQ</code> , but you can provide additional ones here.</p>
+</li>
+<li>
+<p><strong>Governance &amp; Guardrails:</strong> Users are able to adjust the following:</p>
+<ul>
+<li><strong>Attribute Checking:</strong> Adjust misinformation tolerance for generating text about the company, or associating people or things that lack specific references in the KnowledgeBase material by using the sliding scale from "Rigid" to "Standard". The more rigid your setting, the higher the chances of occasionally blocking legitimate questions that use alternate wording or are poorly documented in your KnowledgeBase. </li>
+<li><strong>Semantic Score:</strong> The Semantic Score model checks the generated answer against the KnowledgeBase sources, and rates the answer based on the quantity and focus of the KnowledgeBase and Stump Speech source documentation (e.g. is the answer primarily formed from a single source or many?) Toggle the icons to enable or disable the Semantic Score Model, using Semantic Score as the basis for Warning &amp; Minimum confidence (e.g. Do NOT Enable for usecases requiring language translation), reranking the search results based on the Semantic Match, and checking the document titles and URL's as part of the Semantic Match. Note that semantic scoring will not be accurate when getting answers in a diferent language than your KnowledgeBase source docs.<ul>
+<li><strong>Semantic Model Tuning:</strong> use the sliding scales to further tune the Semantic Match.<ul>
+<li><strong>Missing key search term penalty:</strong> After scoring, this penalty is applied for answers that are missing KnowledgeBase attribution of <em>proper</em> nouns that were included in the search. </li>
+<li><strong>Missing search term penalty:</strong> After scoring, this penalty is applied for answers that are missing KnowledgeBase attribution of <em>other</em> nouns that were included in the search. </li>
+<li><strong>Source Jump penalty:</strong> When anwers join across many source documents it can be an indication of lost meaning or intent, depending on your source documentation. </li>
+<li><strong>Total Coverage weight:</strong> Looking at the answer, how much weight should be given to the total coverage alone, regardless of other penalty. Increasing this helps prevent abnormally low scores from long, highly-stitched answers. Decreasing will better catch hallucination in short answers. </li>
+<li><strong>ReRanK Min Coverage %:</strong> What is the minimum coverage of the total answer that the top <em>used</em> source document needs to be reranked over the top <em>KB-scored</em> document. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Profanity Filter:</strong> Users are able to toggle the icon to enable or disable the profanity filter, as well as add a text to reply with for sensitive questions that are blocked. (e.g. "That seems like a sensitive question.  Maybe I'm not understanding you, so try rephrasing.").</li>
+<li><strong>Warning Confidence:</strong> Use the sliding scale to increase the confidence percentage for warning. Add a text to prepend a warning on low confidence results. (e.g. "I'm not an expert in this, but...").</li>
+<li><strong>Minimum Confidence:</strong> Use the sliding scale to increase the minimum confidence percentage and the minimum confidence percentage to display a URL. Add a text to reply with for questions not meeting the minimum confidence, and select whether to add a URL fallback on minimum. (e.g. "There is nothing in our knowledge base about that."). </li>
+<li><strong>Minimum Text:</strong> Use the sliding scale to set a desired minimum amount of words in a question. Add a text to reply with for questions not meeting the minimum input text length. (e.g. "Give me a bit more to go on...").</li>
+<li><strong>Maximum Length:</strong> Use the sliding scale to set a desired maximum amount of words in a question. Use a low limit to help mitigate adversarial questions designed to generate inappropriate answers. Set to 100 to remove the limit. Add a text to reply with for questions over the input word limit. (e.g. "Can you please summarize your question for me?  Questions should be limited to 20 words."). </li>
+</ul>
+</li>
+</ul>
+<h2 id="advanced-configurations">Advanced Configurations</h2>
+<ul>
+<li>
+<p><strong>KnowledgeBase Tuning:</strong> Tuning your Knowledgebase is an important part of creating a well performing system. Start by entering a seek query on the Seek tab to review the answer provided, as well as look at the documentation in the accordions below the answer. If the answer is not suitable for your needs, first check if the top document is correct and complete. If not, adjust snippet size by using the slider bars to improve KB training. Secondly, check if your answers are bringing back more irrelevant documentation than you need. If so, use the slider bars to set a max documents per seek or use the sliding scale to set a lower document score upper range. Further, you can adjust the document date penalty to ensure relevancy, and adjust the cache timeout in minutes but using the KnowledgeBase Query Cache (minutes) sliding scale.</p>
+</li>
+<li>
+<p><strong>Prompt Engineering:</strong> Prompt Engineering allows expert users to inject specific instructions into the LLM prompt. Most use cases will not need this and should not use this. (e.g. do not enter "provide factual information" or "act as a helpful customer support agent".) NeuralSeek's extensive prompting already does this. Do not casually enable, as you can weaken the safeguards and extensive prompting that NeuralSeek provides out-of-the-box. Do not use any language other than English in prompt engineering.</p>
+</li>
+<li>
+<p><strong>Answer Engineering &amp; Preferences:</strong> Users are able to use the sliding scale to set whether the answer generation would stick to being concise, or can have more freedom to be flexible. Toggle the icon to True or False to force answers from the Knowledgebase if desired. Also, as part of answer engineering, you can provide regular expression and replacement pair so that certain pattern of data or sensitive information can be replace or removed as necessary. Answer Engineering uses Javascript Regular Expressions to selectivley replace text in both the KnowledgeBase training data and the live generated answer. (e.g. Use this to remove or swap phone numbers, emails, etc.). </p>
+</li>
+<li>
+<p><strong>Intent Matching &amp; Cache Configuration:</strong> Here is where you can configure strategies to perform intent matching. The following types of intent match's are available: Exact Match, Vector Similarity, Fuzzy Match, Keyword Match, and Fuzzy Keyword Match. Users can also configure how the answer caching is to be done for edited answers, and normal answers. You can control the number of answers that would trigger the cache, as well as their individual matching methods by using the sliding scales. Toggle the icon to Yes or No if desired to require the cache to follow context as well.</p>
+</li>
+<li>
+<p><strong>Table Understanding:</strong> Table understanding pre-processes your documents to extract and parse tabular data into a format suitable for conversational query. Since this preparation process is both costly and time consuming, this feature is opt-in and will consume 1 seek query for every table preprocessed. Web Crawl Collections are not eligible for table understanding, as the re-crawl interval will cause excessive compute usage. Table preparation time takes several minutes per page. Please contact <a href="mailto:cloud@cerebralblue.com">cloud@cerebralblue.com</a> with details of your opportunity and use case to be considered for access.</p>
+<blockquote>
+<p>Note that Table Understanding requires a compatible LLM with Table Understanding Enabled. Not all LLM's are capable of Table Understanding.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Personal Identifiable Information (PII) Handling:</strong> Users can define how to handle any detected PII data that was included in the question. The following options are available: Mask, Flag, No Action, Hide (retain for Analytics), and Delete (including from Analytics). The configuration also lets you add any particular examples of PII data, so it can be better detected, or set as <code>No PII</code> so that it can be ignored.</p>
+</li>
+<li>
+<p><strong>Corporate Document Filter:</strong> Connect NeuralSeek to an external corporate rules engine to filter allowed documentation by user. Each request will send the id's of the found documentation to a endpoint you set here. Any ID's not returned back from the corporate filter will be blocked. Toggle the icon to Enable to Disable this feature. If enabled, fill out all relevant information including: Base URL for the corporate filter (get), URL paramenter for the UserName, URL paramenter for the KB field, and the Knowledgebase field to send.</p>
+</li>
+<li>
+<p><strong>Corporate Logging:</strong> Connect NeuralSeek to a corporate audit logging endpoint. When connected and enabled, all requests and responses to the Seek api endpoint, as well as the Curate tab will be logged to your elasticSearch instance. Toggle the icon to Enable to Disable this feature. If enabled, fill out all relevant information including: ElasticSearch Endpoint and ElasticSearch API Key. </p>
+</li>
+</ul>
+<h2 id="advanced-setting-options">Advanced Setting Options</h2>
+<ul>
+<li><strong>Download Settings:</strong> Click this to download a .dat copy of all settings in the configure tab to your local machine.</li>
+<li><strong>Upload Settings:</strong> Click this to upload and restore settings from a .dat copy backup of all settings in the configure tab from your local machine.</li>
+<li><strong>Change Logs:</strong> Click to view the change log history of all settings changed in this instance for auditing and debugging purposes.</li>
+</ul>
+
+  <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+</footer>
+
+<script src="../../scripts/watson.js"></script>
+<script> if(is_top_frame) loadWatson(); </script>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

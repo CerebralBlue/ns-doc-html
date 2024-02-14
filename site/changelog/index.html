@@ -18,7 +18,8 @@
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/colors.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="stylesheet" href="../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../css/highlightjs-copy.css">
     <link href="../css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,35 +29,45 @@
 
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/highlight.min.js"></script>
+    <script src="../js/highlightjs-copy.min.js"></script>
     
     <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
     <script>
       var base_url = '..';
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "December 2023", url: "#december-2023", children: [
+          {title: "February - 2024", url: "#february-2024", children: [
           ]},
-          {title: "November 2023", url: "#november-2023", children: [
+          {title: "January - 2024", url: "#january-2024", children: [
           ]},
-          {title: "October 2023", url: "#october-2023", children: [
+          {title: "December - 2023", url: "#december-2023", children: [
           ]},
-          {title: "September 2023", url: "#september-2023", children: [
+          {title: "November - 2023", url: "#november-2023", children: [
           ]},
-          {title: "August 2023", url: "#august-2023", children: [
+          {title: "October - 2023", url: "#october-2023", children: [
           ]},
-          {title: "July 2023", url: "#july-2023", children: [
+          {title: "September - 2023", url: "#september-2023", children: [
           ]},
-          {title: "June 2023", url: "#june-2023", children: [
+          {title: "August - 2023", url: "#august-2023", children: [
           ]},
-          {title: "May 2023", url: "#may-2023", children: [
+          {title: "July - 2023", url: "#july-2023", children: [
           ]},
-          {title: "April 2023", url: "#april-2023", children: [
+          {title: "June - 2023", url: "#june-2023", children: [
           ]},
-          {title: "March 2023", url: "#march-2023", children: [
+          {title: "May - 2023", url: "#may-2023", children: [
           ]},
-          {title: "February 2023", url: "#february-2023", children: [
+          {title: "April - 2023", url: "#april-2023", children: [
+          ]},
+          {title: "March - 2023", url: "#march-2023", children: [
+          ]},
+          {title: "February - 2023", url: "#february-2023", children: [
           ]},
         ];
 
@@ -70,7 +81,11 @@
       
         gtag('config', 'G-LE5XX6X6Z7');
       </script> 
-</head>
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
 
 <body>
 <script>
@@ -83,9 +98,47 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h2 id="december-2023">December 2023</h2>
+    <p>&nbsp;</p>
+<h2 id="february-2024">February - 2024</h2>
+<p><strong>New features</strong></p>
 <ul>
-<li>
+<li>Pre-LLM PII filtering/masking: Remove or mask personally identifiable information (PII) before sending queries to a Knowledge Base (KB) or LLM. Use pre-built elements or add your own using regular expressions.</li>
+<li>Prompt Injection detection: User input is scored against an internal model to identify potential prompt injection attempts. Problematic words are filtered out, and the entire input can be blocked based on the probability of prompt injection.</li>
+<li>Cross-language KB translation: When specifying a desired output language different from the KB language, user input can now be automatically translated into the KB language for better answers.</li>
+</ul>
+<p><strong>Explore Enhancements</strong></p>
+<ul>
+<li>Guardrails such as Profanity Filter and Prompt Injection are now available in Explore. </li>
+<li>Several new example templates have been added to demonstrate these new features.</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="january-2024">January - 2024</h2>
+<p><strong>New features</strong></p>
+<ul>
+<li>Parallel "threaded" execution jobs introduced in Explore allow for faster execution of complicated templates, often outperforming custom-coding in Python.</li>
+<li>Enhancements to multi-turn seek: Users can now control the number of previous turns sent to the LLM for a more ChatGPT-style experience. </li>
+<li>Extract Enhancements:<ul>
+<li>Support for defining regex and keyword entity types, reducing workload on smaller/less capable LLMs and improving extraction speed.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Explore Enhancements</strong></p>
+<ul>
+<li>Direct connectors to various databases including Postgres, Oracle, MySQL, MariaDB, MS SQL, and Redshift.</li>
+<li>System variables for injecting date, time, UUIDs, random numbers, etc.</li>
+<li>'Extract' functionality added to Explore.</li>
+<li>Improved Explore OpenAPI template generator for easier integration with Watsonx Assistant.</li>
+<li>New templates available, including Custom RAG, Insurance Cause of Loss, and Conditional Logic.</li>
+<li>Option to specify the LLM to use in Explore LLM steps to avoid hitting rate limits and distribute the load effectively.</li>
+</ul>
+<p><strong>Updates</strong></p>
+<ul>
+<li>Finer-grain user permissions: Users can now grant tab access while restricting write ability from specific tabs.</li>
+<li>All languages are now unlocked, allowing users to utilize NeuralSeek with any language supported by their chosen LLM.</li>
+<li>Stop/Cancel functionality for Seek and Explore during streaming responses.</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="december-2023">December - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
 <li>Multilingual chain-of-thought prompting to enhance smaller LLMs like Llama and Granite for non-English languages.</li>
@@ -93,14 +146,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>KB ReRanker for custom result prioritization by field/tag and value lists.</li>
 <li>Profanity Filter implemented for multi-language profanity and hate speech filtering across all LLMs.</li>
 <li>Role-based access control for managing user permissions within the NeuralSeek UI.</li>
-<li>Explore enhancements:</li>
+<li>Explore enhancements:<ul>
 <li>OpenAPI spec generator for easy integration with Watson Assistant.</li>
 <li>Inspector tool for debugging the Explore flow and variable states.</li>
 <li>REST connector for making various HTTP requests and auto-parsing JSON into variables.</li>
 <li>JSON to Variables stage for automatic variable creation from JSON input.</li>
 <li>Output Variables formatting to match input parameters for seamless chaining in Explore.</li>
 <li>Import/Export functionality for sharing templates across instances.</li>
-<li>New functionality:<ul>
+<li>New functionality:</li>
 <li>DB2 database connector</li>
 <li>Table Prep (convert tables into natural language statements)</li>
 <li>KB search filters</li>
@@ -110,15 +163,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-</li>
-<li>
 <p><strong>New integrations</strong></p>
 <ul>
 <li>Added Llama-2-chat Portuguese 13B to Watsonx Tech Preview.</li>
 <li>Release of Granite V2 in the model cards, offering improved performance over V1.</li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>Watsonx.ai models transitioned to streaming for improved timeout handling.</li>
@@ -126,20 +175,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Semantic Scoring model improvements with lemmatization consideration for partial match scoring.</li>
 <li>Watsonx Discovery automatic API key generation for simplified access.</li>
 </ul>
-</li>
-</ul>
-<h2 id="november-2023">November 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="november-2023">November - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
-<li>Explore:</li>
+<li>Explore:<ul>
 <li>Expanded NTL-based explore functionality with drag-and-drop simplicity for building Explore routines.</li>
 <li>Added the ability to create and save templates within the UI.</li>
 <li>Introduced variables for easy API calling by passing template name and variable values.</li>
 <li>Dynamic Variable Setting - Introduce the ability to dynamically set variables within a chain or flow, capture outputs into variables for endless reuse, and return all variables via the API (multi-output capability).</li>
 <li>Recursion / Chained Explore - Enabled the creation of small, repeatable task templates that can be called from other explore templates, with shared variable memory space across templates, facilitating the creation of complex flows with ease.</li>
-<li>New functionality:<ul>
+<li>New functionality:</li>
 <li>Math Equations - Implemented full graphing-calculator level equations, overcoming the LLM's limitations with math by allowing users to set variables with LLMs, perform calculations in the math node, and then provide correct answers back into the LLM.</li>
 <li>Force Numeric - Added a feature to extract numbers from text, ensuring that when a number is requested from the LLM, a numeric response is provided.</li>
 <li>Split - Automated the removal of document headers and footers, enabling users to extract the content they need with ease.</li>
@@ -148,8 +194,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>Semantic Details on Seek - Unveiled the math behind the semantic score through a new modal on the seek tab, previously exclusive to API/developer use.</li>
@@ -159,11 +203,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Semantic Scoring now has the ability to consider document title and URL, capturing unique words that may be missing in the document itself.</li>
 <li>Added the ability to pass a filter column for regression testing.</li>
 </ul>
-</li>
-</ul>
-<h2 id="october-2023">October 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="october-2023">October - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
 <li>"Generate Data" options in Explore tab – Send to LLM, Table Understanding</li>
@@ -171,39 +212,32 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Hyper-personalization (Corporate document filtering)</li>
 <li>Corporate Logging - Connect NeuralSeek to an ElasticSearch instance to log everything around Seek, updates, edits, changes</li>
 <li>Configuration Logs - History of changed settings</li>
-<li>Enhancements to Explore:</li>
+<li>Enhancements to Explore:<ul>
 <li>"Seek" data</li>
 <li>PII removal</li>
 <li>Table Understanding</li>
 </ul>
 </li>
-<li>
+</ul>
 <p><strong>New integrations</strong></p>
 <ul>
 <li>Elastic Search integration</li>
 <li>Multi-Turn Conversation Generation for Cognigy</li>
 <li>Mistral 7B Model support  </li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>Released On-Prem "Flex" plan</li>
 <li>Added version numbering to "Integrate" tab sidebar</li>
 <li>Seek tab - "Show generated" option when the minimum confidence is not met</li>
 </ul>
-</li>
-</ul>
-<h2 id="september-2023">September 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="september-2023">September - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
 <li>Explore: An Open-Ended Retrieval Augmented Generation Playground</li>
 <li>Vector Similarity for Intent Matching</li>
 </ul>
-</li>
-<li>
 <p><strong>New integrations</strong></p>
 <ul>
 <li>Kore.ai Round Trip Monitoring</li>
@@ -213,17 +247,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>OpenSearch Integration</li>
 <li>HuggingFace Integration for Supported Models</li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>Refinements to Vector Similarity Matching</li>
 </ul>
-</li>
-</ul>
-<h2 id="august-2023">August 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="august-2023">August - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
 <li>BYO-LLM plans – IBM watsonx language translation</li>
@@ -231,26 +260,19 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Option for Link Summarization of NeuralSeek Results, 1-5 Result Links</li>
 <li>'Bring Your Own' Large Language Model (BYO-LLM) cards – ability to use multiple LLMs for a specific task</li>
 </ul>
-</li>
-<li>
 <p><strong>New integrations</strong></p>
 <ul>
 <li>IBM Watson Assistant Dialog Multi-Turn Conversation Templates</li>
 <li>AWS Kendra Integration</li>
 <li>AWS Lex Multi-Turn Conversation Generation Templates</li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>New ‘Seek’ Parameter Call to Indicate LLM Preference</li>
 <li>Ability to set specific language on each LLM – e.g., “use THIS model for Spanish Seek / Translation”</li>
 </ul>
-</li>
-</ul>
-<h2 id="july-2023">July 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="july-2023">July - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
 <li>Slot Filler - Ability to auto-fill slots when gathering information</li>
@@ -263,125 +285,88 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>New 'Identify Language' Endpoint</li>
 <li>Entity Extraction feature - Custom Entity Creation</li>
 </ul>
-</li>
-<li>
 <p><strong>New integrations</strong></p>
 <ul>
 <li>IBM watsonx Model Compatibility</li>
 <li>AWS Lex Round-Trip Monitoring</li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>KnowledgeBase translation updated – questions now get translated to KnowledgeBase source language for summarization</li>
 <li>Cross-lingual support when using language code “xx” (Match Input) enhanced</li>
 <li>Semantic Match Analysis to describe the logic for the Semantic Score enhanced</li>
 </ul>
-</li>
-</ul>
-<h2 id="june-2023">June 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="june-2023">June - 2023</h2>
 <p><strong>New integrations</strong></p>
 <ul>
 <li>IBM watsonx (LLM) connector</li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>AWS Partnership Announcement</li>
 <li>Improvements to Caching</li>
 <li>Confidence and Coverage Score Graphs added to Curate tab</li>
 </ul>
-</li>
-</ul>
-<h2 id="may-2023">May 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="may-2023">May - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
 <li>Analytics API endpoint</li>
 <li>Table Extraction model to enable answers from tabular data</li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>Data Cleanser for non-HTML enabled</li>
 </ul>
-</li>
-</ul>
-<h2 id="april-2023">April 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="april-2023">April - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
 <li>New plan - 'Bring Your Own' Large Language Model (BYO-LLM)</li>
 <li>Semantic Score Model, Improved Provenance and Semantic Source Re-Rank</li>
 </ul>
-</li>
-<li>
 <p><strong>New integrations</strong></p>
 <ul>
 <li>Curate answers to Kore.ai, Cognigy, AWS Lex</li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>IBM Frankfurt (FRA) data center availability</li>
 <li>IBM Sydney (SYD) data center availability</li>
 </ul>
-</li>
-</ul>
-<h2 id="march-2023">March 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="march-2023">March - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
 <li>Personal Identifiable Information (PII) Detection</li>
 <li>Sentiment Analysis</li>
 <li>Source Document Monitoring and Answer Regeneration</li>
 </ul>
-</li>
-<li>
 <p><strong>New integrations</strong></p>
 <ul>
 <li>Watson Assistant Round-Trip Logging</li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>User-specified input length enabled</li>
 </ul>
-</li>
-</ul>
-<h2 id="february-2023">February 2023</h2>
-<ul>
-<li>
+<p>&nbsp;</p>
+<h2 id="february-2023">February - 2023</h2>
 <p><strong>New features</strong></p>
 <ul>
 <li>Personalization of generated answers</li>
 </ul>
-</li>
-<li>
 <p><strong>New integrations</strong></p>
 <ul>
 <li>Auto-Build Watson Assistant Multi-Step Action</li>
 </ul>
-</li>
-<li>
 <p><strong>Updates</strong></p>
 <ul>
 <li>Additional languages enabled (Chinese, Czech, Dutch, Indonesian, Japanese)</li>
 <li>Enhanced API to allow run-time modification of all parameters</li>
 <li>KB tuning parameters enabled</li>
 <li>Large Language Model (LLM) tuning</li>
-</ul>
-</li>
 </ul>
 
   <br>
@@ -392,5 +377,5 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <script src="../scripts/watson.js"></script>
 <script> if(is_top_frame) loadWatson(); </script>
-</body>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

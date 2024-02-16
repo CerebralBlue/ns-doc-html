@@ -13,7 +13,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
-    <title>Mastering Feedback - NeuralSeek Documentation</title>
+    <title>Integrating Feedback - NeuralSeek Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/colors.css" rel="stylesheet">
@@ -43,9 +43,13 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Mastering Feedback - Implementing Thumbs Up/ Thumbs Down", url: "#mastering-feedback-implementing-thumbs-up-thumbs-down", children: [
-              {title: "Adding an iframe response in watsonx Assistant", url: "#adding-an-iframe-response-in-watsonx-assistant" },
-              {title: "Records of Thumbs Up/Thumbs Down", url: "#records-of-thumbs-upthumbs-down" },
+          {title: "Overview", url: "#overview", children: [
+          ]},
+          {title: "Integrating Thumbs Icons in watsonx Assistant", url: "#integrating-thumbs-icons-in-watsonx-assistant", children: [
+          ]},
+          {title: "Viewing Ratings in NeuralSeek", url: "#viewing-ratings-in-neuralseek", children: [
+          ]},
+          {title: "Additional Custom Rating", url: "#additional-custom-rating", children: [
           ]},
         ];
 
@@ -76,7 +80,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h2 id="mastering-feedback-implementing-thumbs-up-thumbs-down">Mastering Feedback - Implementing Thumbs Up/ Thumbs Down<a class="headerlink" href="#mastering-feedback-implementing-thumbs-up-thumbs-down" title="Permanent link"></a></h2>
+    <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <ul>
 <li><strong>What is it?</strong><ul>
 <li>The 'Thumbs Up/Thumbs Down' icons are available after each response given in the 'Seek' tab of NeuralSeeks UI. These responses indicate a score of 5 for Thumbs Up and 0 for Thumbs Down. Theses icons are able to be added to a virtual agent of choice to be shown and utilized in-line with the conversation. </li>
@@ -91,55 +95,49 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<h3 id="adding-an-iframe-response-in-watsonx-assistant">Adding an iframe response in watsonx Assistant<a class="headerlink" href="#adding-an-iframe-response-in-watsonx-assistant" title="Permanent link"></a></h3>
-<ul>
-<li><strong>What is it?</strong><ul>
-<li>'iframe' embeds content from an external website, such as a form or other interactive component, directly within the chat. The source content must be publicly accessible using HTTP, and must be embeddable as an HTML iframe element.</li>
-</ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
-<li>An iframe response is useful if you want to enable customers to perform some interaction with an external service without leaving the chat. In this example, users can use an iframe response to display the thumbs up/thumbs down icons within the web chat.</li>
-</ul>
-</li>
-<li><strong>How does it work?</strong><ul>
-<li>This reponse type embeds content from another website directly inside the chat window as an HTML 'iframe element'. It can be displayed in the chat window as a clickable preview card that describes the content, or inline within the conversation. </li>
-</ul>
-</li>
-</ul>
+<h2 id="integrating-thumbs-icons-in-watsonx-assistant">Integrating Thumbs Icons in watsonx Assistant<a class="headerlink" href="#integrating-thumbs-icons-in-watsonx-assistant" title="Permanent link"></a></h2>
+<p>Users are able to easily integrate the 'Thumbs Up/Thumbs Down' feedback icons as an 'iframe' response type withing watsonx Assistant. This reponse type involves incorporating content from an external website, like a form or interactive feature, directly into the chat interface. The content, accessible via HTTP and embeddable as an HTML iframe element, allows users to interact with external services seamlessly without leaving the chat by displaying the element as a clickable preview card or inline in the conversation. Follow the provided steps below to include the 'Thumbs Up/Thumbs Down' icons within the virtual agent:</p>
 <ol>
-<li>Navigate to the watsonx Assistant Instance, and open an Action.</li>
+<li>Navigate to the watsonx Assistant instance, and open an Action.</li>
 <li>In the 'Assistant says' field within the relevant conversation step, click the 'iframe' icon.</li>
-<li>Add the full URL to the external content in the 'iframe source' field. <ul>
-<li>SVG files containing appropriate URL can be requested from general@cerebralblue.com. </li>
+<li>Set the 'Source URL' to the NeuralSeek step response 'body.thumbs'<ul>
+<li>Optionally, users can include a query parameter for background-color to the thumbs url given: ' ?style=background-color%3A%23f4f4f4 ' </li>
 </ul>
 </li>
-<li>Users can include a query parameter for background-color to the thumbs url given: ' ?style=background-color%3A%23f4f4f4 ' </li>
-<li>Put it as inline with a height of 45</li>
 <li>Optionally, add a descriptive title in the 'Title' field. </li>
+<li>Toggle the 'Display iframe inline' button to 'On' to display the thumbs icons inline with the conversation.</li>
+<li>Set the 'iframe height' to 45 for proper viewing. </li>
+<li>Click 'Apply' to save response type. </li>
 </ol>
-<!-- ### Generating SVG
-- Scalable Vector Graphics (SVG) files are available for the thumbs up/thumbs down icons for every response. Users are able to drop them into a watsonx Assistant Action to be displayed inline with the conversation via an 'iframe' response type.
-
-1. On the 'Seek' tab in NeuralSeek, right click on the thumbs icons, the click the 'Inspect' option. 
-2. Find the root of the svg element, this URL will be displayed under #document
-3. Right click to copy the relevant link address. 
-4. Add the copied URL to the 'Source URL' section in the iframe response type in the watsonx Assistant action. -->
-
-<p><a class="glightbox" href="../images/wa_thumbs_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="wa_thumbs_1" src="../images/wa_thumbs_1.png" /></a>
-<a class="glightbox" href="../images/wa_thumbs_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="wa_tuhmbs_2" src="../images/wa_thumbs_2.png" /></a></p>
-<h3 id="records-of-thumbs-upthumbs-down">Records of Thumbs Up/Thumbs Down<a class="headerlink" href="#records-of-thumbs-upthumbs-down" title="Permanent link"></a></h3>
-<ul>
-<li>located in the Curate tab</li>
-<li>to create a spreadsheet (CSV) file with columns for questions, answers, and feedback:<ol>
-<li>Navigate to Curate tab</li>
-<li>Select Intents</li>
-<li>Click the blue "Download to CSV" button </li>
-<li>A CSV file will be downloaded to your local machine</li>
-</ol>
-</li>
-<li>Thumbs Up = 5</li>
-<li>Thumbs Down = 0</li>
+<p><a class="glightbox" href="../images/iframe_response_type_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="iframe_response_type_1" src="../images/iframe_response_type_1.png" /></a>
+<a class="glightbox" href="../images/iframe_response_type_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="iframe_response_type_2" src="../images/iframe_response_type_2.png" /></a></p>
+<h2 id="viewing-ratings-in-neuralseek">Viewing Ratings in NeuralSeek<a class="headerlink" href="#viewing-ratings-in-neuralseek" title="Permanent link"></a></h2>
+<p>Feedback from utilizing the 'Thumbs Up/Thumbs Down' icons in NeuralSeek's 'Seek' tab can be additionally viewed from the 'Curate' tab. </p>
+<ol>
+<li>Navigate to the 'Curate' tab within NeuralSeek's interface.</li>
+<li>Select desired intents by checking the box.</li>
+<li>Click the blue 'Download to CSV' button.</li>
+<li>A CSV file will be downloaded to the user's local machine. There, they can view the rating given from the 'Thumbs Up/Thumbs Down' icons in the 'Response' column. <ul>
+<li>Note: A score of 5 is given for a 'Thumbs Up'. A score of 0 is given for a 'Thumbs Down'. </li>
 </ul>
+</li>
+</ol>
+<p><a class="glightbox" href="../images/download_csv.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="download_csv" src="../images/download_csv.png" /></a>
+<a class="glightbox" href="../images/csv_rating.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="csv_rating" src="../images/csv_rating.png" /></a></p>
+<h2 id="additional-custom-rating">Additional Custom Rating<a class="headerlink" href="#additional-custom-rating" title="Permanent link"></a></h2>
+<p>Users are able to further customize ratings within NeuralSeek. </p>
+<ol>
+<li>Navigate to the 'Integrate' tab within NeuralSeek's interface.</li>
+<li>Select 'API' from the side menu. </li>
+<li>Click the 'Authorize' button, and enter the given API key on the screen.</li>
+<li>Select the 'Seek' drop down option and add the 'answerID' value with the appropraite field description. </li>
+<li>Select the 'Rate' drop down option to customize the 'answerID' value and field description to desired rating system. For example:</li>
+</ol>
+<p>'''
+{ "answerID: "0"
+  "score": "5"
+}
+'''</p>
 
   <br>
 </div>

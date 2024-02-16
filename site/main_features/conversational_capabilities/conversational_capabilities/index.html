@@ -17,9 +17,9 @@
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/colors.css" rel="stylesheet">
-    <link href="../../../css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/highlight-github-theme.css">
     <link rel="stylesheet" href="../../../css/highlightjs-copy.css">
+    <link href="../../../css/base.css" rel="stylesheet">
     <link href="../../../css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -88,7 +88,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h1 id="conversational-context">Conversational Context</h1>
+    <h1 id="conversational-context">Conversational Context<a class="headerlink" href="#conversational-context" title="Permanent link"></a></h1>
 <ul>
 <li><strong>What is it?</strong><ul>
 <li>NeuralSeek maintains context during each user interaction (conversation). When initiating a conversation, a session token is generated. Using this token and several Natural Language Processing (NLP) models, NeuralSeek tracks the topic of conversation to keep interactions focused and structured, allowing it to follow-up on questions that do not directly refer to the topic. In addition, these NLP models enable NeuralSeek to filter corporate knowledge topically by date to ensure that the information being returned is focused on the time period of the question.</li>
@@ -103,7 +103,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<h1 id="curation-of-answers">Curation of Answers</h1>
+<h1 id="curation-of-answers">Curation of Answers<a class="headerlink" href="#curation-of-answers" title="Permanent link"></a></h1>
 <ul>
 <li><strong>What is it?</strong><ul>
 <li>NeuralSeek is directly trained off of the documentation loaded into the KnowledgeBase. If there are undesired answers from NeuralSeek, the first step is to review the documentation within the KnowledgeBase, and effectively curate the answer which can then be used by NeuralSeek to train itself better the next time it answers.</li>
@@ -118,7 +118,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<h2 id="curating-intents-and-answers">Curating Intents and Answers</h2>
+<h2 id="curating-intents-and-answers">Curating Intents and Answers<a class="headerlink" href="#curating-intents-and-answers" title="Permanent link"></a></h2>
 <p><a class="glightbox" href="../images/image-001.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="curate" src="../images/image-001.png" /></a></p>
 <p>Let's first visit the UI page for curating intents and answers. Click the <code>Curate</code> tab on the top menu. </p>
 <p>The UI is composed of the following columns:</p>
@@ -141,13 +141,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<h3 id="reading-the-trend">Reading the trend</h3>
+<h3 id="reading-the-trend">Reading the trend<a class="headerlink" href="#reading-the-trend" title="Permanent link"></a></h3>
 <p><a class="glightbox" href="../images/image-002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="graph and color" src="../images/image-002.png" /></a></p>
 <p>Each of the graphs (coverage and confidence) has color codes that lets users visibly understand the state and trend. Coverage uses blue color with intensity that changes as its coverage is low or high. Confidence shows green to display high confidence to red meaning low confidence. You may also notice the slope has different heights, which gets smaller as there are more <code>changes</code> on its value.</p>
 <p>Hovering over the graph would reveal the trend of changes:</p>
 <p><a class="glightbox" href="../images/image-003.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="changes" src="../images/image-003.png" /></a></p>
 <p>In this case, there were instances of when the confidence had dropped from 83% to 22%, over the period between 14:07:31 to 14:12:15 on July 20th.</p>
-<h3 id="displaying-intents-and-answers">Displaying Intents and Answers</h3>
+<h3 id="displaying-intents-and-answers">Displaying Intents and Answers<a class="headerlink" href="#displaying-intents-and-answers" title="Permanent link"></a></h3>
 <p>If you click the <code>⌄</code> Arrow next to the intent name, you will see the list of example questions and its generated answers:</p>
 <p><a class="glightbox" href="../images/image-004.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../images/image-004.png" /></a></p>
 <p>The example questions have either black color or gray color, depending on how they were created. The black colored examples are the ones that were actually submitted by the user's question. NeuralSeek automatically generates similar meaning questions per each question that it receives.</p>
@@ -156,25 +156,25 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <blockquote>
 <p>It is also possible to add Notes that may save additional information regarding this particular intent.</p>
 </blockquote>
-<h2 id="searching-the-intent">Searching the intent</h2>
+<h2 id="searching-the-intent">Searching the intent<a class="headerlink" href="#searching-the-intent" title="Permanent link"></a></h2>
 <p>The size of intent can vary but could grow over multiple pages, so you may want to search for a particular intent from time to time. You could do that by using the search form at the top of the page. Enter the keyword and it will narrow down your search.</p>
 <p><a class="glightbox" href="../images/image-010.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="search" src="../images/image-010.png" /></a></p>
-<h2 id="filtering-the-intent">Filtering the intent</h2>
+<h2 id="filtering-the-intent">Filtering the intent<a class="headerlink" href="#filtering-the-intent" title="Permanent link"></a></h2>
 <p>There is a more fine-grained way of filtering intents based on criteria such as whether they were edited, or a new answer was added, flagged, or out-of-date data was found. Click the filter button, set the criterias that you want, and the page will only show the ones that meet the filtering condition.</p>
 <p><a class="glightbox" href="../images/image-011.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="filter" src="../images/image-011.png" /></a></p>
-<h2 id="editing-the-answer">Editing the Answer</h2>
+<h2 id="editing-the-answer">Editing the Answer<a class="headerlink" href="#editing-the-answer" title="Permanent link"></a></h2>
 <p>On all the answers generated, you can curate any answer by editing it. One of the reasons why you may need to edit it is because the generated answer could be better by editing, or you could add more details to it that were originally missing. Edited answers will be saved and will be considered higher priority over non-edited answers, to ensure that what you edited will be picked out first.</p>
 <p>Editing can be done by clicking the answer, modifying its content, and saving it.</p>
 <p><a class="glightbox" href="../images/image-006.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="editing" src="../images/image-006.png" /></a></p>
 <p>After saving, you will see that the answer that you edited will be marked as <code>Edited</code>.</p>
 <p><a class="glightbox" href="../images/image-007.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../images/image-007.png" /></a></p>
-<h2 id="deleting-questions-and-answers">Deleting Questions and Answers</h2>
+<h2 id="deleting-questions-and-answers">Deleting Questions and Answers<a class="headerlink" href="#deleting-questions-and-answers" title="Permanent link"></a></h2>
 <p>If you wish to delete either the question or answer under the intent, you can do so by clicking the <code>circle with i</code> icon and selecting <code>Remove</code>.</p>
 <p><a class="glightbox" href="../images/image-008.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="remove" src="../images/image-008.png" /></a></p>
 <blockquote>
 <p>⚠️ Once they are removed, there is no way to roll back the removal, so be careful.</p>
 </blockquote>
-<h3 id="deleting-all-data">Deleting all data</h3>
+<h3 id="deleting-all-data">Deleting all data<a class="headerlink" href="#deleting-all-data" title="Permanent link"></a></h3>
 <p>You can delete all data by selecting the gear icon at the top and selecting:</p>
 <p><a class="glightbox" href="../images/image-009.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="deletion" src="../images/image-009.png" /></a></p>
 <ul>
@@ -183,7 +183,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Delete all unEdited Answers</li>
 </ul>
 <p>These are a useful feature if you wish to simply reset all of these data and start from the scratch.</p>
-<h3 id="intent-operations">Intent operations</h3>
+<h3 id="intent-operations">Intent operations<a class="headerlink" href="#intent-operations" title="Permanent link"></a></h3>
 <p>When you select an intent, a popup will be displayed which shows you the operations that you can do with the selected intent.</p>
 <p><a class="glightbox" href="../images/image-012.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="operations" src="../images/image-012.png" /></a></p>
 <ul>
@@ -199,7 +199,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <blockquote>
 <p>There is no option to rollback the merge, so do it with caution.</p>
 </blockquote>
-<h1 id="dynamic-personalization">Dynamic Personalization</h1>
+<h1 id="dynamic-personalization">Dynamic Personalization<a class="headerlink" href="#dynamic-personalization" title="Permanent link"></a></h1>
 <ul>
 <li><strong>What is it?</strong><ul>
 <li>One way NeuralSeek quickly ties into the users business is by automatically personalizing results based on information from their Customer Relationship Management (CRM) system. By analyzing user data such as past interactions, preferences, purchase history, and demographic information, NeuralSeek can dynamically adjust its outputs to match the specific needs and preferences of each individual user.</li>
@@ -214,7 +214,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<h1 id="entity-extraction">Entity Extraction</h1>
+<h1 id="entity-extraction">Entity Extraction<a class="headerlink" href="#entity-extraction" title="Permanent link"></a></h1>
 <ul>
 <li><strong>What is it?</strong><ul>
 <li>NeuralSeek has a feature called ‘Extract’ which is a service to let users extract entities within a given user text. Users can also define their custom entities and provide descriptions for NeuralSeek to detect and extract entities that are defined by users. The service is provided with a REST endpoint which can be used by external applications such as virtual agents or chat bots to invoke it within their conversational flow to enhance their capabilities to detect entities within it.</li>
@@ -251,13 +251,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<h2 id="entity-extraction-from-conversation">Entity Extraction From Conversation</h2>
+<h2 id="entity-extraction-from-conversation">Entity Extraction From Conversation<a class="headerlink" href="#entity-extraction-from-conversation" title="Permanent link"></a></h2>
 <p>Let’s take a look at the above example of defining a movie ticket as a product. In the tab ‘Extract,’ enter the same text of ‘I would like to buy a movie ticket’ and click the ‘Extract’ button.</p>
 <p><a class="glightbox" href="../images/ee_image_002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="buying a movie ticket" src="../images/ee_image_002.png" /></a></p>
 <p>You will see NeuralSeek, without specifying anything, was able to identify the <code>movie ticket</code> as an entity of <code>product</code> and properly extracted it from the given string.</p>
 <p>Moreover, you can ask the phrase in different languages, and NeuralSeek’s entity extraction will still work, without you doing anything!</p>
 <p><a class="glightbox" href="../images/ee_image_003.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="buying a movie ticket in Korean" src="../images/ee_image_003.png" /></a></p>
-<h2 id="custom-entities">Custom Entities</h2>
+<h2 id="custom-entities">Custom Entities<a class="headerlink" href="#custom-entities" title="Permanent link"></a></h2>
 <p>In case there is a specific way that you need to categorize an entity, NeuralSeek provides a simpler and better way to define what your entity is, by using Custom Entity definition.</p>
 <p><a class="glightbox" href="../images/ee_image_004.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom entities" src="../images/ee_image_004.png" /></a></p>
 <p>Using this, Neural Seek can perform entity extraction in much more robust way:</p>
@@ -266,7 +266,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <a class="glightbox" href="../images/ee_image_007.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom entities result" src="../images/ee_image_007.png" /></a></p>
 <p>And obviously, this single customer entity definition would work in other languages too!</p>
 <p><a class="glightbox" href="../images/ee_image_008.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom entities result" src="../images/ee_image_008.png" /></a></p>
-<h2 id="entity-extraction-rest-api">Entity Extraction REST API</h2>
+<h2 id="entity-extraction-rest-api">Entity Extraction REST API<a class="headerlink" href="#entity-extraction-rest-api" title="Permanent link"></a></h2>
 <p>NeuralSeek’s entity extraction supports integration via REST API, so it makes calling the service easy with any external applications such as virtual agents or chatbots. It is easy to test its functionality by using API documentation located under the <code>Integrate</code> tab.</p>
 <p><a class="glightbox" href="../images/ee_image_009.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="entity extraction in REST API" src="../images/ee_image_009.png" /></a></p>
 <p>This will return the following JSON type response:</p>

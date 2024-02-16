@@ -27,8 +27,8 @@ class CopyButtonPlugin {
       className: "hljs-copy-button",
     });
     button.dataset.copied = false;
-    el.parentElement.classList.add("hljs-copy-wrapper");
-    el.parentElement.appendChild(button);
+    el.parentElement.parentElement.classList.add("hljs-copy-wrapper");
+    el.parentElement.parentElement.appendChild(button);
 
     // Add a custom proprety to the code block so that the copy button can reference and match its background-color value.
     el.parentElement.style.setProperty(

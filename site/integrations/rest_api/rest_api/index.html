@@ -17,9 +17,9 @@
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/colors.css" rel="stylesheet">
-    <link href="../../../css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/highlight-github-theme.css">
     <link rel="stylesheet" href="../../../css/highlightjs-copy.css">
+    <link href="../../../css/base.css" rel="stylesheet">
     <link href="../../../css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -76,58 +76,58 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h1 id="overview">Overview</h1>
+    <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h1>
 <p>Virtual Agents, chatbots, and applications can send user questions and receive answers via NeuralSeek’s REST API. In the <code>Integrate &gt; API</code>, you can access its openAPI documentation that covers its service endpoints, and also can test its executions, as well as access the message schema. For more information, please refer to <a href="https://api.neuralseek.com/">https://api.neuralseek.com/</a>.</p>
-<h2 id="example-of-curl-command-to-invoke-rest-api">Example of curl command to invoke REST API</h2>
-<pre><code class="language-bash">curl -X 'POST' \
-  'https://api.neuralseek.com/v1/test/seek' \
-  -H 'accept: application/json' \
-  -H 'apikey: xxxxxx07-xxxxxxbc-xxxxxxae-xxxxxxef' \
-  -H 'Content-Type: application/json' \
-  -d '{ &quot;question&quot;: &quot;I want to know more about NeuralSeek&quot; }'
-</code></pre>
-<h2 id="example-of-json-response">Example of JSON Response</h2>
-<pre><code class="language-json">{
-  &quot;answer&quot;: &quot;NeuralSeek is an AI-powered Answers-as-a-Service platform designed to enhance information sharing and customer support within virtual agents. It leverages a sophisticated Large Language Model (LLM) and a corporate KnowledgeBase to provide contextually relevant responses to user queries. NeuralSeek offers features such as fact-checking, data analytics, and step-by-step instructions to improve AI-generated responses. It can be integrated with virtual agents like IBM Watson Assistant or AWS Lex and used as an internal organization tool. NeuralSeek also provides training resources, demos, and support for users.&quot;,
-  &quot;ufa&quot;: &quot;NeuralSeek is an AI-powered Answers-as-a-Service platform designed to enhance information sharing and customer support within virtual agents. It leverages a sophisticated Large Language Model (LLM) and a corporate KnowledgeBase to provide contextually relevant responses to user queries. NeuralSeek offers features such as fact-checking, data analytics, and step-by-step instructions to improve AI-generated responses. It can be integrated with virtual agents like IBM Watson Assistant or AWS Lex and used as an internal organization tool. NeuralSeek also provides training resources, demos, and support for users.&quot;,
-  &quot;intent&quot;: &quot;FAQ-neuralseek&quot;,
-  &quot;category&quot;: 0,
-  &quot;categoryName&quot;: &quot;Other&quot;,
-  &quot;answerId&quot;: 1706800601368,
-  &quot;warningMessages&quot;: [],
-  &quot;cachedResult&quot;: false,
-  &quot;langCode&quot;: &quot;en&quot;,
-  &quot;sentiment&quot;: 5,
-  &quot;totalCount&quot;: 14,
-  &quot;KBscore&quot;: 53,
-  &quot;score&quot;: 26,
-  &quot;url&quot;: &quot;http://documentation.neuralseek.com/overview/&quot;,
-  &quot;document&quot;: &quot;NeuralSeek Overview&quot;,
-  &quot;kbTime&quot;: 7472,
-  &quot;kbCoverage&quot;: 56,
-  &quot;semanticScore&quot;: 26,
-  &quot;semanticAnalysis&quot;: &quot;The answer has many jumps between source articles, which lowered the overall score.  Source jumping may indicate the meaning &amp; intent of the source articles are not carrying thru to the answer.  The high standard deviation of the contributing sources increased the overall score.  The primary source does not match the full answer well, which decreased the total score.  The answer had the terms \&quot;Service platform\&quot; and \&quot;leverages\&quot; and \&quot;checking\&quot; that were not backed by a reference to source documentation, which decreased the final score significantly.&quot;,
-  &quot;semanticDetails&quot;: {
-    &quot;sourceJumps&quot;: 17,
-    &quot;stdDeviation&quot;: 78.71767414134023,
-    &quot;topSourceCoverage&quot;: 0.4640198511166253,
-    &quot;totalCoverage&quot;: 1.0397022332506203,
-    &quot;answerLength&quot;: 403,
-    &quot;longestPhrase&quot;: 41,
-    &quot;unattributedKeyTerms&quot;: [],
-    &quot;unattributedTerms&quot;: [
-      &quot;Service platform&quot;,
-      &quot;leverages&quot;,
-      &quot;checking&quot;
-    ],
-    &quot;unattributedNumbers&quot;: [],
-    &quot;missingKeyTerms&quot;: [],
-    &quot;missingTerms&quot;: []
-  },
-  &quot;time&quot;: 13181,
-  &quot;thumbs&quot;: &quot;https://api.neuralseek.com/v1/test/thumbs/1706800601368/1393218967/rate.svg&quot;
-}
-</code></pre>
+<h2 id="example-of-curl-command-to-invoke-rest-api">Example of curl command to invoke REST API<a class="headerlink" href="#example-of-curl-command-to-invoke-rest-api" title="Permanent link"></a></h2>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://api.neuralseek.com/v1/test/seek&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;apikey: xxxxxx07-xxxxxxbc-xxxxxxae-xxxxxxef&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{ &quot;question&quot;: &quot;I want to know more about NeuralSeek&quot; }&#39;</span>
+</code></pre></div>
+<h2 id="example-of-json-response">Example of JSON Response<a class="headerlink" href="#example-of-json-response" title="Permanent link"></a></h2>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek is an AI-powered Answers-as-a-Service platform designed to enhance information sharing and customer support within virtual agents. It leverages a sophisticated Large Language Model (LLM) and a corporate KnowledgeBase to provide contextually relevant responses to user queries. NeuralSeek offers features such as fact-checking, data analytics, and step-by-step instructions to improve AI-generated responses. It can be integrated with virtual agents like IBM Watson Assistant or AWS Lex and used as an internal organization tool. NeuralSeek also provides training resources, demos, and support for users.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ufa&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek is an AI-powered Answers-as-a-Service platform designed to enhance information sharing and customer support within virtual agents. It leverages a sophisticated Large Language Model (LLM) and a corporate KnowledgeBase to provide contextually relevant responses to user queries. NeuralSeek offers features such as fact-checking, data analytics, and step-by-step instructions to improve AI-generated responses. It can be integrated with virtual agents like IBM Watson Assistant or AWS Lex and used as an internal organization tool. NeuralSeek also provides training resources, demos, and support for users.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FAQ-neuralseek&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;categoryName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Other&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;answerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1706800601368</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;warningMessages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;cachedResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;langCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sentiment&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;totalCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;KBscore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://documentation.neuralseek.com/overview/&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;document&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek Overview&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kbTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7472</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kbCoverage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">56</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;semanticScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;semanticAnalysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The answer has many jumps between source articles, which lowered the overall score.  Source jumping may indicate the meaning &amp; intent of the source articles are not carrying thru to the answer.  The high standard deviation of the contributing sources increased the overall score.  The primary source does not match the full answer well, which decreased the total score.  The answer had the terms \&quot;Service platform\&quot; and \&quot;leverages\&quot; and \&quot;checking\&quot; that were not backed by a reference to source documentation, which decreased the final score significantly.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;semanticDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sourceJumps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;stdDeviation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">78.71767414134023</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;topSourceCoverage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4640198511166253</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;totalCoverage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0397022332506203</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;answerLength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longestPhrase&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;unattributedKeyTerms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;unattributedTerms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;Service platform&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;leverages&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;checking&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;unattributedNumbers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;missingKeyTerms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;missingTerms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13181</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;thumbs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.neuralseek.com/v1/test/thumbs/1706800601368/1393218967/rate.svg&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 
   <br>
 </div>

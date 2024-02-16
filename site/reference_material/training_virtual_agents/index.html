@@ -17,9 +17,9 @@
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/colors.css" rel="stylesheet">
-    <link href="../../css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/highlight-github-theme.css">
     <link rel="stylesheet" href="../../css/highlightjs-copy.css">
+    <link href="../../css/base.css" rel="stylesheet">
     <link href="../../css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -84,7 +84,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h2 id="overview">Overview</h2>
+    <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <ul>
 <li><strong>What is it?</strong><ul>
 <li>NeuralSeek will automatically generate IBM Watson Assistant “Actions” or “Dialogs,” based on user questions that are asked. Generally, IBM Watson Assistant needs five (5) or more user question examples to train on for a high confidence match to a user query. When user questions are cataloged by the system, NeuralSeek automatically tries to generate similar worded questions to meet the minimum of five (5) user examples. Similar Question generation may take up to one (1) minute to show inside the Curate tab after a new user question is logged.</li>
@@ -99,7 +99,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<h2 id="generating-questions-and-answers">Generating Questions and Answers</h2>
+<h2 id="generating-questions-and-answers">Generating Questions and Answers<a class="headerlink" href="#generating-questions-and-answers" title="Permanent link"></a></h2>
 <p>After you have configured NeuralSeek, in its <code>Home</code>, you will see an option to auto-generate questions.</p>
 <p><a class="glightbox" href="../images/image-001.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="generate questions" src="../images/image-001.png" /></a></p>
 <p>Clicking will let NeuralSeek scan through your KnowledgeBase, and start generating potential questions that would be most commonly used.</p>
@@ -108,20 +108,18 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><a class="glightbox" href="../images/image-003.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="generation complete" src="../images/image-003.png" /></a></p>
 <p>When you feel like you can generate the Answers for those questions, you can click Submit button and those questions will be available on the <code>curate</code> tab of the top menu. Usually the most recently entered questions and answers appear at the top:</p>
 <p><a class="glightbox" href="../images/image-004.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="loaded answers" src="../images/image-004.png" /></a></p>
-<h2 id="testing-questions">Testing Questions</h2>
+<h2 id="testing-questions">Testing Questions<a class="headerlink" href="#testing-questions" title="Permanent link"></a></h2>
 <p>During the curation process, usually the user would need to use <code>Seek</code> tab to submit questions to see how well the answer is generated. However, this process can be tedious if you have a certain set of questions that you want to ask in bulk and derive the results. In that case, you can use <code>Upload Test Questions</code> to upload multiple questions and generate their answers easily.</p>
 <ol>
 <li>Go to <code>Home</code> of NeuralSeek, and click <code>Upload Test Questions</code>.</li>
 <li>In the instructions, you will see a link of <code>template</code> file that you can download from. It's a template file in CSV format. click it to download.</li>
-<li>Use the file to enter the list of questions. For example,</li>
-</ol>
-<pre><code class="language-csv">    ID,Question
+<li>Use the file to enter the list of questions. For example,
+<div class="highlight"><pre><span></span><code>    ID,Question
     1,&quot;What are the main features of NeuralSeek?&quot;
     2,&quot;What are the knowledgebases supported by NeuralSeek?&quot;
     3,&quot;I want to integration NeuralSeek with Watson Assistant. What do I need to do?&quot;
     4,&quot;Where can I see the demo?&quot;
-</code></pre>
-<ol start="4">
+</code></pre></div></li>
 <li>Click the upload button to upload the file.</li>
 <li>Click <code>Submit</code> button.</li>
 <li>NeuralSeek will run through the questions and let you know how many are being processed. When it is finsihed it </li>
@@ -139,14 +137,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Export All Q&amp;A: it will export all the Q&amp;A currently stored in NeuralSeek, in JSON format suitable to be imported as Watson Assistant Actions.</li>
 <li>Delete Report: it will delete the generated report, and will not be available anymore.</li>
 </ol>
-<h2 id="uploading-curated-qa">Uploading Curated Q/A</h2>
-<p>This feature is very similar to <code>Upload Test Questions</code>, but uses the CSV format that has <code>ID,Question,Answer</code>. User can create question and answer pairs to submit it, which will then be populated as <code>edited answers</code> in NeuralSeek. This feature is useful when you need to edit and upload answers in bulk fashion. An example format of the CSV is as follows:</p>
-<pre><code class="language-csv">ID,Question,Answer
+<h2 id="uploading-curated-qa">Uploading Curated Q/A<a class="headerlink" href="#uploading-curated-qa" title="Permanent link"></a></h2>
+<p>This feature is very similar to <code>Upload Test Questions</code>, but uses the CSV format that has <code>ID,Question,Answer</code>. User can create question and answer pairs to submit it, which will then be populated as <code>edited answers</code> in NeuralSeek. This feature is useful when you need to edit and upload answers in bulk fashion. An example format of the CSV is as follows:
+<div class="highlight"><pre><span></span><code>ID,Question,Answer
 1,Tell me about NeralSeek,&quot;NeuralSeek is an AI-powered platform that generates natural-language answers to complex, open-ended, and contextual questions from real customers.&quot;
-</code></pre>
-<h2 id="importing-qa-into-watson-assistant">Importing Q/A into Watson Assistant</h2>
+</code></pre></div></p>
+<h2 id="importing-qa-into-watson-assistant">Importing Q/A into Watson Assistant<a class="headerlink" href="#importing-qa-into-watson-assistant" title="Permanent link"></a></h2>
 <p>Depending on how your NeuralSeek is setup, it can either product questions and answers into <code>Action</code> type or <code>Dialog</code> type. That depends on whether your Watson Assistant is enabled with dialog or not.</p>
-<h3 id="importing-into-watson-assistant-as-actions">Importing into Watson Assistant as Actions</h3>
+<h3 id="importing-into-watson-assistant-as-actions">Importing into Watson Assistant as Actions<a class="headerlink" href="#importing-into-watson-assistant-as-actions" title="Permanent link"></a></h3>
 <p>👉 As for importing Q&amp;A into Watson Assistant, you can do it on both Watson Assistant <code>Classic</code> mode or new <code>Dialog</code> mode.</p>
 <ol>
 <li>Go to your Watson Assistant, and to go to <code>Actions</code>. Click the gear icon on top right to go into the settings.</li>
@@ -189,7 +187,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><a class="glightbox" href="../images/image-028.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="generated questions_1" src="../images/image-028.png" /></a>
 <a class="glightbox" href="../images/image-029.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="generated questions_2" src="../images/image-029.png" /></a></p>
 <p>With these, you can easy save time to jump start Watson Assistant to provide better answers to the questions and answers generated by NeuralSeek. One other nice thing about this is that if you find any particular questions and answers that does not yet exist in Watson Assistant, you can easily move them from NeuralSeek.</p>
-<h3 id="importing-into-watson-assistant-as-dialogs">Importing into Watson Assistant as Dialogs</h3>
+<h3 id="importing-into-watson-assistant-as-dialogs">Importing into Watson Assistant as Dialogs<a class="headerlink" href="#importing-into-watson-assistant-as-dialogs" title="Permanent link"></a></h3>
 <blockquote>
 <p>Unlike importing them as Actions, you first need to export your Watson Assistant's dialogs and set them as <code>Base Watson Assistant Dialog</code> into NeuralSeek. That is because Watson Assistant, when uploading a Dialog, would simply override the existing dialog and upload a new one. In order to make sure any existing actions or dialogs are not deleted, NeuralSeek needs to have it first, and then merge the dialogs into it.</p>
 </blockquote>

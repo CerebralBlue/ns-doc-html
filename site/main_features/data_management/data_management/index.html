@@ -81,41 +81,31 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="automatic-data-cleansing-and-preparation">Automatic Data Cleansing and Preparation<a class="headerlink" href="#automatic-data-cleansing-and-preparation" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>When using webpages as documentation for the KnowledgeBase, nuisance information such as banners and cookies will deteriorate information relevant to the users organization. The Automatic Data Cleansing feature of NeuralSeek will automatically cleanse the web pages that were scraped, exposing information pertinent to the organization, at the users own pace.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Condensing and focusing the information, while removing useless wording returned by the KnowledgeBase is critical to high quality answer generation.  Most web content is not great at directly answering questions because of the amount of nuisance webpage language that gets extracted with the core content.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>NeuralSeek will identify documents in the KnowledgeBase that come from webscrapes.  NeuralSeek will then run its own algorithm against the full webpage HTML to extract just the core content and remove as much of the extraneous information as possible.</li>
 </ul>
-</li>
-</ul>
 <h1 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link"></a></h1>
-<ul>
-<li>
 <p><strong>What is it?</strong></p>
 <ul>
 <li>NeuralSeek uses <a href="https://en.wikipedia.org/wiki/Cache_(computing)">caching</a> strategy in two areas (Corporate KnowledgeBase and Answer) to enhance performance and reduce computational cost during its operation.</li>
 </ul>
-</li>
-<li>
 <p><strong>Why is it important?</strong></p>
 <ul>
 <li>Caching frequently returned answers saves both time and computation cost to run virtual agents, as it reduces NeuralSeek having to generate responses repeatedly, especially on the more frequently asked questions or seldom updated answers.</li>
 </ul>
-</li>
-<li>
 <p><strong>How does it work?</strong></p>
 <ul>
 <li>The first part is when NeuralSeek searches through the corporate knowledge base to obtain the original information. You can set the cache duration of such responses to be cached, so that the original information’s retrieval time can be reduced.</li>
 <li>NeuralSeek then utilizes two types of caches for both your edited answers and generated answers that can serve cached answers to user questions in order to speed up response times and produce more consistent results.</li>
-</ul>
-</li>
 </ul>
 <h2 id="corporate-knowledgebase-cache">Corporate KnowledgeBase Cache<a class="headerlink" href="#corporate-knowledgebase-cache" title="Permanent link"></a></h2>
 <p>When NeuralSeek accesses the Corporate KnowledgeBase, it processes the original data from it, cleanses its contents (e.g. removing unnecessary contents, filtering, deduplicating, etc.), compresses it, and prioritize the returned contents which is then processed with LLM (Large Language Model) to form the completed response, usually at the range of 8,000 ~ 9,000 characters. It then derives a hash value of that response window which acts as a check to later see if the original data is updated. This response is what actually gets cached within the NeuralSeek, so that all those search, processing, and LLM-generated time is effectively saved when the same answer needs to be derived.</p>
@@ -144,35 +134,19 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><a class="glightbox" href="../images/image_006.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="answer from cache" src="../images/image_006.png" /></a></p>
 <p>Next to the <code>Total Response Time</code>, you will see a label <code>Cached</code> which indicates that the answer came straight from the cache.</p>
 <h1 id="content-analytics">Content Analytics<a class="headerlink" href="#content-analytics" title="Permanent link"></a></h1>
-<ul>
-<li>
 <p><strong>What is it?</strong></p>
 <ul>
 <li>NeuralSeek incorporates content analytics as a built-in feature, eliminating the need for additional code. With Content Analytics in NeuralSeek, users can effortlessly gather information about what users are searching for, assess the extent of documentation available on those topics, and evaluate documentation efficiency in addressing user queries.</li>
 </ul>
-</li>
-<li>
 <p><strong>Why is it important?</strong></p>
 <ul>
 <li>Content Analytics are a powerful feature that enable insight on the performance of your corporate documentation.  You can gain insights on where content is excellent, underperforming,  nonexistent or seldom used - and inform the groups responsible for creating or updating that information on how better to allocate their time.</li>
 </ul>
-</li>
-<li>
 <p><strong>How does it work?</strong></p>
-<ul>
-<li>
 <p>Two main scores are returned when a user asks a question to NeuralSeek:</p>
 <ul>
-<li>
-<p><strong>Coverage Score:</strong> This score represents the number of documents or sections of documents that discuss the subject area(s) of a question from NeuralSeek.</p>
-</li>
-<li>
-<p><strong>Confidence Score:</strong> The confidence score represents the likelihood that the information found in the KnowledgeBase of NeuralSeek and presented as a response is correct. This probability is given as a percentage.  Low scoring questions with low coverage scores tend to mean there is little or no documentation on the subject.  Low scoring questions with high coverage tends to mean there are conflicting source documents. </p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><strong>Coverage Score:</strong> This score represents the number of documents or sections of documents that discuss the subject area(s) of a question from NeuralSeek.</li>
+<li><strong>Confidence Score:</strong> The confidence score represents the likelihood that the information found in the KnowledgeBase of NeuralSeek and presented as a response is correct. This probability is given as a percentage.  Low scoring questions with low coverage scores tend to mean there is little or no documentation on the subject.  Low scoring questions with high coverage tends to mean there are conflicting source documents. </li>
 </ul>
 
   <br>

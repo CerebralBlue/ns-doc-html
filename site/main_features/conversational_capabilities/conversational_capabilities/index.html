@@ -89,57 +89,51 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="conversational-context">Conversational Context<a class="headerlink" href="#conversational-context" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek maintains context during each user interaction (conversation). When initiating a conversation, a session token is generated. Using this token and several Natural Language Processing (NLP) models, NeuralSeek tracks the topic of conversation to keep interactions focused and structured, allowing it to follow-up on questions that do not directly refer to the topic. In addition, these NLP models enable NeuralSeek to filter corporate knowledge topically by date to ensure that the information being returned is focused on the time period of the question.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Conversational Context allows for NeuralSeek to answer questions without users being specific about their language for every turn of the conversation.  This enables higher containment rates in customer-facing conversations.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>NeuralSeek employs several NLP models to identify and extract meaning, intent, and main subject from user questions and generated responses.  These then inform later turns of the conversation so that the proper context can be brought forward from the KnowledgeBase and used for answer formation.  It also weighs heavily on caching and how the data can be cached.  For example - The answer to a user question like "how does it work" depends heavily on the previous statements from a user.  NeuralSeek requires that you pass an ID that can uniquely identify a user's session to enable this conversational context.  The can be either or both the user_id and the session_id properties on the seek request. You do not need to maintain consistent id's over time for a specific actual person - the id must just be constant for the session that you wish to maintain context for.</li>
 </ul>
-</li>
-</ul>
 <h1 id="curation-of-answers">Curation of Answers<a class="headerlink" href="#curation-of-answers" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek is directly trained off of the documentation loaded into the KnowledgeBase. If there are undesired answers from NeuralSeek, the first step is to review the documentation within the KnowledgeBase, and effectively curate the answer which can then be used by NeuralSeek to train itself better the next time it answers.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>One of the key factors in reducing costs is the utilization of curated answers sourced from a pool of responses, which proves to be more economical. Also, when the collection of answers becomes stagnant, potentially leading to outdated information, this feature will be able to detect it and refresh those with less manual process.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>To tackle this challenge, NeuralSeek provides a solution by automatically monitoring the sources of information. It continuously tracks and compares the generated responses with the source documents to determine if any changes have occurred. By doing so, NeuralSeek ensures that the answers remain up-to-date and relevant. This eliminates the need for manual intervention and the potential for outdated information, allowing users to trust the accuracy and currency of the answers provided.</li>
-</ul>
-</li>
 </ul>
 <h2 id="curating-intents-and-answers">Curating Intents and Answers<a class="headerlink" href="#curating-intents-and-answers" title="Permanent link"></a></h2>
 <p><a class="glightbox" href="../images/image-001.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="curate" src="../images/image-001.png" /></a></p>
 <p>Let's first visit the UI page for curating intents and answers. Click the <code>Curate</code> tab on the top menu. </p>
 <p>The UI is composed of the following columns:</p>
+<p><strong>Intent</strong>: </p>
 <ul>
-<li><strong>Intent</strong>: <ul>
 <li>Intents are a collection of questions that may be related to the similar <code>intent</code> of the question. It is prefixed by certain types of intents, such as <code>FAQ</code>, followed by the question's subject areas. By default, all the intents do fall under a category <code>Others</code>, but you can also define your own category in NeuralSeek's configuration.</li>
 <li>Intents also have a number of indicators that help users to understand the status of the intent. For example, it can show whether the intent has any new answers, whether the intent contains any PII (personally identifiable information), or whether the intent's underlying data has been outdated, etc.</li>
 </ul>
-</li>
-<li><strong>Q&amp;A</strong>: <ul>
+<p><strong>Q&amp;A</strong>: </p>
+<ul>
 <li>Shows the number of questions (white dialog icon) and answers (blue dialog icon) that this particular intent contains.</li>
 </ul>
-</li>
-<li><strong>Coverage %</strong>: <ul>
+<p><strong>Coverage %</strong>: </p>
+<ul>
 <li>Indicates how much the KnowledgeBase has contributed to the answer's coverage. If NeuralSeek was able to find all the necessary information from the KnowledgeBase, this percentage is going to be very high.</li>
 </ul>
-</li>
-<li><strong>Confidence %</strong>: <ul>
+<p><strong>Confidence %</strong>: </p>
+<ul>
 <li>Indicates how much NeuralSeek's answer is most likely to satisfy the user. If this score is high, it means the answer has a high score of being legitimate and true to the facts.</li>
-</ul>
-</li>
 </ul>
 <h3 id="reading-the-trend">Reading the trend<a class="headerlink" href="#reading-the-trend" title="Permanent link"></a></h3>
 <p><a class="glightbox" href="../images/image-002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="graph and color" src="../images/image-002.png" /></a></p>
@@ -200,27 +194,23 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>There is no option to rollback the merge, so do it with caution.</p>
 </blockquote>
 <h1 id="dynamic-personalization">Dynamic Personalization<a class="headerlink" href="#dynamic-personalization" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>One way NeuralSeek quickly ties into the users business is by automatically personalizing results based on information from their Customer Relationship Management (CRM) system. By analyzing user data such as past interactions, preferences, purchase history, and demographic information, NeuralSeek can dynamically adjust its outputs to match the specific needs and preferences of each individual user.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Personalized answers tend to engage users more, and can result in higher satisfaction and containment.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>This can be previewed in the “Seek” tab of the NeuralSeek UI, and in production environments users will pass the personalization details via our API as the REST call to when /seek is made. </li>
 </ul>
-</li>
-</ul>
 <h1 id="entity-extraction">Entity Extraction<a class="headerlink" href="#entity-extraction" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek has a feature called ‘Extract’ which is a service to let users extract entities within a given user text. Users can also define their custom entities and provide descriptions for NeuralSeek to detect and extract entities that are defined by users. The service is provided with a REST endpoint which can be used by external applications such as virtual agents or chat bots to invoke it within their conversational flow to enhance their capabilities to detect entities within it.</li>
 </ul>
-</li>
-<li>
 <p><strong>Why is it important?</strong></p>
 <ul>
 <li>Virtual Agents can define various ‘entities’, which may have values that need to be categorized into concepts or types that can play various roles during their request handling. For example, when a user types a question like:</li>
@@ -243,13 +233,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Maintaining a large set of entities and its subsequent values can be costly and time consuming.</li>
 <li>If you have to support multiple languages, you may need to provide all the possible values as legal vocabularies which can then be a pretty challenging feat.</li>
 </ul>
-</li>
-<li>
 <p><strong>How does it work?</strong></p>
 <ul>
 <li>NeuralSeek’s Entity Extraction uses natural language processing to extract key entities that your virtual agent needs to understand, without requiring you to specify possible values or patterns and having the burden of constantly maintaining it.</li>
-</ul>
-</li>
 </ul>
 <h2 id="entity-extraction-from-conversation">Entity Extraction From Conversation<a class="headerlink" href="#entity-extraction-from-conversation" title="Permanent link"></a></h2>
 <p>Let’s take a look at the above example of defining a movie ticket as a product. In the tab ‘Extract,’ enter the same text of ‘I would like to buy a movie ticket’ and click the ‘Extract’ button.</p>

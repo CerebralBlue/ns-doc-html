@@ -85,19 +85,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek will automatically generate IBM Watson Assistant “Actions” or “Dialogs,” based on user questions that are asked. Generally, IBM Watson Assistant needs five (5) or more user question examples to train on for a high confidence match to a user query. When user questions are cataloged by the system, NeuralSeek automatically tries to generate similar worded questions to meet the minimum of five (5) user examples. Similar Question generation may take up to one (1) minute to show inside the Curate tab after a new user question is logged.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Users who develop and maintain Watson Assistant have to work with its Actions and Dialogs, and can quickly get overwhelmed by its vast numbers. Coming up with multiple number of questions for each intent is also very time consuming, but it also quickly becomes burdensome when you have to continuously monitor and update them by yourself.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>NeuralSeek provides ways to generate the candiate questions and answers based on the contents inside the KnowledgeBase, and let users download the whole thing or portions of it, so that it could be created either as 1) Watson Assistant Actions, or 2) Watson Assistant Dialogs.</li>
-</ul>
-</li>
 </ul>
 <h2 id="generating-questions-and-answers">Generating Questions and Answers<a class="headerlink" href="#generating-questions-and-answers" title="Permanent link"></a></h2>
 <p>After you have configured NeuralSeek, in its <code>Home</code>, you will see an option to auto-generate questions.</p>
@@ -113,13 +111,15 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <ol>
 <li>Go to <code>Home</code> of NeuralSeek, and click <code>Upload Test Questions</code>.</li>
 <li>In the instructions, you will see a link of <code>template</code> file that you can download from. It's a template file in CSV format. click it to download.</li>
-<li>Use the file to enter the list of questions. For example,
+<li>Use the file to enter the list of questions. For example,</li>
+</ol>
 <div class="highlight"><pre><span></span><code>    ID,Question
     1,&quot;What are the main features of NeuralSeek?&quot;
     2,&quot;What are the knowledgebases supported by NeuralSeek?&quot;
     3,&quot;I want to integration NeuralSeek with Watson Assistant. What do I need to do?&quot;
     4,&quot;Where can I see the demo?&quot;
-</code></pre></div></li>
+</code></pre></div>
+<ol start="4">
 <li>Click the upload button to upload the file.</li>
 <li>Click <code>Submit</code> button.</li>
 <li>NeuralSeek will run through the questions and let you know how many are being processed. When it is finsihed it </li>
@@ -138,10 +138,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Delete Report: it will delete the generated report, and will not be available anymore.</li>
 </ol>
 <h2 id="uploading-curated-qa">Uploading Curated Q/A<a class="headerlink" href="#uploading-curated-qa" title="Permanent link"></a></h2>
-<p>This feature is very similar to <code>Upload Test Questions</code>, but uses the CSV format that has <code>ID,Question,Answer</code>. User can create question and answer pairs to submit it, which will then be populated as <code>edited answers</code> in NeuralSeek. This feature is useful when you need to edit and upload answers in bulk fashion. An example format of the CSV is as follows:
+<p>This feature is very similar to <code>Upload Test Questions</code>, but uses the CSV format that has <code>ID,Question,Answer</code>. User can create question and answer pairs to submit it, which will then be populated as <code>edited answers</code> in NeuralSeek. This feature is useful when you need to edit and upload answers in bulk fashion. An example format of the CSV is as follows:</p>
 <div class="highlight"><pre><span></span><code>ID,Question,Answer
 1,Tell me about NeralSeek,&quot;NeuralSeek is an AI-powered platform that generates natural-language answers to complex, open-ended, and contextual questions from real customers.&quot;
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="importing-qa-into-watson-assistant">Importing Q/A into Watson Assistant<a class="headerlink" href="#importing-qa-into-watson-assistant" title="Permanent link"></a></h2>
 <p>Depending on how your NeuralSeek is setup, it can either product questions and answers into <code>Action</code> type or <code>Dialog</code> type. That depends on whether your Watson Assistant is enabled with dialog or not.</p>
 <h3 id="importing-into-watson-assistant-as-actions">Importing into Watson Assistant as Actions<a class="headerlink" href="#importing-into-watson-assistant-as-actions" title="Permanent link"></a></h3>

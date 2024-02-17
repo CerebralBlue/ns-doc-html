@@ -649,13 +649,20 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
  For mobile screens - shrink the title size, and widen the content body slightly
  ***********************************************************************/
 
- @media(max-width: 450px) {
+ @media(max-width: 600px) {
   .wm-top-brand {
     font-size: 1.4rem;
   }
 
   .wm-page-content {
     max-width: 98%;
+  }
+  
+  .wm-page-content img {
+    max-width: 90%;
+  }
+  p:has(.glightbox) {
+    margin: 20px 20px 30px 20px;
   }
 }
 

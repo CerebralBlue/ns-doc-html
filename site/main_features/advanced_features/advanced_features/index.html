@@ -90,30 +90,26 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="pii-detection">PII Detection<a class="headerlink" href="#pii-detection" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek features an advanced Personal Identifiable Information (PII) detection routine that automatically identifies any PII within user inputs. It allows users to flag, mask, hide, or delete the detected PII.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Users can maintain a secure environment while providing accurate responses to user queries, ensuring compliance with data privacy regulations and protecting sensitive information.</li>
 </ul>
-</li>
-<li>
 <p><strong>How does it work?</strong></p>
 <ul>
 <li>Common and well known PII detection is enabled by default in NeuralSeek. When you enter a PII information, for example, when you enter a credit card number in Seek:</li>
 </ul>
-<p><a class="glightbox" href="../images/image_001.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="entering PII" src="../images/image_001.png" /></a></p>
+<p><a class="glightbox" href="../images/pii_image_001.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="entering PII" src="../images/pii_image_001.png" /></a></p>
 <p>In NeuralSeek, the question above will be logged and flagged as containing PII information and warns user about a potential risk.</p>
-<p><a class="glightbox" href="../images/image_002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="detecting PII" src="../images/image_002.png" /></a></p>
+<p><a class="glightbox" href="../images/pii_image_002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="detecting PII" src="../images/pii_image_002.png" /></a></p>
 <p>The credit card number is also masked and removed, so that the data is protected from being viewed. The answers to these questions also indicate that they were generated from a question with PII in it, so that you can easily identify them.</p>
-<p><a class="glightbox" href="../images/image_003.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="masking PII" src="../images/image_003.png" /></a></p>
-</li>
-</ul>
+<p><a class="glightbox" href="../images/pii_image_003.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="masking PII" src="../images/pii_image_003.png" /></a></p>
 <h2 id="defining-a-specific-pii">Defining a specific PII<a class="headerlink" href="#defining-a-specific-pii" title="Permanent link"></a></h2>
 <p>However, this is what NeuralSeek does against common PII patterns, and there may be a specific PII that you would like to hide for your specific business needs. If you want to help NeuralSeek better detect and process PII for that, you can configure it under <code>Configure &gt; Personal Identifiable Information (PII)</code> Handling in the top menu:</p>
-<p><a class="glightbox" href="../images/image_004.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="defining pii" src="../images/image_004.png" /></a></p>
+<p><a class="glightbox" href="../images/pii_image_004.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="defining pii" src="../images/pii_image_004.png" /></a></p>
 <p>How it works is based on an example sentence, and does not have to be an exact pattern or rules. For example, setting the example sentence as:</p>
 <div class="highlight"><pre><span></span><code>My name is Howard Yoo and my blood type is O, and I live in Chicago.
 </code></pre></div>
@@ -124,51 +120,41 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <div class="highlight"><pre><span></span><code>This is my blood type: A
 </code></pre></div>
 <p>NeuralSeek now detects that and masks the blood type that the user provided from being exposed:</p>
-<p><a class="glightbox" href="../images/image_005.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="masking PII result" src="../images/image_005.png" /></a></p>
+<p><a class="glightbox" href="../images/pii_image_005.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="masking PII result" src="../images/pii_image_005.png" /></a></p>
 <h2 id="ignoring-certain-pii">Ignoring certain PII<a class="headerlink" href="#ignoring-certain-pii" title="Permanent link"></a></h2>
 <p>You can also make NeuralSeek ignore certain PII by entering “No PII” to the element. For example, by setting the element as “No PII” with a given example sentence, NeuralSeek will not filter out the question even though it would contain an PII element:</p>
-<p><a class="glightbox" href="../images/image_006.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ignoring pii" src="../images/image_006.png" /></a></p>
+<p><a class="glightbox" href="../images/pii_image_006.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ignoring pii" src="../images/pii_image_006.png" /></a></p>
 <p>Therefore, when asked about a similar question, notice how dog’s name is now visible as not a PII information:</p>
-<p><a class="glightbox" href="../images/image_007.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ignoring pii result" src="../images/image_007.png" /></a></p>
+<p><a class="glightbox" href="../images/pii_image_007.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ignoring pii result" src="../images/pii_image_007.png" /></a></p>
 <p>The base reason to use this is that sometimes, NeuralSeek would mistake certain questions to be containing PII, even though the sentence may clearly not contain any such data. In that case, setting what not to consider as PII would be very helpful.</p>
 <h1 id="round-trip-logging">Round Trip Logging<a class="headerlink" href="#round-trip-logging" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>Round-trip logging is a process that involves recording and storing all interactions between a user and a Virtual Agent. NeuralSeek supports receiving logs from Virtual Agents in order to monitor curated responses. This includes the user’s question, the Virtual Agent’s response, and any follow-up questions or clarifications.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>The purpose of round-trip logging is to improve the Virtual Agent’s performance by alerting to content in the Virtual Agent that is likely out of date, because the source documentation has changed.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>The Source Virtual Agent is connected to NeuralSeek via the specific instructions per platform on the Integrate tab.  Once connected, NeuralSeek will monitor for intents that are being used live in the Virtual Agent.  Once per day NeuralSeek will search the connected KnowledgeBase and recompute the hash for the returned data.  That hash will be compared to the hash of the answers stored, and if no match is found, an alert will be generated notifying that the source documentation has changed compared to the last Answer generation completed by the seek endpoint.</li>
 </ul>
-</li>
-</ul>
 <h1 id="semantic-analytics">Semantic Analytics<a class="headerlink" href="#semantic-analytics" title="Permanent link"></a></h1>
-<ul>
-<li>
 <p><strong>What is it?</strong></p>
 <ul>
 <li>NeuralSeek generates responses by directly utilizing content from corporate sources. In order to ensure transparency between the sources and answers, NeuralSeek reveals the specific origin of the words and phrases that are generated. Clarity is further achieved by employing semantic match scores. These scores compare the generated response with the ground truth documentation, providing a clear understanding of the alignment between the response and the meaning conveyed in source documents. This ensures accuracy and instills confidence in the reliability of the responses generated by NeuralSeek.</li>
 </ul>
 <p><a class="glightbox" href="../images/semantic_analytics_updated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="what is semantic analytics" src="../images/semantic_analytics_updated.png" /></a></p>
-</li>
-<li>
 <p><strong>Why is it important?</strong></p>
 <ul>
 <li>By being able to analyze how the answer generated would be originated from the actual facts given by the KnowledgeBase, users can analyze from which sources the responses actually originated from, and how much of the responses are directly coming from the knowledge versus how much of them are from LLM’s generated answer. This ensures accuracy and instills confidence in the reliability of the responses generated by NeuralSeek.</li>
 </ul>
 <p>For example, NeuralSeek’s Seek will provide rich semantic analytics in terms of how well the response cover for the facts found in the KnowledgeBase (or cached generated answers) by color-coding the area of it in the response, visually linking it to the sources, and providing semantic analysis result to explain the key reasons behind the semantic match score given.</p>
 <p><a class="glightbox" href="../images/image_002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="why is it important" src="../images/image_002.png" /></a></p>
-</li>
-<li>
 <p><strong>How does it work?</strong></p>
 <ul>
 <li>When NeuralSeek receives a question, it will first try to match for existing intents and answers, it will also try to search the underlying corporate KnowledgeBase and return any relevant passages from a number of sources. NeuralSeek will then either use these answers as-is directly, or use parts of the information to form a response using LLM’s generative AI capability.</li>
-</ul>
-</li>
 </ul>
 <h2 id="configuring-semantic-analytics">Configuring Semantic Analytics<a class="headerlink" href="#configuring-semantic-analytics" title="Permanent link"></a></h2>
 <p>Configuration option for Semantic analysis is found under <code>Configure &gt; Confidence &amp; Warning</code> Thresholds . The semantic score model is enabled by default, but you can also disable it. You can also enable whether the semantic analysis should be used for confidence, and for reranking the search results from the knowledge base according to how much they semantically match. There are also sections for controlling how the analysis can apply penalties for missing key terms, search terms, or how frequent the sources are jumped (fragmented in the generated answer).</p>
@@ -208,22 +194,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h3 id="low-score-example">Low score example<a class="headerlink" href="#low-score-example" title="Permanent link"></a></h3>
 <p><a class="glightbox" href="../images/semantic_low_updated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="example low score" src="../images/semantic_low_updated.png" /></a></p>
 <h1 id="sentiment-analysis">Sentiment Analysis<a class="headerlink" href="#sentiment-analysis" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek's sentiment analysis is a feature that allows users to analyze the sentiment or emotional tone of a piece of text. It can determine whether the sentiment expressed in the text is positive, negative, or neutral. NeuralSeek's sentiment analysis is based on advanced natural language processing techniques and can provide valuable insights for businesses and organizations.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>By being able to detect whether a user is negative or positive about certain questions, you can let the virtual agent use this information to provide more tailored services. For example, for a user who expresses negative sentiment, virtual agents might forward the session to human agents or assign higher priority so that more attention could be provided.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>NeuralSeek will run sentiment analysis on the user’s input text. Sentiment is returned as an integer between zero (0) and nine (9), with zero (0) being the most negative, nine (9) being the most positive, and five (5) being neutral.</li>
 </ul>
-</li>
-</ul>
 <h2 id="sentiment-analysis-rest-api">Sentiment Analysis REST API<a class="headerlink" href="#sentiment-analysis-rest-api" title="Permanent link"></a></h2>
-<p>When using REST API, for example, providing negative comments could trigger a low sentiment analysis score.
+<p>When using REST API, for example, providing negative comments could trigger a low sentiment analysis score.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;I don&#39;t like NeuralSeek&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
@@ -236,7 +220,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
 </code></pre></div>
-Would yield a response with low sentiment score:
+<p>Would yield a response with low sentiment score:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;String i&#39;m sorry to hear that you don&#39;t like NeuralSeek. If you have any specific concerns or feedback, please let me know and I&#39;ll do my best to assist you.&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;cachedResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
@@ -252,7 +236,7 @@ Would yield a response with low sentiment score:
 <span class="w">  </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2688</span>
 <span class="p">}</span>
 </code></pre></div>
-Notice the sentiment score of 3, which is in the low range of 0 - 10. On the other hand, if you express a positive sentiment as such:
+<p>Notice the sentiment score of 3, which is in the low range of 0 - 10. On the other hand, if you express a positive sentiment as such:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;I really love NeuralSeek. It&#39;s the best software in the world.&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
@@ -265,7 +249,7 @@ Notice the sentiment score of 3, which is in the low range of 0 - 10. On the oth
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
 </code></pre></div>
-The response will have a higher sentiment score:
+<p>The response will have a higher sentiment score:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Thank you for sharing your positive feedback about NeuralSeek.  I cannot have personal opinions, but I&#39;m glad to hear that you find NeuralSeek to be the best software in the world.&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;cachedResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
@@ -280,18 +264,16 @@ The response will have a higher sentiment score:
 <span class="w">  </span><span class="nt">&quot;kbCoverage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7094</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
 <h1 id="table-understanding">Table Understanding<a class="headerlink" href="#table-understanding" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>Table Extraction, also known as <code>Table understanding</code>, pre-processes your documents to extract and parse table data into a format suitable for conversational queries. Since this preparation process is both <strong>costly</strong> and <strong>time-consuming</strong>, this feature is opt-in and will consume 1 seek query for every table preprocessed. Also, it should be noted that Web Crawl Collections are not eligible for table understanding, as the recrawl interval will cause excessive computing usage. Table preparation time takes several minutes per page.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Being able to understand data in tabular structure in documents and generating answers is an important capability for NeuralSeek in order to better find the relevant data for answering.</li>
 </ul>
-</li>
-<li>
 <p><strong>How does it work?</strong></p>
 <ul>
 <li>To find table extraction, open up your instance of NeuralSeek and head over to the <code>Configure</code>.</li>
@@ -314,8 +296,6 @@ The response will have a higher sentiment score:
 <div class="highlight"><pre><span></span><code>What were the GHG emissions for business travel in 2021?
 </code></pre></div>
 <p>You can also ask questions about a specific place or name and if there are multiple tables with data, NeuralSeek will take from each table and provide you with everything.</p>
-</li>
-</ul>
 
   <br>
 </div>

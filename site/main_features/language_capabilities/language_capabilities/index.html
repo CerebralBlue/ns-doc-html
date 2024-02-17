@@ -83,99 +83,89 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="identify-language">Identify Language<a class="headerlink" href="#identify-language" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek provides a service that would analyze and identify the language of a given text.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Any application that would need to understand which language a given text is can now use NeuralSeek to do it, rather than relying on other external services.</li>
 </ul>
-</li>
-<li>
 <p><strong>How does it work?</strong></p>
 <ul>
-<li>
-<p>Language identification is provided as REST API, and can be tested on <a href="https://api.neuralseek.com/">NeuralSeek API documentation</a>. Message payload is in <code>text/plain</code> format, and contains <code>text</code> in certain languages. An example message would look something like this:
+<li>Language identification is provided as REST API, and can be tested on <a href="https://api.neuralseek.com/">NeuralSeek API documentation</a>. Message payload is in <code>text/plain</code> format, and contains <code>text</code> in certain languages. An example message would look something like this:</li>
+</ul>
 <div class="highlight"><pre><span></span><code>이 언어는 어떤 언어입니까?
-</code></pre></div></p>
-</li>
-<li>
-<p>NeuralSeek would then identify what language this is in, and returns the language code and the confidence score:</p>
-</li>
+</code></pre></div>
+<ul>
+<li>NeuralSeek would then identify what language this is in, and returns the language code and the confidence score:</li>
 </ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="w">            </span><span class="p">[</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ko&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ko&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <h1 id="intent-categorization">Intent Categorization<a class="headerlink" href="#intent-categorization" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek can automatically categorize user input and questions into categories.  These categories can be anything - products, organizations, departments, etc. Users can set up categories on the Configure Tab, by entering category names and descriptions. These will then be used to match user input into categories. User inputs that do not match any category, or that too closely matche multiple categories will be placed in a default category called "Other". This default category cannot be modified. </li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Categorization is very useful at scaling NeuralSeek within an organization.  By grouping intents into categories it can make things much easier for subject matter experts to quickly take action on their specific area of content.  Categorization can be useful even outside the context of answering user questions - for example, in routing customer questions to the correct department or live agent. Categorization can be called directly via the API.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>User input is scored and bucketed based on the category title and description, and based on intents that have been manually moved into categories (self-learning).  Once categorization is enabled, the Curate and Analytics screens will change to show groupings around categories. Categorization is not retroactive - meaning if you define a new category, we will not automatically re-run all old user input against the new categories. Users may move intents into categories manually through the Curate tab or the CSV download/edit features. The edits made will be used to train the system for future categorization events.</li>
 </ul>
-</li>
-</ul>
 <h1 id="language-translation">Language Translation<a class="headerlink" href="#language-translation" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek provides language translation that will let users call it to translate languages into different languages.</li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Any application that would need to translate a given text to another language can now use NeuralSeek to do it, rather than relying on other external translation services.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>Translation is provided as REST API, and can be tested on <a href="https://api.neuralseek.com/">NeuralSeek API documentation</a>. </li>
-<li>Message payload is in JSON format, and contains an array of <code>text</code> in certain language(s). Another attribute is <code>target</code> which specifies the target language the translation needs to be performed in. An example message would look something like this:
+<li>Message payload is in JSON format, and contains an array of <code>text</code> in certain language(s). Another attribute is <code>target</code> which specifies the target language the translation needs to be performed in. An example message would look something like this:</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s2">&quot;NeuralSeek introduced several new features in July 2023, including streaming responses for web use cases, enhanced cross-lingual support, curate to CSV/upload curated QA from CSV, improved semantic match analysis, updated IBM WatsonX model compatibility, and AWS Lex round-trip monitoring.&quot;</span>
 <span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ko&quot;</span>
 <span class="p">},</span>
-</code></pre></div></li>
-</ul>
-</li>
-</ul>
+</code></pre></div>
 <blockquote>
 <p>For more details on what language codes are supported, please refer to <a href="./#multi-language-support">Multi Language Support</a>.</p>
 </blockquote>
 <p>NeuralSeek would then translate the given text into the target language <code>ko</code> which is Korean:</p>
-<p><div class="highlight"><pre><span></span><code><span class="w">        </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;word_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;character_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">289</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;translations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;word_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;character_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">289</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;translations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="s2">&quot;NeuralSeek은 2023년 7월에 웹 사용 사례를 위한 스트리밍 응답, 향상된 교차 언어 지원, CSV에 대한 선별/선별 QA 업로드, 개선된 의미 일치 분석, 업데이트된 IBM WatsonX 모델 호환성 및 AWS Lex 왕복 모니터링과 같은 여러 가지 새로운 기능을 도입했습니다.&quot;</span>
-<span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="nt">&quot;detected_language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;detected_language_confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999967787054185</span>
-<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;detected_language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;detected_language_confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999967787054185</span>
+<span class="p">}</span>
 </code></pre></div>
-You can also provide texts in different languages that can all be translated into the target language:</p>
-<p><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">&quot;soy un chico.&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;나는 소년입니다.&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;私は男の子です.&quot;</span>
-<span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span>
-<span class="w">    </span><span class="p">}</span>
+<p>You can also provide texts in different languages that can all be translated into the target language:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;soy un chico.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;나는 소년입니다.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;私は男の子です.&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
-Which will be translated into <code>en</code> which is English:</p>
+<p>Which will be translated into <code>en</code> which is English:</p>
 <div class="highlight"><pre><span></span><code><span class="w">        </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;word_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;character_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
@@ -189,19 +179,17 @@ Which will be translated into <code>en</code> which is English:</p>
 <span class="w">        </span><span class="p">}</span>
 </code></pre></div>
 <h1 id="multi-language-support">Multi Language Support<a class="headerlink" href="#multi-language-support" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
 <ul>
-<li><strong>What is it?</strong><ul>
 <li>NeuralSeek has several different language options available for understanding questions and delivering answers. These include English, Spanish, Portuguese, French, German, Italian, Arabic, Korean, Chinese, Czech, Dutch, Indonesian, Japanese, and more. These can be adjusted on the “Configure” section of the NeuralSeek console, or on the “Seek” endpoint. Please see the below table for the full list of supported languages. </li>
 </ul>
-</li>
-<li><strong>Why is it important?</strong><ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
 <li>Being able to automatically translate answers to an appropriate language without relying on a virtual agent is important, as this greatly simplifies running it. Instead of having to train your virtual agents to understand various different languages, your question can be automatically converted into the response in the language of your choice.</li>
 </ul>
-</li>
-<li><strong>How does it work?</strong><ul>
+<p><strong>How does it work?</strong></p>
+<ul>
 <li>NeuralSeek will try to determine if the user is asking a question in a certain language (e.g. Spanish), and will try to convert the responses into the language that the user asked without any additional set ups.</li>
-</ul>
-</li>
 </ul>
 <h2 id="supported-languages">Supported Languages<a class="headerlink" href="#supported-languages" title="Permanent link"></a></h2>
 <table>

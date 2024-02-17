@@ -127,6 +127,7 @@ function updateTocButtonState() {
  * contents, so that the page scrolls as a whole rather than inside the iframe.
  */
 function updateContentHeight() {
+  return; // we like the header to be sticky, and setting the height also breaks the lightbox.
   if (isSmallScreen()) {
     $('.wm-content-pane').height(iframeWindow.document.body.offsetHeight + 20);
     $('.wm-article').attr('scrolling', 'no');

@@ -27,8 +27,16 @@ class CopyButtonPlugin {
       className: "hljs-copy-button",
     });
     button.dataset.copied = false;
-    el.parentElement.parentElement.classList.add("hljs-copy-wrapper");
-    el.parentElement.parentElement.appendChild(button);
+    function addWrapper(pE) {
+      pE.classList.add('hljs-copy-wrapper');
+      pE.appendChild(button);
+    }
+    if (el.parentElement.tagName === 'DIV' && el.parentElement.classList.contains('highlight')) {
+      addWrapper(el.parentElement);
+    } else if (el.parentElement.parentElement.tagName === 'DIV' && el.parentElement.parentElement.classList.contains('highlight')) {
+      addWrapper(el.parentElement.parentElement);
+    }
+  
 
     // Add a custom proprety to the code block so that the copy button can reference and match its background-color value.
     el.parentElement.style.setProperty(

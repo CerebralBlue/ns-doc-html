@@ -204,16 +204,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <p><strong>How does it work?</strong></p>
 <ul>
-<li>This can be previewed in the “Seek” tab of the NeuralSeek UI, and in production environments users will pass the personalization details via our API as the REST call to when /seek is made. </li>
+<li>This can be previewed in the Seek tab of the NeuralSeek UI, and in production environments users will pass the personalization details via our API as the REST call to when /seek is made. </li>
 </ul>
 <h1 id="entity-extraction">Entity Extraction<a class="headerlink" href="#entity-extraction" title="Permanent link"></a></h1>
 <p><strong>What is it?</strong></p>
 <ul>
-<li>NeuralSeek has a feature called ‘Extract’ which is a service to let users extract entities within a given user text. Users can also define their custom entities and provide descriptions for NeuralSeek to detect and extract entities that are defined by users. The service is provided with a REST endpoint which can be used by external applications such as virtual agents or chat bots to invoke it within their conversational flow to enhance their capabilities to detect entities within it.</li>
+<li>NeuralSeek has a feature called Extract which is a service to let users extract entities within a given user text. Users can also define their custom entities and provide descriptions for NeuralSeek to detect and extract entities that are defined by users. The service is provided with a REST endpoint which can be used by external applications such as virtual agents or chat bots to invoke it within their conversational flow to enhance their capabilities to detect entities within it.</li>
 </ul>
 <p><strong>Why is it important?</strong></p>
 <ul>
-<li>Virtual Agents can define various ‘entities’, which may have values that need to be categorized into concepts or types that can play various roles during their request handling. For example, when a user types a question like:</li>
+<li>Virtual Agents can define various entities, which may have values that need to be categorized into concepts or types that can play various roles during their request handling. For example, when a user types a question like:</li>
 </ul>
 <blockquote>
 <p>“I would like to buy a movie ticket.”</p>
@@ -238,7 +238,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>NeuralSeek’s Entity Extraction uses natural language processing to extract key entities that your virtual agent needs to understand, without requiring you to specify possible values or patterns and having the burden of constantly maintaining it.</li>
 </ul>
 <h2 id="entity-extraction-from-conversation">Entity Extraction From Conversation<a class="headerlink" href="#entity-extraction-from-conversation" title="Permanent link"></a></h2>
-<p>Let’s take a look at the above example of defining a movie ticket as a product. In the tab ‘Extract,’ enter the same text of ‘I would like to buy a movie ticket’ and click the ‘Extract’ button.</p>
+<p>Let’s take a look at the above example of defining a movie ticket as a product. In the tab Extract, enter the same text of ‘I would like to buy a movie ticket’ and click the ‘Extract’ button.</p>
 <p><a class="glightbox" href="../images/ee_image_002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="buying a movie ticket" src="../images/ee_image_002.png" /></a></p>
 <p>You will see NeuralSeek, without specifying anything, was able to identify the <code>movie ticket</code> as an entity of <code>product</code> and properly extracted it from the given string.</p>
 <p>Moreover, you can ask the phrase in different languages, and NeuralSeek’s entity extraction will still work, without you doing anything!</p>

@@ -2,97 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://documentation.neuralseek.com/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/changelog/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/data_security_and_privacy/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://documentation.neuralseek.com/faq/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/integrations/rest_api/rest_api/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/integrations/supported_knowledgebases/supported_knowledgebases/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/integrations/supported_llms/supported_llms/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/integrations/supported_virtual_agents/supported_virtual_agents/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/main_features/advanced_features/advanced_features/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/main_features/conversational_capabilities/conversational_capabilities/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/main_features/data_management/data_management/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/main_features/language_capabilities/language_capabilities/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/main_features/user_interface/user_interface/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/reference_material/configuration/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://documentation.neuralseek.com/reference_material/thumbsup_thumbsdown/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <loc>https://documentation.neuralseek.com/reference_material/implementing_feedback/</loc>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/reference_material/training_virtual_agents/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/reference_material/backup_and_restore/backup_and_restore/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/reference_material/explore/explore/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://documentation.neuralseek.com/reference_material/explore/ntl_and_functions/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-02-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://documentation.neuralseek.com/reference_material/tuning_guide/tuning_guide/</loc>
+         <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -22,7 +22,6 @@ function loadWatson() {
     if($(".WACLauncherComplex__Text").length){
       if($(".WACLauncherComplex__Text").text() == "Welcome to NeuralSeek"){
         $(".WACLauncherComplex__Text").html("Hey! Ask me a question and see NeuralSeek in action <img class='handDown' src='https://neuralseek.com/wp-content/uploads/2022/12/down.svg'>");
-        console.log("set it");
       }
       else
         setTimeout(function() { nsToast()}, 100);

@@ -84,9 +84,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Sydney: Australia-based LLM’s</li>
 <li>Data is stored within a datacenter. So data storage can be localized to a region. (Eg within the EU)</li>
 <li>We do not generate any data that is personally identifiable while delivering the service. We utilize optional session tokens, decided on and provided by the customer’s calling service to maintain an optional state. We have an option on our API to generate “Personalized” answers, where the customer passes us personal data on a defined option on our endpoint. This flags the result as potentially containing PII, and will be treated the same as any content the system automatically flags as containing PII. (Flag, Mask, Hide, Delete)</li>
-<li>Data is retained on our service for a minimum of 30 days before it is automatically deleted. A customer may delete their generated data from their account at any time, however we may retain the data for the full 30 days for purpose of monitoring abuse of our service. EG – a customer cannot bypass our terms of service by immediately
-issuing delete requests on all generated answers. For enterprise customers these terms can be negotiated.</li>
-<li>In terms of specifics on which LLM’s and sub-processors we use, we can have those conversations as needed under NDA with enterprise customers. The short answer is we use multiple, some internally developed, some provided by third part sub-processors. For enterprise customers there is also a pathway to data isolation, as we are open to offering dedicated instances / storage.</li>
+<li>Data is retained on our service for a minimum of 30 days before it is automatically deleted. A customer may delete their generated data from their account at any time, however if using our plans with a curated LLM the curated LLM provider may retain the data for up to 30 days for purpose of monitoring abuse. BYO-LLM plans have no minimum data hold requirements.</li>
+<li>In terms of specifics on which LLM’s and sub-processors we use, we can have those conversations as needed under NDA with enterprise customers. The short answer is we use multiple, some internally developed, some provided by third part sub-processors.</li>
+<li>For enterprise customers NeuralSeek is available as a containerized platform that can be deployed anywhere, on top of kubernetes or openshift. </li>
 </ul>
 <p>For more information, please visit <a href="https://neuralseek.com/eula">https://neuralseek.com/eula</a></p>
 

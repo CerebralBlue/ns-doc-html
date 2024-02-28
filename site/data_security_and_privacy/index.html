@@ -78,10 +78,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>NeuralSeek is both a UI and a (REST) API. All data that flows to or thru us is encrypted SSL/TLS. All data stored is also encrypted.</p>
 <ul>
 <li>Neither NeuralSeek nor any of our sub processors use any customer data to learn/train models or systems. All user data and generated answers are owned by and for the sole use of the customer.</li>
-<li>Data processing locations for our Pay-per-answer plan:</li>
+<li>Data processing locations for our Pay-per-answer plan:<ul>
 <li>Dallas: US-based LLM’s.</li>
 <li>Frankfurt: EU-based LLM’s</li>
 <li>Sydney: Australia-based LLM’s</li>
+</ul>
+</li>
 <li>Data is stored within a datacenter. So data storage can be localized to a region. (Eg within the EU)</li>
 <li>We do not generate any data that is personally identifiable while delivering the service. We utilize optional session tokens, decided on and provided by the customer’s calling service to maintain an optional state. We have an option on our API to generate “Personalized” answers, where the customer passes us personal data on a defined option on our endpoint. This flags the result as potentially containing PII, and will be treated the same as any content the system automatically flags as containing PII. (Flag, Mask, Hide, Delete)</li>
 <li>Data is retained on our service for a minimum of 30 days before it is automatically deleted. A customer may delete their generated data from their account at any time, however if using our plans with a curated LLM the curated LLM provider may retain the data for up to 30 days for purpose of monitoring abuse. BYO-LLM plans have no minimum data hold requirements.</li>

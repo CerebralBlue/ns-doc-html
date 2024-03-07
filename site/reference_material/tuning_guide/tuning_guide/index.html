@@ -164,7 +164,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <ul>
 <li>Document Score Range: <code>0.6 - 0.8</code></li>
 <li>Max Documents per Seek: <code>4 - 5</code></li>
-<li>Snippet Size: <code>400 - 600</code> - Note: This is heavily dependent on the documentation itself, but usually best to be a low number</li>
+<li>Snippet Size: If your documents are mostly filled with unrelated small paragraphs (2-3 sentences) - like an faq document - then <code>400 - 600</code> is appropriate. Note it is always best to break up documents containing unrelated information into multiple documents. If your documents are large reference manuals that contain long passages - use the max snippet size available to you.</li>
 </ul>
 <p><strong>In Answer Engineering:</strong></p>
 <ul>
@@ -173,8 +173,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <p><strong>In Governance and Guardrails:</strong></p>
 <ul>
-<li><code>Warning Confidence</code> around +/- 10%</li>
-<li><code>Minimum Confidence</code> around +/- 2-5%</li>
+<li><code>Warning Confidence</code> around +/- 20%</li>
+<li><code>Minimum Confidence</code> around +/- 10-20%</li>
 <li><code>Minimum Text</code> around 1-3 words</li>
 <li><code>Maximum Length</code> around 20 words</li>
 </ul>
@@ -188,7 +188,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>NeuralSeek supports Vector searching on some KnowledgeBase platforms. (see the Supported KnowledgeBases page for details)</p>
 <p><a class="glightbox" href="../images/hybrid_vector.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Click_to_insert" src="../images/hybrid_vector.png" /></a></p>
 <p>Vector Similarity searching is finding "similar" words, where Lucene is "exact matching" terms. For example, if you search for <code>Animal</code> you could also get results like <code>Cat, Dog, Mouse, Lizard</code>. It's not recommended to use only vector search for corporate-based RAG, as the chance of hallucination is incredibly high. For example - a user searches for <code>8.1.0</code>. Lucene will bring back only results with the exact term, where vector similarity may also return <code>8.0.1</code>, <code>8.10</code>, or similar.</p>
-<p>Choosing the Hybrid implementation is recommended if using vector similarity - NeuralSeek will boost the Lucene results, offering Vector results as a sort of "fallback". This can help some use cases.</p>
+<p>Choosing the Hybrid implementation is recommended if using vector similarity - NeuralSeek will boost the Lucene results, offering Vector results as a sort of "fallback". This can help some use cases. Pure vector serach is not reccomended in any RAG pattern as any vector search increases the likelihood of halucinations.</p>
 <h3 id="answer-variations">Answer Variations<a class="headerlink" href="#answer-variations" title="Permanent link"></a></h3>
 <p>Generative AI often times will generate small variations for the same query.</p>
 <p>Two ways to combat this:</p>

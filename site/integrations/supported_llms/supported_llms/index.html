@@ -80,15 +80,19 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>NeuralSeek supports the following Large Language Models (LLMs):</p>
 <ul>
 <li><a href="#Amazon Bedrock - Claude Instant v1.1">Amazon Bedrock - Claude Instant v1.1</a></li>
-<li><a href="#Amazon Bedrock - Claude v1.3">Amazon Bedrock - Claude v1.3</a></li>
+<li><a href="#Amazon Bedrock - Claude v1.3 (Deprecated)">Amazon Bedrock - Claude v1.3 (Deprecated)</a></li>
 <li><a href="#Amazon Bedrock - Claude v2">Amazon Bedrock - Claude v2</a></li>
+<li><a href="#Amazon Bedrock - Claude v2.1">Amazon Bedrock - Claude v2.1</a></li>
 <li><a href="#Amazon Bedrock - Jurassic-2 Mid">Amazon Bedrock - Jurassic-2 Mid</a></li>
 <li><a href="#Amazon Bedrock - Jurassic-2 Ultra">Amazon Bedrock - Jurassic-2 Ultra</a></li>
 <li><a href="#Amazon Bedrock - Llama-2-chat 13B">Amazon Bedrock - Llama-2-chat 13B</a></li>
-<li><a href="#Amazon Bedrock - Titan">Amazon Bedrock - Titan</a></li>
+<li><a href="#Amazon Bedrock - Llama-2-chat 70B">Amazon Bedrock - Llama-2-chat 70B</a></li>
+<li><a href="#Amazon Bedrock - Titan Large (Deprecated)">Amazon Bedrock - Titan Large (Deprecated)</a></li>
+<li><a href="#Amazon Bedrock - Titan Text G1 - Express">Amazon Bedrock - Titan Text G1 - Express</a></li>
 <li><a href="#Azure Cognitive Services - GPT3.5">Azure Cognitive Services - GPT3.5</a></li>
 <li><a href="#Azure Cognitive Services - GPT4">Azure Cognitive Services - GPT4</a></li>
 <li><a href="#Azure Cognitive Services - GPT4 (32K)">Azure Cognitive Services - GPT4 (32K)</a></li>
+<li><a href="#Azure Cognitive Services - GPT4 Turbo (Preview)">Azure Cognitive Services - GPT4 Turbo (Preview)</a></li>
 <li><a href="#HuggingFace - Flan-t5-xxl">HuggingFace - Flan-t5-xxl</a></li>
 <li><a href="#HuggingFace - Flan-ul2">HuggingFace - Flan-ul2</a></li>
 <li><a href="#HuggingFace - Llama-2">HuggingFace - Llama-2</a></li>
@@ -123,9 +127,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#watsonx - granite-13b-instruct-v2">watsonx - granite-13b-instruct-v2</a></li>
 <li><a href="#watsonx - Llama-2-chat 13B">watsonx - Llama-2-chat 13B</a></li>
 <li><a href="#watsonx - Llama-2-chat 70B">watsonx - Llama-2-chat 70B</a></li>
+<li><a href="#watsonx - Mixtral-8x7B-Instruct">watsonx - Mixtral-8x7B-Instruct</a></li>
 <li><a href="#watsonx - MPT-7B-instruct2">watsonx - MPT-7B-instruct2</a></li>
 <li><a href="#watsonx (Tech Preview - Deprecated) - Flan-t5-xxl">watsonx (Tech Preview - Deprecated) - Flan-t5-xxl</a></li>
 <li><a href="#watsonx (Tech Preview - Deprecated) - Flan-ul2">watsonx (Tech Preview - Deprecated) - Flan-ul2</a></li>
+<li><a href="#watsonx (Tech Preview - Deprecated) - Granite-20b-5lang-instruct-rc">watsonx (Tech Preview - Deprecated) - Granite-20b-5lang-instruct-rc</a></li>
 <li><a href="#watsonx (Tech Preview - Deprecated) - Llama-2-chat portuguese 13B">watsonx (Tech Preview - Deprecated) - Llama-2-chat portuguese 13B</a></li>
 <li><a href="#watsonx (Tech Preview - Deprecated) - MPT-7B-instruct">watsonx (Tech Preview - Deprecated) - MPT-7B-instruct</a></li>
 </ul>
@@ -145,13 +151,18 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </tr>
 <tr>
 <td>Amazon Bedrock</td>
-<td>Claude v1.3</td>
-<td><span id="Amazon Bedrock - Claude v1.3">Anthropic's most powerful model, which excels at a wide range of tasks from sophisticated dialogue and creative content generation to detailed instruction following.</span></td>
+<td>Claude v1.3 (Deprecated)</td>
+<td><span id="Amazon Bedrock - Claude v1.3 (Deprecated)">Anthropic's most powerful model, which excels at a wide range of tasks from sophisticated dialogue and creative content generation to detailed instruction following.</span></td>
 </tr>
 <tr>
 <td>Amazon Bedrock</td>
 <td>Claude v2</td>
 <td><span id="Amazon Bedrock - Claude v2">Anthropic's most powerful model, which excels at a wide range of tasks from sophisticated dialogue and creative content generation to detailed instruction following.</span></td>
+</tr>
+<tr>
+<td>Amazon Bedrock</td>
+<td>Claude v2.1</td>
+<td><span id="Amazon Bedrock - Claude v2.1">Anthropic's most powerful model, which excels at a wide range of tasks from sophisticated dialogue and creative content generation to detailed instruction following.</span></td>
 </tr>
 <tr>
 <td>Amazon Bedrock</td>
@@ -170,8 +181,18 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </tr>
 <tr>
 <td>Amazon Bedrock</td>
-<td>Titan</td>
-<td><span id="Amazon Bedrock - Titan">Amazon Titan Foundation Models are pretrained on large datasets, making them powerful, general-purpose models. Use them as is or customize them by fine tuning the models with your own data for a particular task without annotating large volumes of data</span></td>
+<td>Llama-2-chat 70B</td>
+<td><span id="Amazon Bedrock - Llama-2-chat 70B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
+</tr>
+<tr>
+<td>Amazon Bedrock</td>
+<td>Titan Large (Deprecated)</td>
+<td><span id="Amazon Bedrock - Titan Large (Deprecated)">Amazon Titan Foundation Models are pretrained on large datasets, making them powerful, general-purpose models. Use them as is or customize them by fine tuning the models with your own data for a particular task without annotating large volumes of data</span></td>
+</tr>
+<tr>
+<td>Amazon Bedrock</td>
+<td>Titan Text G1 - Express</td>
+<td><span id="Amazon Bedrock - Titan Text G1 - Express">Amazon Titan Text Express has a context length of up to 8,000 tokens, making it well-suited for a wide range of advanced, general language tasks such as open-ended text generation and conversational chat, as well as support within Retrieval Augmented Generation (RAG). At launch, the model is optimized for English, with multilingual support for more than 100 additional languages available in preview.</span></td>
 </tr>
 <tr>
 <td>Azure Cognitive Services</td>
@@ -187,6 +208,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <td>Azure Cognitive Services</td>
 <td>GPT4 (32K)</td>
 <td><span id="Azure Cognitive Services - GPT4 (32K)">GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout. The 32K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
+</tr>
+<tr>
+<td>Azure Cognitive Services</td>
+<td>GPT4 Turbo (Preview)</td>
+<td><span id="Azure Cognitive Services - GPT4 Turbo (Preview)">GPT-4 Turbo provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
 </tr>
 <tr>
 <td>HuggingFace</td>
@@ -360,6 +386,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </tr>
 <tr>
 <td>watsonx</td>
+<td>Mixtral-8x7B-Instruct</td>
+<td><span id="watsonx - Mixtral-8x7B-Instruct">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
+</tr>
+<tr>
+<td>watsonx</td>
 <td>MPT-7B-instruct2</td>
 <td><span id="watsonx - MPT-7B-instruct2">The mpt-7b-instruct2 model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases. </span></td>
 </tr>
@@ -372,6 +403,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <td>watsonx (Tech Preview - Deprecated)</td>
 <td>Flan-ul2</td>
 <td><span id="watsonx (Tech Preview - Deprecated) - Flan-ul2">The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</span></td>
+</tr>
+<tr>
+<td>watsonx (Tech Preview - Deprecated)</td>
+<td>Granite-20b-5lang-instruct-rc</td>
+<td><span id="watsonx (Tech Preview - Deprecated) - Granite-20b-5lang-instruct-rc">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
 </tr>
 <tr>
 <td>watsonx (Tech Preview - Deprecated)</td>

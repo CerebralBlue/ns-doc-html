@@ -55,6 +55,10 @@
               {title: "Importing into Watson Assistant as Actions", url: "#importing-into-watson-assistant-as-actions" },
               {title: "Importing into Watson Assistant as Dialogs", url: "#importing-into-watson-assistant-as-dialogs" },
           ]},
+          {title: "Importing into AWS Lex", url: "#importing-into-aws-lex", children: [
+              {title: "AWS Lex Bot Merge Import", url: "#aws-lex-bot-merge-import" },
+              {title: "AWS Lex Bot Import Only", url: "#aws-lex-bot-import-only" },
+          ]},
         ];
 
     </script>
@@ -233,6 +237,71 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <a class="glightbox" href="../images/image-030.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../images/image-030.png" /></a>
 <a class="glightbox" href="../images/image-013.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="search result" src="../images/image-013.png" /></a></p>
 <p>This is a great way to effectively manage some of the most frequent questions and answers that you uncover from NeuralSeek to be able to be transferred into the Virtual Agent's dialog, such that it will be able to be trained with better set of answers.</p>
+<h2 id="importing-into-aws-lex">Importing into AWS Lex<a class="headerlink" href="#importing-into-aws-lex" title="Permanent link"></a></h2>
+<p>You can either export NeuralSeek curated questions and answers into a new Lex Bot or merge existing Lex Box intents with curated questions and answers from NeuralSeek into a cloned Lex Bot</p>
+<h3 id="aws-lex-bot-merge-import">AWS Lex Bot Merge Import<a class="headerlink" href="#aws-lex-bot-merge-import" title="Permanent link"></a></h3>
+<p>These directions allow you to merge existing AWS Lex bot intents with curated NeuralSeek questions and answers into a new bot. The NeuralSeek curated questions and answers get converted to Lex intents automatically. </p>
+<ol>
+<li>Log into AWS Management Console and navigate to AWS Lex &gt; Bots.  You should see a list of available bots to merge with NeuraSeek.</li>
+</ol>
+<p><a class="glightbox" href="../images/available_bots.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Available Bots" src="../images/available_bots.png" /></a></p>
+<ol start="2">
+<li>In the Bots list in the main view select the desired bot so it is selected, and click Action &gt; Export.  An Export Bot: <Name of Bot> dialog is shown.</li>
+</ol>
+<p><a class="glightbox" href="../images/bot_export_dialog.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Export Bot" src="../images/bot_export_dialog.png" /></a></p>
+<ol start="3">
+<li>From the export dialog leave all the default values and click Export.  A blue banner is shown of exporting followed by a green banner of successfully exported/downloaded.</li>
+<li>Next log into your NeuralSeek instance with a user with permissions to the Curate tab.</li>
+<li>Click on the Curate tab.</li>
+<li>Click on the Import Base AWS Lex V2 button in the upper right corner. A File Explorer dialog is shown.</li>
+</ol>
+<p><a class="glightbox" href="../images/import_base_aws_lex.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="import base AWS Lex V2" src="../images/import_base_aws_lex.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the import button says something different than AWS Lex, switch to the NeuralSeek instance that is using the AWS Lex Virtual Agent. Optionally, you can also change the virtual agent type under Configure &gt; Platform Preferences. </p>
+</div>
+<ol start="7">
+<li>Navigate to the zipped AWS Lex file you exported from step 3 and click Open. The button will switch to to Base AWS Lex V2 Uploaded.  After import, intents will not get added to the content list, but duplicates will show an indicator that this intent is already present in the definition file.</li>
+<li>Now, select the list of questions that you want to export into AWS Lex. As soon as you select them, a new button <code>Export to AWS Lex V2 Dialog</code> will appear. You can select all the questions by checking the <code>all</code> box at top left.</li>
+</ol>
+<p><a class="glightbox" href="../images/image-009.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="selecting questions" src="../images/image-009.png" /></a></p>
+<ol start="9">
+<li>Click the <code>Export to AWS Lex V2</code> button to export these questions and answers.  A zipped file should be downloaded. </li>
+<li>From the AWS Management Console Amazon Lex &gt; Bots screen click Actions &gt; Import. A Lex &gt; Bots &gt; Import bot screen is shown.</li>
+</ol>
+<p><a class="glightbox" href="../images/import_lex_bot.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Import AWS Lex Bot" src="../images/import_lex_bot.png" /></a></p>
+<ol start="11">
+<li>
+<p>Fill in the new Bot name, browse for the zip file, set the COPPA yes/no, set the IAM permissions, and then scroll down and click Import. You'll see a blue banner that the bot is being imported followed by a successfully imported banner.</p>
+</li>
+<li>
+<p>Find the imported bot in the bots list and open it by clicking on its name. The details for the merged bot is shown. Notice the Intents section in the left pane has both the original intents and the NeuralSeek intents merged into a single bot.</p>
+</li>
+<li>Click the build button. You can now test the new imported intentions.</li>
+</ol>
+<p><a class="glightbox" href="../images/build_bot.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Import AWS Lex Bot" src="../images/build_bot.png" /></a></p>
+<h3 id="aws-lex-bot-import-only">AWS Lex Bot Import Only<a class="headerlink" href="#aws-lex-bot-import-only" title="Permanent link"></a></h3>
+<p>These directions are for creating a new Amazon Lex bot from curated NeuralSeek questions and answers only. It will not contain existing intents from AWS.</p>
+<ol>
+<li>Start by logging into your NeuralSeek instance with a user with permissions to the Curate tab.</li>
+<li>Click on the Curate tab.</li>
+<li>Select the list of questions that you want to export into AWS Lex. As soon as you select them, a new button <code>Export to AWS Lex V2 Dialog</code> will appear. You can select all the questions by checking the <code>all</code> box at top left.</li>
+</ol>
+<p><a class="glightbox" href="../images/image-009.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="selecting questions" src="../images/image-009.png" /></a></p>
+<ol start="4">
+<li>Click the <code>Export to AWS Lex V2</code> button to export these questions and answers.  A zipped file should be downloaded. </li>
+<li>From the AWS Management Console Amazon Lex &gt; Bots screen click Actions &gt; Import. A Lex &gt; Bots &gt; Import bot screen is shown.</li>
+</ol>
+<p><a class="glightbox" href="../images/import_lex_bot.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Import AWS Lex Bot" src="../images/import_lex_bot.png" /></a></p>
+<ol start="6">
+<li>
+<p>Fill in the new Bot name, browse for the zip file, set the COPPA yes/no, set the IAM permissions, and then scroll down and click Import. You'll see a blue banner that the bot is being imported followed by a successfully imported banner.</p>
+</li>
+<li>
+<p>Find the imported bot in the bots list and open it by clicking on its name. The details for the merged bot is shown. Notice the Intents section in the left pane has converted the NeuralSeek questions and and answers to intents.</p>
+</li>
+<li>Click the build button.  You can now test the new imported intentions.</li>
+</ol>
 
   <br>
 </div>

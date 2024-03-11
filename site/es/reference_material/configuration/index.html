@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://documentation.neuralseek.com/es/reference_material/configuration/">
+    <link rel="shortcut icon" href="../../../img/ns-white.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Configuration Details - NeuralSeek Documentation</title>
+
+  <meta property="og:title" content="Configuration Details" />
+  <meta property="og:description" content="NeuralSeek Documentation" />
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/colors.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../../css/highlightjs-copy.css">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.min.js"></script>
+    <script src="../../../js/highlightjs-copy.min.js"></script>
+    <script src="../../../js/elasticlunr.min.js"></script>
+      
+    <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
+    <script>
+  var base_url = '../../..';
+  var is_top_frame = false;
+    
+    var pageToc = [
+      {title: "Overview", url: "#overview", children: [
+      ]},
+      {title: "Default Configurations", url: "#default-configurations", children: [
+          {title: "KnowledgeBase Connection", url: "#knowledgebase-connection" },
+          {title: "LLM Details", url: "#llm-details" },
+          {title: "Company/Organization Preferences", url: "#companyorganization-preferences" },
+          {title: "Platform Preferences", url: "#platform-preferences" },
+          {title: "Intent Categorization", url: "#intent-categorization" },
+          {title: "Governance and Guardrails", url: "#governance-and-guardrails" },
+      ]},
+      {title: "Advanced Configuration", url: "#advanced-configuration", children: [
+          {title: "KnowledgeBase Tuning", url: "#knowledgebase-tuning" },
+          {title: "Hybrid and Vector Search Settings", url: "#hybrid-and-vector-search-settings" },
+          {title: "Prompt Engineering", url: "#prompt-engineering" },
+          {title: "Answer Engineering and Preferences", url: "#answer-engineering-and-preferences" },
+          {title: "Intent Matching and Cache Configuration", url: "#intent-matching-and-cache-configuration" },
+          {title: "Table Understanding", url: "#table-understanding" },
+          {title: "Personal Identifiable Information (PII) Handling", url: "#personal-identifiable-information-pii-handling" },
+          {title: "Corporate Document Filter", url: "#corporate-document-filter" },
+          {title: "Corporate Logging", url: "#corporate-logging" },
+      ]},
+      {title: "Settings and Changelogs", url: "#settings-and-changelogs", children: [
+      ]},
+    ];
+
+</script>
+    <script src="../../../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+ <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wm-top-page">
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="../../../search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-left wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    
+    
+    
+      <div class="wm-top-tool wm-vcenter pull-right">
+  <div class="wm-select wm-vcentered">
+    
+    <button class="wm-header__button wm-icon" aria-label="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="wm-select__inner">
+      <ul class="wm-select__list">
+        
+          <li class="wm-select__item">
+            <a href="/" hreflang="English" class="wm-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="wm-select__item">
+            <a href="/es/" hreflang="Espanol" class="wm-select__link">
+              Espanol
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+
+    
+    
+
+    
+    <a href="https://documentation.neuralseek.com/" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <img class="wm-top-logo" src="../../../img/ns-white.svg"/>
+      
+      <div class="wm-top-title">
+        NeuralSeek Documentation<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">About Cerebral Blue</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/" class="wm-article-link wm-toc-text">Home Page (spanish)</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/about-us/" class="wm-article-link wm-toc-text">About Us (spanish)</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Contact Us (spanish)</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Partnerships (spanish)</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../es/" class="wm-article-link wm-toc-text">NeuralSeek Overview</a>
+</li>
+        
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Main Features (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/main_features/user_interface/user_interface/" class="wm-article-link wm-toc-text">NeuralSeek User Interface</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/main_features/conversational_capabilities/conversational_capabilities/" class="wm-article-link wm-toc-text">Conversational Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/main_features/language_capabilities/language_capabilities/" class="wm-article-link wm-toc-text">Language Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/main_features/data_management/data_management/" class="wm-article-link wm-toc-text">Data Management</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/main_features/advanced_features/advanced_features/" class="wm-article-link wm-toc-text">Advanced Features</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Integrations (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/integrations/supported_knowledgebases/supported_knowledgebases/" class="wm-article-link wm-toc-text">Supported KnowledgeBases</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/integrations/supported_llms/supported_llms/" class="wm-article-link wm-toc-text">Supported LLMs</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/integrations/supported_virtual_agents/supported_virtual_agents/" class="wm-article-link wm-toc-text">Supported Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/integrations/rest_api/rest_api/" class="wm-article-link wm-toc-text">REST API</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Reference Material (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/reference_material/tuning_guide/tuning_guide/" class="wm-article-link wm-toc-text">KnowledgeBase Tuning</a>
+</li>
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev2 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Explore Features (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../es/reference_material/explore/explore/" class="wm-article-link wm-toc-text">Visual Editor</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../es/reference_material/explore/ntl_and_functions/" class="wm-article-link wm-toc-text">NTL / Functions</a>
+</li>
+  </ul>
+</li>
+
+      
+
+<li class="wm-toc-li wm-toc-lev2  wm-current "><a href="../../../es/reference_material/configuration/" class="wm-article-link wm-toc-text">Configuration Details</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/reference_material/backup_and_restore/backup_and_restore/" class="wm-article-link wm-toc-text">Backup and Restore</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/reference_material/training_virtual_agents/" class="wm-article-link wm-toc-text">Training Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../es/reference_material/implementing_feedback/" class="wm-article-link wm-toc-text">Implementing Feedback</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../es/plans/" class="wm-article-link wm-toc-text">Available NeuralSeek Plans</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../es/data_security_and_privacy/" class="wm-article-link wm-toc-text">Data Security and Privacy</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../es/changelog/" class="wm-article-link wm-toc-text">Changelog</a>
+</li>
+  </ul>
+</nav>
+
+  <div class="wm-content-pane">
+    <div class="container-fluid wm-page-content">
+        
+        <div class="wm-page-real-content">
+          <a name="_top"></a>  
+          <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
+<p>This location of NeuralSeek is where users can edit the configurations for NeuralSeek’s features. There are two types of configurations: Default Configurations and Advanced Configurations.</p>
+<p><a class="glightbox" href="../../../reference_material/images/configure_updated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Configure" src="../../../reference_material/images/configure_updated.png" /></a></p>
+<h2 id="default-configurations">Default Configurations<a class="headerlink" href="#default-configurations" title="Permanent link"></a></h2>
+<p>These options are available by default, upon provisioning NeuralSeek in a new instance. You may use the "Show Advanced Options" button on the Configure screen to show more / advanced settings.</p>
+<p><a class="glightbox" href="../../../reference_material/images/default_config_options.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Default configuration" src="../../../reference_material/images/default_config_options.png" /></a></p>
+<h3 id="knowledgebase-connection">KnowledgeBase Connection<a class="headerlink" href="#knowledgebase-connection" title="Permanent link"></a></h3>
+<p>Users can change their KnowledgeBase type along with the associated URL, API keys, project ID, and other relevant information. Use the dropdown arrows to manually configure the fields of the schema in the connected KnowledgeBase.</p>
+<p><a class="glightbox" href="../../../reference_material/images/knowledgebase_connection.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="knowledgebase_connection" src="../../../reference_material/images/knowledgebase_connection.png" /></a></p>
+<ul>
+<li><strong>KnowledgeBase Type:</strong> The KnowledgeBase provider.</li>
+<li><strong>KnowledgeBase Language:</strong> The language of documents loaded into the selected KnowledgeBase.</li>
+<li><strong>Notes:</strong> Optionally, add any notes related to the selected KnowledgeBase configuration. </li>
+<li><strong>Curation Data Field:</strong> Select the parameter of your FAQ content/document body.</li>
+<li><strong>Link Field:</strong> Select the URL field from the document metadata - shown below the title, or served in the Virtual Agent chat bubble as a link.</li>
+<li><strong>Document Name Field:</strong> The document metadata field for document "Title".</li>
+<li><strong>Attribute sources inside LLM Context by Document Name:</strong> Users have the option to enable or disable attributing sources inside LLM context by document name. For example, when disabled the output will be formatted with only the document contents. When enabled, the output will be formatted with an introductory sentence that attributes the 'document content' to the appropriate document 'name' (e.g. The document 'name' states that: 'document content'). This helps some LLMs follow the track of information.</li>
+<li><strong>Filter Field:</strong> Select document metadata field to use for filtering. For example, you can filter on a 'document_type' field for only 'PDF' types.</li>
+<li><strong>Re-Sort Values List:</strong> Users are able to enter a prioritized list of values that you want to re-rank above other results, regardless of KB score. Click the light bulb icon to add a new row and enter the value of priority. </li>
+</ul>
+<h3 id="llm-details">LLM Details<a class="headerlink" href="#llm-details" title="Permanent link"></a></h3>
+<p>This is where users can add a LLM of choice, and set or modify their LLM model settings. By clicking "<strong>Add an LLM</strong>", users will be prompted to select an LLM from their platform of choice and enter the relevant information such as API keys, endpoint URLs, project ID's, etc. Use the dropdown arrow to enable languages of choice: there are a total of 56 supported LLM languages. Users can also modify which NeuralSeek functions to enable for the added LLM. Note that you must add at least one LLM. If you add multiple, NeuralSeek will load-balance across them for the selected functions that have multiple LLM's. Features that an LLM are not capable of not be available for selection. If you do not provide an LLM for a function, there is no fallback and that function of NeuralSeek will be disabled. </p>
+<p><a class="glightbox" href="../../../reference_material/images/llm_details.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="llm_details" src="../../../reference_material/images/llm_details.png" /></a></p>
+<ul>
+<li><strong>API/Access Key:</strong> The LLM / Service provider's API or Access key.</li>
+<li><strong>Secret/Zen Key:</strong> The Service provider's secondary key (only for some providers)</li>
+<li><strong>Endpoint:</strong> The endpoint URL for the selected service.</li>
+<li><strong>Region:</strong> The region where the LLM service is provisioned.</li>
+<li><strong>Project Id:</strong> The project ID for the LLM workspace.</li>
+<li><strong>LLLM Languages:</strong> Enable or disable specific languages to be used with the selected LLM.</li>
+<li><strong>LLM Functions:</strong> Enable or disable specific functions for each LLM, essentially selecting which LLM to use for each task, or allowing load-balancing for specific tasks. E.g. one option is to use a specific LLM for <code>seek</code>, and a different LLM for <code>explore</code> or <code>translate</code>, allowing for flexible and specific use cases.</li>
+<li><strong>LLM ID:</strong> The ID/internal name of the selected LLM. Use this ID on API calls or from Explore. </li>
+<li><strong>Test:</strong> Run a test completion against the LLM, verifying the credentials. <strong>This does not 'save'</strong>, you must still 'save' your settings with the main UI button.</li>
+<li><strong>Delete:</strong> Remove the selected LLM from the configuration.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is only available if you are using BYOLLM (bring your own LLM) plan of NeuralSeek.</p>
+<p>Not all LLM providers are equal - All options are listed here, even though your provider may not need these specific parameters.</p>
+</div>
+<h3 id="companyorganization-preferences">Company/Organization Preferences<a class="headerlink" href="#companyorganization-preferences" title="Permanent link"></a></h3>
+<p>This is where you can configure your company name, and description of what the company primarily focuses on. </p>
+<p><a class="glightbox" href="../../../reference_material/images/company_org_preferences.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="company_org_preferences" src="../../../reference_material/images/company_org_preferences.png" /></a></p>
+<ul>
+<li><strong>Company or Organization Name:</strong> This field is used to help align user queries to the company KB. E.g., "How do I use <strong>your</strong> product?" will target towards this value.</li>
+<li><strong>Company Response Affinity:</strong> Enable to add affinity to your company or brand in addition to existing text that may be already present in your KnowledgeBase and Stump Speeches.</li>
+<li><strong>Stump Speech:</strong> Effectively an "always pinned document" that is included in the documentation for every <code>seek</code> call. This helps answer questions as a fallback knowledge source when the user's search fails to produce relevant documentation.</li>
+</ul>
+<h3 id="platform-preferences">Platform Preferences<a class="headerlink" href="#platform-preferences" title="Permanent link"></a></h3>
+<p>Your one-stop-shop for all platform-related preferences. Set timeouts, configure embedded links, Virtual Agent output format, etc.</p>
+<p><a class="glightbox" href="../../../reference_material/images/platform_preferences.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="platform_preference" src="../../../reference_material/images/platform_preferences.png" /></a></p>
+<ul>
+<li><strong>Timeout:</strong> Set this to a few seconds less than the timeout of your chatbot platform. When the timeout is reached, NeuralSeek will attempt to respond with a cached answer if available.</li>
+<li><strong>Context Turns:</strong> The number of turns in the conversation to pass to the LLM. Increasing this is not recommended as it will reduce the LLM context available for your documentation.</li>
+<li><strong>Default Output Language:</strong> The language to reply in. Setting the language value on the API will override this parameter. Set to "Match input" to try and identify the input language and respond in that detected language.</li>
+<li><strong>Translate to KB Language:</strong> When enabled, translate queries into the language selected on the KnowledgeBase.</li>
+<li><strong>Virtual Agent Type:</strong> Select the type of Virtual Agent for curation of answers. This is the format NeuralSeek will use to build the chatbot file.</li>
+<li><strong>Embed Links into returned responses:</strong> Enable to embed clickable links into the <code>seek</code> generated answers on the API side.</li>
+<li><strong>Custom Stopwords List:</strong> <a href="https://en.wikipedia.org/wiki/Stop_word">Stop Words</a> - A list of "not useful" or insignificant words to remove pre-processing. Add words here to override NeuralSeek's list of stopwords.</li>
+</ul>
+<h3 id="intent-categorization">Intent Categorization<a class="headerlink" href="#intent-categorization" title="Permanent link"></a></h3>
+<p>Create types of categories and with natural language descriptions to control how intents in user questions can be categorized. Usually a question would be automatically categorized as <code>FAQ</code>, but you can provide additional custom categories here.</p>
+<p><a class="glightbox" href="../../../reference_material/images/intent_categorization.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="intent_categorization" src="../../../reference_material/images/intent_categorization.png" /></a></p>
+<ul>
+<li><strong>Category:</strong> The name of the category.</li>
+<li><strong>URL/Link:</strong> The link to return for answers in this category. This overrides the URL returned from the documentation source.</li>
+<li><strong>Description:</strong> A natural language description of the category. E.g. "Breed of dog, like Yorkie or Labrador."</li>
+</ul>
+<h3 id="governance-and-guardrails">Governance and Guardrails<a class="headerlink" href="#governance-and-guardrails" title="Permanent link"></a></h3>
+<p>Settings related to governance, prompt protection, profanity filtering, etc</p>
+<h4 id="attribute-checking">Attribute Checking<a class="headerlink" href="#attribute-checking" title="Permanent link"></a></h4>
+<p><a class="glightbox" href="../../../reference_material/images/attribute_checking.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="attribute_checking" src="../../../reference_material/images/attribute_checking.png" /></a></p>
+<ul>
+<li>Adjust misinformation tolerance for generating text about the company, or associating people or things that lack specific references in the KnowledgeBase material by using the sliding scale from "Rigid" to "Standard". The more rigid your settings, the higher the chances of occasionally blocking legitimate questions that use alternate wording or are poorly documented in your KnowledgeBase. </li>
+</ul>
+<h4 id="semantic-score">Semantic Score<a class="headerlink" href="#semantic-score" title="Permanent link"></a></h4>
+<p>Toggle the icons to enable or disable the Semantic Score Model, using Semantic Score as the basis for Warning &amp; Minimum confidence (e.g. Do NOT Enable for use cases requiring language translation), re-ranking the search results based on the Semantic Match, and checking the document titles and URL's as part of the Semantic Match. Note that semantic scoring will not be accurate when getting answers in a different language than your KnowledgeBase source docs.</p>
+<p><a class="glightbox" href="../../../reference_material/images/semantic_score.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="semantic_score" src="../../../reference_material/images/semantic_score.png" /></a></p>
+<ul>
+<li><strong>Enable the Semantic Score Model:</strong> The Semantic Score model compares the generated answer against the KnowledgeBase sources, and rates the answer based on the quantity and focus of matches to the KnowledgeBase and Stump Speech source documentation (e.g. is the answer primarily formed from a single source or many?)</li>
+<li><strong>Use Semantic Score as the basis for Warning/Minimum:</strong> Enabling this uses the Semantic Score for warning/minimum confidence settings. Disabling will use the KB confidence % instead. Not recommended for non-English use-cases</li>
+<li><strong>Re-rank search results based on Semantic Match:</strong> Re-order the KnowledgeBase documentation snippets based on how well the passage matches the answer given.</li>
+<li><strong>Check document titles as part of the Semantic Match:</strong> Include the document title while calculating the Semantic Match Score.</li>
+<li><strong>Check document URLs as part of the Semantic Match:</strong> Include the document URL while calculating the Semantic Match Score.</li>
+</ul>
+<p><a class="glightbox" href="../../../reference_material/images/semantic_model_tuning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="semantic_model_tuning" src="../../../reference_material/images/semantic_model_tuning.png" /></a></p>
+<ul>
+<li><strong>Semantic Model Tuning:</strong> Use the sliding scales to further tune the Semantic Match.<ul>
+<li><strong>Missing key search term penalty:</strong> After scoring, this penalty is applied for answers that are missing KnowledgeBase attribution of <em>proper</em> nouns that were included in the search. </li>
+<li><strong>Missing search term penalty:</strong> After scoring, this penalty is applied for answers that are missing KnowledgeBase attribution of <em>other</em> nouns that were included in the search. </li>
+<li><strong>Source Jump penalty:</strong> When answers join across many source documents it can be an indication of lost meaning or intent, depending on your source documentation. </li>
+<li><strong>Total Coverage weight:</strong> Looking at the answer, how much weight should be given to the total coverage alone, regardless of other penalty. Increasing this helps prevent abnormally low scores from long, highly-stitched answers. Decreasing will better catch hallucination in short answers. </li>
+<li><strong>Re-Rank Min Coverage %:</strong> What is the minimum coverage of the total answer that the top <em>used</em> source document needs to be re-ranked over the top <em>KB-scored</em> document. </li>
+</ul>
+</li>
+</ul>
+<h4 id="prompt-injection-mitigation">Prompt Injection Mitigation<a class="headerlink" href="#prompt-injection-mitigation" title="Permanent link"></a></h4>
+<p>Users are able to block malicious attempts from users trying to get the LLM to respond in disruptive, embarrassing, or harmful ways. </p>
+<p><a class="glightbox" href="../../../reference_material/images/prompt_injection_mitigation.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="prompt_injection_mitigation" src="../../../reference_material/images/prompt_injection_mitigation.png" /></a></p>
+<ul>
+<li><strong>Prompt Injection Threshold:</strong> A sliding scale to block any inputs that score higher than this percentage against the Prompt Injection model. </li>
+<li><strong>Blocked Word Action:</strong> Either remove the offending words from the user input, or block the question altogether.</li>
+<li><strong>Blocked Word List:</strong> Enter words or phrases (separated by commas) that are not allowed on the user input. This is useful for blocking specific competitive customer or product names, as well as other sensitive words not covered by NeuralSeek's base corpus.</li>
+</ul>
+<h4 id="profanity-filter">Profanity Filter<a class="headerlink" href="#profanity-filter" title="Permanent link"></a></h4>
+<p>Users are able to enable or disable the profanity filter, as well as add a text to reply with for sensitive questions that are blocked. </p>
+<p><a class="glightbox" href="../../../reference_material/images/profanity_filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="profanity_filter" src="../../../reference_material/images/profanity_filter.png" /></a></p>
+<ul>
+<li><strong>Enable profanity filter:</strong> Choose which filter to use for profanity filtering. You may use the LLM's moderation endpoint if available, the NeuralSeek Filter, or disable it.</li>
+<li><strong>Blocked reply text:</strong> The text to show when the input or question is blocked. E.g. "That seems like a sensitive question."</li>
+</ul>
+<h4 id="warning-confidence">Warning Confidence<a class="headerlink" href="#warning-confidence" title="Permanent link"></a></h4>
+<p>Use the sliding scale to increase the confidence threshold. </p>
+<p><a class="glightbox" href="../../../reference_material/images/warning_confidence.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="warning_confidence" src="../../../reference_material/images/warning_confidence.png" /></a></p>
+<ul>
+<li><strong>Confidence %:</strong> Any answers lower than this number will have the below text pre-pended to the answer given.</li>
+<li><strong>Warning text:</strong> The text to pre-pend to the answer given.</li>
+</ul>
+<h4 id="minimum-confidence">Minimum Confidence<a class="headerlink" href="#minimum-confidence" title="Permanent link"></a></h4>
+<p>Use the sliding scale to increase the minimum confidence percentage and the minimum confidence percentage to display a URL. Add a text to reply with for questions not meeting the minimum confidence, and select whether to add a URL fallback on minimum. (e.g. "There is nothing in our knowledge base about that."). </p>
+<p><a class="glightbox" href="../../../reference_material/images/min_confidence.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="min_confidence" src="../../../reference_material/images/min_confidence.png" /></a></p>
+<ul>
+<li><strong>Minimum Confidence %:</strong> Any answers lower than this number will have the below text substituted in place of the answer.</li>
+<li><strong>Reply text:</strong> The response to give when answers are below the minimum confidence % set.</li>
+<li><strong>Minimum Confidence % to display a URL:</strong> Any answers lower than this number will not return a linked URL.</li>
+<li><strong>URL Fallback</strong> Optional - A URL to offer when the minimum confidence is not met.</li>
+</ul>
+<h4 id="minimum-text">Minimum Text<a class="headerlink" href="#minimum-text" title="Permanent link"></a></h4>
+<p>Use the sliding scale to set a desired minimum amount of words in a question. </p>
+<p><a class="glightbox" href="../../../reference_material/images/min_text.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="min_text" src="../../../reference_material/images/min_text.png" /></a></p>
+<ul>
+<li><strong>Minimum Words:</strong> The minimum number of words in a user question/input.</li>
+<li><strong>Reply Text:</strong> Add a text to reply with for questions not meeting the minimum input word length. (e.g. "Give me a bit more to go on...").</li>
+</ul>
+<h4 id="maximum-length">Maximum Length<a class="headerlink" href="#maximum-length" title="Permanent link"></a></h4>
+<p>Use the sliding scale to set a desired maximum amount of words in a question.</p>
+<p><a class="glightbox" href="../../../reference_material/images/max_length.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="max_length" src="../../../reference_material/images/max_length.png" /></a></p>
+<ul>
+<li><strong>Maximum Words:</strong> The maximum number of words in a user question/input. Set to 100 to remove the limit. Use a low limit to help mitigate adversarial questions designed to generate inappropriate answers.</li>
+<li><strong>Reply Text:</strong> Add a text to reply with for questions over the input word limit. (e.g. "Can you please summarize your question for me?  Questions should be limited to 20 words."). </li>
+</ul>
+<h2 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link"></a></h2>
+<p>These (expanded) options are available after enabling "Show advanced options" from the default configuration.</p>
+<p><a class="glightbox" href="../../../reference_material/images/advanced_configuration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Advanced configuration" src="../../../reference_material/images/advanced_configuration.png" /></a></p>
+<h3 id="knowledgebase-tuning">KnowledgeBase Tuning<a class="headerlink" href="#knowledgebase-tuning" title="Permanent link"></a></h3>
+<p>Tuning your KnowledgeBase is an important part of creating a well performing system. </p>
+<p><a class="glightbox" href="../../../reference_material/images/knowledgebase_tuning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="knowledgebase_tuning" src="../../../reference_material/images/knowledgebase_tuning.png" /></a></p>
+<ul>
+<li><strong>Document Score Range:</strong> The upper range score of documents to return. E.g. when set to <code>0.8</code> or <code>80%</code>, return the top scoring 80% of documents, discarding the lowest 20% scored documents. The smaller the number, the more strict the score threshold will be. Generally best set to a high number, used with Max Docs setting.</li>
+<li><strong>Document Date Penalty:</strong> Penalize document scores that include old dates. A higher number means a higher penalty for older documents, scaling with time/age.</li>
+<li><strong>KB Query Cache:</strong> Limit repeated queries to the KnowledgeBase by caching KB queries. Set this to the number of minutes you'd like to preserve cached KB queries.</li>
+<li><strong>Max Documents per Seek:</strong> The number of documents to send to the LLM on each Seek action. Generally the best results are seen with this set to 4-5 documents.</li>
+<li><strong>Snippet Size:</strong> The character count to pass to the KB for document passage size. The larger the number, the bigger the documentation chunk. Generally best as a smaller number - around 500.</li>
+<li><strong>Max Raw Score:</strong> The highest all-time document score NeuralSeek has seen from the KB. NeuralSeek uses this number internally to calculate a <code>100%</code> score for documents.</li>
+</ul>
+<h3 id="hybrid-and-vector-search-settings">Hybrid and Vector Search Settings<a class="headerlink" href="#hybrid-and-vector-search-settings" title="Permanent link"></a></h3>
+<p>Offering the ability to choose from searching with Lucene, Vector, or a Hybrid approach</p>
+<p><a class="glightbox" href="../../../reference_material/images/vector_search_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="vector settings" src="../../../reference_material/images/vector_search_settings.png" /></a></p>
+<ul>
+<li><strong>Query Type:</strong> The type of query that NeuralSeek will use to gather source documentation.<ul>
+<li><strong>Lucene:</strong> "Exact match" queries.</li>
+<li><strong>Vector:</strong> Vector similarity search, based on your deployed Vector model.</li>
+<li><strong>Hybrid:</strong> A combined search query that slightly boosts Lucene results, allowing for graceful fallback to Vector results if no exact matches are found.</li>
+</ul>
+</li>
+<li><strong>Use the Elastic ELSER model?</strong> The query format is different using ELSER vs deployed KNN models. Select False if not using Elastic's ELSER model. </li>
+<li><strong>ELSER - Model ID:</strong> The name of the deployed and running model.</li>
+<li><strong>ELSER - Embedding Field:</strong> The name of the metadata field where the generated Vector embeddings are stored.</li>
+<li><strong>Elastic KNN Query:</strong> The JSON of the KNN Vector query to run. There are a couple values to set within the JSON:<ul>
+<li><strong>field:</strong> The name of the metadata field where the Vector embeddings are stored.</li>
+<li><strong>model_id:</strong> The name of the deployed and running model.</li>
+<li><strong>model_text:</strong> We offer a <code>&lt;&lt; query &gt;&gt;</code> expansion variable to insert the query generated by NeuralSeek. Useful to edit if some Vector models require a specific format, e.g. <code>question: &lt;&lt;query&gt;&gt;</code></li>
+<li>See the Elastic documentation for more info around the other available parameters.</li>
+</ul>
+</li>
+</ul>
+<h3 id="prompt-engineering">Prompt Engineering<a class="headerlink" href="#prompt-engineering" title="Permanent link"></a></h3>
+<p>This allows expert users to inject specific instructions into the base LLM prompt. Most use cases will not need this and should not use this. (e.g. do not enter "provide factual information" or "act as a helpful customer support agent". NeuralSeek's extensive prompting already does this.) </p>
+<p><strong>Do not casually enable, as you can weaken the safeguards and extensive prompting that NeuralSeek provides out-of-the-box. Do not use any language other than English in prompt engineering.</strong></p>
+<p><a class="glightbox" href="../../../reference_material/images/prompt_engineering.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="prompt_engineering" src="../../../reference_material/images/prompt_engineering.png" /></a>
+<a class="glightbox" href="../../../reference_material/images/weight_tuning_warning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="weight_tuning_warning" src="../../../reference_material/images/weight_tuning_warning.png" /></a></p>
+<ul>
+<li><strong>Prompt Instructions:</strong> Text to add to the end of the LLM prompt. This can rarely be helpful, but some examples might be "Answer with a bulleted list if possible", or "Answer in cowboy dialect".</li>
+</ul>
+<h3 id="answer-engineering-and-preferences">Answer Engineering and Preferences<a class="headerlink" href="#answer-engineering-and-preferences" title="Permanent link"></a></h3>
+<p>Customizing answer engineering and setting preferences provides adaptability to different contexts.</p>
+<p><a class="glightbox" href="../../../reference_material/images/answer_engineering_preferences.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="answer_engineering_preferences" src="../../../reference_material/images/answer_engineering_preferences.png" /></a></p>
+<ul>
+<li><strong>Answer Verbosity</strong> Utilize the sliding scales to set whether the answer generation would stick to being concise and short, or offer more freedom to be flexible and wordy.</li>
+<li><strong>Force Answers from the KnowledgeBase:</strong> Enable to add extra prompting to help "force" the answers from returned documentation. Generally best to keep this enabled.</li>
+<li><strong>Regular Expressions:</strong> Click the light bulb icon to add a new row. Input a regular expression and a corresponding replacement. For example, use this feature to remove or swap phone numbers, emails, etc.</li>
+</ul>
+<h3 id="intent-matching-and-cache-configuration">Intent Matching and Cache Configuration<a class="headerlink" href="#intent-matching-and-cache-configuration" title="Permanent link"></a></h3>
+<p>NeuralSeek automatically generates and groups user input into intents. When a user input does not match an existing intent, the question is added to the generic FAQ group.</p>
+<p><a class="glightbox" href="../../../reference_material/images/intent_matching_cache_config.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="intent_matching_cache_config" src="../../../reference_material/images/intent_matching_cache_config.png" /></a></p>
+<p>The following types of intent matches are available: </p>
+<ul>
+<li><strong>Exact Match:</strong> The user input exactly matches an intent. </li>
+<li><strong>Vector Similarity:</strong> Compare the vector similarity of the user input to existing intents, matching with similar intents. <ul>
+<li>Utilize the "Try it Out" feature to test intent similarity. Input an example sentence and click the 'Test' button. The output will show similar intent pulled from the Curate tab and a corresponding similarity score. </li>
+<li>Utilize the "Intent Match Threshold" sliding scale to set the minimum match percentage to match an existing Intent. </li>
+</ul>
+</li>
+<li><strong>Fuzzy Match:</strong> The user input closely matches an intent, but not exactly. </li>
+<li><strong>Keyword Match:</strong> The user input contains keywords that exactly match keywords in an intent.</li>
+<li><strong>Fuzzy Keyword Match:</strong> The user input contains keywords that closely match an intent. </li>
+</ul>
+<p>Users can also configure how the answer caching is to be done for edited answers, and normal answers. This is useful for speeding up response times and producing more consistent results. </p>
+<ul>
+<li><strong>Edited Answer Cache:</strong> Define the minimum amount of edited answers before language generation stops, and cached answers are served. Set the scale to '0' to disable the edited answer cache. </li>
+<li><strong>Normal Answer Cache:</strong> Define the minimum amount of normal language generated answers to store before language generation stops, and cached answers are served. Set the scale to '0' to disable the edited answer cache. </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Edited answers have priority in the Normal Answer Cache, followed by the most recent generated answer. </p>
+</div>
+<h3 id="table-understanding">Table Understanding<a class="headerlink" href="#table-understanding" title="Permanent link"></a></h3>
+<p>This pre-processes your documents to extract and parse tabular data into a format suitable for conversational query. Since this preparation process is both costly and time-consuming, this feature is opt-in and will consume 1 seek query for every table preprocessed. Web Crawl Collections are not eligible for table understanding, as the re-crawl interval will cause excessive compute usage. Table preparation time takes several minutes per page. Please contact <a href="mailto:cloud@cerebralblue.com">cloud@cerebralblue.com</a> with details of your opportunity and use case to be considered for access.</p>
+<ul>
+<li><strong>Discovery Collection IDs:</strong> Click the light bulb icon to add a new row. Input the desired collection ID from Watson Discovery for table preparation.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Table Understanding requires a compatible LLM with Table Understanding Enabled. Not all LLMs are capable of Table Understanding.</p>
+</div>
+<p><a class="glightbox" href="../../../reference_material/images/table_understanding.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="table_understanding" src="../../../reference_material/images/table_understanding.png" /></a></p>
+<h3 id="personal-identifiable-information-pii-handling">Personal Identifiable Information (PII) Handling<a class="headerlink" href="#personal-identifiable-information-pii-handling" title="Permanent link"></a></h3>
+<p>Users can define how to handle any detected PII data that was included in the question. </p>
+<p><a class="glightbox" href="../../../reference_material/images/pii_handling.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pii_handling" src="../../../reference_material/images/pii_handling.png" /></a></p>
+<p>The following actions to take when PII is found on user input are available:</p>
+<ul>
+<li><strong>Mask:</strong> Mask, and store, PII when it is detected in the user input. Masking will hide the PII in all locations.  </li>
+<li><strong>Flag:</strong> Flag, and store, for PII when it is detected in the user input. PII will be flagged in all locations. </li>
+<li><strong>No Action:</strong> No action will be taken when PII is detected in the user input. It will be stored in plain text.</li>
+<li><strong>Hide (retain for Analytics):</strong> Hide (mask) the PII when it is detected in the user input, but keep the PII in the database for Analytics.</li>
+<li><strong>Delete (including from Analytics):</strong> Delete the PII entirely when it is detected in the user input, including from the stored Analytics. </li>
+</ul>
+<p>The configuration also lets you add any particular examples of PII data, so it can be better detected. </p>
+<ul>
+<li><strong>Pre-LLM PII Filters:</strong> These run dynamically on user input before it is sent to the LLM or KnowledgeBase. Click the light bulb icon to add a description such as a phone number and a corresponding regular expression.</li>
+<li><strong>LLM - Based PII Filters:</strong> These use the chosen LLM to identify PII. Click the light bulb icon to add an example sentence and corresponding PII elements, separated by commas. </li>
+</ul>
+<p>Some of NeuralSeek's PII Detectors are shown here:</p>
+<p><a class="glightbox" href="../../../reference_material/images/pii_detectors.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pii_detectors" src="../../../reference_material/images/pii_detectors.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Utilize the "Try it Out" feature to test the set PII filters. Input an example sentence and click the 'Test' button. The output will show the test sentence, a true or false response if PII was detected, and what element of the sentence was detected as PII. </p>
+</div>
+<h3 id="corporate-document-filter">Corporate Document Filter<a class="headerlink" href="#corporate-document-filter" title="Permanent link"></a></h3>
+<p>Connect NeuralSeek to an external corporate rules engine to filter allowed documentation by user. Each request will send the ID's of the found documentation to an endpoint you set here. Any IDs not returned from the corporate filter will be blocked.</p>
+<ul>
+<li><strong>Enable Corporate Filter:</strong> If enabled, fill out all relevant information including: <ul>
+<li><strong>Base URL for the corporate filter (get):</strong> The URL of the corporate document filter engine.</li>
+<li><strong>URL parameter for the UserName:</strong> The parameter name for the user's ID.</li>
+<li><strong>URL parameter for the KB field:</strong> The parameter name for the "document ID" for permission filtering.</li>
+<li><strong>KnowledgeBase field to send:</strong> The KB metadata field to send as the "document ID".</li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" href="../../../reference_material/images/corporate_doc_filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="corporate_doc_filter" src="../../../reference_material/images/corporate_doc_filter.png" /></a></p>
+<h3 id="corporate-logging">Corporate Logging<a class="headerlink" href="#corporate-logging" title="Permanent link"></a></h3>
+<p>Connect NeuralSeek to a corporate audit logging endpoint. When connected and enabled, all requests and responses to the Seek API endpoint, as well as the Curate tab will be logged to your Elasticsearch instance. Users are able to log the full LLM "Seek" prompt for Audit and Compliance reasons. </p>
+<ul>
+<li><strong>Enable Corporate Logging:</strong> Toggle the icon to Enable or Disable this feature. If enabled, fill out all relevant information including: Elasticsearch Endpoint and Elasticsearch API Key. </li>
+<li><strong>Prompt Logging:</strong> Type "agree" into the provided box to agree to the provided Non-Disclosure Agreement and enable prompt logging. </li>
+</ul>
+<p><a class="glightbox" href="../../../reference_material/images/corporate_logging.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="corporate_logging" src="../../../reference_material/images/corporate_logging.png" /></a>
+<a class="glightbox" href="../../../reference_material/images/prompt_logging.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="prompt_logging" src="../../../reference_material/images/prompt_logging.png" /></a></p>
+<h2 id="settings-and-changelogs">Settings and Changelogs<a class="headerlink" href="#settings-and-changelogs" title="Permanent link"></a></h2>
+<ul>
+<li><strong>Download Settings:</strong> Click this to download a .dat copy of all settings in the configure tab to your local machine.</li>
+<li><strong>Upload Settings:</strong> Click this to upload and restore settings from a .dat copy backup of all settings in the configure tab from your local machine.</li>
+<li><strong>Change Logs:</strong> Click to view the change log history of all settings changed in this instance.<ul>
+<li>From this screen, you may "revert" settings and audit which user made which changes.</li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" href="../../../reference_material/images/download_upload_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Download and upload settings" src="../../../reference_material/images/download_upload_settings.png" /></a>
+<a class="glightbox" href="../../../reference_material/images/settings_changelog.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="settings changelog" src="../../../reference_material/images/settings_changelog.png" /></a></p>
+
+          <footer class="wm-footer"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+            </footer>
+        </div>
+    
+      <br>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="../../../scripts/watson.js"></script>
+<script> loadWatson(); </script>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

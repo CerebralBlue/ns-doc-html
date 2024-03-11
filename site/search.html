@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +10,20 @@
     
     
     
-    <link rel="shortcut icon" href="./images/ns-white.svg">
-    
+    <link rel="shortcut icon" href="./img/ns-white.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
     <title>NeuralSeek Documentation</title>
+
+  <meta property="og:title" content="NeuralSeek Documentation" />
+  <meta property="og:description" content="NeuralSeek Documentation" />
     <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="./css/colors.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/highlight-github-theme.css">
     <link rel="stylesheet" href="./css/highlightjs-copy.css">
     <link href="./css/base.css" rel="stylesheet">
-    <link href="./css/override.css" rel="stylesheet">
+    <link href="././css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -31,7 +34,8 @@
     <script src="./js/bootstrap-3.3.7.min.js"></script>
     <script src="./js/highlight.min.js"></script>
     <script src="./js/highlightjs-copy.min.js"></script>
-    
+    <script src="./js/elasticlunr.min.js"></script>
+      
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
@@ -39,11 +43,11 @@
       hljs.highlightAll();
     </script>
     <script>
-      var base_url = '.';
-      var is_top_frame = false;
-        var page_toc = null;
+  var base_url = '.';
+  var is_top_frame = false;
+    var page_toc = null;
 
-    </script>
+</script>
     <script src="./js/base.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
@@ -55,15 +59,215 @@
       </script> 
 </head>
 
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
+<body class="wm-top-page">
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
 
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
 
+    
+    <div class="wm-top-tool wm-vcenter pull-left wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    
+    
+    
 
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
+    
+    
+
+    
+    <a href="https://documentation.neuralseek.com/" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <img class="wm-top-logo" src="./img/ns-white.svg"/>
+      
+      <div class="wm-top-title">
+        NeuralSeek Documentation<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener wm-current "><span class="wm-toc-text">About Cerebral Blue</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/" class="wm-article-link wm-toc-text">Home Page (spanish)</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/about-us/" class="wm-article-link wm-toc-text">About Us (spanish)</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Contact Us (spanish)</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Partnerships (spanish)</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="./es/" class="wm-article-link wm-toc-text">NeuralSeek Overview</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener wm-current "><span class="wm-toc-text">Main Features (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/main_features/user_interface/user_interface/" class="wm-article-link wm-toc-text">NeuralSeek User Interface</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/main_features/conversational_capabilities/conversational_capabilities/" class="wm-article-link wm-toc-text">Conversational Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/main_features/language_capabilities/language_capabilities/" class="wm-article-link wm-toc-text">Language Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/main_features/data_management/data_management/" class="wm-article-link wm-toc-text">Data Management</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/main_features/advanced_features/advanced_features/" class="wm-article-link wm-toc-text">Advanced Features</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener wm-current "><span class="wm-toc-text">Integrations (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/integrations/supported_knowledgebases/supported_knowledgebases/" class="wm-article-link wm-toc-text">Supported KnowledgeBases</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/integrations/supported_llms/supported_llms/" class="wm-article-link wm-toc-text">Supported LLMs</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/integrations/supported_virtual_agents/supported_virtual_agents/" class="wm-article-link wm-toc-text">Supported Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/integrations/rest_api/rest_api/" class="wm-article-link wm-toc-text">REST API</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener wm-current "><span class="wm-toc-text">Reference Material (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/reference_material/tuning_guide/tuning_guide/" class="wm-article-link wm-toc-text">KnowledgeBase Tuning</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2 wm-toc-opener wm-current "><span class="wm-toc-text">Explore Features (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="./es/reference_material/explore/explore/" class="wm-article-link wm-toc-text">Visual Editor</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="./es/reference_material/explore/ntl_and_functions/" class="wm-article-link wm-toc-text">NTL / Functions</a>
+</li>
+  </ul>
+</li>
+
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/reference_material/configuration/" class="wm-article-link wm-toc-text">Configuration Details</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/reference_material/backup_and_restore/backup_and_restore/" class="wm-article-link wm-toc-text">Backup and Restore</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/reference_material/training_virtual_agents/" class="wm-article-link wm-toc-text">Training Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="./es/reference_material/implementing_feedback/" class="wm-article-link wm-toc-text">Implementing Feedback</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="./es/plans/" class="wm-article-link wm-toc-text">Available NeuralSeek Plans</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="./es/data_security_and_privacy/" class="wm-article-link wm-toc-text">Data Security and Privacy</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="./es/changelog/" class="wm-article-link wm-toc-text">Changelog</a>
+</li>
+  </ul>
+</nav>
+
+  <div class="wm-content-pane">
+    <div class="container-fluid wm-page-content">
+<style>
+  .wm-content-pane {
+    padding-left: 0;
+  }
+  .wm-page-content {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  #wm-toc-button, .wm-header__option, .wm-toc-pane  {
+    display: none;
+  }
+</style>
   <h1 id="search">Search Results</h1>
 
   <ul id="search-results" class="wm-search-page">
@@ -79,14 +283,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     });
   </script>
 
-
-  <br>
+    
+      <br>
+    </div>
+  </div>
 </div>
 
-<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
-</footer>
+
+
 
 <script src="./scripts/watson.js"></script>
-<script> if(is_top_frame) loadWatson(); </script>
+<script> loadWatson(); </script>
 </body>
 </html>

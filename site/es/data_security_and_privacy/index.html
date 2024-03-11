@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://documentation.neuralseek.com/es/data_security_and_privacy/">
+    <link rel="shortcut icon" href="../../img/ns-white.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Data Security and Privacy - NeuralSeek Documentation</title>
+
+  <meta property="og:title" content="Data Security and Privacy" />
+  <meta property="og:description" content="NeuralSeek Documentation" />
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/colors.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../css/highlightjs-copy.css">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.min.js"></script>
+    <script src="../../js/highlightjs-copy.min.js"></script>
+    <script src="../../js/elasticlunr.min.js"></script>
+      
+    <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
+    <script>
+  var base_url = '../..';
+  var is_top_frame = false;
+    
+    var pageToc = [
+      {title: "Overview", url: "#overview", children: [
+      ]},
+    ];
+
+</script>
+    <script src="../../js/base.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+ <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wm-top-page">
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="../../search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-left wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    
+    
+    
+      <div class="wm-top-tool wm-vcenter pull-right">
+  <div class="wm-select wm-vcentered">
+    
+    <button class="wm-header__button wm-icon" aria-label="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="wm-select__inner">
+      <ul class="wm-select__list">
+        
+          <li class="wm-select__item">
+            <a href="/" hreflang="English" class="wm-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="wm-select__item">
+            <a href="/es/" hreflang="Espanol" class="wm-select__link">
+              Espanol
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+
+    
+    
+
+    
+    <a href="https://documentation.neuralseek.com/" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <img class="wm-top-logo" src="../../img/ns-white.svg"/>
+      
+      <div class="wm-top-title">
+        NeuralSeek Documentation<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">About Cerebral Blue</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/" class="wm-article-link wm-toc-text">Home Page (spanish)</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/about-us/" class="wm-article-link wm-toc-text">About Us (spanish)</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Contact Us (spanish)</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Partnerships (spanish)</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../es/" class="wm-article-link wm-toc-text">NeuralSeek Overview</a>
+</li>
+        
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Main Features (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/main_features/user_interface/user_interface/" class="wm-article-link wm-toc-text">NeuralSeek User Interface</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/main_features/conversational_capabilities/conversational_capabilities/" class="wm-article-link wm-toc-text">Conversational Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/main_features/language_capabilities/language_capabilities/" class="wm-article-link wm-toc-text">Language Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/main_features/data_management/data_management/" class="wm-article-link wm-toc-text">Data Management</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/main_features/advanced_features/advanced_features/" class="wm-article-link wm-toc-text">Advanced Features</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Integrations (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/integrations/supported_knowledgebases/supported_knowledgebases/" class="wm-article-link wm-toc-text">Supported KnowledgeBases</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/integrations/supported_llms/supported_llms/" class="wm-article-link wm-toc-text">Supported LLMs</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/integrations/supported_virtual_agents/supported_virtual_agents/" class="wm-article-link wm-toc-text">Supported Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/integrations/rest_api/rest_api/" class="wm-article-link wm-toc-text">REST API</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+      
+      
+      
+        
+        
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Reference Material (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/reference_material/tuning_guide/tuning_guide/" class="wm-article-link wm-toc-text">KnowledgeBase Tuning</a>
+</li>
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev2 wm-toc-opener  "><span class="wm-toc-text">Explore Features (spanish)</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../es/reference_material/explore/explore/" class="wm-article-link wm-toc-text">Visual Editor</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../es/reference_material/explore/ntl_and_functions/" class="wm-article-link wm-toc-text">NTL / Functions</a>
+</li>
+  </ul>
+</li>
+
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/reference_material/configuration/" class="wm-article-link wm-toc-text">Configuration Details</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/reference_material/backup_and_restore/backup_and_restore/" class="wm-article-link wm-toc-text">Backup and Restore</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/reference_material/training_virtual_agents/" class="wm-article-link wm-toc-text">Training Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../es/reference_material/implementing_feedback/" class="wm-article-link wm-toc-text">Implementing Feedback</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../es/plans/" class="wm-article-link wm-toc-text">Available NeuralSeek Plans</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1  wm-current "><a href="../../es/data_security_and_privacy/" class="wm-article-link wm-toc-text">Data Security and Privacy</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../es/changelog/" class="wm-article-link wm-toc-text">Changelog</a>
+</li>
+  </ul>
+</nav>
+
+  <div class="wm-content-pane">
+    <div class="container-fluid wm-page-content">
+        
+        <div class="wm-page-real-content">
+          <a name="_top"></a>  
+          <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
+<p>NeuralSeek is both a UI and a (REST) API. All data that flows to or thru us is encrypted SSL/TLS. All data stored is also encrypted.</p>
+<ul>
+<li>Neither NeuralSeek nor any of our sub processors use any customer data to learn/train models or systems. All user data and generated answers are owned by and for the sole use of the customer.</li>
+<li>Data processing locations for our Pay-per-answer plan:<ul>
+<li>Dallas: US-based LLM’s.</li>
+<li>Frankfurt: EU-based LLM’s</li>
+<li>Sydney: Australia-based LLM’s</li>
+</ul>
+</li>
+<li>Data is stored within a datacenter. So data storage can be localized to a region. (Eg within the EU)</li>
+<li>We do not generate any data that is personally identifiable while delivering the service. We utilize optional session tokens, decided on and provided by the customer’s calling service to maintain an optional state. We have an option on our API to generate “Personalized” answers, where the customer passes us personal data on a defined option on our endpoint. This flags the result as potentially containing PII, and will be treated the same as any content the system automatically flags as containing PII. (Flag, Mask, Hide, Delete)</li>
+<li>Data is retained on our service for a minimum of 30 days before it is automatically deleted. A customer may delete their generated data from their account at any time, however if using our plans with a curated LLM the curated LLM provider may retain the data for up to 30 days for purpose of monitoring abuse. BYO-LLM plans have no minimum data hold requirements.</li>
+<li>In terms of specifics on which LLM’s and sub-processors we use, we can have those conversations as needed under NDA with enterprise customers. The short answer is we use multiple, some internally developed, some provided by third part sub-processors.</li>
+<li>For enterprise customers NeuralSeek is available as a containerized platform that can be deployed anywhere, on top of kubernetes or openshift. </li>
+</ul>
+<p>For more information, please visit <a href="https://neuralseek.com/eula">https://neuralseek.com/eula</a></p>
+
+          <footer class="wm-footer"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+            </footer>
+        </div>
+    
+      <br>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="../../scripts/watson.js"></script>
+<script> loadWatson(); </script>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

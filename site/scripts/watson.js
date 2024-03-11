@@ -18,18 +18,6 @@ function loadWatson() {
       }
   }
 
-  function nsToast() {
-    if($(".WACLauncherComplex__Text").length){
-      if($(".WACLauncherComplex__Text").text() == "Welcome to NeuralSeek"){
-        $(".WACLauncherComplex__Text").html("Hey! Ask me a question and see NeuralSeek in action <img class='handDown' src='https://neuralseek.com/wp-content/uploads/2022/12/down.svg'>");
-      }
-      else
-        setTimeout(function() { nsToast()}, 100);
-    }
-    else
-      setTimeout(function() { nsToast()},100);
-  }
-
   window.watsonAssistantChatOptions = {
     integrationID: "b69d352d-9da8-411b-8ce3-8767977df7f6",
       region: "us-south", 
@@ -94,11 +82,11 @@ function loadWatson() {
                   }
               }
           }
-      instance.showLauncherGreetingMessage(1000);
+      //instance.showLauncherGreetingMessage(5000);
+      instance.updateLauncherGreetingMessage("Hey! Ask me a question and see NeuralSeek in action 👇");
       instance.on({ type: 'customResponse', handler: customResponseHandler });
       instance.on({ type: 'pre:receive', handler: preReceiveHandler });
       instance.render(); 
-      setTimeout(function() { nsToast()}, 100);
     }
     };
     setTimeout(function(){

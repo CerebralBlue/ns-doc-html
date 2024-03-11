@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +10,20 @@
     
     
     <link rel="canonical" href="https://documentation.neuralseek.com/main_features/conversational_capabilities/conversational_capabilities/">
-    <link rel="shortcut icon" href="../../../images/ns-white.svg">
-    
+    <link rel="shortcut icon" href="../../../img/ns-white.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
     <title>Conversational Capabilities - NeuralSeek Documentation</title>
+
+  <meta property="og:title" content="Conversational Capabilities" />
+  <meta property="og:description" content="NeuralSeek Documentation" />
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/colors.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/highlight-github-theme.css">
     <link rel="stylesheet" href="../../../css/highlightjs-copy.css">
     <link href="../../../css/base.css" rel="stylesheet">
-    <link href="../../../css/override.css" rel="stylesheet">
+    <link href="../../../../../../css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -31,7 +34,8 @@
     <script src="../../../js/bootstrap-3.3.7.min.js"></script>
     <script src="../../../js/highlight.min.js"></script>
     <script src="../../../js/highlightjs-copy.min.js"></script>
-    
+    <script src="../../../js/elasticlunr.min.js"></script>
+      
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
@@ -39,29 +43,29 @@
       hljs.highlightAll();
     </script>
     <script>
-      var base_url = '../../..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "Conversational Context", url: "#conversational-context", children: [
-          ]},
-          {title: "Curation of Answers", url: "#curation-of-answers", children: [
-              {title: "Curating Intents and Answers", url: "#curating-intents-and-answers" },
-              {title: "Searching the intent", url: "#searching-the-intent" },
-              {title: "Filtering the intent", url: "#filtering-the-intent" },
-              {title: "Editing the Answer", url: "#editing-the-answer" },
-              {title: "Deleting Questions and Answers", url: "#deleting-questions-and-answers" },
-          ]},
-          {title: "Dynamic Personalization", url: "#dynamic-personalization", children: [
-          ]},
-          {title: "Entity Extraction", url: "#entity-extraction", children: [
-              {title: "Entity Extraction From Conversation", url: "#entity-extraction-from-conversation" },
-              {title: "Custom Entities", url: "#custom-entities" },
-              {title: "Entity Extraction REST API", url: "#entity-extraction-rest-api" },
-          ]},
-        ];
+  var base_url = '../../..';
+  var is_top_frame = false;
+    
+    var pageToc = [
+      {title: "Conversational Context", url: "#conversational-context", children: [
+      ]},
+      {title: "Curation of Answers", url: "#curation-of-answers", children: [
+          {title: "Curating Intents and Answers", url: "#curating-intents-and-answers" },
+          {title: "Searching the intent", url: "#searching-the-intent" },
+          {title: "Filtering the intent", url: "#filtering-the-intent" },
+          {title: "Editing the Answer", url: "#editing-the-answer" },
+          {title: "Deleting Questions and Answers", url: "#deleting-questions-and-answers" },
+      ]},
+      {title: "Dynamic Personalization", url: "#dynamic-personalization", children: [
+      ]},
+      {title: "Entity Extraction", url: "#entity-extraction", children: [
+          {title: "Entity Extraction From Conversation", url: "#entity-extraction-from-conversation" },
+          {title: "Custom Entities", url: "#custom-entities" },
+          {title: "Entity Extraction REST API", url: "#entity-extraction-rest-api" },
+      ]},
+    ];
 
-    </script>
+</script>
     <script src="../../../js/base.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
@@ -77,18 +81,293 @@
     .gslide-desc { color: #666; user-select: text; }
     .gslide-image img { background: white; }</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
+<body class="wm-top-page">
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="../../../search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
 
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
 
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
+    
+    <div class="wm-top-tool wm-vcenter pull-left wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    
+    
+    
+      <div class="wm-top-tool wm-vcenter pull-right">
+  <div class="wm-select wm-vcentered">
+    
+    <button class="wm-header__button wm-icon" aria-label="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="wm-select__inner">
+      <ul class="wm-select__list">
+        
+          <li class="wm-select__item">
+            <a href="/" hreflang="English" class="wm-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="wm-select__item">
+            <a href="/es/" hreflang="Espanol" class="wm-select__link">
+              Espanol
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
 
-    <h1 id="conversational-context">Conversational Context<a class="headerlink" href="#conversational-context" title="Permanent link"></a></h1>
+    
+    
+
+    
+    <a href="https://documentation.neuralseek.com/" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <img class="wm-top-logo" src="../../../img/ns-white.svg"/>
+      
+      <div class="wm-top-title">
+        NeuralSeek Documentation<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">About Cerebral Blue</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/" class="wm-article-link wm-toc-text">Home Page</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/about-us/" class="wm-article-link wm-toc-text">About Us</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Contact Us</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Partnerships</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../" class="wm-article-link wm-toc-text">NeuralSeek Overview</a>
+</li>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Main Features</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../main_features/user_interface/user_interface/" class="wm-article-link wm-toc-text">NeuralSeek User Interface</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2  wm-current "><a href="../../../main_features/conversational_capabilities/conversational_capabilities/" class="wm-article-link wm-toc-text">Conversational Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../main_features/language_capabilities/language_capabilities/" class="wm-article-link wm-toc-text">Language Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../main_features/data_management/data_management/" class="wm-article-link wm-toc-text">Data Management</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../main_features/advanced_features/advanced_features/" class="wm-article-link wm-toc-text">Advanced Features</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Integrations</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../integrations/supported_knowledgebases/supported_knowledgebases/" class="wm-article-link wm-toc-text">Supported KnowledgeBases</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../integrations/supported_llms/supported_llms/" class="wm-article-link wm-toc-text">Supported LLMs</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../integrations/supported_virtual_agents/supported_virtual_agents/" class="wm-article-link wm-toc-text">Supported Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../integrations/rest_api/rest_api/" class="wm-article-link wm-toc-text">REST API</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Reference Material</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../reference_material/tuning_guide/tuning_guide/" class="wm-article-link wm-toc-text">KnowledgeBase Tuning</a>
+</li>
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev2 wm-toc-opener  "><span class="wm-toc-text">Explore Features</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../reference_material/explore/explore/" class="wm-article-link wm-toc-text">Visual Editor</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../reference_material/explore/ntl_and_functions/" class="wm-article-link wm-toc-text">NTL / Functions</a>
+</li>
+  </ul>
+</li>
+
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../reference_material/configuration/" class="wm-article-link wm-toc-text">Configuration Details</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../reference_material/backup_and_restore/backup_and_restore/" class="wm-article-link wm-toc-text">Backup and Restore</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../reference_material/training_virtual_agents/" class="wm-article-link wm-toc-text">Training Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../reference_material/implementing_feedback/" class="wm-article-link wm-toc-text">Implementing Feedback</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../plans/" class="wm-article-link wm-toc-text">Available NeuralSeek Plans</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../data_security_and_privacy/" class="wm-article-link wm-toc-text">Data Security and Privacy</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../changelog/" class="wm-article-link wm-toc-text">Changelog</a>
+</li>
+  </ul>
+</nav>
+
+  <div class="wm-content-pane">
+    <div class="container-fluid wm-page-content">
+        
+        <div class="wm-page-real-content">
+          <a name="_top"></a>  
+          <h1 id="conversational-context">Conversational Context<a class="headerlink" href="#conversational-context" title="Permanent link"></a></h1>
 <p><strong>What is it?</strong></p>
 <ul>
 <li>NeuralSeek maintains context during each user interaction (conversation). When initiating a conversation, a session token is generated. Using this token and several Natural Language Processing (NLP) models, NeuralSeek tracks the topic of conversation to keep interactions focused and structured, allowing it to follow-up on questions that do not directly refer to the topic. In addition, these NLP models enable NeuralSeek to filter corporate knowledge topically by date to ensure that the information being returned is focused on the time period of the question.</li>
@@ -258,13 +537,19 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>This will return the following JSON type response:</p>
 <p><a class="glightbox" href="../images/ee_image_010.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="entity extraction in REST API" src="../images/ee_image_010.png" /></a></p>
 
-  <br>
+          <footer class="wm-footer"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+            </footer>
+        </div>
+    
+      <br>
+    </div>
+  </div>
 </div>
 
-<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
-</footer>
+
+
 
 <script src="../../../scripts/watson.js"></script>
-<script> if(is_top_frame) loadWatson(); </script>
+<script> loadWatson(); </script>
 <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,18 +11,20 @@
     
     
     
-    <link rel="shortcut icon" href="https://documentation.neuralseek.com//images/ns-white.svg">
-    
+    <link rel="shortcut icon" href="https://documentation.neuralseek.com//img/ns-white.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
     <title>NeuralSeek Documentation</title>
+
+  <meta property="og:title" content="NeuralSeek Documentation" />
+  <meta property="og:description" content="NeuralSeek Documentation" />
     <link href="https://documentation.neuralseek.com//css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="https://documentation.neuralseek.com//css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="https://documentation.neuralseek.com//css/colors.css" rel="stylesheet">
     <link rel="stylesheet" href="https://documentation.neuralseek.com//css/highlight-github-theme.css">
     <link rel="stylesheet" href="https://documentation.neuralseek.com//css/highlightjs-copy.css">
     <link href="https://documentation.neuralseek.com//css/base.css" rel="stylesheet">
-    <link href="/css/override.css" rel="stylesheet">
+    <link href="https://documentation.neuralseek.com///css/override.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -32,7 +35,8 @@
     <script src="https://documentation.neuralseek.com//js/bootstrap-3.3.7.min.js"></script>
     <script src="https://documentation.neuralseek.com//js/highlight.min.js"></script>
     <script src="https://documentation.neuralseek.com//js/highlightjs-copy.min.js"></script>
-    
+    <script src="https://documentation.neuralseek.com//js/elasticlunr.min.js"></script>
+      
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
@@ -40,11 +44,11 @@
       hljs.highlightAll();
     </script>
     <script>
-      var base_url = 'https://documentation.neuralseek.com/';
-      var is_top_frame = false;
-        var page_toc = null;
+  var base_url = 'https://documentation.neuralseek.com/';
+  var is_top_frame = false;
+    var page_toc = null;
 
-    </script>
+</script>
     <script src="https://documentation.neuralseek.com//js/base.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
@@ -56,29 +60,68 @@
       </script> 
 </head>
 
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
+<body class="wm-top-page">
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="https://documentation.neuralseek.com//search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
 
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
 
+    
+    <div class="wm-top-tool wm-vcenter pull-left wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    
+    
+    
 
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
+    
+    
+
+    
+    <a href="https://documentation.neuralseek.com/" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <img class="wm-top-logo" src="https://documentation.neuralseek.com//img/ns-white.svg"/>
+      
+      <div class="wm-top-title">
+        NeuralSeek Documentation<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+  <div class="wm-content-pane">
+    <div class="container-fluid wm-page-content">
+
+  <style>
+    .wm-content-pane {
+      padding-left: 0;
+    }
+    #wm-toc-button, .wm-header__option, .wm-top-tool  {
+      display: none;
+    }
+  </style>
 
   <h1 style="text-align: center">404 - Page not found</h1>
 
   <h3 style="text-align: center" id="search">Redirecting to search...</h3>
-
-  <script>
-    function inIframe () {
-      try {
-          return window.self !== window.top;
-      } catch (e) {
-          return true;
-      }
-    }
-  </script>
 
   <script>
     window.onload = function() {
@@ -96,11 +139,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         
         let query = queryParts.join(' ');
         setTimeout(function() {
-          let hashtag = '#';
-          if (inIframe())
-            hashtag = ''; 
-          
-          window.location.href = `https://documentation.neuralseek.com//${hashtag}search.html?q=${encodeURIComponent(query)}`;
+          window.location.href = `https://documentation.neuralseek.com//search.html?q=${encodeURIComponent(query)}`;
         }, 3000); 
       } 
 
@@ -108,14 +147,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   </script>
 
 
-
-  <br>
+    
+      <br>
+    </div>
+  </div>
 </div>
 
-<footer class="container-fluid wm-page-content"><p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
-</footer>
+
+
 
 <script src="https://documentation.neuralseek.com//scripts/watson.js"></script>
-<script> if(is_top_frame) loadWatson(); </script>
+<script> loadWatson(); </script>
 </body>
 </html>

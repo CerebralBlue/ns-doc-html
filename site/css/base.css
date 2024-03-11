@@ -23,14 +23,24 @@ body {
   overflow: hidden;
 }
 
+.wm-page-real-content {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 .wm-page-content {
-  max-width: 90%;
+  max-width: 100%;
+  height: 100%;
+  overflow-y: scroll;
   position: relative;
+}
+
+.wm-footer {
+  margin-top: 40px;
 }
 
 .wm-page-top-frame { display: none; }
 .wm-top-page > .wm-page-top-frame { display: block; }
-.wm-top-page > .wm-page-content { display: none; }
 
 .wm-top-brand {
   display: inline-block;
@@ -152,6 +162,7 @@ body {
   padding-right: 1rem;
   padding-bottom: 2rem;
   transition: margin-left 0.3s;
+  
 }
 
 .wm-content-pane {
@@ -219,7 +230,6 @@ body {
   }
   #wm-search-show {
     display: block;
-    margin-left: 1rem;
   }
   .wm-top-tool-expanded #wm-search-show {
     display: none;
@@ -239,7 +249,7 @@ body {
   .wm-top-container {
     /* This prevents horizontal overflow, but cuts off search results on bigger
      * screens, so included in small-screen section */
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   .wm-toc-pane {
     display: none;
@@ -644,16 +654,164 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
     text-align: left;
 }
 
+/***********************************************************************
+ From override.css
+ ***********************************************************************/
+
+ .wm-page-content ul > li > ul {
+  padding-bottom: 10px;
+}
+
+.wm-page-content ol > li::marker {
+  font-weight: bold;
+}
+
+.wm-page-content .twemoji {
+  display: inline-block;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+}
+
+img[src*="fullsize-images/"] {
+  max-width: 100%;
+}
+
+.table {
+  margin: 30px auto 30px auto;
+}
+
+td:has(.twemoji) {
+  text-align: center;
+  margin: auto;
+  vertical-align: middle !important;
+}
+
+th {
+  vertical-align: middle !important;
+}
+
+p {
+  padding-left: 10px;
+}
+
+pre {
+  margin-left: 15px;
+}
+
+h4 {
+  font-weight: 550;
+  padding-left: 5px;
+  margin-top: 25px;
+}
+
+.wm-select {
+  padding-right: 6px;
+}
+
+.wm-header__button:not(.focus-visible) {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+.wm-header__button {
+  color: white;
+  margin: .2rem;
+  outline-color: var(--color-fg-primary);
+  padding: .4rem;
+  position: relative;
+  transition: opacity .25s;
+  vertical-align: middle;
+  z-index: 1;
+  border: 0;
+}
+.wm-icon svg {
+  fill: white;
+  display: block;
+  height: 2.2rem;
+  width: 2.2rem;
+}
+.wm-header__button:hover {
+  opacity: .7
+}
+.wm-select > .wm-header__button {
+  background-color: var(--color-fg-primary);
+}
+
+.wm-select__inner {
+  background-color: white;
+  border-radius: .2rem;
+  box-shadow: 0 0.2rem 0.5rem #0000001a, 0 0 0.05rem #00000040;
+  color: var(white);
+  /* left: 50%; */
+  /* margin-top: 1.5rem; */
+  max-height: 0;
+  opacity: 0;
+  position: absolute;
+  top: calc(100% - .2rem);
+  transform: translate3d(-50%,.3rem,0);
+  transition: transform .25s 375ms, opacity .25s .25s, max-height 0ms .5s;
+}
+.wm-select:focus-within .wm-select__inner,.wm-select:hover .wm-select__inner {
+  max-height: 10rem;
+  opacity: 1;
+  transform: translate3d(-25%,0,0);
+  transition: transform .25s cubic-bezier(.1,.7,.1,1), opacity .25s, max-height 0ms;
+}
+.wm-select__inner:after {
+  border-bottom: 0.6rem solid #0000;
+  border-bottom-color: white;
+  border-left: 0.6rem solid #0000;
+  border-right: 0.6rem solid #0000;
+  border-top: 0;
+  content: "";
+  height: 0;
+  left: 50%;
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
+  position: absolute;
+  top: 0;
+  width: 0;
+}
+.wm-select__list {
+  max-height: inherit;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  font-size: 1.4rem;
+  list-style-type: none;
+  border-radius: 0.13rem;
+}
+.wm-select__item {
+  line-height: 3rem;
+}
+.wm-select__item:is(:focus, :hover) {
+  background-color: var(--color-canvas-sidebar);
+}
+.wm-select__link {
+  display: block;
+  width: 100%;
+  padding-inline: 0.8rem 1.5rem;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 250ms, color 250ms;
+  scroll-snap-align: start;
+}
+.wm-select__link:is(:focus, :hover) {
+  text-decoration: none;
+}
+
 
 /***********************************************************************
  For mobile screens - shrink the title size, and widen the content body slightly
  ***********************************************************************/
 
- @media(max-width: 600px) {
+ @media(max-width: 700px) {
   .wm-top-brand {
     font-size: 1.4rem;
   }
+}
 
+ @media(max-width: 600px) {
   .wm-page-content {
     max-width: 98%;
   }
@@ -663,6 +821,17 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
   }
   p:has(.glightbox) {
     margin: 20px 20px 30px 20px;
+  }
+}
+
+@media(max-width: 400px) {
+  .wm-top-brand {
+    font-size: 1.2rem;
+  }
+}
+@media(max-width: 350px) {
+  .wm-top-title {
+    display: none;
   }
 }
 

@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/upload_data/">
+    <link rel="shortcut icon" href="../../../../img/ns-white.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Upload data - NeuralSeek Documentation</title>
+
+  <meta property="og:title" content="Upload data" />
+  <meta property="og:description" content="NeuralSeek Documentation" />
+    <link href="../../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../../css/colors.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../../../css/highlightjs-copy.css">
+    <link href="../../../../css/base.css" rel="stylesheet">
+    <link href="../../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../../js/highlight.min.js"></script>
+    <script src="../../../../js/highlightjs-copy.min.js"></script>
+    <script src="../../../../js/elasticlunr.min.js"></script>
+      
+    <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
+    <script>
+  var base_url = '../../../..';
+  var is_top_frame = false;
+    
+    var pageToc = [
+      {title: "Upload Document", url: "#upload-document", children: [
+      ]},
+    ];
+
+</script>
+    <script src="../../../../js/base.js?v=2"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+ <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wm-top-page">
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="../../../../search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-left wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    
+    
+    
+      <div class="wm-top-tool wm-vcenter pull-right">
+  <div class="wm-select wm-vcentered">
+    
+    <button class="wm-header__button wm-icon" aria-label="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="wm-select__inner">
+      <ul class="wm-select__list">
+        
+          <li class="wm-select__item">
+            <a href="/" hreflang="English" class="wm-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="wm-select__item">
+            <a href="/es/" hreflang="Espanol" class="wm-select__link">
+              Espanol
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+
+    
+    
+
+    
+    <a href="https://documentation.neuralseek.com/" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <img class="wm-top-logo" src="../../../../img/ns-white.svg"/>
+      
+      <div class="wm-top-title">
+        NeuralSeek Documentation<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">About Cerebral Blue</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/" class="wm-article-link wm-toc-text">Home Page</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/about-us/" class="wm-article-link wm-toc-text">About Us</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Contact Us</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Partnerships</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../" class="wm-article-link wm-toc-text">NeuralSeek Overview</a>
+</li>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Main Features</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../main_features/user_interface/user_interface/" class="wm-article-link wm-toc-text">NeuralSeek User Interface</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../main_features/conversational_capabilities/conversational_capabilities/" class="wm-article-link wm-toc-text">Conversational Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../main_features/language_capabilities/language_capabilities/" class="wm-article-link wm-toc-text">Language Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../main_features/data_management/data_management/" class="wm-article-link wm-toc-text">Data Management</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../main_features/advanced_features/advanced_features/" class="wm-article-link wm-toc-text">Advanced Features</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Integrations</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../integrations/supported_knowledgebases/supported_knowledgebases/" class="wm-article-link wm-toc-text">Supported KnowledgeBases</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../integrations/supported_llms/supported_llms/" class="wm-article-link wm-toc-text">Supported LLMs</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../integrations/supported_virtual_agents/supported_virtual_agents/" class="wm-article-link wm-toc-text">Supported Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../integrations/rest_api/rest_api/" class="wm-article-link wm-toc-text">REST API</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Reference Material</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/tuning_guide/tuning_guide/" class="wm-article-link wm-toc-text">KnowledgeBase Tuning</a>
+</li>
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev2 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">mAIstro Features</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/maistro/" class="wm-article-link wm-toc-text">Visual Editor</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl_overview/" class="wm-article-link wm-toc-text">NTL Overview</a>
+</li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev3 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">All NTL Functions</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/get_data/" class="wm-article-link wm-toc-text">Get data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4  wm-current "><a href="../../../../reference_material/maistro/ntl/upload_data/" class="wm-article-link wm-toc-text">Upload data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/generate_data/" class="wm-article-link wm-toc-text">Generate data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/extract_data/" class="wm-article-link wm-toc-text">Extract data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/database_connections/" class="wm-article-link wm-toc-text">Database connections</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/control_flow/" class="wm-article-link wm-toc-text">Control flow</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/guardrails/" class="wm-article-link wm-toc-text">Guardrails</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/system_variables/" class="wm-article-link wm-toc-text">System variables</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/modify_data/" class="wm-article-link wm-toc-text">Modify data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/send_data/" class="wm-article-link wm-toc-text">Send data</a>
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/configuration/" class="wm-article-link wm-toc-text">Configuration Details</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/backup_and_restore/backup_and_restore/" class="wm-article-link wm-toc-text">Backup and Restore</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/training_virtual_agents/" class="wm-article-link wm-toc-text">Training Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/implementing_feedback/" class="wm-article-link wm-toc-text">Implementing Feedback</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../plans/" class="wm-article-link wm-toc-text">Available NeuralSeek Plans</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../data_security_and_privacy/" class="wm-article-link wm-toc-text">Data Security and Privacy</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../changelog/" class="wm-article-link wm-toc-text">Changelog</a>
+</li>
+  </ul>
+</nav>
+
+  <div class="wm-content-pane">
+    <div class="container-fluid wm-page-content">
+        
+        <div class="wm-page-real-content">
+          <a name="_top"></a>  
+          <h4 id="upload-document">Upload Document<a class="headerlink" href="#upload-document" title="Permanent link"></a></h4>
+<p>Uploading a document works in two steps. When you click the <code>Upload Document</code> button, you are presented with a file selector to select a local document for upload. Some supported files are .docx, .doc, .pdf, .txt, .csv, .json, and .xlsx.</p>
+<p>After the document is successfully uploaded, it is available in the <code>Upload Document</code> pane:</p>
+<p><a class="glightbox" href="../images/ntl_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="upload_document" src="../images/ntl_1.png" /></a></p>
+<p>The uploaded document can then be used with the following syntax:</p>
+<div class="highlight"><pre><span></span><code>{{ doc|name:output.csv }}
+</code></pre></div>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>Name: The name of the uploaded document.</li>
+</ul>
+<p><strong>Returns:</strong> </p>
+<ul>
+<li>The plain text of the document. Currently, the document processing does not support OCR.</li>
+</ul>
+
+          <br>
+          <footer class="wm-footer">
+                <p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+          </footer>
+        </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="../../../../scripts/watson.js"></script>
+<script> loadWatson(); </script>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

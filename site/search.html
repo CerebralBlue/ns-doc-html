@@ -341,6 +341,13 @@
 
 
 <script src="./scripts/watson.js"></script>
-<script> loadWatson(); </script>
+<script> 
+  function isInFrame() {
+    return (window.top !== window);
+  }
+  if (!isInFrame()) {
+    loadWatson(); 
+  }
+</script>
 </body>
 </html>

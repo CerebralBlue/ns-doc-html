@@ -408,6 +408,9 @@
           <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h1>
 <p>NeuralSeek supports the following Large Language Models (LLMs):</p>
 <ul>
+<li><a href="#Amazon Bedrock - Claude 3 Haiku">Amazon Bedrock - Claude 3 Haiku</a></li>
+<li><a href="#Amazon Bedrock - Claude 3 Opus">Amazon Bedrock - Claude 3 Opus</a></li>
+<li><a href="#Amazon Bedrock - Claude 3 Sonnet">Amazon Bedrock - Claude 3 Sonnet</a></li>
 <li><a href="#Amazon Bedrock - Claude Instant v1.1">Amazon Bedrock - Claude Instant v1.1</a></li>
 <li><a href="#Amazon Bedrock - Claude v1.3 (Deprecated)">Amazon Bedrock - Claude v1.3 (Deprecated)</a></li>
 <li><a href="#Amazon Bedrock - Claude v2">Amazon Bedrock - Claude v2</a></li>
@@ -417,13 +420,14 @@
 <li><a href="#Amazon Bedrock - Llama-2-chat 13B">Amazon Bedrock - Llama-2-chat 13B</a></li>
 <li><a href="#Amazon Bedrock - Llama-2-chat 70B">Amazon Bedrock - Llama-2-chat 70B</a></li>
 <li><a href="#Amazon Bedrock - Mistral-7B-Instruct">Amazon Bedrock - Mistral-7B-Instruct</a></li>
+<li><a href="#Amazon Bedrock - Mistral-large">Amazon Bedrock - Mistral-large</a></li>
 <li><a href="#Amazon Bedrock - Mixtral-8x7B-Instruct">Amazon Bedrock - Mixtral-8x7B-Instruct</a></li>
 <li><a href="#Amazon Bedrock - Titan Large (Deprecated)">Amazon Bedrock - Titan Large (Deprecated)</a></li>
 <li><a href="#Amazon Bedrock - Titan Text G1 - Express">Amazon Bedrock - Titan Text G1 - Express</a></li>
+<li><a href="#Azure Cognitive Services - Azure GPT4 Turbo (Preview)">Azure Cognitive Services - Azure GPT4 Turbo (Preview)</a></li>
 <li><a href="#Azure Cognitive Services - GPT3.5">Azure Cognitive Services - GPT3.5</a></li>
 <li><a href="#Azure Cognitive Services - GPT4">Azure Cognitive Services - GPT4</a></li>
 <li><a href="#Azure Cognitive Services - GPT4 (32K)">Azure Cognitive Services - GPT4 (32K)</a></li>
-<li><a href="#Azure Cognitive Services - GPT4 Turbo (Preview)">Azure Cognitive Services - GPT4 Turbo (Preview)</a></li>
 <li><a href="#HuggingFace - Flan-t5-xxl">HuggingFace - Flan-t5-xxl</a></li>
 <li><a href="#HuggingFace - Flan-ul2">HuggingFace - Flan-ul2</a></li>
 <li><a href="#HuggingFace - Llama-2">HuggingFace - Llama-2</a></li>
@@ -458,16 +462,17 @@
 <li><a href="#watsonx.ai - granite-13b-instruct-v1">watsonx.ai - granite-13b-instruct-v1</a></li>
 <li><a href="#watsonx.ai - granite-13b-instruct-v2">watsonx.ai - granite-13b-instruct-v2</a></li>
 <li><a href="#watsonx.ai - granite-20b-multilingual">watsonx.ai - granite-20b-multilingual</a></li>
+<li><a href="#watsonx.ai - granite-7b-lab">watsonx.ai - granite-7b-lab</a></li>
 <li><a href="#watsonx.ai - granite-8b-japanese">watsonx.ai - granite-8b-japanese</a></li>
+<li><a href="#watsonx.ai - jais-13b-chat">watsonx.ai - jais-13b-chat</a></li>
 <li><a href="#watsonx.ai - Llama-2-chat 13B">watsonx.ai - Llama-2-chat 13B</a></li>
 <li><a href="#watsonx.ai - Llama-2-chat 70B">watsonx.ai - Llama-2-chat 70B</a></li>
+<li><a href="#watsonx.ai - llama-3-70b-instruct">watsonx.ai - llama-3-70b-instruct</a></li>
+<li><a href="#watsonx.ai - llama-3-8b-instruct">watsonx.ai - llama-3-8b-instruct</a></li>
+<li><a href="#watsonx.ai - merlinite-7b">watsonx.ai - merlinite-7b</a></li>
 <li><a href="#watsonx.ai - Mixtral-8x7B-Instruct">watsonx.ai - Mixtral-8x7B-Instruct</a></li>
+<li><a href="#watsonx.ai - Mixtral-8x7B-Instruct-v01-q">watsonx.ai - Mixtral-8x7B-Instruct-v01-q</a></li>
 <li><a href="#watsonx.ai - MPT-7B-instruct2">watsonx.ai - MPT-7B-instruct2</a></li>
-<li><a href="#watsonx.ai (Tech Preview) - Flan-t5-xxl">watsonx.ai (Tech Preview) - Flan-t5-xxl</a></li>
-<li><a href="#watsonx.ai (Tech Preview) - Flan-ul2">watsonx.ai (Tech Preview) - Flan-ul2</a></li>
-<li><a href="#watsonx.ai (Tech Preview) - Granite-20b-5lang-instruct-rc">watsonx.ai (Tech Preview) - Granite-20b-5lang-instruct-rc</a></li>
-<li><a href="#watsonx.ai (Tech Preview) - Llama-2-chat portuguese 13B">watsonx.ai (Tech Preview) - Llama-2-chat portuguese 13B</a></li>
-<li><a href="#watsonx.ai (Tech Preview) - MPT-7B-instruct">watsonx.ai (Tech Preview) - MPT-7B-instruct</a></li>
 </ul>
 <table>
 <thead>
@@ -478,6 +483,21 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Amazon Bedrock</td>
+<td>Claude 3 Haiku</td>
+<td><span id="Amazon Bedrock - Claude 3 Haiku">Claude 3 Haiku is Anthropic's fastest, most compact model for near-instant responsiveness. It answers simple queries and requests with speed. Customers will be able to build seamless AI experiences that mimic human interactions. Claude 3 Haiku can process images and return text outputs, and features a 200K context window.</span></td>
+</tr>
+<tr>
+<td>Amazon Bedrock</td>
+<td>Claude 3 Opus</td>
+<td><span id="Amazon Bedrock - Claude 3 Opus">Claude 3 Opus is Anthropic's most powerful AI model, with state-of-the-art performance on highly complex tasks. It can navigate open-ended prompts and sight-unseen scenarios with remarkable fluency and human-like understanding. Claude 3 Opus shows us the frontier of what’s possible with generative AI. Claude 3 Opus can process images and return text outputs, and features a 200K context window.</span></td>
+</tr>
+<tr>
+<td>Amazon Bedrock</td>
+<td>Claude 3 Sonnet</td>
+<td><span id="Amazon Bedrock - Claude 3 Sonnet">Claude 3 Sonnet by Anthropic strikes the ideal balance between intelligence and speed—particularly for enterprise workloads. It offers maximum utility at a lower price than competitors, and is engineered to be the dependable, high-endurance workhorse for scaled AI deployments. Claude 3 Sonnet can process images and return text outputs, and features a 200K context window.</span></td>
+</tr>
 <tr>
 <td>Amazon Bedrock</td>
 <td>Claude Instant v1.1</td>
@@ -525,6 +545,11 @@
 </tr>
 <tr>
 <td>Amazon Bedrock</td>
+<td>Mistral-large</td>
+<td><span id="Amazon Bedrock - Mistral-large">The most advanced Mistral AI Large Language model capable of handling any language task including complex multilingual reasoning, text understanding, transformation, and code generation. </span></td>
+</tr>
+<tr>
+<td>Amazon Bedrock</td>
 <td>Mixtral-8x7B-Instruct</td>
 <td><span id="Amazon Bedrock - Mixtral-8x7B-Instruct">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
 </tr>
@@ -540,6 +565,11 @@
 </tr>
 <tr>
 <td>Azure Cognitive Services</td>
+<td>Azure GPT4 Turbo (Preview)</td>
+<td><span id="Azure Cognitive Services - Azure GPT4 Turbo (Preview)">GPT-4 Turbo provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
+</tr>
+<tr>
+<td>Azure Cognitive Services</td>
 <td>GPT3.5</td>
 <td><span id="Azure Cognitive Services - GPT3.5">GPT-3.5 provides a good balance of speed and capability.</span></td>
 </tr>
@@ -552,11 +582,6 @@
 <td>Azure Cognitive Services</td>
 <td>GPT4 (32K)</td>
 <td><span id="Azure Cognitive Services - GPT4 (32K)">GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout. The 32K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
-</tr>
-<tr>
-<td>Azure Cognitive Services</td>
-<td>GPT4 Turbo (Preview)</td>
-<td><span id="Azure Cognitive Services - GPT4 Turbo (Preview)">GPT-4 Turbo provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
 </tr>
 <tr>
 <td>HuggingFace</td>
@@ -730,8 +755,18 @@
 </tr>
 <tr>
 <td>watsonx.ai</td>
+<td>granite-7b-lab</td>
+<td><span id="watsonx.ai - granite-7b-lab">The Granite 7 Billion LAB (granite-7b-lab) model is the chat-focused variant initialized from the pre-trained Granite 7 Billion (granite-7b) model, which is Meta Llama 2 7B architecture trained to 2T tokens.</span></td>
+</tr>
+<tr>
+<td>watsonx.ai</td>
 <td>granite-8b-japanese</td>
 <td><span id="watsonx.ai - granite-8b-japanese">The Granite 8 Billion Japanese model is an instruct variant initialized from the pre-trained Granite Base 8 Billion Japanese model. Pre-training went through 1.0T tokens of English, 0.5T tokens of Japanese, and 0.1T tokens of code. This model is designed to work with Japanese text. IBM Generative AI Large Language Foundation Models are Enterprise-level Multilingual models trained with large volumes of data that has been subjected to intensive pre-processing and careful analysis.</span></td>
+</tr>
+<tr>
+<td>watsonx.ai</td>
+<td>jais-13b-chat</td>
+<td><span id="watsonx.ai - jais-13b-chat">Jais-13b-chat is Jais-13b fine-tuned over a curated set of 4 million Arabic and 6 million English prompt-response pairs. </span></td>
 </tr>
 <tr>
 <td>watsonx.ai</td>
@@ -745,38 +780,33 @@
 </tr>
 <tr>
 <td>watsonx.ai</td>
+<td>llama-3-70b-instruct</td>
+<td><span id="watsonx.ai - llama-3-70b-instruct">Llama 3 instruction-tuned models are fine-tuned and optimized for dialogue/chat use cases and outperform many of the available open-source chat models on common benchmarks.. </span></td>
+</tr>
+<tr>
+<td>watsonx.ai</td>
+<td>llama-3-8b-instruct</td>
+<td><span id="watsonx.ai - llama-3-8b-instruct">Llama 3 instruction-tuned models are fine-tuned and optimized for dialogue/chat use cases and outperform many of the available open-source chat models on common benchmarks.. </span></td>
+</tr>
+<tr>
+<td>watsonx.ai</td>
+<td>merlinite-7b</td>
+<td><span id="watsonx.ai - merlinite-7b">Merlinite is Mistral fine-tuned by Mixtral using IBM's LAB methodology.  Merlinite tends to hallucinate to the extreme, and show difficulty containing its output without running away. It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning. </span></td>
+</tr>
+<tr>
+<td>watsonx.ai</td>
 <td>Mixtral-8x7B-Instruct</td>
 <td><span id="watsonx.ai - Mixtral-8x7B-Instruct">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
 </tr>
 <tr>
 <td>watsonx.ai</td>
+<td>Mixtral-8x7B-Instruct-v01-q</td>
+<td><span id="watsonx.ai - Mixtral-8x7B-Instruct-v01-q">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
+</tr>
+<tr>
+<td>watsonx.ai</td>
 <td>MPT-7B-instruct2</td>
 <td><span id="watsonx.ai - MPT-7B-instruct2">The mpt-7b-instruct2 model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases. </span></td>
-</tr>
-<tr>
-<td>watsonx.ai (Tech Preview)</td>
-<td>Flan-t5-xxl</td>
-<td><span id="watsonx.ai (Tech Preview) - Flan-t5-xxl">The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai (Tech Preview)</td>
-<td>Flan-ul2</td>
-<td><span id="watsonx.ai (Tech Preview) - Flan-ul2">The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai (Tech Preview)</td>
-<td>Granite-20b-5lang-instruct-rc</td>
-<td><span id="watsonx.ai (Tech Preview) - Granite-20b-5lang-instruct-rc">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai (Tech Preview)</td>
-<td>Llama-2-chat portuguese 13B</td>
-<td><span id="watsonx.ai (Tech Preview) - Llama-2-chat portuguese 13B">Llama-2 Portuguese brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai (Tech Preview)</td>
-<td>MPT-7B-instruct</td>
-<td><span id="watsonx.ai (Tech Preview) - MPT-7B-instruct">The mpt-7b-instruct model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases. </span></td>
 </tr>
 </tbody>
 </table>

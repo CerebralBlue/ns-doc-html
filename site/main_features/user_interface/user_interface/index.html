@@ -61,9 +61,9 @@
       ]},
       {title: "Curate", url: "#curate", children: [
       ]},
-      {title: "Analytics", url: "#analytics", children: [
-      ]},
       {title: "Logs", url: "#logs", children: [
+      ]},
+      {title: "Governance", url: "#governance", children: [
       ]},
     ];
 
@@ -606,22 +606,6 @@
 <li>The Curate feature in NeuralSeek's UI allows users to manage intents and answers efficiently. Accessed through the Curate tab, the UI comprises columns like Intent, displaying categorized questions with indicators for status; Q&amp;A, indicating the number of questions and answers per intent; Coverage %, showing KnowledgeBase contribution; and Confidence %, reflecting the likelihood of user satisfaction. The trend graphs use color codes for coverage and confidence states. Users can hover over the graph to observe changes over time. Intents and answers can be displayed, searched, and filtered based on various criteria. Users can edit, delete, or backup answers, and perform operations on intents, such as merging or renaming. Caution is advised for irreversible actions like deletion and merging.</li>
 <li>See <a href="../../conversational_capabilities/conversational_capabilities/#curation-of-answers">Curation of Answers</a> for more info.</li>
 </ul>
-<h1 id="analytics">Analytics<a class="headerlink" href="#analytics" title="Permanent link"></a></h1>
-<p><a class="glightbox" href="../images/analytics.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="analytics" src="../images/analytics.png" /></a></p>
-<p><strong>What is it?</strong></p>
-<ul>
-<li>Users can work backwards from the Analytics tab to see and understand where the confidence and coverage scores of different actions are coming from. The Analytics feature reveals the relationship between each action’s coverage and confidence scores, and can direct users to each specific action found in the “Curate” section of the UI.</li>
-<li>You can see the changes up to 30 days, and also see the trend of whether the coverage or confidence has gone up or down in the past.</li>
-<li>For auto-categorization of intents, check out <a href="../../language_capabilities/language_capabilities/#intent-categorization">Intent Categorization</a></li>
-</ul>
-<p><strong>Why is it important?</strong></p>
-<ul>
-<li>The Analytics feature is crucial for helping to maintain relevance. Ultimately having updated documentation is key, but the analytics tab allows for users to monitor areas of improvement within the documentation through both the displayed coverage and confidence scores, and by utilizing the 30-day look back period sliding scale.</li>
-</ul>
-<p><strong>How does it work?</strong></p>
-<ul>
-<li>Slide the Lookback Period scale to get an idea of where users are asking questions, how well questions are being covered by the KnowledgeBase, and where a user might want to update their KnowledgeBase content based on the given coverage and confidence scores. Intents are categorized by frequency as well for easier viewing. </li>
-</ul>
 <h1 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link"></a></h1>
 <p><a class="glightbox" href="../images/logs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Logs" src="../images/logs.png" /></a></p>
 <p><strong>What is it?</strong></p>
@@ -636,6 +620,53 @@
 <ul>
 <li>Users are able to view the history of questions and answers, search for specifics using the magnifying glass icon, or filter by date, session ID, question, and answer using the arrows provided. </li>
 </ul>
+<h1 id="governance">Governance<a class="headerlink" href="#governance" title="Permanent link"></a></h1>
+<p><a class="glightbox" href="../images/gov_overview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_overview" src="../images/gov_overview.png" /></a>
+<a class="glightbox" href="../images/gov_overview_intents.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_overview_intents" src="../images/gov_overview_intents.png" /></a></p>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>The Governance tab is a comprehensive tool designed to provide users with a holistic view of Retrieval Augenmented Generation (RAG) governance. It serves as a centralized platform where users can access various insights and metrics related to the governance of their NeuralSeek system.</li>
+</ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>NeuralSeek's Governance ensures the effective management and oversight of NeuralSeek systems. With features like semantic insights, documentation insights, intent analytics, system performance, and configuration insights, users gain valuable information to make informed decisions about their NeuralSeek instance. This level of transparency and control is essential for maintaining the integrity and efficiency of NeuralSeek processes.</li>
+</ul>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>
+<p>The Governance tab operates by aggregating and analyzing data from various sources within the NeuralSeek platform. By consolidating these insights in one accessible interface, NeuralSeek's Governance tab empowers users to make well-informed decisions regarding their NeuralSeek governance strategies. Additionally, the Goverance tab's dyanmic interface allows users to filter by intent, category, or date for a more specified scope of internal analytics. </p>
+</li>
+<li>
+<p><strong>Semantic insights</strong> provide users with a deeper understanding of the underlying meaning and context of generated content. This allows for users to monitor the quality of the answers being generated. </p>
+</li>
+</ul>
+<p><a class="glightbox" href="../images/gov_semantic_insights.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_semantic" src="../images/gov_semantic_insights.png" /></a>
+<a class="glightbox" href="../images/gov_semantic_insights_hallucinated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_semantic" src="../images/gov_semantic_insights_hallucinated.png" /></a></p>
+<ul>
+<li><strong>Documentation insights</strong> offer visibility into the sources and references used by NeuralSeek so users are able to track what documentation is frequently used and how it is performing. </li>
+</ul>
+<p><a class="glightbox" href="../images/gov_doc_insights_mostrefDOCS.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_doc_insights" src="../images/gov_doc_insights_mostrefDOCS.png" /></a>
+<a class="glightbox" href="../images/gov_doc_insights_mostrefURL.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_doc_insights" src="../images/gov_doc_insights_mostrefURL.png" /></a></p>
+<ul>
+<li><strong>Intent analytics</strong> help users understand what intents are trending, and how they are performing. The Governance tab allows for easy tracking of both model and document regression over time. </li>
+</ul>
+<p><a class="glightbox" href="../images/gov_intent_analytics.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_intent_analytics" src="../images/gov_intent_analytics.png" /></a></p>
+<ul>
+<li><strong>System performance</strong> metrics track the efficiency and reliability of your NeuralSeek instance.</li>
+</ul>
+<p><a class="glightbox" href="../images/gov_system_performance_instance.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_system_perf" src="../images/gov_system_performance_instance.png" /></a>
+<a class="glightbox" href="../images/gov_system_performance_universe.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_system_perf" src="../images/gov_system_performance_universe.png" /></a></p>
+<ul>
+<li><strong>Configuration insights</strong> allow users to monitor configuration changes and track churn over time for optimal performance. </li>
+</ul>
+<p><a class="glightbox" href="../images/gov_config_insights.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_config_insights" src="../images/gov_config_insights.png" /></a></p>
+<ul>
+<li><strong>Filtering in Governance</strong> allows user to narrow or broaden the scope of the analytics to their specification. Users can filter by category and intent by clicking the filter icon in the top left corner. Users are able to filter by date by clicking the date range in the top right corner, or by clicking and dragging over a specified date range in the System Performance charts. </li>
+</ul>
+<p><a class="glightbox" href="../images/gov_filter_category.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_filter_category" src="../images/gov_filter_category.png" /></a>
+<a class="glightbox" href="../images/gov_filter_intent.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_filter_intent" src="../images/gov_filter_intent.png" /></a>
+<a class="glightbox" href="../images/gov_filter_date1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_filter_date" src="../images/gov_filter_date1.png" /></a>
+<a class="glightbox" href="../images/gov_filter_date2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gov_filter_date" src="../images/gov_filter_date2.png" /></a></p>
 
           <br>
           <footer class="wm-footer">
@@ -659,5 +690,6 @@
     loadWatson(); 
   }
 </script>
-<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

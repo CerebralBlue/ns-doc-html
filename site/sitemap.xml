@@ -91,6 +91,12 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/guides/backup_and_restore/backup_and_restore/"/>
     </url>
     <url>
+        <loc>https://documentation.neuralseek.com/reference_material/guides/elasticseach_vector_model/elasticsearch_vector_model/</loc>
+        <lastmod>2024-06-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/guides/elasticseach_vector_model/elasticsearch_vector_model/"/>
+    </url>
+    <url>
         <loc>https://documentation.neuralseek.com/reference_material/guides/implementing_feedback/implementing_feedback/</loc>
         <lastmod>2024-06-21</lastmod>
         <changefreq>daily</changefreq>

@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/guides/elasticseach_vector_model/elasticsearch_vector_model/">
+    <link rel="shortcut icon" href="../../../../img/ns-white.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Configuring ElasticSearch for Vector Search - NeuralSeek Documentation</title>
+
+  <meta property="og:title" content="Configuring ElasticSearch for Vector Search" />
+  <meta property="og:description" content="NeuralSeek Documentation" />
+    <link href="../../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../../css/colors.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../../../css/highlightjs-copy.css">
+    <link href="../../../../css/base.css" rel="stylesheet">
+    <link href="../../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../../js/highlight.min.js"></script>
+    <script src="../../../../js/highlightjs-copy.min.js"></script>
+    <script src="../../../../js/elasticlunr.min.js"></script>
+      
+    <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
+    <script>
+  var base_url = '../../../..';
+  var is_top_frame = false;
+    
+    var pageToc = [
+      {title: "Overview", url: "#overview", children: [
+      ]},
+      {title: "Log into Environments", url: "#log-into-environments", children: [
+      ]},
+      {title: "Creating Keys", url: "#creating-keys", children: [
+      ]},
+      {title: "Create a Machine Learning Instance", url: "#create-a-machine-learning-instance", children: [
+      ]},
+      {title: "Download Models", url: "#download-models", children: [
+      ]},
+      {title: "Create Source Index and Upload Data", url: "#create-source-index-and-upload-data", children: [
+      ]},
+      {title: "Create destination Index", url: "#create-destination-index", children: [
+      ]},
+      {title: "Ingest the Data to Generate Text Embeddings", url: "#ingest-the-data-to-generate-text-embeddings", children: [
+      ]},
+      {title: "Map a Field", url: "#map-a-field", children: [
+      ]},
+      {title: "Test the Semantic Search", url: "#test-the-semantic-search", children: [
+      ]},
+      {title: "Connect NeuralSeek to Elasticsearch", url: "#connect-neuralseek-to-elasticsearch", children: [
+      ]},
+      {title: "Enable Vector Search in NeuralSeek", url: "#enable-vector-search-in-neuralseek", children: [
+      ]},
+    ];
+
+</script>
+    <script src="../../../../js/base.js?v=2"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+ <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wm-top-page">
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="../../../../search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-left wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    
+    
+    
+      <div class="wm-top-tool wm-vcenter pull-right">
+  <div class="wm-select wm-vcentered">
+    
+    <button class="wm-header__button wm-icon" aria-label="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="wm-select__inner">
+      <ul class="wm-select__list">
+        
+          <li class="wm-select__item">
+            
+              <a href="/reference_material/guides/elasticseach_vector_model/elasticsearch_vector_model/" hreflang="English" class="wm-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+
+    
+    
+
+    
+    <a href="https://documentation.neuralseek.com/" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <img class="wm-top-logo" src="../../../../img/ns-white.svg"/>
+      
+      <div class="wm-top-title">
+        NeuralSeek Documentation<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  "><span class="wm-toc-text">About Cerebral Blue</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="https://cerebralblue.com/" class="wm-article-link wm-toc-text">Home Page</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="https://cerebralblue.com/about-us/" class="wm-article-link wm-toc-text">About Us</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Contact Us</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Partnerships</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev0   "><a href="../../../../" class="wm-article-link wm-toc-text">NeuralSeek Overview</a>
+</li>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  "><span class="wm-toc-text">Main Features</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/user_interface/user_interface/" class="wm-article-link wm-toc-text">NeuralSeek User Interface</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/conversational_capabilities/conversational_capabilities/" class="wm-article-link wm-toc-text">Conversational Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/language_capabilities/language_capabilities/" class="wm-article-link wm-toc-text">Language Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/data_management/data_management/" class="wm-article-link wm-toc-text">Data Management</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/advanced_features/advanced_features/" class="wm-article-link wm-toc-text">Advanced Features</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  "><span class="wm-toc-text">Integrations</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../integrations/supported_knowledgebases/supported_knowledgebases/" class="wm-article-link wm-toc-text">Supported KnowledgeBases</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../integrations/supported_llms/supported_llms/" class="wm-article-link wm-toc-text">Supported LLMs</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../integrations/supported_virtual_agents/supported_virtual_agents/" class="wm-article-link wm-toc-text">Supported Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../integrations/rest_api/rest_api/" class="wm-article-link wm-toc-text">REST API</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Reference Material</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/configuration/configuration/" class="wm-article-link wm-toc-text">Configuration Details</a>
+</li>
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">mAIstro Features</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/maistro/maistro/" class="wm-article-link wm-toc-text">Visual Editor</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/maistro/ntl_overview/" class="wm-article-link wm-toc-text">NTL Overview</a>
+</li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev2 wm-toc-opener  "><span class="wm-toc-text">All NTL Functions</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/get_data/" class="wm-article-link wm-toc-text">Get data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/upload_data/" class="wm-article-link wm-toc-text">Upload data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/generate_data/" class="wm-article-link wm-toc-text">Generate data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/extract_data/" class="wm-article-link wm-toc-text">Extract data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/database_connections/" class="wm-article-link wm-toc-text">Database connections</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/control_flow/" class="wm-article-link wm-toc-text">Control flow</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/guardrails/" class="wm-article-link wm-toc-text">Guardrails</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/system_variables/" class="wm-article-link wm-toc-text">System variables</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/modify_data/" class="wm-article-link wm-toc-text">Modify data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/send_data/" class="wm-article-link wm-toc-text">Send data</a>
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Guides</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/backup_and_restore/backup_and_restore/" class="wm-article-link wm-toc-text">Backup and Restore</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2  wm-current "><a href="../../../../reference_material/guides/elasticseach_vector_model/elasticsearch_vector_model/" class="wm-article-link wm-toc-text">Configuring ElasticSearch for Vector Search</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/implementing_feedback/implementing_feedback/" class="wm-article-link wm-toc-text">Implementing Feedback</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/proposals/proposals/" class="wm-article-link wm-toc-text">Using Proposals</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/training_virtual_agents/training_virtual_agents/" class="wm-article-link wm-toc-text">Training Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/tuning_guide/tuning_guide/" class="wm-article-link wm-toc-text">KnowledgeBase Tuning</a>
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev0   "><a href="../../../../plans/" class="wm-article-link wm-toc-text">Available NeuralSeek Plans</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev0   "><a href="../../../../data_security_and_privacy/" class="wm-article-link wm-toc-text">Data Security and Privacy</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev0   "><a href="../../../../changelog/" class="wm-article-link wm-toc-text">Changelog</a>
+</li>
+  </ul>
+</nav>
+
+  <div class="wm-content-pane">
+    <div class="container-fluid wm-page-content">
+        
+        <div class="wm-page-real-content">
+          <a name="_top"></a>  
+          
+          <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
+<p>This guide provides step-by-step instructions on configuring Vector search with ElasticSearch. It includes logging into the environments, creating keys for API access, setting up a machine learning instance, downloading necessary models, creating source and destination indices, and ingesting data to generate text embeddings. The guide also covers manual data loading steps and utilizing client helper functions for data ingestion. It concludes with verifying the data and content embeddings in the destination index.</p>
+<h2 id="log-into-environments">Log into Environments<a class="headerlink" href="#log-into-environments" title="Permanent link"></a></h2>
+<p>Begin by logging in to your IBM Cloud account</p>
+<ul>
+<li><strong>To provision in IBM Cloud</strong>:, <ul>
+<li>Navigate to <strong>Databases for ElasticSearch</strong>.</li>
+<li>Select the <strong>Platinum Database Edition</strong>.</li>
+</ul>
+</li>
+<li>Otherwise, provision within Elastic Cloud as normal.</li>
+</ul>
+<p>There are two environments to work from.</p>
+<ul>
+<li><strong>ElasticSearch Cloud</strong> console. Notice the icons in the top right corner. </li>
+<li><strong>Kibana</strong> console<ul>
+<li>Users may be taken directly to the Kibana console after creating a deployment. If not, navigate there by selecting Open on the deployment page from the ElasticSearch Cloud console. </li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" href="../images/es_deploy_click_to_kibana.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="es_deploy_click_to_kibana" src="../images/es_deploy_click_to_kibana.png" /></a>
+<a class="glightbox" href="../images/es_kibana_console.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="es_kibana_console" src="../images/es_kibana_console.png" /></a></p>
+<h2 id="creating-keys">Creating Keys<a class="headerlink" href="#creating-keys" title="Permanent link"></a></h2>
+<ul>
+<li>Select the circle icon in the top right of the Kibana screen. </li>
+<li>Select <code>Connection Details</code></li>
+<li>Here, you will see the <strong>ElasticSearch endpoint</strong> and the <strong>Cloud ID</strong>.</li>
+<li>Select <strong>Create and Manage API Keys</strong>. </li>
+<li>To create a new API key, click <strong>Create API Key</strong>.<ul>
+<li>Add a unique name.</li>
+<li>Select the type as <strong>User API Key</strong>.</li>
+<li>Click <strong>Create API Key</strong> button at the bottom of the dialog.</li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" href="../images/ES_connection_details.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="es_connection_details" src="../images/ES_connection_details.png" /></a>
+<a class="glightbox" href="../images/ES_manage_api_keys.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="es_manage_keys" src="../images/ES_manage_api_keys.png" /></a>
+<a class="glightbox" href="../images/ES_create_api_key.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="es_create_api_key" src="../images/ES_create_api_key.png" /></a></p>
+<blockquote>
+<p>Save these values in a safe place for later use. </p>
+</blockquote>
+<h2 id="create-a-machine-learning-instance">Create a Machine Learning Instance<a class="headerlink" href="#create-a-machine-learning-instance" title="Permanent link"></a></h2>
+<p>Elastic requires a machine learning instance to run the NLP models required for vectorizing the data for indexing. </p>
+<ul>
+<li>Navigate to the Home screen of your ElasticSearch instance.</li>
+<li>Navigate to the newly created deployment and select <strong>Manage</strong>.</li>
+<li>On the side menu, select <strong>Edit</strong>.</li>
+<li>Scroll down to the <strong>Machine Learning Instances</strong> section.</li>
+<li>Select <strong>Add Capacity</strong>.</li>
+<li>Select 4 GB RAM.</li>
+<li>Click <strong>Save</strong> at the bottom of the page. </li>
+</ul>
+<p><a class="glightbox" href="../images/ES_edit_deploy.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ES_edit_deploy" src="../images/ES_edit_deploy.png" /></a>
+<a class="glightbox" href="../images/ES_add_ML_RAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ES_add_ML_RAM" src="../images/ES_add_ML_RAM.png" /></a>
+<a class="glightbox" href="../images/ES_save_ML_add.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ES_save_ML_add" src="../images/ES_save_ML_add.png" /></a></p>
+<h2 id="download-models">Download Models<a class="headerlink" href="#download-models" title="Permanent link"></a></h2>
+<details class="abstract">
+<summary>Download ELSER model</summary>
+<ul>
+<li>In Kibana, click the menu icon in the top left and navigate to <strong>Analytics &gt; Machine Learning &gt; Trained Models</strong>.</li>
+<li>Click the <strong>Download</strong> button under the Actions column<ul>
+<li>Choose the recommended <code>".elser_model_2_linux-x86_64"</code> model</li>
+<li>It may take some time for the download to finish. </li>
+</ul>
+</li>
+<li>Click the <strong>Deploy</strong> link that shows up when the mouse is hovered over the downloaded model.</li>
+<li>Leave the default settings on the Dialog column and select <strong>Start</strong>.</li>
+<li>The State column will show <strong>Deployed</strong> when successfully done. </li>
+</ul>
+<p><a class="glightbox" href="../images/ES_kibana_trained_model.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ES_download_trained_model" src="../images/ES_kibana_trained_model.png" /></a></p>
+</details>
+<details class="abstract">
+<summary>Download A Text Embedding Model</summary>
+<p>It is recommended to use <strong>Eland</strong> to upload and download the desired model to ElasticSearch.</p>
+<ul>
+<li>Run this command to install the Eland Python client with PyTorch: <code>python -m pip install 'eland[pytorch]'</code></li>
+<li>Run this script to download the model from Hugging Face, convert it to TorchScript format, and upload to the Elasticsearch cluster:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    eland_import_hub_model
+    --cloud-id &lt;cloud-id&gt; \
+    -u &lt;username&gt; -p &lt;password&gt; \
+    --hub-model-id elastic
+    distilbert-base-cased-finetuned-conll03-english \
+    --task-type ner
+</code></pre></div>
+<ul>
+<li>Specify the <strong>Elastic Cloud identifier</strong> using the TLS setting with a downloaded cert from <strong>IBM Cloud -&gt; Database for Elasticsearch -&gt; Overview tab</strong>.</li>
+<li>Provide authentication details to access your cluster.</li>
+<li>Specify the <strong>identifier</strong> for the model in the Hugging Face model hub.</li>
+<li>Specify the <strong>NLP task type</strong> as <code>"text_embedding"</code>.</li>
+</ul>
+<blockquote>
+<p>It is recommended to use the <code>intflost/multilingual-e5-base</code> Hugging Face model to start. </p>
+<p>It may take time for the model to auto-start, up to a few hours.</p>
+</blockquote>
+</details>
+<h2 id="create-source-index-and-upload-data">Create Source Index and Upload Data<a class="headerlink" href="#create-source-index-and-upload-data" title="Permanent link"></a></h2>
+<p>Indices can be created by either manually loading data using the _bulk API, or by using a client helper function which will create the index and load the data.</p>
+<p><a class="glightbox" href="../images/ES_kibana_dev_console.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kibana_dev_console" src="../images/ES_kibana_dev_console.png" /></a></p>
+<details class="abstract">
+<summary>Manual Data Load Steps</summary>
+<ul>
+<li>Navigate to Kibana console.</li>
+<li>From the side menu, select <strong>Management &gt; Dev Tools</strong> to launch the dev console.</li>
+<li>Delete any code that appears.</li>
+<li>To create the source index, enter the following code:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    PUT /search-gs-docs-src
+    {
+    &quot;mappings&quot;: {
+        &quot;properties&quot;: {
+        &quot;title&quot;: { 
+            &quot;type&quot;: &quot;text&quot; 
+        },
+        &quot;content&quot;: { 
+            &quot;type&quot;: &quot;text&quot; 
+        },
+        &quot;source&quot;: { 
+            &quot;type&quot;: &quot;text&quot; 
+        },
+        &quot;url&quot;: { 
+            &quot;type&quot;: &quot;text&quot; 
+        },
+        &quot;public_record&quot;: { 
+            &quot;type&quot;: &quot;boolean&quot; 
+        }
+        }
+    }
+    }
+</code></pre></div>
+<ul>
+<li>Hit the <strong>run</strong> icon.</li>
+<li>Prepare the data for bulk ingestion by manually converting the data and using the dev console to load it by entering the following code:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    POST _bulk
+    { &quot;index&quot; : { &quot;_index&quot; : &quot;search-gs-docs-src&quot;, &quot;_id&quot; : &quot;1&quot; } }
+    { &quot;title&quot; : &quot;Top 3 Best Practices to Secure Your Gainsight PX Subscription&quot;,
+    &quot;content&quot; : &quot;We should all protect what has been entrusted…”,
+    &quot;url&quot; : &quot;https://support.gainsight.com/...&quot;,
+    &quot;source&quot; : &quot;docs”,
+    “public_record”:true,
+    “objectID”: “https://support.gainsight.com/...”
+    }
+    { &quot;index&quot; : { &quot;_index&quot; : &quot;search-gs-docs-src&quot;, &quot;_id&quot; : &quot;2&quot; } }
+    { &quot;title&quot; : &quot;Using PX with Content Security Policy&quot;,
+    &quot;content&quot; : &quot;This article describes the steps to allow a Content Security Policy…”,
+    &quot;url&quot; : &quot;https://support.gainsight.com/...&quot;,
+    &quot;source&quot; : &quot;docs”,
+    “public_record”:true,
+    “objectID”: “https://support.gainsight.com/...”
+    }
+    …
+</code></pre></div>
+</details>
+<details class="abstract">
+<summary>Utilizing Client Helper Function Steps</summary>
+<ul>
+<li>Enter the following code to utilize the client helper function to create the index and load the data:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    &#39;use strict&#39;
+
+    require(&#39;array.prototype.flatmap&#39;).shim()
+    const { Client } = require(&#39;@elastic/elasticsearch&#39;)
+    const client = new Client({
+    cloud: { id: &#39;&lt;cloud_id&gt;&#39;},
+    auth: { apiKey: &#39;&lt;api_key&gt;&#39; }
+    })
+    const dataset = require(&#39;./gainsight_documentation_data/gainsight-en-federated.json&#39;)
+
+    // Create and load the source index
+    async function run () {
+    await client.indices.create({
+        index: &#39;search-gs-docs-src&#39;,
+        operations: {
+        mappings: {
+            properties: {
+            title: { type: &#39;text&#39; },
+            content: { type: &#39;text&#39; },
+            url: { type: &#39;text&#39; },
+            source: { type: &#39;text&#39; },
+            public_record: { type: &#39;boolean&#39; },
+            objectID: { type: &#39;text&#39; }
+            }
+        }
+        }
+    }, { ignore: [400] })
+
+    const operations = dataset.flatMap(doc =&gt; [{ index: { _index: &#39;search-gs-docs-src&#39; } }, doc])
+
+    const bulkResponse = await client.bulk({ refresh: true, operations })
+
+    if (bulkResponse.errors) {
+        const erroredDocuments = []
+        // The items array has the same order of the dataset we just indexed.
+        // The presence of the `error` key indicates that the operation
+        // that we did for the document has failed.
+        bulkResponse.items.forEach((action, i) =&gt; {
+        const operation = Object.keys(action)[0]
+        if (action[operation].error) {
+            erroredDocuments.push({
+            // If the status is 429 it means that you can retry the document,
+            // otherwise it&#39;s very likely a mapping error, and you should
+            // fix the document before to try it again.
+            status: action[operation].status,
+            error: action[operation].error,
+            operation: operations[i * 2],
+            document: operations[i * 2 + 1]
+            })
+        }
+        })
+        console.log(erroredDocuments)
+    }
+
+    const count = await client.count({ index: &#39;search-gs-docs-src&#39; })
+    console.log(count)
+    }
+
+    run().catch(console.log)
+</code></pre></div>
+<ul>
+<li>Use the <strong>Cloud ID</strong> and <strong>API Key</strong>.</li>
+<li>Enter the following commands to run this script:<ul>
+<li><code>npm i @elastic/elasticsearch</code></li>
+<li><code>npm i array.prototype.flatmap</code></li>
+<li><code>node data_load.js</code></li>
+</ul>
+</li>
+</ul>
+</details>
+<p>Once the data is loaded, either manually or programmatically, verify that it appears properly in the index.</p>
+<ul>
+<li>Navigate to the Kibana console.</li>
+<li>Navigate to <strong>Search &gt; Content &gt; Indices</strong>.</li>
+<li>Open the <code>search-gs-docs-src</code> index.</li>
+<li>Open the <strong>Documents</strong> tab to see the data for verification.</li>
+</ul>
+<h2 id="create-destination-index">Create destination Index<a class="headerlink" href="#create-destination-index" title="Permanent link"></a></h2>
+<p>Create a destination index using the same schema as the source index. Add a field to store the content embeddings. </p>
+<ul>
+<li>Enter the following code, then hit the <strong>run</strong> icon.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    PUT /search-gs-docs-dest
+    {
+    &quot;mappings&quot;: {
+        &quot;properties&quot;: {
+        &quot;content_embedding&quot;: { 
+            &quot;type&quot;: &quot;sparse_vector&quot; 
+        },
+        &quot;title&quot;: { 
+            &quot;type&quot;: &quot;text&quot; 
+        },
+        &quot;content&quot;: { 
+            &quot;type&quot;: &quot;text&quot; 
+        },
+        &quot;source&quot;: { 
+            &quot;type&quot;: &quot;text&quot; 
+        },
+        &quot;url&quot;: { 
+            &quot;type&quot;: &quot;text&quot; 
+        },
+        &quot;public_record&quot;: { 
+            &quot;type&quot;: &quot;boolean&quot; 
+        }
+        }
+    }
+    }
+</code></pre></div>
+<h2 id="ingest-the-data-to-generate-text-embeddings">Ingest the Data to Generate Text Embeddings<a class="headerlink" href="#ingest-the-data-to-generate-text-embeddings" title="Permanent link"></a></h2>
+<ul>
+<li>Create an ingest pipeline with an inference processor. Enter the following code:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    PUT _ingest/pipeline/my-content-embedding-pipeline
+    {
+    &quot;processors&quot;: [
+        {
+        &quot;inference&quot;: {
+            &quot;model_id&quot;: &quot;.elser_model_2_linux-x86_64&quot;,
+            &quot;input_output&quot;: [ 
+            {
+                &quot;input_field&quot;: &quot;content&quot;,
+                &quot;output_field&quot;: &quot;content_embedding&quot;
+            }
+            ]
+        }
+        }
+    ]
+    }
+</code></pre></div>
+<ul>
+<li>
+<p>Click the <strong>run</strong> icon.</p>
+</li>
+<li>
+<p>Ingest the data through the inference index pipeline to create the text embeddings. Enter the following code into the dev console:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    POST _reindex?wait_for_completion=false
+    {
+    &quot;source&quot;: {
+        &quot;index&quot;: &quot;search-gs-docs-src&quot;,
+        &quot;size&quot;: 50 
+    },
+    &quot;dest&quot;: {
+        &quot;index&quot;: &quot;search-gs-docs-dest&quot;,
+        &quot;pipeline&quot;: &quot;my-content-embedding-pipeline&quot;
+    }
+    }
+</code></pre></div>
+<ul>
+<li>To get the name of the pipeline with the model loaded, navigate to <strong>Kibana &gt; Machine Learning &gt; Trained Models</strong>.</li>
+<li>Expand the Deployed model.</li>
+<li>Navigate to the <strong>Pipelines</strong> tab to view the <code>my-content-embesddings-pipeline</code> created in the above step. </li>
+</ul>
+<blockquote>
+<p>To confirm the task was run successfully, run the following command using the <strong>task ID</strong> produced in the response from the previous command.
+<code>GET _tasks/&lt;task_id&gt;</code>.</p>
+</blockquote>
+<ul>
+<li>Verify the content embeddings are in the new destination index.<ul>
+<li>Navigate to Kibana.</li>
+<li>Navigate to <strong>Search &gt; Content &gt; Indices</strong>.</li>
+<li>Open the <code>search-gs-docs-dest</code> index.</li>
+<li>Open the <strong>Documents</strong> tab to see the data.</li>
+</ul>
+</li>
+</ul>
+<h2 id="map-a-field">Map a Field<a class="headerlink" href="#map-a-field" title="Permanent link"></a></h2>
+<p>Models compatible with ElasticSearch NLP generate dense vectors as output, so the <code>dense_vector</code> field type for the index is suitable for storing. This field type must be configured with the same number of dimensions using the <code>dims</code> option. </p>
+<ul>
+<li>
+<p>Enter the following code into the dev console to create an index mapping that defines field containing the model output. 
+<div class="highlight"><pre><span></span><code>    PUT my-index
+    {
+    &quot;mappings&quot;: {
+        &quot;properties&quot;: {
+        &quot;my_embeddings.predicted_value&quot;: { 
+            &quot;type&quot;: &quot;dense_vector&quot;, 
+            &quot;dims&quot;: 384 
+        },
+        &quot;my_text_field&quot;: { 
+            &quot;type&quot;: &quot;text&quot; 
+        }
+        }
+    }
+    }
+</code></pre></div></p>
+</li>
+<li>
+<p><code>my_embeddings.predicted_value</code> is equal to the name of the field containing the embeddings generated by the model.</p>
+</li>
+<li>The <code>"type"</code> field must be <code>"dense_vector"</code>.</li>
+<li>The <code>"dims"</code> field contains the number of dimensions of the embeddings produced by the model. Be sure that this number is configured in the <code>dense_vector</code> field. </li>
+<li>The <code>"my_text_field"</code> field is equal to the name of the field from which to create the dense vector representation.</li>
+<li>The <code>"type"</code> field is <code>text</code>. </li>
+</ul>
+<h2 id="test-the-semantic-search">Test the Semantic Search<a class="headerlink" href="#test-the-semantic-search" title="Permanent link"></a></h2>
+<details class="abstract">
+<summary>ELSER Model</summary>
+<p>Test the semantic search using the <code>text_expansion</code> query by providing the query text and the ELSER Model ID. </p>
+<ul>
+<li>Enter the following code into the dev console:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>        GET search-gs-docs-dest/_search
+    {
+    &quot;query&quot;:{
+        &quot;text_expansion&quot;:{
+            &quot;content_embedding&quot;:{
+                &quot;model_id&quot;:&quot;.elser_model_2_linux-x86_64&quot;,
+                &quot;model_text&quot;:&quot;Put sample query here&quot;
+            }
+        }
+    }
+    }
+</code></pre></div>
+<ul>
+<li>The <code>content_embedding</code> field contains the generated ELSER output. </li>
+</ul>
+</details>
+<details class="abstract">
+<summary>Dense Vector Model</summary>
+<p>The dense vector models allow users to query rank features with a kNN search. In the <code>knn</code> clause, users will provide the name of the dense vector field. In the <code>query_vector_builder</code> clause, add the model ID and the query text.</p>
+<ul>
+<li>Enter the following code into the dev console:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    GET my-index/_search
+    {
+    &quot;knn&quot;: {
+        &quot;field&quot;: &quot;my_embeddings.predicted_value&quot;,
+        &quot;k&quot;: 10,
+        &quot;num_candidates&quot;: 100,
+        &quot;query_vector_builder&quot;: {
+        &quot;text_embedding&quot;: {
+            &quot;model_id&quot;: &quot;sentence-transformers__msmarco-minilm-l-12-v3&quot;,
+            &quot;model_text&quot;: &quot;the query string&quot;
+        }
+        }
+    }
+    }
+</code></pre></div>
+</details>
+<h2 id="connect-neuralseek-to-elasticsearch">Connect NeuralSeek to Elasticsearch<a class="headerlink" href="#connect-neuralseek-to-elasticsearch" title="Permanent link"></a></h2>
+<ul>
+<li>Navigate to your IBM Cloud account.</li>
+<li>Open the NeuralSeek service instance.</li>
+<li>Navigate to the <strong>Configure</strong> screen.</li>
+<li>Save your current setting by clicking the <strong>Download Settings</strong> button at the bottom of the screen.</li>
+<li>Open the <strong>KnowledgeBase Connection</strong> accordion and update the following fields. <ul>
+<li>Set KnowledgeBase Type to <code>ElasticSeach</code></li>
+<li>Set the <strong>ElasticSearch Endpoint</strong>.</li>
+<li>Set the <strong>ElasticSearch Private API Key</strong>.</li>
+<li>Set the <strong>ElasticSearch Index Name</strong> to the destination index. In this case, <code>search-gs-docs-dest</code>. </li>
+<li>Set the <strong>Curation Data Field</strong> to <code>content</code>.</li>
+<li>Set the <strong>Documentation Name Field</strong> to <code>title</code>.</li>
+<li>Set the <strong>Link Field</strong> to <code>url</code>.</li>
+</ul>
+</li>
+<li>Click the <strong>Save</strong> button at the bottom of the page.</li>
+</ul>
+<p><a class="glightbox" href="../images/ES_download_NS_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ES_download_NS_settings" src="../images/ES_download_NS_settings.png" /></a>
+<a class="glightbox" href="../images/ES_NS_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ES_NS_settings" src="../images/ES_NS_settings.png" /></a></p>
+<h2 id="enable-vector-search-in-neuralseek">Enable Vector Search in NeuralSeek<a class="headerlink" href="#enable-vector-search-in-neuralseek" title="Permanent link"></a></h2>
+<p>In the NeuralSeek Configure screen, open the <strong>Hybrid and Vector Search Settings</strong> accordion to update the following fields.</p>
+<ul>
+<li>Set Elastic Query Type to <code>Hybrid</code>. <ul>
+<li>This will allow for both <strong>Lucene</strong> (exact match) and <strong>Vector</strong> (semantic) searching to achieve a more robust response. </li>
+</ul>
+</li>
+<li>Set the <strong>Model ID</strong> to <code>".elser_model_2_linux-x86_64"</code></li>
+<li>Set the <strong>Embedding Field</strong> to <code>content_embedding</code></li>
+<li>Set the <strong>Use the Elastic ELSER Model</strong> field to <code>True</code> for ELSER Model Use, or set to <code>False</code> to allow NeuralSeek to expect JSON format for a kNN search query. </li>
+<li>Click <strong>Save</strong> at the bottom of the screen. </li>
+</ul>
+<p><a class="glightbox" href="../images/ES_hybrid_NS_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ES_hybrid_NS_settings" src="../images/ES_hybrid_NS_settings.png" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">If using 'IBM Databases for ElasticSearch'</p>
+<p>With Hybrid search, the KnnScoreDocQuery was created by a different reader. To fix this, enter the following code into the Kibana dev console:
+<div class="highlight"><pre><span></span><code>    PUT /&lt;INDEX_NAME&gt;/_settings
+    {
+        &quot;index&quot; : {
+            &quot;highlight.weight_matches_mode.enabled&quot; : &quot;false&quot;
+        }
+    }
+</code></pre></div></p>
+</div>
+
+          <br>
+          <footer class="wm-footer">
+                <p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+          </footer>
+        </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="../../../../scripts/watson.js"></script>
+<script> 
+  function isInFrame() {
+    return (window.top !== window);
+  }
+  if (!isInFrame()) {
+    loadWatson(); 
+  }
+</script>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

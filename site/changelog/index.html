@@ -457,6 +457,19 @@
 <h2 id="june-2024">June - 2024<a class="headerlink" href="#june-2024" title="Permanent link"></a></h2>
 <p><strong>New features</strong></p>
 <ul>
+<li>New platforms supported:<ul>
+<li>vLLM / "generic" openAI-style inference engines.  This allows you to plug-and play with many more on-prem and SaaS inference engines</li>
+<li>Google Vertex is now supported, and we have added Gemini 1.5 pro and Flash.  These models are quite good - Pro is on the same tier as GPT-4o, Claude3 Sonnet, and Mistral-Large</li>
+</ul>
+</li>
+<li>mAIstro updates!<ul>
+<li>Built-in charting. With a compatible LLM you can ask for a chart to be generated as part of the output.</li>
+<li>Formatted output - generate and display HTML and javascript</li>
+<li>New "Raw" view - see the code behind charting and generated HTML</li>
+<li>PDF output</li>
+<li>Hover Menus!  When on the visual builder, all of the nodes now will let you see and insert any secrets, user &amp; system defined variables or generate a new variable.  Makes building so much easier!</li>
+</ul>
+</li>
 <li>Native integration to watsonx.governance.  In mAistro, see our example template for how to configure this - it's really easy, just 3 steps.  For watsonx.governance you just need an IAM API key, and from your "Production" deployment space in x.gov, under actions/model information we need your Evaluation datamart ID and Subscription ID. We'll send all of the NeuralSeek measures over to watsonx.governance so you can collect and govern them cross-instance and show a larger governance story.  We also provide an open-ended integration in case you want to do something more custom.</li>
 <li>New mAIstro Integrations: (there are so many native functions and connectors in mAistro now we had to add a search feature!)<ul>
 <li>Jira</li>

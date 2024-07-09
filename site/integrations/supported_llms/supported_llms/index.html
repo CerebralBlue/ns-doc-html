@@ -422,445 +422,386 @@
           <a name="_top"></a>  
           
           <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h1>
-<p>NeuralSeek supports the following Large Language Models (LLMs):</p>
+<p>NeuralSeek supports LLMs from many providers, including:</p>
 <ul>
-<li><a href="#Amazon Bedrock - Claude 3 Haiku">Amazon Bedrock - Claude 3 Haiku</a></li>
-<li><a href="#Amazon Bedrock - Claude 3 Opus">Amazon Bedrock - Claude 3 Opus</a></li>
-<li><a href="#Amazon Bedrock - Claude 3 Sonnet">Amazon Bedrock - Claude 3 Sonnet</a></li>
-<li><a href="#Amazon Bedrock - Claude Instant v1.1">Amazon Bedrock - Claude Instant v1.1</a></li>
-<li><a href="#Amazon Bedrock - Claude v2">Amazon Bedrock - Claude v2</a></li>
-<li><a href="#Amazon Bedrock - Claude v2.1">Amazon Bedrock - Claude v2.1</a></li>
-<li><a href="#Amazon Bedrock - Jurassic-2 Mid">Amazon Bedrock - Jurassic-2 Mid</a></li>
-<li><a href="#Amazon Bedrock - Jurassic-2 Ultra">Amazon Bedrock - Jurassic-2 Ultra</a></li>
-<li><a href="#Amazon Bedrock - Llama-2-chat 13B">Amazon Bedrock - Llama-2-chat 13B</a></li>
-<li><a href="#Amazon Bedrock - Llama-2-chat 70B">Amazon Bedrock - Llama-2-chat 70B</a></li>
-<li><a href="#Amazon Bedrock - Mistral-7B-Instruct">Amazon Bedrock - Mistral-7B-Instruct</a></li>
-<li><a href="#Amazon Bedrock - Mistral-large">Amazon Bedrock - Mistral-large</a></li>
-<li><a href="#Amazon Bedrock - Mistral-small">Amazon Bedrock - Mistral-small</a></li>
-<li><a href="#Amazon Bedrock - Mixtral-8x7B-Instruct">Amazon Bedrock - Mixtral-8x7B-Instruct</a></li>
-<li><a href="#Amazon Bedrock - Titan Text G1 - Express">Amazon Bedrock - Titan Text G1 - Express</a></li>
-<li><a href="#Azure Cognitive Services - Azure GPT4 Turbo (Preview)">Azure Cognitive Services - Azure GPT4 Turbo (Preview)</a></li>
-<li><a href="#Azure Cognitive Services - GPT-4o">Azure Cognitive Services - GPT-4o</a></li>
-<li><a href="#Azure Cognitive Services - GPT3.5">Azure Cognitive Services - GPT3.5</a></li>
-<li><a href="#Azure Cognitive Services - GPT4">Azure Cognitive Services - GPT4</a></li>
-<li><a href="#Azure Cognitive Services - GPT4 (32K)">Azure Cognitive Services - GPT4 (32K)</a></li>
-<li><a href="#Generic OpenAI-compatible - OpenAI Chat Completions">Generic OpenAI-compatible - OpenAI Chat Completions</a></li>
-<li><a href="#Generic OpenAI-compatible - OpenAI Completions">Generic OpenAI-compatible - OpenAI Completions</a></li>
-<li><a href="#Google Vertex AI - gemini-1.5-flash (128K Context)">Google Vertex AI - gemini-1.5-flash (128K Context)</a></li>
-<li><a href="#Google Vertex AI - gemini-1.5-flash (1M Context)">Google Vertex AI - gemini-1.5-flash (1M Context)</a></li>
-<li><a href="#Google Vertex AI - gemini-1.5-pro (128K Context)">Google Vertex AI - gemini-1.5-pro (128K Context)</a></li>
-<li><a href="#Google Vertex AI - gemini-1.5-pro (1M Context)">Google Vertex AI - gemini-1.5-pro (1M Context)</a></li>
-<li><a href="#HuggingFace - Flan-t5-xxl">HuggingFace - Flan-t5-xxl</a></li>
-<li><a href="#HuggingFace - Flan-ul2">HuggingFace - Flan-ul2</a></li>
-<li><a href="#HuggingFace - Llama-2">HuggingFace - Llama-2</a></li>
-<li><a href="#HuggingFace - Llama-2-chat">HuggingFace - Llama-2-chat</a></li>
-<li><a href="#HuggingFace - llama-3-chat">HuggingFace - llama-3-chat</a></li>
-<li><a href="#HuggingFace - Mistral-7B-Instruct">HuggingFace - Mistral-7B-Instruct</a></li>
-<li><a href="#HuggingFace - Mixtral-8x22B-Instruct-v0.1">HuggingFace - Mixtral-8x22B-Instruct-v0.1</a></li>
-<li><a href="#HuggingFace - Mixtral-8x7B-Instruct">HuggingFace - Mixtral-8x7B-Instruct</a></li>
-<li><a href="#HuggingFace - MPT-7B-instruct">HuggingFace - MPT-7B-instruct</a></li>
-<li><a href="#OpenAI - gpt-3.5-turbo-0125">OpenAI - gpt-3.5-turbo-0125</a></li>
-<li><a href="#OpenAI - GPT-4o">OpenAI - GPT-4o</a></li>
-<li><a href="#OpenAI - GPT3.5">OpenAI - GPT3.5</a></li>
-<li><a href="#OpenAI - GPT3.5 (16K)">OpenAI - GPT3.5 (16K)</a></li>
-<li><a href="#OpenAI - GPT4">OpenAI - GPT4</a></li>
-<li><a href="#OpenAI - GPT4 (32K)">OpenAI - GPT4 (32K)</a></li>
-<li><a href="#OpenAI - GPT4 Turbo (Preview)">OpenAI - GPT4 Turbo (Preview)</a></li>
-<li><a href="#together.ai - Llama-2 Chat 13B">together.ai - Llama-2 Chat 13B</a></li>
-<li><a href="#together.ai - Llama-2 Chat 70B">together.ai - Llama-2 Chat 70B</a></li>
-<li><a href="#together.ai - Llama-2 Chat 7B">together.ai - Llama-2 Chat 7B</a></li>
-<li><a href="#together.ai - llama-2-13b">together.ai - llama-2-13b</a></li>
-<li><a href="#together.ai - llama-2-70b">together.ai - llama-2-70b</a></li>
-<li><a href="#together.ai - LLaMA-2-7B-32K-Instruct">together.ai - LLaMA-2-7B-32K-Instruct</a></li>
-<li><a href="#together.ai - Mistral-7B-Instruct">together.ai - Mistral-7B-Instruct</a></li>
-<li><a href="#together.ai - Mixtral-8x22B-Instruct-v0.1">together.ai - Mixtral-8x22B-Instruct-v0.1</a></li>
-<li><a href="#together.ai - Mixtral-8x7B-Instruct">together.ai - Mixtral-8x7B-Instruct</a></li>
-<li><a href="#watsonx.ai - elyza-japanese-llama-2-7b-instruct">watsonx.ai - elyza-japanese-llama-2-7b-instruct</a></li>
-<li><a href="#watsonx.ai - Flan-t5-xxl">watsonx.ai - Flan-t5-xxl</a></li>
-<li><a href="#watsonx.ai - Flan-ul2">watsonx.ai - Flan-ul2</a></li>
-<li><a href="#watsonx.ai - granite-13b-chat-v1">watsonx.ai - granite-13b-chat-v1</a></li>
-<li><a href="#watsonx.ai - granite-13b-chat-v2">watsonx.ai - granite-13b-chat-v2</a></li>
-<li><a href="#watsonx.ai - granite-13b-instruct-v1">watsonx.ai - granite-13b-instruct-v1</a></li>
-<li><a href="#watsonx.ai - granite-13b-instruct-v2">watsonx.ai - granite-13b-instruct-v2</a></li>
-<li><a href="#watsonx.ai - granite-20b-multilingual">watsonx.ai - granite-20b-multilingual</a></li>
-<li><a href="#watsonx.ai - granite-7b-lab">watsonx.ai - granite-7b-lab</a></li>
-<li><a href="#watsonx.ai - granite-8b-japanese">watsonx.ai - granite-8b-japanese</a></li>
-<li><a href="#watsonx.ai - jais-13b-chat">watsonx.ai - jais-13b-chat</a></li>
-<li><a href="#watsonx.ai - Llama-2-chat 13B">watsonx.ai - Llama-2-chat 13B</a></li>
-<li><a href="#watsonx.ai - Llama-2-chat 70B">watsonx.ai - Llama-2-chat 70B</a></li>
-<li><a href="#watsonx.ai - llama-3-70b-instruct">watsonx.ai - llama-3-70b-instruct</a></li>
-<li><a href="#watsonx.ai - llama-3-8b-instruct">watsonx.ai - llama-3-8b-instruct</a></li>
-<li><a href="#watsonx.ai - merlinite-7b">watsonx.ai - merlinite-7b</a></li>
-<li><a href="#watsonx.ai - Mixtral-8x7B-Instruct">watsonx.ai - Mixtral-8x7B-Instruct</a></li>
-<li><a href="#watsonx.ai - Mixtral-8x7B-Instruct-v01-q">watsonx.ai - Mixtral-8x7B-Instruct-v01-q</a></li>
-<li><a href="#watsonx.ai - MPT-7B-instruct2">watsonx.ai - MPT-7B-instruct2</a></li>
+<li>Amazon Bedrock</li>
+<li>Azure Cognitive Services</li>
+<li>Google Vertex AI</li>
+<li>HuggingFace</li>
+<li>OpenAI</li>
+<li>together.ai</li>
+<li>watsonx.ai</li>
 </ul>
+<p>In addition to any generic OpenAI-compatible endpoints.</p>
+<p><br/></p>
+<p><strong>Supported LLM details by provider:</strong></p>
+<details class="success">
+<summary>Amazon Bedrock</summary>
 <table>
 <thead>
 <tr>
-<th>Platform</th>
 <th>LLM</th>
 <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Claude 3 Haiku</td>
-<td><span id="Amazon Bedrock - Claude 3 Haiku">Claude 3 Haiku is Anthropic's fastest, most compact model for near-instant responsiveness. It answers simple queries and requests with speed. Customers will be able to build seamless AI experiences that mimic human interactions. Claude 3 Haiku can process images and return text outputs, and features a 200K context window.</span></td>
+<td>Claude 3 Haiku is Anthropic's fastest, most compact model for near-instant responsiveness. It answers simple queries and requests with speed. Customers will be able to build seamless AI experiences that mimic human interactions. Claude 3 Haiku can process images and return text outputs, and features a 200K context window.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Claude 3 Opus</td>
-<td><span id="Amazon Bedrock - Claude 3 Opus">Claude 3 Opus is Anthropic's most powerful AI model, with state-of-the-art performance on highly complex tasks. It can navigate open-ended prompts and sight-unseen scenarios with remarkable fluency and human-like understanding. Claude 3 Opus shows us the frontier of what’s possible with generative AI. Claude 3 Opus can process images and return text outputs, and features a 200K context window.</span></td>
+<td>Claude 3 Opus is Anthropic's most powerful AI model, with state-of-the-art performance on highly complex tasks. It can navigate open-ended prompts and sight-unseen scenarios with remarkable fluency and human-like understanding. Claude 3 Opus shows us the frontier of what’s possible with generative AI. Claude 3 Opus can process images and return text outputs, and features a 200K context window.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Claude 3 Sonnet</td>
-<td><span id="Amazon Bedrock - Claude 3 Sonnet">Claude 3 Sonnet by Anthropic strikes the ideal balance between intelligence and speed—particularly for enterprise workloads. It offers maximum utility at a lower price than competitors, and is engineered to be the dependable, high-endurance workhorse for scaled AI deployments. Claude 3 Sonnet can process images and return text outputs, and features a 200K context window.</span></td>
+<td>Claude 3 Sonnet by Anthropic strikes the ideal balance between intelligence and speed—particularly for enterprise workloads. It offers maximum utility at a lower price than competitors, and is engineered to be the dependable, high-endurance workhorse for scaled AI deployments. Claude 3 Sonnet can process images and return text outputs, and features a 200K context window.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Claude Instant v1.1</td>
-<td><span id="Amazon Bedrock - Claude Instant v1.1">A faster and cheaper yet still very capable model, which can handle a range of tasks including casual dialogue, text analysis, summarization, and document question-answering.</span></td>
+<td>A faster and cheaper yet still very capable model, which can handle a range of tasks including casual dialogue, text analysis, summarization, and document question-answering.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Claude v2</td>
-<td><span id="Amazon Bedrock - Claude v2">Anthropic's most powerful model, which excels at a wide range of tasks from sophisticated dialogue and creative content generation to detailed instruction following.</span></td>
+<td>Anthropic's most powerful model, which excels at a wide range of tasks from sophisticated dialogue and creative content generation to detailed instruction following.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Claude v2.1</td>
-<td><span id="Amazon Bedrock - Claude v2.1">Anthropic's most powerful model, which excels at a wide range of tasks from sophisticated dialogue and creative content generation to detailed instruction following.</span></td>
+<td>Anthropic's most powerful model, which excels at a wide range of tasks from sophisticated dialogue and creative content generation to detailed instruction following.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Jurassic-2 Mid</td>
-<td><span id="Amazon Bedrock - Jurassic-2 Mid">Jurassic-2 Mid is AI21’s mid-sized model, carefully designed to strike the right balance between exceptional quality and affordability. Jurassic-2 Mid can be applied to any language comprehension or generation task including question answering, summarization, long-form copy generation, advanced information extraction and many others.</span></td>
+<td>Jurassic-2 Mid is AI21’s mid-sized model, carefully designed to strike the right balance between exceptional quality and affordability. Jurassic-2 Mid can be applied to any language comprehension or generation task including question answering, summarization, long-form copy generation, advanced information extraction and many others.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Jurassic-2 Ultra</td>
-<td><span id="Amazon Bedrock - Jurassic-2 Ultra">Jurassic-2 Ultra is AI21’s most powerful model offering exceptional quality. Apply Jurassic-2 Ultra to complex tasks that require advanced text generation and comprehension. Popular use cases include question answering, summarization, long-form copy generation, advanced information extraction, and more.</span></td>
+<td>Jurassic-2 Ultra is AI21’s most powerful model offering exceptional quality. Apply Jurassic-2 Ultra to complex tasks that require advanced text generation and comprehension. Popular use cases include question answering, summarization, long-form copy generation, advanced information extraction, and more.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Llama-2-chat 13B</td>
-<td><span id="Amazon Bedrock - Llama-2-chat 13B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Llama-2-chat 70B</td>
-<td><span id="Amazon Bedrock - Llama-2-chat 70B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Mistral-7B-Instruct</td>
-<td><span id="Amazon Bedrock - Mistral-7B-Instruct">Mistral brings capabilities similar to many popular commercial models. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
+<td>Mistral brings capabilities similar to many popular commercial models. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Mistral-large</td>
-<td><span id="Amazon Bedrock - Mistral-large">The most advanced Mistral AI Large Language model capable of handling any language task including complex multilingual reasoning, text understanding, transformation, and code generation. </span></td>
+<td>The most advanced Mistral AI Large Language model capable of handling any language task including complex multilingual reasoning, text understanding, transformation, and code generation.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Mistral-small</td>
-<td><span id="Amazon Bedrock - Mistral-small">Mistraql Small is optimized for high-volume, low-latency language-based tasks. Mistral Small is perfectly suited for straightforward tasks that can be performed in bulk, such as classification, customer support, or text generation. </span></td>
+<td>Mistraql Small is optimized for high-volume, low-latency language-based tasks. Mistral Small is perfectly suited for straightforward tasks that can be performed in bulk, such as classification, customer support, or text generation.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Mixtral-8x7B-Instruct</td>
-<td><span id="Amazon Bedrock - Mixtral-8x7B-Instruct">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
+<td>The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
 </tr>
 <tr>
-<td>Amazon Bedrock</td>
 <td>Titan Text G1 - Express</td>
-<td><span id="Amazon Bedrock - Titan Text G1 - Express">Amazon Titan Text Express has a context length of up to 8,000 tokens, making it well-suited for a wide range of advanced, general language tasks such as open-ended text generation and conversational chat, as well as support within Retrieval Augmented Generation (RAG). At launch, the model is optimized for English, with multilingual support for more than 100 additional languages available in preview.</span></td>
-</tr>
-<tr>
-<td>Azure Cognitive Services</td>
-<td>Azure GPT4 Turbo (Preview)</td>
-<td><span id="Azure Cognitive Services - Azure GPT4 Turbo (Preview)">GPT-4 Turbo provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
-</tr>
-<tr>
-<td>Azure Cognitive Services</td>
-<td>GPT-4o</td>
-<td><span id="Azure Cognitive Services - GPT-4o">GPT-4o  It matches GPT-4 Turbo performance on text in English and code, with significant improvement on text in non-English languages.</span></td>
-</tr>
-<tr>
-<td>Azure Cognitive Services</td>
-<td>GPT3.5</td>
-<td><span id="Azure Cognitive Services - GPT3.5">GPT-3.5 provides a good balance of speed and capability.</span></td>
-</tr>
-<tr>
-<td>Azure Cognitive Services</td>
-<td>GPT4</td>
-<td><span id="Azure Cognitive Services - GPT4">GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout.</span></td>
-</tr>
-<tr>
-<td>Azure Cognitive Services</td>
-<td>GPT4 (32K)</td>
-<td><span id="Azure Cognitive Services - GPT4 (32K)">GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout. The 32K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
-</tr>
-<tr>
-<td>Generic OpenAI-compatible</td>
-<td>OpenAI Chat Completions</td>
-<td><span id="Generic OpenAI-compatible - OpenAI Chat Completions">This model card is for use with the OpenAI-style /v1/chat/completions endpoint of HuggingFace TGI or VLLM.  THis endpoint abstracts away all the LLM control chars and requires the model have a chat template as part of its tokenizer. This card is only compatible with a /v1/chat/completions endpoint.</span></td>
-</tr>
-<tr>
-<td>Generic OpenAI-compatible</td>
-<td>OpenAI Completions</td>
-<td><span id="Generic OpenAI-compatible - OpenAI Completions">This model card is for use with the OpenAI-style /v1/completions endpoint of HuggingFace TGI or VLLM.  THis endpoint abstracts away all the LLM control chars and requires the model have a chat template as part of its tokenizer. This card is only compatible with a /v1/completions endpoint.</span></td>
-</tr>
-<tr>
-<td>Google Vertex AI</td>
-<td>gemini-1.5-flash (128K Context)</td>
-<td><span id="Google Vertex AI - gemini-1.5-flash (128K Context)">Gemini 1.5 Flash is designed for high-volume, high-frequency tasks where cost and latency matter. On most common tasks, Flash achieves comparable quality to other Gemini Pro models at a significantly reduced cost. Flash is well-suited for applications like chat assistants and on-demand content generation where speed and scale matter.</span></td>
-</tr>
-<tr>
-<td>Google Vertex AI</td>
-<td>gemini-1.5-flash (1M Context)</td>
-<td><span id="Google Vertex AI - gemini-1.5-flash (1M Context)">Gemini 1.5 Flash is designed for high-volume, high-frequency tasks where cost and latency matter. On most common tasks, Flash achieves comparable quality to other Gemini Pro models at a significantly reduced cost. Flash is well-suited for applications like chat assistants and on-demand content generation where speed and scale matter.</span></td>
-</tr>
-<tr>
-<td>Google Vertex AI</td>
-<td>gemini-1.5-pro (128K Context)</td>
-<td><span id="Google Vertex AI - gemini-1.5-pro (128K Context)">Gemini 1.5 Pro is a foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image, audio and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots.</span></td>
-</tr>
-<tr>
-<td>Google Vertex AI</td>
-<td>gemini-1.5-pro (1M Context)</td>
-<td><span id="Google Vertex AI - gemini-1.5-pro (1M Context)">Gemini 1.5 Pro is a foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image, audio and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots.</span></td>
-</tr>
-<tr>
-<td>HuggingFace</td>
-<td>Flan-t5-xxl</td>
-<td><span id="HuggingFace - Flan-t5-xxl">The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</span></td>
-</tr>
-<tr>
-<td>HuggingFace</td>
-<td>Flan-ul2</td>
-<td><span id="HuggingFace - Flan-ul2">The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</span></td>
-</tr>
-<tr>
-<td>HuggingFace</td>
-<td>Llama-2</td>
-<td><span id="HuggingFace - Llama-2">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf) </span></td>
-</tr>
-<tr>
-<td>HuggingFace</td>
-<td>Llama-2-chat</td>
-<td><span id="HuggingFace - Llama-2-chat">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
-</tr>
-<tr>
-<td>HuggingFace</td>
-<td>llama-3-chat</td>
-<td><span id="HuggingFace - llama-3-chat">Llama 3 instruction-tuned models are fine-tuned and optimized for dialogue/chat use cases and outperform many of the available open-source chat models on common benchmarks.. </span></td>
-</tr>
-<tr>
-<td>HuggingFace</td>
-<td>Mistral-7B-Instruct</td>
-<td><span id="HuggingFace - Mistral-7B-Instruct">Mistral brings capabilities similar to many popular commercial models. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
-</tr>
-<tr>
-<td>HuggingFace</td>
-<td>Mixtral-8x22B-Instruct-v0.1</td>
-<td><span id="HuggingFace - Mixtral-8x22B-Instruct-v0.1">The Mixtral-8x22B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. It outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
-</tr>
-<tr>
-<td>HuggingFace</td>
-<td>Mixtral-8x7B-Instruct</td>
-<td><span id="HuggingFace - Mixtral-8x7B-Instruct">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
-</tr>
-<tr>
-<td>HuggingFace</td>
-<td>MPT-7B-instruct</td>
-<td><span id="HuggingFace - MPT-7B-instruct">The mpt-7b-instruct2 model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases. </span></td>
-</tr>
-<tr>
-<td>OpenAI</td>
-<td>gpt-3.5-turbo-0125</td>
-<td><span id="OpenAI - gpt-3.5-turbo-0125">GPT-3.5 provides a good balance of speed and capability.</span></td>
-</tr>
-<tr>
-<td>OpenAI</td>
-<td>GPT-4o</td>
-<td><span id="OpenAI - GPT-4o">GPT-4o  It matches GPT-4 Turbo performance on text in English and code, with significant improvement on text in non-English languages.</span></td>
-</tr>
-<tr>
-<td>OpenAI</td>
-<td>GPT3.5</td>
-<td><span id="OpenAI - GPT3.5">GPT-3.5 provides a good balance of speed and capability.</span></td>
-</tr>
-<tr>
-<td>OpenAI</td>
-<td>GPT3.5 (16K)</td>
-<td><span id="OpenAI - GPT3.5 (16K)">GPT-3.5 provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
-</tr>
-<tr>
-<td>OpenAI</td>
-<td>GPT4</td>
-<td><span id="OpenAI - GPT4">GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout.</span></td>
-</tr>
-<tr>
-<td>OpenAI</td>
-<td>GPT4 (32K)</td>
-<td><span id="OpenAI - GPT4 (32K)">GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout. The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
-</tr>
-<tr>
-<td>OpenAI</td>
-<td>GPT4 Turbo (Preview)</td>
-<td><span id="OpenAI - GPT4 Turbo (Preview)">GPT-4 Turbo provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>Llama-2 Chat 13B</td>
-<td><span id="together.ai - Llama-2 Chat 13B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>Llama-2 Chat 70B</td>
-<td><span id="together.ai - Llama-2 Chat 70B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>Llama-2 Chat 7B</td>
-<td><span id="together.ai - Llama-2 Chat 7B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>llama-2-13b</td>
-<td><span id="together.ai - llama-2-13b">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf) </span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>llama-2-70b</td>
-<td><span id="together.ai - llama-2-70b">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf) </span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>LLaMA-2-7B-32K-Instruct</td>
-<td><span id="together.ai - LLaMA-2-7B-32K-Instruct">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf) </span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>Mistral-7B-Instruct</td>
-<td><span id="together.ai - Mistral-7B-Instruct">Mistral brings capabilities similar to many popular commercial models. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>Mistral-7B-Instruct</td>
-<td><span id="together.ai - Mistral-7B-Instruct">Mistral brings capabilities similar to many popular commercial models. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>Mixtral-8x22B-Instruct-v0.1</td>
-<td><span id="together.ai - Mixtral-8x22B-Instruct-v0.1">The Mixtral-8x22B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. It outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
-</tr>
-<tr>
-<td>together.ai</td>
-<td>Mixtral-8x7B-Instruct</td>
-<td><span id="together.ai - Mixtral-8x7B-Instruct">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>elyza-japanese-llama-2-7b-instruct</td>
-<td><span id="watsonx.ai - elyza-japanese-llama-2-7b-instruct">ELYZA-japanese-Llama-2-7b は、 Llama2をベースとして日本語能力を拡張するために追加事前学習を行ったモデルです。</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>Flan-t5-xxl</td>
-<td><span id="watsonx.ai - Flan-t5-xxl">The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>Flan-ul2</td>
-<td><span id="watsonx.ai - Flan-ul2">The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>granite-13b-chat-v1</td>
-<td><span id="watsonx.ai - granite-13b-chat-v1">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>granite-13b-chat-v2</td>
-<td><span id="watsonx.ai - granite-13b-chat-v2">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>granite-13b-instruct-v1</td>
-<td><span id="watsonx.ai - granite-13b-instruct-v1">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>granite-13b-instruct-v2</td>
-<td><span id="watsonx.ai - granite-13b-instruct-v2">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>granite-20b-multilingual</td>
-<td><span id="watsonx.ai - granite-20b-multilingual">The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>granite-7b-lab</td>
-<td><span id="watsonx.ai - granite-7b-lab">The Granite 7 Billion LAB (granite-7b-lab) model is the chat-focused variant initialized from the pre-trained Granite 7 Billion (granite-7b) model, which is Meta Llama 2 7B architecture trained to 2T tokens.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>granite-8b-japanese</td>
-<td><span id="watsonx.ai - granite-8b-japanese">The Granite 8 Billion Japanese model is an instruct variant initialized from the pre-trained Granite Base 8 Billion Japanese model. Pre-training went through 1.0T tokens of English, 0.5T tokens of Japanese, and 0.1T tokens of code. This model is designed to work with Japanese text. IBM Generative AI Large Language Foundation Models are Enterprise-level Multilingual models trained with large volumes of data that has been subjected to intensive pre-processing and careful analysis.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>jais-13b-chat</td>
-<td><span id="watsonx.ai - jais-13b-chat">Jais-13b-chat is Jais-13b fine-tuned over a curated set of 4 million Arabic and 6 million English prompt-response pairs. </span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>Llama-2-chat 13B</td>
-<td><span id="watsonx.ai - Llama-2-chat 13B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>Llama-2-chat 70B</td>
-<td><span id="watsonx.ai - Llama-2-chat 70B">Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>llama-3-70b-instruct</td>
-<td><span id="watsonx.ai - llama-3-70b-instruct">Llama 3 instruction-tuned models are fine-tuned and optimized for dialogue/chat use cases and outperform many of the available open-source chat models on common benchmarks.. </span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>llama-3-8b-instruct</td>
-<td><span id="watsonx.ai - llama-3-8b-instruct">Llama 3 instruction-tuned models are fine-tuned and optimized for dialogue/chat use cases and outperform many of the available open-source chat models on common benchmarks.. </span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>merlinite-7b</td>
-<td><span id="watsonx.ai - merlinite-7b">Merlinite is Mistral fine-tuned by Mixtral using IBM's LAB methodology.  Merlinite tends to hallucinate to the extreme, and show difficulty containing its output without running away. It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning. </span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>Mixtral-8x7B-Instruct</td>
-<td><span id="watsonx.ai - Mixtral-8x7B-Instruct">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>Mixtral-8x7B-Instruct-v01-q</td>
-<td><span id="watsonx.ai - Mixtral-8x7B-Instruct-v01-q">The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version. </span></td>
-</tr>
-<tr>
-<td>watsonx.ai</td>
-<td>MPT-7B-instruct2</td>
-<td><span id="watsonx.ai - MPT-7B-instruct2">The mpt-7b-instruct2 model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases. </span></td>
+<td>Amazon Titan Text Express has a context length of up to 8,000 tokens, making it well-suited for a wide range of advanced, general language tasks such as open-ended text generation and conversational chat, as well as support within Retrieval Augmented Generation (RAG). At launch, the model is optimized for English, with multilingual support for more than 100 additional languages available in preview.</td>
 </tr>
 </tbody>
 </table>
+</details>
+<details class="success">
+<summary>Azure Cognitive Services</summary>
+<table>
+<thead>
+<tr>
+<th>LLM</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Azure GPT4 Turbo (Preview)</td>
+<td>GPT-4 Turbo provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</td>
+</tr>
+<tr>
+<td>GPT-4o</td>
+<td>GPT-4o  It matches GPT-4 Turbo performance on text in English and code, with significant improvement on text in non-English languages.</td>
+</tr>
+<tr>
+<td>GPT3.5</td>
+<td>GPT-3.5 provides a good balance of speed and capability.</td>
+</tr>
+<tr>
+<td>GPT4</td>
+<td>GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout.</td>
+</tr>
+<tr>
+<td>GPT4 (32K)</td>
+<td>GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout. The 32K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="success">
+<summary>Google Vertex AI</summary>
+<table>
+<thead>
+<tr>
+<th>LLM</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gemini-1.5-flash (128K Context)</td>
+<td>Gemini 1.5 Flash is designed for high-volume, high-frequency tasks where cost and latency matter. On most common tasks, Flash achieves comparable quality to other Gemini Pro models at a significantly reduced cost. Flash is well-suited for applications like chat assistants and on-demand content generation where speed and scale matter.</td>
+</tr>
+<tr>
+<td>gemini-1.5-flash (1M Context)</td>
+<td>Gemini 1.5 Flash is designed for high-volume, high-frequency tasks where cost and latency matter. On most common tasks, Flash achieves comparable quality to other Gemini Pro models at a significantly reduced cost. Flash is well-suited for applications like chat assistants and on-demand content generation where speed and scale matter.</td>
+</tr>
+<tr>
+<td>gemini-1.5-pro (128K Context)</td>
+<td>Gemini 1.5 Pro is a foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image, audio and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots.</td>
+</tr>
+<tr>
+<td>gemini-1.5-pro (1M Context)</td>
+<td>Gemini 1.5 Pro is a foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image, audio and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="success">
+<summary>HuggingFace</summary>
+<table>
+<thead>
+<tr>
+<th>LLM</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flan-t5-xxl</td>
+<td>The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</td>
+</tr>
+<tr>
+<td>Flan-ul2</td>
+<td>The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</td>
+</tr>
+<tr>
+<td>Llama-2</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf)</td>
+</tr>
+<tr>
+<td>Llama-2-chat</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</td>
+</tr>
+<tr>
+<td>llama-3-chat</td>
+<td>Llama 3 instruction-tuned models are fine-tuned and optimized for dialogue/chat use cases and outperform many of the available open-source chat models on common benchmarks..</td>
+</tr>
+<tr>
+<td>Mistral-7B-Instruct</td>
+<td>Mistral brings capabilities similar to many popular commercial models. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
+</tr>
+<tr>
+<td>Mixtral-8x22B-Instruct-v0.1</td>
+<td>The Mixtral-8x22B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. It outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
+</tr>
+<tr>
+<td>Mixtral-8x7B-Instruct</td>
+<td>The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
+</tr>
+<tr>
+<td>MPT-7B-instruct</td>
+<td>The mpt-7b-instruct2 model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="success">
+<summary>OpenAI</summary>
+<table>
+<thead>
+<tr>
+<th>LLM</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-3.5-turbo-0125</td>
+<td>GPT-3.5 provides a good balance of speed and capability.</td>
+</tr>
+<tr>
+<td>GPT-4o</td>
+<td>GPT-4o  It matches GPT-4 Turbo performance on text in English and code, with significant improvement on text in non-English languages.</td>
+</tr>
+<tr>
+<td>GPT3.5</td>
+<td>GPT-3.5 provides a good balance of speed and capability.</td>
+</tr>
+<tr>
+<td>GPT3.5 (16K)</td>
+<td>GPT-3.5 provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</td>
+</tr>
+<tr>
+<td>GPT4</td>
+<td>GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout.</td>
+</tr>
+<tr>
+<td>GPT4 (32K)</td>
+<td>GPT-4 can often take longer than 30 seconds for a full response.  Use caution when using in conjunction with a Virtual Agent platform that imposes a strict timeout. The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</td>
+</tr>
+<tr>
+<td>GPT4 Turbo (Preview)</td>
+<td>GPT-4 Turbo provides a good balance of speed and capability.  The 16K context window version of the model allows for more information to be passed to it, generally yeilding better responses.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="success">
+<summary>together.ai</summary>
+<table>
+<thead>
+<tr>
+<th>LLM</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Llama-2 Chat 13B</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</td>
+</tr>
+<tr>
+<td>Llama-2 Chat 70B</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</td>
+</tr>
+<tr>
+<td>Llama-2 Chat 7B</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</td>
+</tr>
+<tr>
+<td>llama-2-13b</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf)</td>
+</tr>
+<tr>
+<td>llama-2-70b</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf)</td>
+</tr>
+<tr>
+<td>LLaMA-2-7B-32K-Instruct</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the non-chat version (Llama-2-7b-hf, Llama-2-13b-hf, Llama-2-70b-hf)</td>
+</tr>
+<tr>
+<td>Mistral-7B-Instruct</td>
+<td>Mistral brings capabilities similar to many popular commercial models. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
+</tr>
+<tr>
+<td>Mistral-7B-Instruct</td>
+<td>Mistral brings capabilities similar to many popular commercial models. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
+</tr>
+<tr>
+<td>Mixtral-8x22B-Instruct-v0.1</td>
+<td>The Mixtral-8x22B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. It outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
+</tr>
+<tr>
+<td>Mixtral-8x7B-Instruct</td>
+<td>The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="success">
+<summary>watsonx.ai</summary>
+<table>
+<thead>
+<tr>
+<th>LLM</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>elyza-japanese-llama-2-7b-instruct</td>
+<td>ELYZA-japanese-Llama-2-7b は、 Llama2をベースとして日本語能力を拡張するために追加事前学習を行ったモデルです。</td>
+</tr>
+<tr>
+<td>Flan-t5-xxl</td>
+<td>The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</td>
+</tr>
+<tr>
+<td>Flan-ul2</td>
+<td>The Flan models are primarily english-only, and may struggle with joining thoughts across multiple documents. You will find answers tend to be selected from a single source, even when a stitched answer may be better.  Flan does suffer from strong hallucinations, so it is recommended to only use Flan for internal usecases and ensure the Semantic Scoring model is on and primary with a minimum confidence level set of at least 10-15%.</td>
+</tr>
+<tr>
+<td>granite-13b-chat-v1</td>
+<td>The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</td>
+</tr>
+<tr>
+<td>granite-13b-chat-v2</td>
+<td>The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</td>
+</tr>
+<tr>
+<td>granite-13b-instruct-v1</td>
+<td>The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</td>
+</tr>
+<tr>
+<td>granite-13b-instruct-v2</td>
+<td>The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</td>
+</tr>
+<tr>
+<td>granite-20b-multilingual</td>
+<td>The Granite series of models are a step ahead of their counterpart t5 and UL2 models.  They excel at retrieving correct information from good documentation, and can join phrases from a limited number of documents.  They do not have much ability to reason, however.  This can be good or bad, depending on your usecase. Use granite to answer a well defined set of questions from good documentation. Granite likes to generate short results, and will create runaway responses if pressed to generate longer than it wants to. Granite will hallucinate if asked questions without a good reference in your knowledgeBase, or that stray too closely to its training data, and may refuse to follow your documentation.  Use semantic scoring to block this hallucination.</td>
+</tr>
+<tr>
+<td>granite-7b-lab</td>
+<td>The Granite 7 Billion LAB (granite-7b-lab) model is the chat-focused variant initialized from the pre-trained Granite 7 Billion (granite-7b) model, which is Meta Llama 2 7B architecture trained to 2T tokens.</td>
+</tr>
+<tr>
+<td>granite-8b-japanese</td>
+<td>The Granite 8 Billion Japanese model is an instruct variant initialized from the pre-trained Granite Base 8 Billion Japanese model. Pre-training went through 1.0T tokens of English, 0.5T tokens of Japanese, and 0.1T tokens of code. This model is designed to work with Japanese text. IBM Generative AI Large Language Foundation Models are Enterprise-level Multilingual models trained with large volumes of data that has been subjected to intensive pre-processing and careful analysis.</td>
+</tr>
+<tr>
+<td>jais-13b-chat</td>
+<td>Jais-13b-chat is Jais-13b fine-tuned over a curated set of 4 million Arabic and 6 million English prompt-response pairs.</td>
+</tr>
+<tr>
+<td>Llama-2-chat 13B</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</td>
+</tr>
+<tr>
+<td>Llama-2-chat 70B</td>
+<td>Llama-2 brings capabilities similar to many popular commercial models. Llama-2 is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</td>
+</tr>
+<tr>
+<td>llama-3-70b-instruct</td>
+<td>Llama 3 instruction-tuned models are fine-tuned and optimized for dialogue/chat use cases and outperform many of the available open-source chat models on common benchmarks..</td>
+</tr>
+<tr>
+<td>llama-3-8b-instruct</td>
+<td>Llama 3 instruction-tuned models are fine-tuned and optimized for dialogue/chat use cases and outperform many of the available open-source chat models on common benchmarks..</td>
+</tr>
+<tr>
+<td>merlinite-7b</td>
+<td>Merlinite is Mistral fine-tuned by Mixtral using IBM's LAB methodology.  Merlinite tends to hallucinate to the extreme, and show difficulty containing its output without running away. It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.</td>
+</tr>
+<tr>
+<td>Mixtral-8x7B-Instruct</td>
+<td>The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
+</tr>
+<tr>
+<td>Mixtral-8x7B-Instruct-v01-q</td>
+<td>The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks. Mistral is good at joining thoughts across multiple documents.  It is also highly sensitive.  Slight variations in prompt and weighting can have a profound impact on usability of the system. Use extreme caution if applying prompt engineering or weight tuning.  This model is the instruct version.</td>
+</tr>
+<tr>
+<td>MPT-7B-instruct2</td>
+<td>The mpt-7b-instruct2 model can generate longer text than the Flan models. Use caution, however, as the model is prone to both extreme hallucination and runaway responses.  Be sure to set a minimum confidence level to control this. Not reccomended for public usecases.</td>
+</tr>
+</tbody>
+</table>
+</details>
 <blockquote>
 <p>💡 LLM choice is available with NeuralSeek’s BYOLLM (bring your own Large Language Model) plan.</p>
 <p>💡 LLMs can vary in their capabilities and performances. Some LLM can take up to 30 seconds and longer to generate a full response. Use caution when using in conjunction with a virtual agent platform that imposes a strict timeout.</p>

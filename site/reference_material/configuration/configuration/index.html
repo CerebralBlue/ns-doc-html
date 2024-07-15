@@ -70,6 +70,16 @@
       ]},
       {title: "Settings and Changelogs", url: "#settings-and-changelogs", children: [
       ]},
+      {title: "Pinecone Integration with NeuralSeek", url: "#pinecone-integration-with-neuralseek", children: [
+          {title: "Prerequisites", url: "#prerequisites" },
+          {title: "Steps", url: "#steps" },
+      ]},
+      {title: "Technical Explanation: How Pinecone and NeuralSeek Work Together", url: "#technical-explanation-how-pinecone-and-neuralseek-work-together", children: [
+          {title: "Pinecone", url: "#pinecone" },
+          {title: "NeuralSeek Embedding Model", url: "#neuralseek-embedding-model" },
+          {title: "Integration Workflow", url: "#integration-workflow" },
+          {title: "Benefits of This Configuration", url: "#benefits-of-this-configuration" },
+      ]},
     ];
 
 </script>
@@ -452,16 +462,16 @@
 <ul>
 <li><strong>KnowledgeBase Type:</strong> The KnowledgeBase provider.</li>
 <li><strong>KnowledgeBase Language:</strong> The language of documents loaded into the selected KnowledgeBase.</li>
-<li><strong>Notes:</strong> Optionally, add any notes related to the selected KnowledgeBase configuration. </li>
+<li><strong>Notes:</strong> Optionally, add any notes related to the selected KnowledgeBase configuration.</li>
 <li><strong>Curation Data Field:</strong> Select the parameter of your FAQ content/document body.</li>
 <li><strong>Link Field:</strong> Select the URL field from the document metadata - shown below the title, or served in the Virtual Agent chat bubble as a link.</li>
 <li><strong>Document Name Field:</strong> The document metadata field for document "Title".</li>
 <li><strong>Attribute sources inside LLM Context by Document Name:</strong> Users have the option to enable or disable attributing sources inside LLM context by document name. For example, when disabled the output will be formatted with only the document contents. When enabled, the output will be formatted with an introductory sentence that attributes the 'document content' to the appropriate document 'name' (e.g. The document 'name' states that: 'document content'). This helps some LLMs follow the track of information.</li>
 <li><strong>Filter Field:</strong> Select document metadata field to use for filtering. For example, you can filter on a 'document_type' field for only 'PDF' types.</li>
-<li><strong>Re-Sort Values List:</strong> Users are able to enter a prioritized list of values that you want to re-rank above other results, regardless of KB score. Click the light bulb icon to add a new row and enter the value of priority. </li>
+<li><strong>Re-Sort Values List:</strong> Users are able to enter a prioritized list of values that you want to re-rank above other results, regardless of KB score. Click the light bulb icon to add a new row and enter the value of priority.</li>
 </ul>
 <h3 id="llm-details">LLM Details<a class="headerlink" href="#llm-details" title="Permanent link"></a></h3>
-<p>This is where users can add a LLM of choice, and set or modify their LLM model settings. By clicking "<strong>Add an LLM</strong>", users will be prompted to select an LLM from their platform of choice and enter the relevant information such as API keys, endpoint URLs, project ID's, etc. Use the dropdown arrow to enable languages of choice: there are a total of 56 supported LLM languages. Users can also modify which NeuralSeek functions to enable for the added LLM. Note that you must add at least one LLM. If you add multiple, NeuralSeek will load-balance across them for the selected functions that have multiple LLM's. Features that an LLM are not capable of not be available for selection. If you do not provide an LLM for a function, there is no fallback and that function of NeuralSeek will be disabled. </p>
+<p>This is where users can add a LLM of choice, and set or modify their LLM model settings. By clicking "<strong>Add an LLM</strong>", users will be prompted to select an LLM from their platform of choice and enter the relevant information such as API keys, endpoint URLs, project ID's, etc. Use the dropdown arrow to enable languages of choice: there are a total of 56 supported LLM languages. Users can also modify which NeuralSeek functions to enable for the added LLM. Note that you must add at least one LLM. If you add multiple, NeuralSeek will load-balance across them for the selected functions that have multiple LLM's. Features that an LLM are not capable of not be available for selection. If you do not provide an LLM for a function, there is no fallback and that function of NeuralSeek will be disabled.</p>
 <p><a class="glightbox" href="../images/llm_details.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="llm_details" src="../images/llm_details.png" /></a></p>
 <ul>
 <li><strong>API/Access Key:</strong> The LLM / Service provider's API or Access key.</li>
@@ -471,17 +481,18 @@
 <li><strong>Project Id:</strong> The project ID for the LLM workspace.</li>
 <li><strong>LLLM Languages:</strong> Enable or disable specific languages to be used with the selected LLM.</li>
 <li><strong>LLM Functions:</strong> Enable or disable specific functions for each LLM, essentially selecting which LLM to use for each task, or allowing load-balancing for specific tasks. E.g. one option is to use a specific LLM for <code>seek</code>, and a different LLM for <code>maistro</code> or <code>translate</code>, allowing for flexible and specific use cases.</li>
-<li><strong>LLM ID:</strong> The ID/internal name of the selected LLM. Use this ID on API calls or from mAIstro. </li>
+<li><strong>LLM ID:</strong> The ID/internal name of the selected LLM. Use this ID on API calls or from mAIstro.</li>
 <li><strong>Test:</strong> Run a test completion against the LLM, verifying the credentials. <strong>This does not 'save'</strong>, you must still 'save' your settings with the main UI button.</li>
 <li><strong>Delete:</strong> Remove the selected LLM from the configuration.</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This section is only available if you are using BYOLLM (bring your own LLM) plan of NeuralSeek.</p>
-<p>Not all LLM providers are equal - All options are listed here, even though your provider may not need these specific parameters.</p>
 </div>
+<p>This section is only available if you are using BYOLLM (bring your own LLM) plan of NeuralSeek.</p>
+<pre><code>Not all LLM providers are equal - All options are listed here, even though your provider may not need these specific parameters.
+</code></pre>
 <h3 id="companyorganization-preferences">Company/Organization Preferences<a class="headerlink" href="#companyorganization-preferences" title="Permanent link"></a></h3>
-<p>This is where you can configure your company name, and description of what the company primarily focuses on. </p>
+<p>This is where you can configure your company name, and description of what the company primarily focuses on.</p>
 <p><a class="glightbox" href="../images/company_org_preferences.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="company_org_preferences" src="../images/company_org_preferences.png" /></a></p>
 <ul>
 <li><strong>Company or Organization Name:</strong> This field is used to help align user queries to the company KB. E.g., "How do I use <strong>your</strong> product?" will target towards this value.</li>
@@ -513,7 +524,7 @@
 <h4 id="attribute-checking">Attribute Checking<a class="headerlink" href="#attribute-checking" title="Permanent link"></a></h4>
 <p><a class="glightbox" href="../images/attribute_checking.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="attribute_checking" src="../images/attribute_checking.png" /></a></p>
 <ul>
-<li>Adjust misinformation tolerance for generating text about the company, or associating people or things that lack specific references in the KnowledgeBase material by using the sliding scale from "Rigid" to "Standard". The more rigid your settings, the higher the chances of occasionally blocking legitimate questions that use alternate wording or are poorly documented in your KnowledgeBase. </li>
+<li>Adjust misinformation tolerance for generating text about the company, or associating people or things that lack specific references in the KnowledgeBase material by using the sliding scale from "Rigid" to "Standard". The more rigid your settings, the higher the chances of occasionally blocking legitimate questions that use alternate wording or are poorly documented in your KnowledgeBase.</li>
 </ul>
 <h4 id="semantic-score">Semantic Score<a class="headerlink" href="#semantic-score" title="Permanent link"></a></h4>
 <p>Toggle the icons to enable or disable the Semantic Score Model, using Semantic Score as the basis for Warning &amp; Minimum confidence (e.g. Do NOT Enable for use cases requiring language translation), re-ranking the search results based on the Semantic Match, and checking the document titles and URL's as part of the Semantic Match. Note that semantic scoring will not be accurate when getting answers in a different language than your KnowledgeBase source docs.</p>
@@ -527,39 +538,37 @@
 </ul>
 <p><a class="glightbox" href="../images/semantic_model_tuning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="semantic_model_tuning" src="../images/semantic_model_tuning.png" /></a></p>
 <ul>
-<li><strong>Semantic Model Tuning:</strong> Use the sliding scales to further tune the Semantic Match.<ul>
-<li><strong>Missing key search term penalty:</strong> After scoring, this penalty is applied for answers that are missing KnowledgeBase attribution of <em>proper</em> nouns that were included in the search. </li>
-<li><strong>Missing search term penalty:</strong> After scoring, this penalty is applied for answers that are missing KnowledgeBase attribution of <em>other</em> nouns that were included in the search. </li>
-<li><strong>Source Jump penalty:</strong> When answers join across many source documents it can be an indication of lost meaning or intent, depending on your source documentation. </li>
-<li><strong>Total Coverage weight:</strong> Looking at the answer, how much weight should be given to the total coverage alone, regardless of other penalty. Increasing this helps prevent abnormally low scores from long, highly-stitched answers. Decreasing will better catch hallucination in short answers. </li>
-<li><strong>Re-Rank Min Coverage %:</strong> What is the minimum coverage of the total answer that the top <em>used</em> source document needs to be re-ranked over the top <em>KB-scored</em> document. </li>
-</ul>
-</li>
+<li><strong>Semantic Model Tuning:</strong> Use the sliding scales to further tune the Semantic Match.</li>
+<li><strong>Missing key search term penalty:</strong> After scoring, this penalty is applied for answers that are missing KnowledgeBase attribution of <em>proper</em> nouns that were included in the search.</li>
+<li><strong>Missing search term penalty:</strong> After scoring, this penalty is applied for answers that are missing KnowledgeBase attribution of <em>other</em> nouns that were included in the search.</li>
+<li><strong>Source Jump penalty:</strong> When answers join across many source documents it can be an indication of lost meaning or intent, depending on your source documentation.</li>
+<li><strong>Total Coverage weight:</strong> Looking at the answer, how much weight should be given to the total coverage alone, regardless of other penalty. Increasing this helps prevent abnormally low scores from long, highly-stitched answers. Decreasing will better catch hallucination in short answers.</li>
+<li><strong>Re-Rank Min Coverage %:</strong> What is the minimum coverage of the total answer that the top <em>used</em> source document needs to be re-ranked over the top <em>KB-scored</em> document.</li>
 </ul>
 <h4 id="prompt-injection-mitigation">Prompt Injection Mitigation<a class="headerlink" href="#prompt-injection-mitigation" title="Permanent link"></a></h4>
-<p>Users are able to block malicious attempts from users trying to get the LLM to respond in disruptive, embarrassing, or harmful ways. </p>
+<p>Users are able to block malicious attempts from users trying to get the LLM to respond in disruptive, embarrassing, or harmful ways.</p>
 <p><a class="glightbox" href="../images/prompt_injection_mitigation.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="prompt_injection_mitigation" src="../images/prompt_injection_mitigation.png" /></a></p>
 <ul>
-<li><strong>Prompt Injection Threshold:</strong> A sliding scale to block any inputs that score higher than this percentage against the Prompt Injection model. </li>
+<li><strong>Prompt Injection Threshold:</strong> A sliding scale to block any inputs that score higher than this percentage against the Prompt Injection model.</li>
 <li><strong>Blocked Word Action:</strong> Either remove the offending words from the user input, or block the question altogether.</li>
 <li><strong>Blocked Word List:</strong> Enter words or phrases (separated by commas) that are not allowed on the user input. This is useful for blocking specific competitive customer or product names, as well as other sensitive words not covered by NeuralSeek's base corpus.</li>
 </ul>
 <h4 id="profanity-filter-hap-hate-abuse-profanity-filter">Profanity Filter / HAP (Hate, Abuse, Profanity) Filter<a class="headerlink" href="#profanity-filter-hap-hate-abuse-profanity-filter" title="Permanent link"></a></h4>
-<p>Users are able to enable or disable the profanity filter, as well as add a text to reply with for sensitive questions that are blocked. </p>
+<p>Users are able to enable or disable the profanity filter, as well as add a text to reply with for sensitive questions that are blocked.</p>
 <p><a class="glightbox" href="../images/profanity_filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="profanity_filter" src="../images/profanity_filter.png" /></a></p>
 <ul>
 <li><strong>Enable profanity filter:</strong> Choose which filter to use for profanity filtering. You may use the LLM's moderation endpoint if available, the NeuralSeek Filter, or disable it.</li>
 <li><strong>Blocked reply text:</strong> The text to show when the input or question is blocked. E.g. "That seems like a sensitive question."</li>
 </ul>
 <h4 id="warning-confidence">Warning Confidence<a class="headerlink" href="#warning-confidence" title="Permanent link"></a></h4>
-<p>Use the sliding scale to increase the confidence threshold. </p>
+<p>Use the sliding scale to increase the confidence threshold.</p>
 <p><a class="glightbox" href="../images/warning_confidence.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="warning_confidence" src="../images/warning_confidence.png" /></a></p>
 <ul>
 <li><strong>Confidence %:</strong> Any answers lower than this number will have the below text pre-pended to the answer given.</li>
 <li><strong>Warning text:</strong> The text to pre-pend to the answer given.</li>
 </ul>
 <h4 id="minimum-confidence">Minimum Confidence<a class="headerlink" href="#minimum-confidence" title="Permanent link"></a></h4>
-<p>Use the sliding scale to increase the minimum confidence percentage and the minimum confidence percentage to display a URL. Add a text to reply with for questions not meeting the minimum confidence, and select whether to add a URL fallback on minimum. (e.g. "There is nothing in our knowledge base about that."). </p>
+<p>Use the sliding scale to increase the minimum confidence percentage and the minimum confidence percentage to display a URL. Add a text to reply with for questions not meeting the minimum confidence, and select whether to add a URL fallback on minimum. (e.g. "There is nothing in our knowledge base about that.").</p>
 <p><a class="glightbox" href="../images/min_confidence.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="min_confidence" src="../images/min_confidence.png" /></a></p>
 <ul>
 <li><strong>Minimum Confidence %:</strong> Any answers lower than this number will have the below text substituted in place of the answer.</li>
@@ -568,7 +577,7 @@
 <li><strong>URL Fallback</strong> Optional - A URL to offer when the minimum confidence is not met.</li>
 </ul>
 <h4 id="minimum-text">Minimum Text<a class="headerlink" href="#minimum-text" title="Permanent link"></a></h4>
-<p>Use the sliding scale to set a desired minimum amount of words in a question. </p>
+<p>Use the sliding scale to set a desired minimum amount of words in a question.</p>
 <p><a class="glightbox" href="../images/min_text.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="min_text" src="../images/min_text.png" /></a></p>
 <ul>
 <li><strong>Minimum Words:</strong> The minimum number of words in a user question/input.</li>
@@ -579,13 +588,13 @@
 <p><a class="glightbox" href="../images/max_length.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="max_length" src="../images/max_length.png" /></a></p>
 <ul>
 <li><strong>Maximum Words:</strong> The maximum number of words in a user question/input. Set to 100 to remove the limit. Use a low limit to help mitigate adversarial questions designed to generate inappropriate answers.</li>
-<li><strong>Reply Text:</strong> Add a text to reply with for questions over the input word limit. (e.g. "Can you please summarize your question for me?  Questions should be limited to 20 words."). </li>
+<li><strong>Reply Text:</strong> Add a text to reply with for questions over the input word limit. (e.g. "Can you please summarize your question for me? Questions should be limited to 20 words.").</li>
 </ul>
 <h2 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link"></a></h2>
 <p>These (expanded) options are available after enabling "Show advanced options" from the default configuration.</p>
 <p><a class="glightbox" href="../images/advanced_configuration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Advanced configuration" src="../images/advanced_configuration.png" /></a></p>
 <h3 id="knowledgebase-tuning">KnowledgeBase Tuning<a class="headerlink" href="#knowledgebase-tuning" title="Permanent link"></a></h3>
-<p>Tuning your KnowledgeBase is an important part of creating a well performing system. </p>
+<p>Tuning your KnowledgeBase is an important part of creating a well performing system.</p>
 <p><a class="glightbox" href="../images/knowledgebase_tuning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="knowledgebase_tuning" src="../images/knowledgebase_tuning.png" /></a></p>
 <ul>
 <li><strong>Document Score Range:</strong> The upper range score of documents to return. E.g. when set to <code>0.8</code> or <code>80%</code>, return the top scoring 80% of documents, discarding the lowest 20% scored documents. The smaller the number, the more strict the score threshold will be. Generally best set to a high number, used with Max Docs setting.</li>
@@ -599,25 +608,21 @@
 <p>Offering the ability to choose from searching with Lucene, Vector, or a Hybrid approach</p>
 <p><a class="glightbox" href="../images/vector_search_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="vector settings" src="../images/vector_search_settings.png" /></a></p>
 <ul>
-<li><strong>Query Type:</strong> The type of query that NeuralSeek will use to gather source documentation.<ul>
+<li><strong>Query Type:</strong> The type of query that NeuralSeek will use to gather source documentation.</li>
 <li><strong>Lucene:</strong> "Exact match" queries.</li>
 <li><strong>Vector:</strong> Vector similarity search, based on your deployed Vector model.</li>
 <li><strong>Hybrid:</strong> A combined search query that slightly boosts Lucene results, allowing for graceful fallback to Vector results if no exact matches are found.</li>
-</ul>
-</li>
-<li><strong>Use the Elastic ELSER model?</strong> The query format is different using ELSER vs deployed KNN models. Select False if not using Elastic's ELSER model. </li>
+<li><strong>Use the Elastic ELSER model?</strong> The query format is different using ELSER vs deployed KNN models. Select False if not using Elastic's ELSER model.</li>
 <li><strong>ELSER - Model ID:</strong> The name of the deployed and running model.</li>
 <li><strong>ELSER - Embedding Field:</strong> The name of the metadata field where the generated Vector embeddings are stored.</li>
-<li><strong>Elastic KNN Query:</strong> The JSON of the KNN Vector query to run. There are a couple values to set within the JSON:<ul>
+<li><strong>Elastic KNN Query:</strong> The JSON of the KNN Vector query to run. There are a couple values to set within the JSON:</li>
 <li><strong>field:</strong> The name of the metadata field where the Vector embeddings are stored.</li>
 <li><strong>model_id:</strong> The name of the deployed and running model.</li>
 <li><strong>model_text:</strong> We offer a <code>&lt;&lt; query &gt;&gt;</code> expansion variable to insert the query generated by NeuralSeek. Useful to edit if some Vector models require a specific format, e.g. <code>question: &lt;&lt;query&gt;&gt;</code></li>
 <li>See the Elastic documentation for more info around the other available parameters.</li>
 </ul>
-</li>
-</ul>
 <h3 id="prompt-engineering">Prompt Engineering<a class="headerlink" href="#prompt-engineering" title="Permanent link"></a></h3>
-<p>This allows expert users to inject specific instructions into the base LLM prompt. Most use cases will not need this and should not use this. (e.g. do not enter "provide factual information" or "act as a helpful customer support agent". NeuralSeek's extensive prompting already does this.) </p>
+<p>This allows expert users to inject specific instructions into the base LLM prompt. Most use cases will not need this and should not use this. (e.g. do not enter "provide factual information" or "act as a helpful customer support agent". NeuralSeek's extensive prompting already does this.)</p>
 <p><strong>Do not casually enable, as you can weaken the safeguards and extensive prompting that NeuralSeek provides out-of-the-box. Do not use any language other than English in prompt engineering.</strong></p>
 <p><a class="glightbox" href="../images/prompt_engineering.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="prompt_engineering" src="../images/prompt_engineering.png" /></a>
 <a class="glightbox" href="../images/weight_tuning_warning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="weight_tuning_warning" src="../images/weight_tuning_warning.png" /></a></p>
@@ -635,27 +640,25 @@
 <h3 id="intent-matching-and-cache-configuration">Intent Matching and Cache Configuration<a class="headerlink" href="#intent-matching-and-cache-configuration" title="Permanent link"></a></h3>
 <p>NeuralSeek automatically generates and groups user input into intents. When a user input does not match an existing intent, the question is added to the generic FAQ group.</p>
 <p><a class="glightbox" href="../images/intent_matching_cache_config.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="intent_matching_cache_config" src="../images/intent_matching_cache_config.png" /></a></p>
-<p>The following types of intent matches are available: </p>
+<p>The following types of intent matches are available:</p>
 <ul>
-<li><strong>Exact Match:</strong> The user input exactly matches an intent. </li>
-<li><strong>Vector Similarity:</strong> Compare the vector similarity of the user input to existing intents, matching with similar intents. <ul>
-<li>Utilize the "Try it Out" feature to test intent similarity. Input an example sentence and click the 'Test' button. The output will show similar intent pulled from the Curate tab and a corresponding similarity score. </li>
-<li>Utilize the "Intent Match Threshold" sliding scale to set the minimum match percentage to match an existing Intent. </li>
-</ul>
-</li>
-<li><strong>Fuzzy Match:</strong> The user input closely matches an intent, but not exactly. </li>
+<li><strong>Exact Match:</strong> The user input exactly matches an intent.</li>
+<li><strong>Vector Similarity:</strong> Compare the vector similarity of the user input to existing intents, matching with similar intents.</li>
+<li>Utilize the "Try it Out" feature to test intent similarity. Input an example sentence and click the 'Test' button. The output will show similar intent pulled from the Curate tab and a corresponding similarity score.</li>
+<li>Utilize the "Intent Match Threshold" sliding scale to set the minimum match percentage to match an existing Intent.</li>
+<li><strong>Fuzzy Match:</strong> The user input closely matches an intent, but not exactly.</li>
 <li><strong>Keyword Match:</strong> The user input contains keywords that exactly match keywords in an intent.</li>
-<li><strong>Fuzzy Keyword Match:</strong> The user input contains keywords that closely match an intent. </li>
+<li><strong>Fuzzy Keyword Match:</strong> The user input contains keywords that closely match an intent.</li>
 </ul>
-<p>Users can also configure how the answer caching is to be done for edited answers, and normal answers. This is useful for speeding up response times and producing more consistent results. </p>
+<p>Users can also configure how the answer caching is to be done for edited answers, and normal answers. This is useful for speeding up response times and producing more consistent results.</p>
 <ul>
-<li><strong>Edited Answer Cache:</strong> Define the minimum amount of edited answers before language generation stops, and cached answers are served. Set the scale to '0' to disable the edited answer cache. </li>
-<li><strong>Normal Answer Cache:</strong> Define the minimum amount of normal language generated answers to store before language generation stops, and cached answers are served. Set the scale to '0' to disable the edited answer cache. </li>
+<li><strong>Edited Answer Cache:</strong> Define the minimum amount of edited answers before language generation stops, and cached answers are served. Set the scale to '0' to disable the edited answer cache.</li>
+<li><strong>Normal Answer Cache:</strong> Define the minimum amount of normal language generated answers to store before language generation stops, and cached answers are served. Set the scale to '0' to disable the edited answer cache.</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Edited answers have priority in the Normal Answer Cache, followed by the most recent generated answer. </p>
 </div>
+<p>Edited answers have priority in the Normal Answer Cache, followed by the most recent generated answer.</p>
 <h3 id="table-understanding">Table Understanding<a class="headerlink" href="#table-understanding" title="Permanent link"></a></h3>
 <p>This pre-processes your documents to extract and parse tabular data into a format suitable for conversational query. Since this preparation process is both costly and time-consuming, this feature is opt-in and will consume 1 seek query for every table preprocessed. Web Crawl Collections are not eligible for table understanding, as the re-crawl interval will cause excessive compute usage. Table preparation time takes several minutes per page. Please contact <a href="mailto:cloud@cerebralblue.com">cloud@cerebralblue.com</a> with details of your opportunity and use case to be considered for access.</p>
 <ul>
@@ -663,48 +666,46 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Table Understanding requires a compatible LLM with Table Understanding Enabled. Not all LLMs are capable of Table Understanding.</p>
 </div>
+<p>Table Understanding requires a compatible LLM with Table Understanding Enabled. Not all LLMs are capable of Table Understanding.</p>
 <p><a class="glightbox" href="../images/table_understanding.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="table_understanding" src="../images/table_understanding.png" /></a></p>
 <h3 id="personal-identifiable-information-pii-handling">Personal Identifiable Information (PII) Handling<a class="headerlink" href="#personal-identifiable-information-pii-handling" title="Permanent link"></a></h3>
-<p>Users can define how to handle any detected PII data that was included in the question. </p>
+<p>Users can define how to handle any detected PII data that was included in the question.</p>
 <p><a class="glightbox" href="../images/pii_handling.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pii_handling" src="../images/pii_handling.png" /></a></p>
 <p>The following actions to take when PII is found on user input are available:</p>
 <ul>
-<li><strong>Mask:</strong> Mask, and store, PII when it is detected in the user input. Masking will hide the PII in all locations.  </li>
-<li><strong>Flag:</strong> Flag, and store, for PII when it is detected in the user input. PII will be flagged in all locations. </li>
+<li><strong>Mask:</strong> Mask, and store, PII when it is detected in the user input. Masking will hide the PII in all locations.</li>
+<li><strong>Flag:</strong> Flag, and store, for PII when it is detected in the user input. PII will be flagged in all locations.</li>
 <li><strong>No Action:</strong> No action will be taken when PII is detected in the user input. It will be stored in plain text.</li>
 <li><strong>Hide (retain for Analytics):</strong> Hide (mask) the PII when it is detected in the user input, but keep the PII in the database for Analytics.</li>
-<li><strong>Delete (including from Analytics):</strong> Delete the PII entirely when it is detected in the user input, including from the stored Analytics. </li>
+<li><strong>Delete (including from Analytics):</strong> Delete the PII entirely when it is detected in the user input, including from the stored Analytics.</li>
 </ul>
-<p>The configuration also lets you add any particular examples of PII data, so it can be better detected. </p>
+<p>The configuration also lets you add any particular examples of PII data, so it can be better detected.</p>
 <ul>
 <li><strong>Pre-LLM PII Filters:</strong> These run dynamically on user input before it is sent to the LLM or KnowledgeBase. Click the light bulb icon to add a description such as a phone number and a corresponding regular expression.</li>
-<li><strong>LLM - Based PII Filters:</strong> These use the chosen LLM to identify PII. Click the light bulb icon to add an example sentence and corresponding PII elements, separated by commas. </li>
+<li><strong>LLM - Based PII Filters:</strong> These use the chosen LLM to identify PII. Click the light bulb icon to add an example sentence and corresponding PII elements, separated by commas.</li>
 </ul>
 <p>Some of NeuralSeek's PII Detectors are shown here:</p>
 <p><a class="glightbox" href="../images/pii_detectors.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pii_detectors" src="../images/pii_detectors.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Utilize the "Try it Out" feature to test the set PII filters. Input an example sentence and click the 'Test' button. The output will show the test sentence, a true or false response if PII was detected, and what element of the sentence was detected as PII. </p>
 </div>
+<p>Utilize the "Try it Out" feature to test the set PII filters. Input an example sentence and click the 'Test' button. The output will show the test sentence, a true or false response if PII was detected, and what element of the sentence was detected as PII.</p>
 <h3 id="corporate-document-filter">Corporate Document Filter<a class="headerlink" href="#corporate-document-filter" title="Permanent link"></a></h3>
 <p>Connect NeuralSeek to an external corporate rules engine to filter allowed documentation by user. Each request will send the ID's of the found documentation to an endpoint you set here. Any IDs not returned from the corporate filter will be blocked.</p>
 <ul>
-<li><strong>Enable Corporate Filter:</strong> If enabled, fill out all relevant information including: <ul>
+<li><strong>Enable Corporate Filter:</strong> If enabled, fill out all relevant information including:</li>
 <li><strong>Base URL for the corporate filter (get):</strong> The URL of the corporate document filter engine.</li>
 <li><strong>URL parameter for the UserName:</strong> The parameter name for the user's ID.</li>
 <li><strong>URL parameter for the KB field:</strong> The parameter name for the "document ID" for permission filtering.</li>
 <li><strong>KnowledgeBase field to send:</strong> The KB metadata field to send as the "document ID".</li>
 </ul>
-</li>
-</ul>
 <p><a class="glightbox" href="../images/corporate_doc_filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="corporate_doc_filter" src="../images/corporate_doc_filter.png" /></a></p>
 <h3 id="corporate-logging">Corporate Logging<a class="headerlink" href="#corporate-logging" title="Permanent link"></a></h3>
-<p>Connect NeuralSeek to a corporate audit logging endpoint. When connected and enabled, all requests and responses to the Seek API endpoint, as well as the Curate tab will be logged to your Elasticsearch instance. Users are able to log the full LLM "Seek" prompt for Audit and Compliance reasons. </p>
+<p>Connect NeuralSeek to a corporate audit logging endpoint. When connected and enabled, all requests and responses to the Seek API endpoint, as well as the Curate tab will be logged to your Elasticsearch instance. Users are able to log the full LLM "Seek" prompt for Audit and Compliance reasons.</p>
 <ul>
-<li><strong>Enable Corporate Logging:</strong> Toggle the icon to Enable or Disable this feature. If enabled, fill out all relevant information including: Elasticsearch Endpoint and Elasticsearch API Key. </li>
-<li><strong>Prompt Logging:</strong> Type "agree" into the provided box to agree to the provided Non-Disclosure Agreement and enable prompt logging. </li>
+<li><strong>Enable Corporate Logging:</strong> Toggle the icon to Enable or Disable this feature. If enabled, fill out all relevant information including: Elasticsearch Endpoint and Elasticsearch API Key.</li>
+<li><strong>Prompt Logging:</strong> Type "agree" into the provided box to agree to the provided Non-Disclosure Agreement and enable prompt logging.</li>
 </ul>
 <p><a class="glightbox" href="../images/corporate_logging.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="corporate_logging" src="../images/corporate_logging.png" /></a>
 <a class="glightbox" href="../images/prompt_logging.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="prompt_logging" src="../images/prompt_logging.png" /></a></p>
@@ -712,13 +713,290 @@
 <ul>
 <li><strong>Download Settings:</strong> Click this to download a .dat copy of all settings in the configure tab to your local machine.</li>
 <li><strong>Upload Settings:</strong> Click this to upload and restore settings from a .dat copy backup of all settings in the configure tab from your local machine.</li>
-<li><strong>Change Logs:</strong> Click to view the change log history of all settings changed in this instance.<ul>
+<li><strong>Change Logs:</strong> Click to view the change log history of all settings changed in this instance.</li>
 <li>From this screen, you may "revert" settings and audit which user made which changes.</li>
-</ul>
-</li>
 </ul>
 <p><a class="glightbox" href="../images/download_upload_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Download and upload settings" src="../images/download_upload_settings.png" /></a>
 <a class="glightbox" href="../images/settings_changelog.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="settings changelog" src="../images/settings_changelog.png" /></a></p>
+<h1 id="pinecone-integration-with-neuralseek">Pinecone Integration with NeuralSeek<a class="headerlink" href="#pinecone-integration-with-neuralseek" title="Permanent link"></a></h1>
+<p>This guide provides step-by-step instructions for configuring Pinecone as the knowledge base and using it along with the embedding model. Additionally, a technical explanation of how this configuration works is provided. An example Node.js script for uploading documents to the Pinecone index is also included. </p>
+<p>While this guide focuses on Pinecone, it is worth noting that you can also use Milvus as an alternative vector database.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<ul>
+<li>Ensure you have Node.js installed.</li>
+</ul>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link"></a></h2>
+<h3 id="1-create-a-pinecone-account">1. Create a Pinecone Account<a class="headerlink" href="#1-create-a-pinecone-account" title="Permanent link"></a></h3>
+<ul>
+<li>Go to <a href="https://www.pinecone.io/">Pinecone</a> and create a new account.</li>
+</ul>
+<h3 id="2-create-a-new-index-in-pinecone">2. Create a New Index in Pinecone<a class="headerlink" href="#2-create-a-new-index-in-pinecone" title="Permanent link"></a></h3>
+<ul>
+<li>Navigate to the dashboard and create a new index.</li>
+<li>
+<p>Depending on the embedding model you plan to use, choose the appropriate vector size:</p>
+<ul>
+<li><code>text-embedding-ada-002</code>: Vector size 1536</li>
+<li><code>text-embedding-3-small</code>: Vector size 1536</li>
+<li><code>text-embedding-3-large</code>: Vector size 3072</li>
+<li><code>infloat-e5-small-v2</code>: Vector size 384</li>
+</ul>
+<p><a class="glightbox" href="../images/index.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add Index" src="../images/index.png" /></a></p>
+</li>
+</ul>
+<h3 id="3-configure-neuralseek">3. Configure NeuralSeek<a class="headerlink" href="#3-configure-neuralseek" title="Permanent link"></a></h3>
+<h4 id="31-configure-the-knowledge-base-connection">3.1. Configure the Knowledge Base Connection<a class="headerlink" href="#31-configure-the-knowledge-base-connection" title="Permanent link"></a></h4>
+<ul>
+<li>Access the <strong>NeuralSeek</strong> platform.</li>
+<li>Go to the <strong>Configure</strong> tab and set up the knowledge base connection:</li>
+<li>Knowledge Base Type: <code>Pinecone</code></li>
+<li>Knowledge Base Language: <code>English</code></li>
+<li>Pinecone Index Name: <code>docs</code></li>
+<li>Pinecone Index Namespace: <code>ns1</code></li>
+<li>Pinecone API Key: <code>your-pinecone-api-key</code></li>
+<li>Curation Data Field: <code>text</code></li>
+<li>Document Name Field: <code>title</code></li>
+<li>Filter Field: <code>title</code></li>
+<li>Link Field: <code>link</code></li>
+<li>Attribute Resources: <code>enabled</code></li>
+</ul>
+<p><a class="glightbox" href="../images/kb-pine.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Configure Knowledge Base Connection" src="../images/kb-pine.png" /></a></p>
+<h4 id="32-add-an-embedding-model">3.2. Add an Embedding Model<a class="headerlink" href="#32-add-an-embedding-model" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>Go to the <strong>Embedding Models</strong> section and add a new embedding:</p>
+</li>
+<li>
+<p>Choose the platform (either <code>Azure</code>, <code>NeuralSeek</code>, or <code>OpenAI</code>).</p>
+</li>
+<li>Select the appropriate embedding model:<ul>
+<li>For <code>OpenAI</code> and <code>Azure</code>:</li>
+<li><code>text-embedding-ada-002</code>: Vector size 1536</li>
+<li><code>text-embedding-3-small</code>: Vector size 1536</li>
+<li><code>text-embedding-3-large</code>: Vector size 3072</li>
+<li>For <code>NeuralSeek</code>:</li>
+<li><code>infloat-e5-small-v2</code></li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" href="../images/embedding.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add Embedding Model 1" src="../images/embedding.png" /></a></p>
+<p><a class="glightbox" href="../images/embedding2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add Embedding Model 2" src="../images/embedding2.png" /></a></p>
+<h3 id="4-add-documents-to-pinecone-index-via-nodejs-script">4. Add Documents to Pinecone Index via Node.js Script<a class="headerlink" href="#4-add-documents-to-pinecone-index-via-nodejs-script" title="Permanent link"></a></h3>
+<h4 id="41-install-required-packages">4.1. Install Required Packages<a class="headerlink" href="#41-install-required-packages" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>axios<span class="w"> </span>fs<span class="w"> </span>path<span class="w"> </span>@pinecone-database/pinecone<span class="w"> </span>@langchain/openai
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>import axios from &quot;axios&quot;;
+import fs from &quot;fs&quot;;
+import path from &quot;path&quot;;
+import { Pinecone } from &quot;@pinecone-database/pinecone&quot;;
+import { OpenAIEmbeddings } from &quot;@langchain/openai&quot;;
+
+const folder = &quot;./docs&quot;;
+
+const pc = new Pinecone({
+  apiKey: &quot;your-pinecone-api-key&quot;, // Replace with your Pinecone API key
+});
+
+var kb = {};
+var ids = [];
+
+const openaiAPIKey = &quot;your-openai-api-key&quot;; // Replace with your OpenAI API key
+
+kb.importFiles = async (model, pineconeIndex, pineconeNamespace) =&gt; {
+  var pineconeData = [];
+
+  let fileList = fs.readdirSync(folder);
+  var vectors = null;
+  for (const file of fileList) {
+    const data = JSON.parse(fs.readFileSync(path.join(folder, file)));
+
+    if (model == &quot;infloat-e5-small-v2&quot;) {
+      const embeddings = await axios.post(&quot;http://url.com&quot;, {
+        text: data.text,
+      });
+      vectors = embeddings.data;
+    } else if (
+      model == &quot;text-embedding-ada-002&quot; ||
+      model == &quot;text-embedding-3-small&quot; ||
+      model == &quot;text-embedding-3-large&quot;
+    ) {
+      var embedV2 = new OpenAIEmbeddings({
+        openAIApiKey: openaiAPIKey,
+        modelName: model,
+      });
+
+      vectors = await embedV2.embedQuery(data.text);
+    } else {
+      throw new Error(`Unsupported model &quot;${model}&quot;`);
+    }
+
+    const id = data.title;
+    const metadata = {
+      text: data.text,
+      title: data.title,
+      link: data.source_link,
+    };
+    const values = vectors;
+    var record = { id, values, metadata };
+    pineconeData.push(record);
+    ids.push(id);
+  }
+  const index = pc.index(pineconeIndex);
+
+  await index.namespace(pineconeNamespace).upsert(pineconeData);
+};
+
+kb.fetchRecords = async (recordIds) =&gt; {
+  const index = pc.index(&quot;docs&quot;);
+  const result = await index.namespace(&quot;ns1&quot;).fetch(ids);
+};
+
+kb.emptyQuery = async (dimensions, ns, indexName) =&gt; {
+  const index = pc.index(indexName);
+
+  const queryResponse = await index.namespace(ns).query({
+    vector: new Array(dimensions).fill(0),
+    topK: 1,
+    includeMetadata: true,
+  });
+
+  console.log(queryResponse);
+};
+
+kb.describeIndex = async (indexName) =&gt; {
+  var index = await pc.describeIndex(indexName);
+  var dimension = index.dimension;
+  console.log(`Dimensions: ${dimension}`);
+};
+
+kb.query = async (ns, indexName, text) =&gt; {
+  const index = pc.index(indexName);
+
+  // Staging is returning 384 dimensions/vectors.
+  const embeddings = await axios.post(&quot;http://url.com&quot;, {
+    text: text,
+  });
+  const id = &quot;Test&quot;;
+  const metadata = { text: text };
+  const values = embeddings.data;
+  var record = { id, values, metadata };
+
+  const queryResponse = await index.namespace(ns).query({
+    vector: record.values,
+    topK: 10,
+    includeMetadata: true,
+  });
+
+  console.log(queryResponse);
+};
+
+kb.filterQuery = async (ns, indexName, text, filter) =&gt; {
+  const index = pc.index(indexName);
+
+  const embeddings = await axios.post(&quot;http://url.com&quot;, {
+    text: text,
+  });
+  const id = &quot;Test&quot;;
+  const metadata = { text: text };
+  const values = embeddings.data;
+  var record = { id, values, metadata };
+
+  const queryResponse = await index.namespace(ns).query({
+    vector: record.values,
+    filter: {
+      contents: { $eq: filter },
+    },
+    topK: 11,
+    includeMetadata: true,
+  });
+
+  console.log(queryResponse);
+};
+
+kb.getEmbedding = async (embedModel, query) =&gt; {
+  var res = await embedModel.embedQuery(query);
+  console.log(res);
+};
+
+var embedV2 = new OpenAIEmbeddings({
+  openAIApiKey: &quot;your-openai-api-key&quot;,
+  modelName: &quot;text-embedding-3-small&quot;,
+});
+
+await kb.importFiles(&quot;text-embedding-3-small&quot;, &quot;docs&quot;, &quot;ns1&quot;);
+</code></pre></div>
+<h3 id="42-create-and-run-the-script">4.2. Create and Run the Script<a class="headerlink" href="#42-create-and-run-the-script" title="Permanent link"></a></h3>
+<p>Create a file named upload-documents.js and add the following script:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>node<span class="w"> </span>upload-documents.js
+</code></pre></div>
+<h3 id="5-save-configuration">5. Save Configuration<a class="headerlink" href="#5-save-configuration" title="Permanent link"></a></h3>
+<p>Save all the configurations made in NeuralSeek.</p>
+<h3 id="6-test-the-integration">6. Test the Integration<a class="headerlink" href="#6-test-the-integration" title="Permanent link"></a></h3>
+<p>Go to the Seek tab in NeuralSeek and perform a search to verify if the integration works.</p>
+<p>Additionally, you can test the setup using Maistro.</p>
+<h1 id="technical-explanation-how-pinecone-and-neuralseek-work-together">Technical Explanation: How Pinecone and NeuralSeek Work Together<a class="headerlink" href="#technical-explanation-how-pinecone-and-neuralseek-work-together" title="Permanent link"></a></h1>
+<h2 id="pinecone">Pinecone<a class="headerlink" href="#pinecone" title="Permanent link"></a></h2>
+<p>Pinecone is a vector database that provides efficient similarity search and retrieval capabilities. In the context of NeuralSeek, Pinecone serves as the knowledge base where all documents and their vector embeddings are stored. Key functionalities include:</p>
+<h3 id="indexing">Indexing<a class="headerlink" href="#indexing" title="Permanent link"></a></h3>
+<ul>
+<li>Pinecone indexes vector embeddings of documents, making them easily searchable.</li>
+</ul>
+<h3 id="querying">Querying<a class="headerlink" href="#querying" title="Permanent link"></a></h3>
+<ul>
+<li>It processes search queries by comparing query vectors with stored document vectors to find the most similar matches.</li>
+</ul>
+<h3 id="scalability">Scalability<a class="headerlink" href="#scalability" title="Permanent link"></a></h3>
+<ul>
+<li>Pinecone can handle large volumes of data and provides quick search responses, making it suitable for extensive knowledge bases.</li>
+</ul>
+<h2 id="neuralseek-embedding-model">NeuralSeek Embedding Model<a class="headerlink" href="#neuralseek-embedding-model" title="Permanent link"></a></h2>
+<p>NeuralSeek uses sophisticated embedding models to generate vector representations of text data. The <code>infloat-e5-small-v2</code> model, in particular, transforms text into a 384-dimensional vector, capturing the semantic meaning of the text. Key functionalities include:</p>
+<h3 id="text-embeddings">Text Embeddings<a class="headerlink" href="#text-embeddings" title="Permanent link"></a></h3>
+<ul>
+<li>Converts text data into dense vector representations that capture semantic information.</li>
+</ul>
+<h3 id="similarity-matching">Similarity Matching<a class="headerlink" href="#similarity-matching" title="Permanent link"></a></h3>
+<ul>
+<li>Compares query vectors with document vectors to find the most relevant answers.</li>
+</ul>
+<h3 id="contextual-understanding">Contextual Understanding<a class="headerlink" href="#contextual-understanding" title="Permanent link"></a></h3>
+<ul>
+<li>Leverages multiple layers to understand and generate contextually accurate responses.</li>
+</ul>
+<h2 id="integration-workflow">Integration Workflow<a class="headerlink" href="#integration-workflow" title="Permanent link"></a></h2>
+<ol>
+<li><strong>Data Ingestion</strong>: Documents are ingested and processed to generate vector embeddings using NeuralSeek’s embedding model.</li>
+<li><strong>Indexing</strong>: The generated vector embeddings are stored in Pinecone, where they are indexed for efficient search and retrieval.</li>
+<li><strong>Query Processing</strong>: When a query is entered, NeuralSeek converts the query text into a vector using the embedding model.</li>
+<li><strong>Search and Retrieval</strong>: The query vector is compared with document vectors in Pinecone to find the most relevant matches.</li>
+<li><strong>Response Generation</strong>: The most relevant documents are retrieved from Pinecone, and NeuralSeek formulates a response based on the retrieved data.</li>
+</ol>
+<h2 id="benefits-of-this-configuration">Benefits of This Configuration<a class="headerlink" href="#benefits-of-this-configuration" title="Permanent link"></a></h2>
+<h3 id="efficiency">Efficiency<a class="headerlink" href="#efficiency" title="Permanent link"></a></h3>
+<ul>
+<li>Combining Pinecone’s efficient vector search capabilities with NeuralSeek’s powerful embeddings ensures quick and accurate responses.</li>
+</ul>
+<h3 id="scalability_1">Scalability<a class="headerlink" href="#scalability_1" title="Permanent link"></a></h3>
+<ul>
+<li>Pinecone can scale to handle large data volumes, while NeuralSeek’s embeddings maintain high performance.</li>
+</ul>
+<h3 id="accuracy">Accuracy<a class="headerlink" href="#accuracy" title="Permanent link"></a></h3>
+<ul>
+<li>NeuralSeek’s contextual embeddings improve the accuracy of responses, providing relevant and precise information.</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h3>
+<h4 id="issue-model-not-providing-accurate-responses">Issue: Model Not Providing Accurate Responses<a class="headerlink" href="#issue-model-not-providing-accurate-responses" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Solution</strong>: Verify the model parameters and ensure that the content in the knowledge base is up-to-date.</li>
+</ul>
+<h4 id="issue-upload-errors">Issue: Upload Errors<a class="headerlink" href="#issue-upload-errors" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Solution</strong>: Ensure that file formats are correct and data integrity is maintained.</li>
+</ul>
+<h4 id="issue-integration-issues">Issue: Integration Issues<a class="headerlink" href="#issue-integration-issues" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Solution</strong>: Recheck the linkage between the model and the knowledge base, and verify that synchronization is correctly configured.</li>
+</ul>
 
           <br>
           <footer class="wm-footer">

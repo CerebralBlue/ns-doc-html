@@ -64,6 +64,10 @@
       ]},
       {title: "Table Understanding", url: "#table-understanding", children: [
       ]},
+      {title: "Multimodal LLMs in mAIstro", url: "#multimodal-llms-in-maistro", children: [
+          {title: "Steps to Configure the LLM", url: "#steps-to-configure-the-llm" },
+          {title: "Steps to Process an Image", url: "#steps-to-process-an-image" },
+      ]},
     ];
 
 </script>
@@ -641,6 +645,45 @@
 <div class="highlight"><pre><span></span><code>What were the GHG emissions for business travel in 2021?
 </code></pre></div>
 <p>You can also ask questions about a specific place or name and if there are multiple tables with data, NeuralSeek will take from each table and provide you with everything.</p>
+<h1 id="multimodal-llms-in-maistro">Multimodal LLMs in mAIstro<a class="headerlink" href="#multimodal-llms-in-maistro" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
+<p>Multimodal capabilities in large language models (LLMs) refer to their ability to process and generate content across multiple modalities, such as text, images, and even audio. This allows LLMs to understand and interact with the world in a more holistic and natural way, going beyond the traditional text-based interactions.</p>
+<p><strong>Why is it important?</strong></p>
+<p>Multimodal capabilities are crucial for a wide range of applications, particularly in areas like visual question answering, image captioning, and image-to-text generation. These capabilities enable LLMs to understand and reason about the world in a more comprehensive manner, allowing for more intuitive and user-friendly interactions.</p>
+<p><strong>How does it work?</strong></p>
+<p>Multimodal LLMs typically leverage techniques like transfer learning, where the model is first trained on a large corpus of text data, and then fine-tuned on datasets that combine text and images. This allows the model to learn the relationships between visual and textual information, enabling it to generate relevant and coherent responses to queries that involve both modalities.</p>
+<h2 id="steps-to-configure-the-llm">Steps to Configure the LLM<a class="headerlink" href="#steps-to-configure-the-llm" title="Permanent link"></a></h2>
+<p>To begin, navigate to the Configure tab and locate the LLM Details section. </p>
+<p><a class="glightbox" href="../images/llmdetails3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LLM details" src="../images/llmdetails3.png" /></a></p>
+<p>Click on "Add an LLM" and choose a model that can process images, such as OpenAI GPT-4o. </p>
+<p><a class="glightbox" href="../images/selectllm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select LLM" src="../images/selectllm.png" /></a></p>
+<p>Once selected, add the model and enter the necessary connection details, which, for GPT-4o, would be the API Key. </p>
+<p>Test the connection by clicking the Test button and ensure the button turns green, indicating a successful connection. </p>
+<p><a class="glightbox" href="../images/successtestllm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Successful LLM" src="../images/successtestllm.png" /></a></p>
+<p>Save the configuration and provide a meaningful name for the version. </p>
+<h2 id="steps-to-process-an-image">Steps to Process an Image<a class="headerlink" href="#steps-to-process-an-image" title="Permanent link"></a></h2>
+<p>Next, switch to the Maistro tab to upload an image. Use the left side pane to search for "Upload data" and then select "Upload file" under that section. </p>
+<p>After selecting the local file, a local document node will be created. Set the body of this node like this:</p>
+<div class="highlight"><pre><span></span><code>    &lt;&lt; name: img, prompt: true, desc: Enter image file name &gt;&gt;
+</code></pre></div>
+<p><a class="glightbox" href="../images/localdocument.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Local document node" src="../images/localdocument.png" /></a></p>
+<p>If you plan to use this image for different purposes, it’s best to set it as a variable. Add a set variable node to the right of the local document node and give the variable a descriptive name. </p>
+<p><a class="glightbox" href="../images/setvariablenode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Local document node" src="../images/setvariablenode.png" /></a></p>
+<p>Below these nodes, add a send to LLM node. For the prompt, you can use:</p>
+<div class="highlight"><pre><span></span><code>What is this a picture of?
+</code></pre></div>
+<p>For the image, reference the variable you defined earlier:</p>
+<div class="highlight"><pre><span></span><code>  &lt;&lt; name: img, prompt:false &gt;&gt;
+</code></pre></div>
+<p>And the node should be end up like this:</p>
+<p><a class="glightbox" href="../images/sendtollmnode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Complete template" src="../images/sendtollmnode.png" /></a></p>
+<p>Select an LLM that supports reading images, such as GPT-4o. </p>
+<p>Press the Evaluate button. You will be prompted to enter the name of the image file you want to process, including its file extension. Once entered, the setup will allow Maistro to describe the image.</p>
+<p><a class="glightbox" href="../images/maistroworkflow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Complete template" src="../images/maistroworkflow.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a basic example, but you can expand on this logic to achieve more complex procedures.</p>
+</div>
 
           <br>
           <footer class="wm-footer">

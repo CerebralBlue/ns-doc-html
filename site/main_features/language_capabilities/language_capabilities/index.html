@@ -56,6 +56,7 @@
       {title: "Multi Language Support", url: "#multi-language-support", children: [
           {title: "Supported Languages", url: "#supported-languages" },
           {title: "Specifying a Language", url: "#specifying-a-language" },
+          {title: "Cross-language support for KBs", url: "#cross-language-support-for-kbs" },
       ]},
     ];
 
@@ -537,6 +538,8 @@
 <li>NeuralSeek will try to determine if the user is asking a question in a certain language (e.g. Spanish), and will try to convert the responses into the language that the user asked without any additional set ups.</li>
 </ul>
 <h2 id="supported-languages">Supported Languages<a class="headerlink" href="#supported-languages" title="Permanent link"></a></h2>
+<details class="list">
+<summary>List</summary>
 <table>
 <thead>
 <tr>
@@ -775,11 +778,51 @@
 </tr>
 </tbody>
 </table>
+</details>
 <p>Match Input Feature: NeuralSeek can understand and support conversations that are initiated in languages other than the ones listed through the Match Input Feature. On the “Seek” endpoint, click the dropdown for language navigation and click "Match Input".</p>
 <h2 id="specifying-a-language">Specifying a Language<a class="headerlink" href="#specifying-a-language" title="Permanent link"></a></h2>
 <p>If you would like to specify a certain target language that you want NeuralSeek to generate answers into, you can do so by specifying a language code (e.g. es) in the request when you are invoking <code>Seek</code>.</p>
 <p><a class="glightbox" href="../images/image-001.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="lang selection" src="../images/image-001.png" /></a></p>
 <p>The same can be achieved when you are invoking <code>Seek</code> using REST API. You can specify the language under the <code>options &gt; language</code>.</p>
+<h2 id="cross-language-support-for-kbs">Cross-language support for KBs<a class="headerlink" href="#cross-language-support-for-kbs" title="Permanent link"></a></h2>
+<p>NeuralSeek offers robust multi-language support, allowing users to interact with a knowledge base (KB) in a different language than the one the KB is written in. This is particularly useful in scenarios where the knowledge base is in one language (e.g., English), but users need to query it in another language (e.g., Spanish).</p>
+<h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h3>
+<p>When a user queries the knowledge base in a different language, NeuralSeek handles the translation process seamlessly:</p>
+<p><a class="glightbox" href="../images/spanish-to-eng.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="query example" src="../images/spanish-to-eng.png" /></a></p>
+<ol>
+<li><strong>User Query in Native Language</strong>: The user asks a question in their native language (e.g., Spanish).</li>
+<li><strong>Translation to KB Language</strong>: NeuralSeek translates the user's question into the language of the knowledge base (e.g., English).</li>
+<li><strong>Querying the KB</strong>: The translated question is used to search the knowledge base.</li>
+<li><strong>Retrieving the Answer</strong>: NeuralSeek retrieves the answer from the LLM in their native language.</li>
+<li><strong>Delivering the Response</strong>: The user receives the response in their native language.</li>
+</ol>
+<h3 id="example-scenario">Example Scenario<a class="headerlink" href="#example-scenario" title="Permanent link"></a></h3>
+<h3 id="question-in-spanish-kb-in-english">Question in Spanish, KB in English<a class="headerlink" href="#question-in-spanish-kb-in-english" title="Permanent link"></a></h3>
+<ol>
+<li><strong>User Query</strong>: "¿Cuál es la capital de Francia?"</li>
+<li><strong>Translate to English</strong>: "What is the capital of France?"</li>
+<li><strong>Query the English KB</strong>: The system searches for "What is the capital of France?" in the English knowledge base.</li>
+<li><strong>Retrieve Answer from the LLM in Spanish</strong>: "La capital de Francia es París."</li>
+<li><strong>Deliver Response</strong>: "La capital de Francia es París."</li>
+</ol>
+<h3 id="implementation-steps">Implementation Steps<a class="headerlink" href="#implementation-steps" title="Permanent link"></a></h3>
+<p>To configure NeuralSeek for multi-language support, follow these steps:</p>
+<h3 id="step-1-configure-the-knowledge-base-language">Step 1: Configure the Knowledge Base Language<a class="headerlink" href="#step-1-configure-the-knowledge-base-language" title="Permanent link"></a></h3>
+<p><a class="glightbox" href="../images/kb-language.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/kb-language.png" /></a></p>
+<ul>
+<li><strong>Navigate to the Configure Tab</strong>: Access the configuration settings of NeuralSeek.</li>
+<li><strong>Select the Language of Your Knowledge Base</strong>: Choose the language your knowledge base is written in (English, in this case).</li>
+<li><strong>Save the Configuration</strong>: Ensure that your settings are saved properly to apply the changes.</li>
+</ul>
+<h3 id="step-2-testing-multi-language-queries">Step 2: Testing Multi-Language Queries<a class="headerlink" href="#step-2-testing-multi-language-queries" title="Permanent link"></a></h3>
+<p><a class="glightbox" href="../images/exmple-question.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="seek" src="../images/exmple-question.png" /></a></p>
+<ul>
+<li><strong>Go to the Seek Tab</strong>: Access the query interface of NeuralSeek.</li>
+<li><strong>Enter a Question in Spanish</strong>: Test the configuration by entering a question in Spanish, such as "¿Cuál es la capital de Francia?"</li>
+<li><strong>Observe the Response</strong>: NeuralSeek should translate the question, query the English knowledge base, and return the response in the desired language: "La capital de Francia es París."</li>
+</ul>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>NeuralSeek's multi-language support allows for flexible and user-friendly interactions with knowledge bases, regardless of the language barrier. By translating queries and responses, NeuralSeek ensures that users receive accurate and contextually relevant information in their native language.</p>
 
           <br>
           <footer class="wm-footer">

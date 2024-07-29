@@ -47,6 +47,8 @@
   var is_top_frame = false;
     
     var pageToc = [
+      {title: "July - 2024", url: "#july-2024", children: [
+      ]},
       {title: "June - 2024", url: "#june-2024", children: [
       ]},
       {title: "May - 2024", url: "#may-2024", children: [
@@ -460,6 +462,19 @@
           <a name="_top"></a>  
           
           <p>&nbsp;</p>
+<h2 id="july-2024">July - 2024<a class="headerlink" href="#july-2024" title="Permanent link"></a></h2>
+<p><strong>New features</strong></p>
+<ul>
+<li>New LLM's<ul>
+<li>Mistral-large on watsonx.ai</li>
+<li>GPT-4o-mini on OpenAI.</li>
+</ul>
+</li>
+<li>Streaming api endpoints for seek and mAIstro for watsonx assistant. These have the required content type in the openAPI spec. Note- at the moment streaming seek is not recommended as you can’t use confidence scoring, nor get any payload fields like url. We’ll be working on this with the Watson team.
+New embedding models, and the ability to use a custom embedding model with NS intent detection and mAIstro</li>
+<li>Translation Improvements!  NS translation is now up to 80% faster for large translations.</li>
+<li>NeuralSeek Hosted LLM's.  When using a BYO-LLM plan we now provide a globally-hosted base LLM (mistral-7b) and purpose-built translation LLM for use with that plan for no additional charges, just the normal seek charge applies. THis should make it much easier to get started with NS.</li>
+</ul>
 <h2 id="june-2024">June - 2024<a class="headerlink" href="#june-2024" title="Permanent link"></a></h2>
 <p><strong>New features</strong></p>
 <ul>

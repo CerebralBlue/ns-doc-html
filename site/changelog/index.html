@@ -47,6 +47,8 @@
   var is_top_frame = false;
     
     var pageToc = [
+      {title: "August - 2024", url: "#august-2024", children: [
+      ]},
       {title: "July - 2024", url: "#july-2024", children: [
       ]},
       {title: "June - 2024", url: "#june-2024", children: [
@@ -462,6 +464,23 @@
           <a name="_top"></a>  
           
           <p>&nbsp;</p>
+<h2 id="august-2024">August - 2024<a class="headerlink" href="#august-2024" title="Permanent link"></a></h2>
+<p><strong>New features</strong></p>
+<ul>
+<li>mAIstro Min Confidence - In a seek, when hitting your min confidence threshold, run a custom mAIstro flow.  You can use this to simply create a contextually aware "I don't know note" - but can also use this to kick off a notification, or escalation or externals service call or ticket... Anything really.</li>
+<li>Semantic Insights - now on the "hallucinated terms" chart you can click on a term to directly allow-list items...</li>
+<li>Data Loader - Drag &amp; drop files to our new loader, which leverages mAIstro to chunk/load docs.  You can use any mAIstro function or integration, make rest calls, generate embeddings, automatically loop and chunk documents... We give an example loader for elastic/watsonx discovery.</li>
+<li>Governace for mAIstro!<ul>
+<li>Automatically track and provide insights for all mAIstro templates, filterable by template.</li>
+<li>Flow insights helps track time spent across our parallel engine, helping you optimize flows and understand where they are spending the most of their time. </li>
+<li>Token insights mirrors the Seek token insights tab, helping show token consumption, cost, and model comparison options for the LLM's used to power your mAIstro flows</li>
+</ul>
+</li>
+<li>Seek Governance updates<ul>
+<li>Filter by filter... When using filters in seek, now you can automatically track governance by the applied filter.</li>
+</ul>
+</li>
+</ul>
 <h2 id="july-2024">July - 2024<a class="headerlink" href="#july-2024" title="Permanent link"></a></h2>
 <p><strong>New features</strong></p>
 <ul>

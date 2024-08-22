@@ -531,16 +531,18 @@ The count is now: &lt;&lt; name: count &gt;&gt;
 <ul>
 <li>Value: The conditional / logic to evaluate. Supports the following:<ul>
 <li>Common comparison operators like <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>&lt;&gt;</code>.</li>
+<li>Common mathematical operators like <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code> wrapped within parenthesis <code>()</code>.</li>
 <li>Logical functions:<ul>
-<li>IF: Ternary operator: <code>IF(condition, truevalue, falsevalue)</code></li>
+<li>IF: Ternary operator: <code>IF(condition or function, truevalue, falsevalue)</code></li>
 <li>NOT: Inverse operator: <code>NOT(condition)</code></li>
-<li>AND: Logical and: <code>AND(condition, condition)</code></li>
-<li>OR: Logical or: <code>OR(condition, condition)</code></li>
+<li>AND: Logical and: <code>AND(condition, condition)</code> - Accepts 2 or more conditions</li>
+<li>OR: Logical or: <code>OR(condition, condition)</code> - Accepts 2 or more conditions</li>
 </ul>
 </li>
 <li>String comparisons: <ul>
 <li>Using single-quoted strings, you can use equality conditions <code>==</code> and <code>!=</code>.</li>
-<li>CONTAINS: You can check for substrings: <code>CONTAINS('string', 'substring')</code></li>
+<li>CONTAINS: You can check for substrings: <code>CONTAINS('long string to check', 'string')</code></li>
+<li>LENGTH: You can evaluate the length of a string to use in conditions: <code>LENGTH('string')</code> (this example evaluates to 6)</li>
 <li>Variables must be wrapped in single quotes for comparison or substring check.</li>
 </ul>
 </li>
@@ -552,27 +554,41 @@ The count is now: &lt;&lt; name: count &gt;&gt;
 <li>A condition that evaluates to 'true' will continue the horizontal chain. </li>
 <li>A condition that evaluates to 'false' will stop the horizontal chain from executing and continue to the next flow step.</li>
 </ul>
-<p><strong>Example 1:</strong></p>
+<details class="abstract">
+<summary>Example usage</summary>
+<p><strong>Example set 1:</strong> Basic</p>
 <div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;1 == 1&quot; }}=&gt;This is true!
 </code></pre></div>
 <p>Will yield the output text: <code>This is true!</code></p>
-<p><strong>Example 2:</strong></p>
-<div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;OR(1==1,2==3)&quot; }}=&gt;This is true!
+<div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;(5 + 5) == 10&quot; }}=&gt;This is true!
 </code></pre></div>
-<p>Will continue the chain and yield the output text: <code>This is true!</code>, where:</p>
+<p>Will yield the output text: <code>This is true!</code></p>
+<p><strong>Example set 2:</strong> OR, AND</p>
+<div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;OR(1==1, 2==3, 1==2, 1==1)&quot; }}=&gt;This is true!
+</code></pre></div>
+<p>Will continue the chain and yield the output text: <code>This is true!</code>.</p>
+<div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;AND(1==1, 2==2, 3==3, 4==4)&quot; }}=&gt;This is true!
+</code></pre></div>
+<p>Will continue the chain and yield the output text: <code>This is true!</code>.</p>
 <div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;OR(1==2,2==3)&quot; }}=&gt;This is true!
 </code></pre></div>
 <p>Will stop the chain and yield no output, as the chain was blocked with a false condition.</p>
-<p><strong>Example 3:</strong></p>
+<p><strong>Example set 3:</strong> Strings</p>
 <div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;&#39;name&#39; == &#39;name&#39;&quot; }}=&gt;This is true!
 </code></pre></div>
 <p>Will yield the output text: <code>This is true!</code></p>
-<p><strong>Example 4:</strong></p>
 <div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;CONTAINS(&#39;this is a test string&#39;, &#39;test&#39;)&quot; }}=&gt;This is true!
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;CONTAINS(&#39;&lt;&lt; name: variableContainingTest, prompt: false &gt;&gt;&#39;, &#39;test&#39;)&quot; }}=&gt;This is true!
 </code></pre></div>
 <p>Both will yield the output text: <code>This is true!</code></p>
+<div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;LENGTH(&#39;Hello World&#39;) &gt; 5&quot; }}=&gt;This is true!
+</code></pre></div>
+<p>Will yield the output text: <code>This is true!</code></p>
+<div class="highlight"><pre><span></span><code>{{ condition  | value: &quot;(LENGTH(&#39;&lt;&lt; name: variableContainingTest, prompt: false &gt;&gt;&#39;) + 12) &gt; 10&quot; }}=&gt;This is true!
+</code></pre></div>
+<p>Will yield the output text: <code>This is true!</code></p>
+</details>
 <p><strong>For more:</strong> See the "Conditional Logic" Example Template for a working example on routing chains based on a variable value:</p>
 <p><a class="glightbox" href="../images/conditional_explore.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Conditional mAIstro Example" src="../images/conditional_explore.png" /></a></p>
 

@@ -488,8 +488,22 @@
 </ul>
 <h3 id="reading-the-trend">Reading the trend<a class="headerlink" href="#reading-the-trend" title="Permanent link"></a></h3>
 <p><a class="glightbox" href="../images/image-002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="graph and color" src="../images/image-002.png" /></a></p>
-<p>Each of the graphs (coverage and confidence) has color codes that lets users visibly understand the state and trend. Coverage uses blue color with intensity that changes as its coverage is low or high. Confidence shows green to display high confidence to red meaning low confidence. You may also notice the slope has different heights, which gets smaller as there are more <code>changes</code> on its value.</p>
-<p>Hovering over the graph would reveal the trend of changes:</p>
+<p>The data is presented through two distinct graphs: Coverage and Confidence. </p>
+<ol>
+<li>
+<p><strong>Coverage Graph</strong>: This graph illustrates the total number of citations or reference materials utilized to address a specific question. A coverage value of zero indicates the absence of relevant documentation, while a value of 100% signifies comprehensive documentation available on the topic.</p>
+</li>
+<li>
+<p><strong>Confidence Graph</strong>: This graph assesses NeuralSeek’s confidence in the automated response provided. High confidence suggests that the answer is likely cited by the documentation well, whereas low confidence infers that the resource material might have conflicting documentation or ambiguity.</p>
+</li>
+</ol>
+<p>Both graphs are integral to data governance, directly reflecting the quality and reliability of the data used in generating answers. It is possible to have an accurate answer with low coverage but high confidence. It is also possible to have an inaccurate answer with high coverage and low confidence because the multiple resources have conflicting information.</p>
+<p><strong>Color Coding</strong>:</p>
+<ul>
+<li><strong>Coverage</strong>: Represented in shades of blue, with intensity varying based on coverage levels. The darker the shade, the more comprehensive documentation is referenced.</li>
+<li><strong>Confidence</strong>: Indicated by green for high confidence and red for low confidence.</li>
+</ul>
+<p><strong>Slope</strong>: The slope's height indicates the number of hits. A higher slope will show the majority of where the answers were bucketed - for example, if all the answers but one were scored at 99%, but there is one at 20%, the slope will be far larger at 99% and very small at 20%. By hovering over the graph, you can observe the trend of slope changes over time.</p>
 <p><a class="glightbox" href="../images/image-003.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="changes" src="../images/image-003.png" /></a></p>
 <p>In this case, there were instances of when the confidence had dropped from 83% to 22%, over the period between 14:07:31 to 14:12:15 on July 20th.</p>
 <h3 id="displaying-intents-and-answers">Displaying Intents and Answers<a class="headerlink" href="#displaying-intents-and-answers" title="Permanent link"></a></h3>

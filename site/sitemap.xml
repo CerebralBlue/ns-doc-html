@@ -175,12 +175,6 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/guardrails/"/>
     </url>
     <url>
-        <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/</loc>
-        <lastmod>2024-09-06</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/"/>
-    </url>
-    <url>
         <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/rag_tools/</loc>
         <lastmod>2024-09-06</lastmod>
         <changefreq>daily</changefreq>
@@ -203,5 +197,23 @@
         <lastmod>2024-09-06</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/upload_data/"/>
+    </url>
+    <url>
+        <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Jsontools/</loc>
+        <lastmod>2024-09-06</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Jsontools/"/>
+    </url>
+    <url>
+        <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Stringtools/</loc>
+        <lastmod>2024-09-06</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Stringtools/"/>
+    </url>
+    <url>
+        <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Transform/</loc>
+        <lastmod>2024-09-06</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Transform/"/>
     </url>
 </urlset>

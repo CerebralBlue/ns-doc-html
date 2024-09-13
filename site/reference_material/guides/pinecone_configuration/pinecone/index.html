@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/guides/pinecone_configuration/pinecone/">
+    <link rel="shortcut icon" href="../../../../img/ns-white.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Pinecone Integration with NeuralSeek - NeuralSeek Documentation</title>
+
+  <meta property="og:title" content="Pinecone Integration with NeuralSeek" />
+  <meta property="og:description" content="NeuralSeek Documentation" />
+    <link href="../../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../../css/colors.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../css/highlight-github-theme.css">
+    <link rel="stylesheet" href="../../../../css/highlightjs-copy.css">
+    <link href="../../../../css/base.css" rel="stylesheet">
+    <link href="../../../../css/override.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../../js/highlight.min.js"></script>
+    <script src="../../../../js/highlightjs-copy.min.js"></script>
+    <script src="../../../../js/elasticlunr.min.js"></script>
+      
+    <base target="_top">
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.configure({languages:[]});
+      hljs.highlightAll();
+    </script>
+    <script>
+  var base_url = '../../../..';
+  var is_top_frame = false;
+    
+    var pageToc = [
+      {title: "Pinecone Integration with NeuralSeek", url: "#pinecone-integration-with-neuralseek", children: [
+          {title: "Prerequisites", url: "#prerequisites" },
+          {title: "Steps", url: "#steps" },
+      ]},
+      {title: "Technical Explanation: How Pinecone and NeuralSeek Work Together", url: "#technical-explanation-how-pinecone-and-neuralseek-work-together", children: [
+          {title: "Pinecone", url: "#pinecone" },
+          {title: "NeuralSeek Embedding Model", url: "#neuralseek-embedding-model" },
+          {title: "Integration Workflow", url: "#integration-workflow" },
+          {title: "Benefits of This Configuration", url: "#benefits-of-this-configuration" },
+      ]},
+    ];
+
+</script>
+    <script src="../../../../js/base.js?v=2"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-LE5XX6X6Z7');
+      </script> 
+ <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wm-top-page">
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="../../../../search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-left wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    
+    
+    
+      <div class="wm-top-tool wm-vcenter pull-right">
+  <div class="wm-select wm-vcentered">
+    
+    <button class="wm-header__button wm-icon" aria-label="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="wm-select__inner">
+      <ul class="wm-select__list">
+        
+          <li class="wm-select__item">
+            
+              <a href="/reference_material/guides/pinecone_configuration/pinecone/" hreflang="English" class="wm-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+
+    
+    
+
+    
+    <a href="https://documentation.neuralseek.com/" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <img class="wm-top-logo" src="../../../../img/ns-white.svg"/>
+      
+      <div class="wm-top-title">
+        NeuralSeek Documentation<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  "><span class="wm-toc-text">About Cerebral Blue</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="https://cerebralblue.com/" class="wm-article-link wm-toc-text">Home Page</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="https://cerebralblue.com/about-us/" class="wm-article-link wm-toc-text">About Us</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Contact Us</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="https://cerebralblue.com/contact-us/" class="wm-article-link wm-toc-text">Partnerships</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev0   "><a href="../../../../" class="wm-article-link wm-toc-text">NeuralSeek Overview</a>
+</li>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  "><span class="wm-toc-text">Main Features</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/user_interface/user_interface/" class="wm-article-link wm-toc-text">NeuralSeek User Interface</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/conversational_capabilities/conversational_capabilities/" class="wm-article-link wm-toc-text">Conversational Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/language_capabilities/language_capabilities/" class="wm-article-link wm-toc-text">Language Capabilities</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/data_management/data_management/" class="wm-article-link wm-toc-text">Data Management</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../main_features/advanced_features/advanced_features/" class="wm-article-link wm-toc-text">Advanced Features</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  "><span class="wm-toc-text">Integrations</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../integrations/supported_knowledgebases/supported_knowledgebases/" class="wm-article-link wm-toc-text">Supported KnowledgeBases</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../integrations/supported_llms/supported_llms/" class="wm-article-link wm-toc-text">Supported LLMs</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../integrations/supported_virtual_agents/supported_virtual_agents/" class="wm-article-link wm-toc-text">Supported Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../integrations/rest_api/rest_api/" class="wm-article-link wm-toc-text">REST API</a>
+</li>
+  </ul>
+</li>
+
+        
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Reference Material</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">mAIstro Features</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/maistro/maistro/" class="wm-article-link wm-toc-text">Visual Editor</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/maistro/ntl_overview/" class="wm-article-link wm-toc-text">NTL Overview</a>
+</li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev2 wm-toc-opener  "><span class="wm-toc-text">All NTL Functions</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/get_data/" class="wm-article-link wm-toc-text">Get data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/upload_data/" class="wm-article-link wm-toc-text">Upload data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/generate_data/" class="wm-article-link wm-toc-text">Generate data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/extract_data/" class="wm-article-link wm-toc-text">Extract data</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/database_connections/" class="wm-article-link wm-toc-text">Database connections</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/control_flow/" class="wm-article-link wm-toc-text">Control flow</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/guardrails/" class="wm-article-link wm-toc-text">Guardrails</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/system_variables/" class="wm-article-link wm-toc-text">System variables</a>
+</li>
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev3 wm-toc-opener  "><span class="wm-toc-text">Modify Data</span>
+</li>
+<li class="wm-toc-li-nested collapse ">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/modify_data/Jsontools/" class="wm-article-link wm-toc-text">JSON Toolbox</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/modify_data/Stringtools/" class="wm-article-link wm-toc-text">String Toolbox</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../reference_material/maistro/ntl/modify_data/Transform/" class="wm-article-link wm-toc-text">Transform</a>
+</li>
+  </ul>
+</li>
+
+      
+
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/send_data/" class="wm-article-link wm-toc-text">Send data</a>
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Guides</span>
+</li>
+<li class="wm-toc-li-nested collapse in">
+  <ul class="wm-toctree">
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/backup_and_restore/backup_and_restore/" class="wm-article-link wm-toc-text">Backup and Restore</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/elasticseach_vector_model/elasticsearch_vector_model/" class="wm-article-link wm-toc-text">Configuring ElasticSearch for Vector Search</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/implementing_feedback/implementing_feedback/" class="wm-article-link wm-toc-text">Implementing Feedback</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2  wm-current "><a href="../../../../reference_material/guides/pinecone_configuration/pinecone/" class="wm-article-link wm-toc-text">Pinecone Integration with NeuralSeek</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/proposals/proposals/" class="wm-article-link wm-toc-text">Using Proposals</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/training_virtual_agents/training_virtual_agents/" class="wm-article-link wm-toc-text">Training Virtual Agents</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/tuning_guide/tuning_guide/" class="wm-article-link wm-toc-text">KnowledgeBase Tuning</a>
+</li>
+  </ul>
+</li>
+
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/configuration/configuration/" class="wm-article-link wm-toc-text">Configuration Details</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/governance/governance/" class="wm-article-link wm-toc-text">Governance Metrics</a>
+</li>
+  </ul>
+</li>
+
+        
+
+<li class="wm-toc-li wm-toc-lev0   "><a href="../../../../plans/" class="wm-article-link wm-toc-text">Available NeuralSeek Plans</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev0   "><a href="../../../../data_security_and_privacy/" class="wm-article-link wm-toc-text">Data Security and Privacy</a>
+</li>
+        
+
+<li class="wm-toc-li wm-toc-lev0   "><a href="../../../../changelog/" class="wm-article-link wm-toc-text">Changelog</a>
+</li>
+  </ul>
+</nav>
+
+  <div class="wm-content-pane">
+    <div class="container-fluid wm-page-content">
+        
+        <div class="wm-page-real-content">
+          <a name="_top"></a>  
+          
+          <h1 id="pinecone-integration-with-neuralseek">Pinecone Integration with NeuralSeek<a class="headerlink" href="#pinecone-integration-with-neuralseek" title="Permanent link"></a></h1>
+<p>This guide provides step-by-step instructions for configuring Pinecone as the knowledge base and using it along with the embedding model. Additionally, a technical explanation of how this configuration works is provided. An example Node.js script for uploading documents to the Pinecone index is also included. </p>
+<p>While this guide focuses on Pinecone, it is worth noting that you can also use Milvus as an alternative vector database.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<ul>
+<li>Ensure you have Node.js installed.</li>
+</ul>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link"></a></h2>
+<h3 id="1-create-a-pinecone-account">1. Create a Pinecone Account<a class="headerlink" href="#1-create-a-pinecone-account" title="Permanent link"></a></h3>
+<ul>
+<li>Go to <a href="https://www.pinecone.io/">Pinecone</a> and create a new account.</li>
+</ul>
+<h3 id="2-create-a-new-index-in-pinecone">2. Create a New Index in Pinecone<a class="headerlink" href="#2-create-a-new-index-in-pinecone" title="Permanent link"></a></h3>
+<ul>
+<li>Navigate to the dashboard and create a new index.</li>
+<li>
+<p>Depending on the embedding model you plan to use, choose the appropriate vector size:</p>
+<ul>
+<li><code>text-embedding-ada-002</code>: Vector size 1536</li>
+<li><code>text-embedding-3-small</code>: Vector size 1536</li>
+<li><code>text-embedding-3-large</code>: Vector size 3072</li>
+<li><code>infloat-e5-small-v2</code>: Vector size 384</li>
+</ul>
+<p><a class="glightbox" href="../images/index.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add Index" src="../images/index.png" /></a></p>
+</li>
+</ul>
+<h3 id="3-configure-neuralseek">3. Configure NeuralSeek<a class="headerlink" href="#3-configure-neuralseek" title="Permanent link"></a></h3>
+<h4 id="31-configure-the-knowledge-base-connection">3.1. Configure the Knowledge Base Connection<a class="headerlink" href="#31-configure-the-knowledge-base-connection" title="Permanent link"></a></h4>
+<ul>
+<li>Access the <strong>NeuralSeek</strong> platform.</li>
+<li>Go to the <strong>Configure</strong> tab and set up the knowledge base connection:</li>
+<li>Knowledge Base Type: <code>Pinecone</code></li>
+<li>Knowledge Base Language: <code>English</code></li>
+<li>Pinecone Index Name: <code>docs</code></li>
+<li>Pinecone Index Namespace: <code>ns1</code></li>
+<li>Pinecone API Key: <code>your-pinecone-api-key</code></li>
+<li>Curation Data Field: <code>text</code></li>
+<li>Document Name Field: <code>title</code></li>
+<li>Filter Field: <code>title</code></li>
+<li>Link Field: <code>link</code></li>
+<li>Attribute Resources: <code>enabled</code></li>
+</ul>
+<p><a class="glightbox" href="../images/kb-pine.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Configure Knowledge Base Connection" src="../images/kb-pine.png" /></a></p>
+<h4 id="32-add-an-embedding-model">3.2. Add an Embedding Model<a class="headerlink" href="#32-add-an-embedding-model" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>Go to the <strong>Embedding Models</strong> section and add a new embedding:</p>
+</li>
+<li>
+<p>Choose the platform (either <code>Azure</code>, <code>NeuralSeek</code>, or <code>OpenAI</code>).</p>
+</li>
+<li>Select the appropriate embedding model:<ul>
+<li>For <code>OpenAI</code> and <code>Azure</code>:</li>
+<li><code>text-embedding-ada-002</code>: Vector size 1536</li>
+<li><code>text-embedding-3-small</code>: Vector size 1536</li>
+<li><code>text-embedding-3-large</code>: Vector size 3072</li>
+<li>For <code>NeuralSeek</code>:</li>
+<li><code>infloat-e5-small-v2</code></li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" href="../images/embedding.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add Embedding Model 1" src="../images/embedding.png" /></a></p>
+<p><a class="glightbox" href="../images/embedding2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add Embedding Model 2" src="../images/embedding2.png" /></a></p>
+<h3 id="4-add-documents-to-pinecone-index-via-nodejs-script">4. Add Documents to Pinecone Index via Node.js Script<a class="headerlink" href="#4-add-documents-to-pinecone-index-via-nodejs-script" title="Permanent link"></a></h3>
+<h4 id="41-install-required-packages">4.1. Install Required Packages<a class="headerlink" href="#41-install-required-packages" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>axios<span class="w"> </span>fs<span class="w"> </span>path<span class="w"> </span>@pinecone-database/pinecone<span class="w"> </span>@langchain/openai
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>import axios from &quot;axios&quot;;
+import fs from &quot;fs&quot;;
+import path from &quot;path&quot;;
+import { Pinecone } from &quot;@pinecone-database/pinecone&quot;;
+import { OpenAIEmbeddings } from &quot;@langchain/openai&quot;;
+
+const folder = &quot;./docs&quot;;
+
+const pc = new Pinecone({
+  apiKey: &quot;your-pinecone-api-key&quot;, // Replace with your Pinecone API key
+});
+
+var kb = {};
+var ids = [];
+
+const openaiAPIKey = &quot;your-openai-api-key&quot;; // Replace with your OpenAI API key
+
+kb.importFiles = async (model, pineconeIndex, pineconeNamespace) =&gt; {
+  var pineconeData = [];
+
+  let fileList = fs.readdirSync(folder);
+  var vectors = null;
+  for (const file of fileList) {
+    const data = JSON.parse(fs.readFileSync(path.join(folder, file)));
+
+    if (model == &quot;infloat-e5-small-v2&quot;) {
+      const embeddings = await axios.post(&quot;http://url.com&quot;, {
+        text: data.text,
+      });
+      vectors = embeddings.data;
+    } else if (
+      model == &quot;text-embedding-ada-002&quot; ||
+      model == &quot;text-embedding-3-small&quot; ||
+      model == &quot;text-embedding-3-large&quot;
+    ) {
+      var embedV2 = new OpenAIEmbeddings({
+        openAIApiKey: openaiAPIKey,
+        modelName: model,
+      });
+
+      vectors = await embedV2.embedQuery(data.text);
+    } else {
+      throw new Error(`Unsupported model &quot;${model}&quot;`);
+    }
+
+    const id = data.title;
+    const metadata = {
+      text: data.text,
+      title: data.title,
+      link: data.source_link,
+    };
+    const values = vectors;
+    var record = { id, values, metadata };
+    pineconeData.push(record);
+    ids.push(id);
+  }
+  const index = pc.index(pineconeIndex);
+
+  await index.namespace(pineconeNamespace).upsert(pineconeData);
+};
+
+kb.fetchRecords = async (recordIds) =&gt; {
+  const index = pc.index(&quot;docs&quot;);
+  const result = await index.namespace(&quot;ns1&quot;).fetch(ids);
+};
+
+kb.emptyQuery = async (dimensions, ns, indexName) =&gt; {
+  const index = pc.index(indexName);
+
+  const queryResponse = await index.namespace(ns).query({
+    vector: new Array(dimensions).fill(0),
+    topK: 1,
+    includeMetadata: true,
+  });
+
+  console.log(queryResponse);
+};
+
+kb.describeIndex = async (indexName) =&gt; {
+  var index = await pc.describeIndex(indexName);
+  var dimension = index.dimension;
+  console.log(`Dimensions: ${dimension}`);
+};
+
+kb.query = async (ns, indexName, text) =&gt; {
+  const index = pc.index(indexName);
+
+  // Staging is returning 384 dimensions/vectors.
+  const embeddings = await axios.post(&quot;http://url.com&quot;, {
+    text: text,
+  });
+  const id = &quot;Test&quot;;
+  const metadata = { text: text };
+  const values = embeddings.data;
+  var record = { id, values, metadata };
+
+  const queryResponse = await index.namespace(ns).query({
+    vector: record.values,
+    topK: 10,
+    includeMetadata: true,
+  });
+
+  console.log(queryResponse);
+};
+
+kb.filterQuery = async (ns, indexName, text, filter) =&gt; {
+  const index = pc.index(indexName);
+
+  const embeddings = await axios.post(&quot;http://url.com&quot;, {
+    text: text,
+  });
+  const id = &quot;Test&quot;;
+  const metadata = { text: text };
+  const values = embeddings.data;
+  var record = { id, values, metadata };
+
+  const queryResponse = await index.namespace(ns).query({
+    vector: record.values,
+    filter: {
+      contents: { $eq: filter },
+    },
+    topK: 11,
+    includeMetadata: true,
+  });
+
+  console.log(queryResponse);
+};
+
+kb.getEmbedding = async (embedModel, query) =&gt; {
+  var res = await embedModel.embedQuery(query);
+  console.log(res);
+};
+
+var embedV2 = new OpenAIEmbeddings({
+  openAIApiKey: &quot;your-openai-api-key&quot;,
+  modelName: &quot;text-embedding-3-small&quot;,
+});
+
+await kb.importFiles(&quot;text-embedding-3-small&quot;, &quot;docs&quot;, &quot;ns1&quot;);
+</code></pre></div>
+<h3 id="42-create-and-run-the-script">4.2. Create and Run the Script<a class="headerlink" href="#42-create-and-run-the-script" title="Permanent link"></a></h3>
+<p>Create a file named upload-documents.js and add the following script:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>node<span class="w"> </span>upload-documents.js
+</code></pre></div>
+<h3 id="5-save-configuration">5. Save Configuration<a class="headerlink" href="#5-save-configuration" title="Permanent link"></a></h3>
+<p>Save all the configurations made in NeuralSeek.</p>
+<h3 id="6-test-the-integration">6. Test the Integration<a class="headerlink" href="#6-test-the-integration" title="Permanent link"></a></h3>
+<p>Go to the Seek tab in NeuralSeek and perform a search to verify if the integration works.</p>
+<p>Additionally, you can test the setup using Maistro.</p>
+<h1 id="technical-explanation-how-pinecone-and-neuralseek-work-together">Technical Explanation: How Pinecone and NeuralSeek Work Together<a class="headerlink" href="#technical-explanation-how-pinecone-and-neuralseek-work-together" title="Permanent link"></a></h1>
+<h2 id="pinecone">Pinecone<a class="headerlink" href="#pinecone" title="Permanent link"></a></h2>
+<p>Pinecone is a vector database that provides efficient similarity search and retrieval capabilities. In the context of NeuralSeek, Pinecone serves as the knowledge base where all documents and their vector embeddings are stored. Key functionalities include:</p>
+<h3 id="indexing">Indexing<a class="headerlink" href="#indexing" title="Permanent link"></a></h3>
+<ul>
+<li>Pinecone indexes vector embeddings of documents, making them easily searchable.</li>
+</ul>
+<h3 id="querying">Querying<a class="headerlink" href="#querying" title="Permanent link"></a></h3>
+<ul>
+<li>It processes search queries by comparing query vectors with stored document vectors to find the most similar matches.</li>
+</ul>
+<h3 id="scalability">Scalability<a class="headerlink" href="#scalability" title="Permanent link"></a></h3>
+<ul>
+<li>Pinecone can handle large volumes of data and provides quick search responses, making it suitable for extensive knowledge bases.</li>
+</ul>
+<h2 id="neuralseek-embedding-model">NeuralSeek Embedding Model<a class="headerlink" href="#neuralseek-embedding-model" title="Permanent link"></a></h2>
+<p>NeuralSeek uses sophisticated embedding models to generate vector representations of text data. The <code>infloat-e5-small-v2</code> model, in particular, transforms text into a 384-dimensional vector, capturing the semantic meaning of the text. Key functionalities include:</p>
+<h3 id="text-embeddings">Text Embeddings<a class="headerlink" href="#text-embeddings" title="Permanent link"></a></h3>
+<ul>
+<li>Converts text data into dense vector representations that capture semantic information.</li>
+</ul>
+<h3 id="similarity-matching">Similarity Matching<a class="headerlink" href="#similarity-matching" title="Permanent link"></a></h3>
+<ul>
+<li>Compares query vectors with document vectors to find the most relevant answers.</li>
+</ul>
+<h3 id="contextual-understanding">Contextual Understanding<a class="headerlink" href="#contextual-understanding" title="Permanent link"></a></h3>
+<ul>
+<li>Leverages multiple layers to understand and generate contextually accurate responses.</li>
+</ul>
+<h2 id="integration-workflow">Integration Workflow<a class="headerlink" href="#integration-workflow" title="Permanent link"></a></h2>
+<ol>
+<li><strong>Data Ingestion</strong>: Documents are ingested and processed to generate vector embeddings using NeuralSeek’s embedding model.</li>
+<li><strong>Indexing</strong>: The generated vector embeddings are stored in Pinecone, where they are indexed for efficient search and retrieval.</li>
+<li><strong>Query Processing</strong>: When a query is entered, NeuralSeek converts the query text into a vector using the embedding model.</li>
+<li><strong>Search and Retrieval</strong>: The query vector is compared with document vectors in Pinecone to find the most relevant matches.</li>
+<li><strong>Response Generation</strong>: The most relevant documents are retrieved from Pinecone, and NeuralSeek formulates a response based on the retrieved data.</li>
+</ol>
+<h2 id="benefits-of-this-configuration">Benefits of This Configuration<a class="headerlink" href="#benefits-of-this-configuration" title="Permanent link"></a></h2>
+<h3 id="efficiency">Efficiency<a class="headerlink" href="#efficiency" title="Permanent link"></a></h3>
+<ul>
+<li>Combining Pinecone’s efficient vector search capabilities with NeuralSeek’s powerful embeddings ensures quick and accurate responses.</li>
+</ul>
+<h3 id="scalability_1">Scalability<a class="headerlink" href="#scalability_1" title="Permanent link"></a></h3>
+<ul>
+<li>Pinecone can scale to handle large data volumes, while NeuralSeek’s embeddings maintain high performance.</li>
+</ul>
+<h3 id="accuracy">Accuracy<a class="headerlink" href="#accuracy" title="Permanent link"></a></h3>
+<ul>
+<li>NeuralSeek’s contextual embeddings improve the accuracy of responses, providing relevant and precise information.</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h3>
+<h4 id="issue-model-not-providing-accurate-responses">Issue: Model Not Providing Accurate Responses<a class="headerlink" href="#issue-model-not-providing-accurate-responses" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Solution</strong>: Verify the model parameters and ensure that the content in the knowledge base is up-to-date.</li>
+</ul>
+<h4 id="issue-upload-errors">Issue: Upload Errors<a class="headerlink" href="#issue-upload-errors" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Solution</strong>: Ensure that file formats are correct and data integrity is maintained.</li>
+</ul>
+<h4 id="issue-integration-issues">Issue: Integration Issues<a class="headerlink" href="#issue-integration-issues" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Solution</strong>: Recheck the linkage between the model and the knowledge base, and verify that synchronization is correctly configured.</li>
+</ul>
+
+          <br>
+          <footer class="wm-footer">
+                <p>Ⓒ 2024 NeuralSeek, all rights reserved.</p>
+          </footer>
+        </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="../../../../scripts/watson.js"></script>
+<script> 
+  function isInFrame() {
+    return (window.top !== window);
+  }
+  if (!isInFrame()) {
+    loadWatson(); 
+  }
+</script>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

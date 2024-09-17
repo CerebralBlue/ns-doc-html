@@ -62,6 +62,8 @@
       {title: "Sentiment Analysis", url: "#sentiment-analysis", children: [
           {title: "Sentiment Analysis REST API", url: "#sentiment-analysis-rest-api" },
       ]},
+      {title: "Replay", url: "#replay", children: [
+      ]},
       {title: "Table Understanding", url: "#table-understanding", children: [
       ]},
       {title: "Multimodal LLMs in mAIstro", url: "#multimodal-llms-in-maistro", children: [
@@ -647,6 +649,31 @@
 <span class="w">  </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7094</span>
 <span class="p">}</span>
 </code></pre></div>
+<h1 id="replay">Replay<a class="headerlink" href="#replay" title="Permanent link"></a></h1>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>The Replay feature in NeuralSeek enables users to revisit previously logged questions and their corresponding answers, semantic analysis, and the KnowledgeBase documentation used to generate the response at that point in time. </li>
+</ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>As documentation in our KnowledgeBase gets updated, questions on the Seek tab get updated to account for that new information. As a result, a user could ask a question identical to one asked previously and receive a completely different answer if the documentation has been significantly changed. If one wants to go back to a previous response and notice the changes that occurred in the documentation to see how the answers evolve, the Replay feature is very useful to get some insight.</li>
+</ul>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>First, check to make sure that you have Corporate Logging enabled with an instance of Elasticsearch. You can find the settings for Corporate Logging underneatch the <code>Configure</code> tab.</li>
+</ul>
+<p><a class="glightbox" href="../images/corporate-logging.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="corporate-logging" src="../images/corporate-logging.png" /></a></p>
+<ul>
+<li>Navigate to the <code>Logs</code> tab on Neuralseek. There, you will find a log of all previously asked questions and answers from the <code>Seek</code> tab. Notice the small icon underneath the answer that resembles a clock turning backward. By clicking on it, you will be taken to the page as it appeared at that specific point in time.</li>
+</ul>
+<p><a class="glightbox" href="../images/location.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="location" src="../images/location.png" /></a></p>
+<p><a class="glightbox" href="../images/previous-answer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="previous-answer" src="../images/previous-answer.png" /></a>
+<a class="glightbox" href="../images/previous-context.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="previous-context" src="../images/previous-context.png" /></a></p>
+<ul>
+<li>If the documentation used to answer the question has been updated, you can compare and contrast the results by asking the same question in the <code>Seek</code> tab.</li>
+</ul>
+<p><a class="glightbox" href="../images/current-answer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="current-answer" src="../images/current-answer.png" /></a>
+<a class="glightbox" href="../images/current-context.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="current-context" src="../images/current-context.png" /></a></p>
 <h1 id="table-understanding">Table Understanding<a class="headerlink" href="#table-understanding" title="Permanent link"></a></h1>
 <p><strong>What is it?</strong></p>
 <ul>

@@ -47,6 +47,8 @@
   var is_top_frame = false;
     
     var pageToc = [
+      {title: "September - 2024", url: "#september-2024", children: [
+      ]},
       {title: "August - 2024", url: "#august-2024", children: [
       ]},
       {title: "July - 2024", url: "#july-2024", children: [
@@ -491,6 +493,25 @@
           <a name="_top"></a>  
           
           <p>&nbsp;</p>
+<h2 id="september-2024">September - 2024<a class="headerlink" href="#september-2024" title="Permanent link"></a></h2>
+<p><strong>New features</strong></p>
+<ul>
+<li>Multi-agent visual builder.  Turn on multi-agent on the config tab and easily build category-driven multi-agent flows. No coding required! Every node of the multi-agent tree can have its own configuration (kb, llm's, everything) and guardrails. We've also unified the Seek and mAIstro sides of the house so you can call both from either api.<ul>
+<li>Each node can be of a traditional "seek" type, or a new mAIstro-lead node. mAIstro nodes send intents that hit them to a default action instead of creating a new intent. This lets you do disambiguation or focus the user onto capabilities you have enabled - like opening trouble tickets or other mAIstro-lead actions</li>
+<li>Any intent can directly run a mAIstro flow. So for a question like "what's the weather like today" you could call out to a mAIstro flow instead of sending that to the traditional seek path/kb.</li>
+<li>You can now directly add a new intent via the config and curate tabs.</li>
+<li>Guardrails can run mAIstro flows.  Min confidence, Min words and max words all can run custom mAIstro flows to give contextually &amp; language -specific responses when those guardrails are hit.</li>
+</ul>
+</li>
+<li>Chat!  We've introduced a ChatGPT-like interface, as well as an SDK and embed code. You can quickly add a virtual agent to your website just by dropping in the embed code. The Chat SDK allows for drag &amp; drop image and file operations - so you could easily build a bot that allows users to ask questions by providing images, such as "I want a refrigerator like this one"</li>
+<li>OCR!  We soft-launched our OCR capabilities a few weeks back but never announced it. We now have OCR embedded into the system. When you use or document loader or upload a file into mAIstro - we'll automatically OCR any pdf's we find that are image-based and not text. You can also OCR image files. In addition we released a "dual ocr" template - basically showing you how to leverage and parralelize our OCR in addition to visual capabilities of a multi-modal model to do some amazing things for OCR'ing complex documents while keeping source formatting. This capability just blows away legacy OCR tools, with almost no tuning.</li>
+<li>Document Generation - we have built a new document generation behind the scenes, enabling greater capability in generating well-formatted PDF and Word files at scale.</li>
+<li>LLM's!  LLama3.2 on both bedrock and watsonx.ai. This is the first multi-modal model available on watsonx. </li>
+<li>new curated model!  For PPA plans curated model 1.1 is available in all regions</li>
+<li>Logging updates. Seek Logs have moved into the Governance tab, and include even more details. Enable corporate logging for transactional replay - which has quickly become a must-have for business SME's</li>
+<li>new mAIstro nodes!  We released an XML toolkit, as well as about a dozen other new nodes &amp; connectors</li>
+<li>translation enhancements! Via the api you can override the max Chunk size we use  - which can dramatically speed up translations for mid-length translations when using slow LLM's / inference platforms.</li>
+</ul>
 <h2 id="august-2024">August - 2024<a class="headerlink" href="#august-2024" title="Permanent link"></a></h2>
 <p><strong>New features</strong></p>
 <ul>

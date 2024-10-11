@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/system_variables/">
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/guides/multimodal/multimodal/">
     <link rel="shortcut icon" href="../../../../img/ns-white.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
-    <title>System variables - NeuralSeek Documentation</title>
+    <title>Multimodal LLM Configuration - NeuralSeek Documentation</title>
 
-  <meta property="og:title" content="System variables" />
+  <meta property="og:title" content="Multimodal LLM Configuration" />
   <meta property="og:description" content="NeuralSeek Documentation" />
     <link href="../../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../../css/font-awesome-4.7.0.css" rel="stylesheet">
@@ -47,13 +47,9 @@
   var is_top_frame = false;
     
     var pageToc = [
-      {title: "Current Date", url: "#current-date", children: [
+      {title: "Steps to Configure the LLM", url: "#steps-to-configure-the-llm", children: [
       ]},
-      {title: "Current Time", url: "#current-time", children: [
-      ]},
-      {title: "Generate UUID", url: "#generate-uuid", children: [
-      ]},
-      {title: "Random Number", url: "#random-number", children: [
+      {title: "Steps to Process an Image", url: "#steps-to-process-an-image", children: [
       ]},
     ];
 
@@ -113,7 +109,7 @@
         
           <li class="wm-select__item">
             
-              <a href="/reference_material/maistro/ntl/system_variables/" hreflang="English" class="wm-select__link">
+              <a href="/reference_material/guides/multimodal/multimodal/" hreflang="English" class="wm-select__link">
               English
             </a>
           </li>
@@ -270,9 +266,9 @@
       
       
 
-<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">mAIstro Features</span>
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">mAIstro Features</span>
 </li>
-<li class="wm-toc-li-nested collapse in">
+<li class="wm-toc-li-nested collapse ">
   <ul class="wm-toctree">
       
 
@@ -302,9 +298,9 @@
       
       
 
-<li class="wm-toc-li wm-toc-lev2 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">All NTL Functions</span>
+<li class="wm-toc-li wm-toc-lev2 wm-toc-opener  "><span class="wm-toc-text">All NTL Functions</span>
 </li>
-<li class="wm-toc-li-nested collapse in">
+<li class="wm-toc-li-nested collapse ">
   <ul class="wm-toctree">
       
 
@@ -336,7 +332,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev3  wm-current "><a href="../../../../reference_material/maistro/ntl/system_variables/" class="wm-article-link wm-toc-text">System variables</a>
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/system_variables/" class="wm-article-link wm-toc-text">System variables</a>
 </li>
       
       
@@ -393,9 +389,9 @@
       
       
 
-<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  "><span class="wm-toc-text">Guides</span>
+<li class="wm-toc-li wm-toc-lev1 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Guides</span>
 </li>
-<li class="wm-toc-li-nested collapse ">
+<li class="wm-toc-li-nested collapse in">
   <ul class="wm-toctree">
       
 
@@ -411,7 +407,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/multimodal/multimodal/" class="wm-article-link wm-toc-text">Multimodal LLM Configuration</a>
+<li class="wm-toc-li wm-toc-lev2  wm-current "><a href="../../../../reference_material/guides/multimodal/multimodal/" class="wm-article-link wm-toc-text">Multimodal LLM Configuration</a>
 </li>
       
 
@@ -464,26 +460,38 @@
         <div class="wm-page-real-content">
           <a name="_top"></a>  
           
-          <h4 id="current-date">Current Date<a class="headerlink" href="#current-date" title="Permanent link"></a></h4>
-<p>Returns the current <strong>UTC</strong> date in <code>YYYY-MM-DD</code> format. Also sets the <code>sys_Date</code> variable globally.</p>
-<div class="highlight"><pre><span></span><code>{{ date }}
+          <h2 id="steps-to-configure-the-llm">Steps to Configure the LLM<a class="headerlink" href="#steps-to-configure-the-llm" title="Permanent link"></a></h2>
+<p>To begin, navigate to the Configure tab and locate the LLM Details section. </p>
+<p><a class="glightbox" href="../images/llmdetails3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LLM details" src="../images/llmdetails3.png" /></a></p>
+<p>Click on "Add an LLM" and choose a model that can process images, such as OpenAI GPT-4o. </p>
+<p><a class="glightbox" href="../images/selectllm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select LLM" src="../images/selectllm.png" /></a></p>
+<p>Once selected, add the model and enter the necessary connection details, which, for GPT-4o, would be the API Key. </p>
+<p>Test the connection by clicking the Test button and ensure the button turns green, indicating a successful connection. </p>
+<p><a class="glightbox" href="../images/successtestllm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Successful LLM" src="../images/successtestllm.png" /></a></p>
+<p>Save the configuration and provide a meaningful name for the version. </p>
+<h2 id="steps-to-process-an-image">Steps to Process an Image<a class="headerlink" href="#steps-to-process-an-image" title="Permanent link"></a></h2>
+<p>Next, switch to the Maistro tab to upload an image. Use the left side pane to search for "Upload data" and then select "Upload a File" under that section. </p>
+<p>After selecting the local file, a local document node will be created. You can use the "Local Document" button to access a dropdown menu that shows all your locally uploaded files, and select the image you uploaded as your choice.</p>
+<div class="highlight"><pre><span></span><code>    &lt;&lt; name: img, prompt: true, desc: Enter image file name &gt;&gt;
 </code></pre></div>
-<p><strong>Example output:</strong> <code>2024-2-16</code></p>
-<h4 id="current-time">Current Time<a class="headerlink" href="#current-time" title="Permanent link"></a></h4>
-<p>Returns the current <strong>UTC</strong> time in <code>HH:MM:SS</code> format. Also sets the <code>sys_Time</code> variable globally.</p>
-<div class="highlight"><pre><span></span><code>{{ time }}
+<p><a class="glightbox" href="../images/localdocument.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Local document node" src="../images/localdocument.png" /></a></p>
+<p>If you plan to use this image for different purposes, it’s best to set it as a variable. Add a set variable node to the right of the local document node and give the variable a descriptive name. </p>
+<p><a class="glightbox" href="../images/setvariablenode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Local document node" src="../images/setvariablenode.png" /></a></p>
+<p>Below these nodes, add a send to LLM node. For the prompt, you can use:</p>
+<div class="highlight"><pre><span></span><code>What is this a picture of?
 </code></pre></div>
-<p><strong>Example output:</strong> <code>1:16:42</code></p>
-<h4 id="generate-uuid">Generate UUID<a class="headerlink" href="#generate-uuid" title="Permanent link"></a></h4>
-<p>Returns a randomly generated UUID. Also sets the <code>sys_UUID</code> variable globally.</p>
-<div class="highlight"><pre><span></span><code>{{ uuid }}
+<p>For the image, reference the variable you defined earlier:</p>
+<div class="highlight"><pre><span></span><code>  &lt;&lt; name: img, prompt:false &gt;&gt;
 </code></pre></div>
-<p><strong>Example output:</strong> <code>c4c6fc20-12212aea-9129f14b-5de16d39</code></p>
-<h4 id="random-number">Random Number<a class="headerlink" href="#random-number" title="Permanent link"></a></h4>
-<p>Returns a randomly generated number. Also sets the <code>sys_Random</code> variable globally.</p>
-<div class="highlight"><pre><span></span><code>{{ random }}
-</code></pre></div>
-<p><strong>Example output:</strong> <code>0.6449217301057322</code></p>
+<p>And the node should be end up like this:</p>
+<p><a class="glightbox" href="../images/sendtollmnode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Complete template" src="../images/sendtollmnode.png" /></a></p>
+<p>Select an LLM that supports reading images, such as GPT-4o. </p>
+<p>Press the Evaluate button. You will be prompted to enter the name of the image file you want to process, including its file extension. Once entered, the setup will allow Maistro to describe the image.</p>
+<p><a class="glightbox" href="../images/maistroworkflow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Complete template" src="../images/maistroworkflow.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a basic example, but you can expand on this logic to achieve more complex procedures.</p>
+</div>
 
           <br>
           <footer class="wm-footer">

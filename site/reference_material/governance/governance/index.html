@@ -48,10 +48,18 @@
     
     var pageToc = [
       {title: "Overview", url: "#overview", children: [
+      ]},
+      {title: "Seek Governance", url: "#seek-governance", children: [
           {title: "Semantic Insights", url: "#semantic-insights" },
           {title: "Documentation Insights", url: "#documentation-insights" },
-          {title: "Token Insights", url: "#token-insights" },
           {title: "Intent Insights", url: "#intent-insights" },
+          {title: "Token Insights", url: "#token-insights" },
+      ]},
+      {title: "mAIstro Governance", url: "#maistro-governance", children: [
+          {title: "Flow Insights", url: "#flow-insights" },
+          {title: "Token Insights", url: "#token-insights_1" },
+      ]},
+      {title: "System Governance", url: "#system-governance", children: [
           {title: "System Performance", url: "#system-performance" },
       ]},
     ];
@@ -469,9 +477,10 @@
 <p class="admonition-title">Note</p>
 <p>All the values provided are intended for illustrative purposes only.</p>
 </div>
+<h1 id="seek-governance">Seek Governance<a class="headerlink" href="#seek-governance" title="Permanent link"></a></h1>
 <h2 id="semantic-insights">Semantic Insights<a class="headerlink" href="#semantic-insights" title="Permanent link"></a></h2>
 <p><a class="glightbox" href="../images/semanticinsights.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Semantic insights" src="../images/semanticinsights.png" /></a></p>
-<h3 id="semantic-confidence">Semantic Confidence<a class="headerlink" href="#semantic-confidence" title="Permanent link"></a></h3>
+<h4 id="semantic-confidence">Semantic Confidence<a class="headerlink" href="#semantic-confidence" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: 
 This section speaks to the confidence level in understanding the queries semantically. It indicates the lowest, average, and highest semantic confidence of answers across the instance, providing a sense of how well the system grasps the meaning of the questions asked.</p>
 <ul>
@@ -482,7 +491,7 @@ This section speaks to the confidence level in understanding the queries semanti
 </ul>
 </li>
 </ul>
-<h3 id="longest-source-phrase-in-answer">Longest Source Phrase in Answer<a class="headerlink" href="#longest-source-phrase-in-answer" title="Permanent link"></a></h3>
+<h4 id="longest-source-phrase-in-answer">Longest Source Phrase in Answer<a class="headerlink" href="#longest-source-phrase-in-answer" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: 
 This insight reflects the smallest, average, and largest verbatim phrase or quote from the documentation source material that has been included in the answers. It shows how much direct quoting from the source material is used in the responses.</p>
 <ul>
@@ -493,7 +502,7 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
-<h3 id="top-source-coverage">Top Source Coverage<a class="headerlink" href="#top-source-coverage" title="Permanent link"></a></h3>
+<h4 id="top-source-coverage">Top Source Coverage<a class="headerlink" href="#top-source-coverage" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This shows the percentage of documentation coverage of the "top document" for each query. It indicates how often the top-ranked source document is used to generate the answer.</p>
 <ul>
 <li><strong>Values</strong>:<ul>
@@ -503,7 +512,7 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
-<h3 id="total-coverage">Total Coverage<a class="headerlink" href="#total-coverage" title="Permanent link"></a></h3>
+<h4 id="total-coverage">Total Coverage<a class="headerlink" href="#total-coverage" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This describes the overall coverage percentage of all sources used in generating the answers. It highlights how diverse the sources are that contribute to the final response.</p>
 <ul>
 <li><strong>Values</strong>:<ul>
@@ -513,7 +522,7 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
-<h3 id="total-answer-length">Total Answer Length<a class="headerlink" href="#total-answer-length" title="Permanent link"></a></h3>
+<h4 id="total-answer-length">Total Answer Length<a class="headerlink" href="#total-answer-length" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This insight measures the total length of the answers provided, indicating the smallest, average, and largest lengths. It helps in understanding the verbosity of the responses.</p>
 <ul>
 <li><strong>Values</strong>:<ul>
@@ -523,7 +532,7 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
-<h3 id="answer-source-standard-deviation">Answer Source Standard Deviation<a class="headerlink" href="#answer-source-standard-deviation" title="Permanent link"></a></h3>
+<h4 id="answer-source-standard-deviation">Answer Source Standard Deviation<a class="headerlink" href="#answer-source-standard-deviation" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This shows the variability in the number of sources used in generating answers, represented by the standard deviation. It indicates how consistently the same number of sources is used across different answers.</p>
 <ul>
 <li><strong>Values</strong>:<ul>
@@ -533,7 +542,7 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
-<h3 id="answer-source-jumps">Answer Source Jumps<a class="headerlink" href="#answer-source-jumps" title="Permanent link"></a></h3>
+<h4 id="answer-source-jumps">Answer Source Jumps<a class="headerlink" href="#answer-source-jumps" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This measures the number of times the source of information changes during the generation of an answer. It shows the smallest, average, and largest number of source jumps, indicating how often the system switches between different sources.</p>
 <ul>
 <li><strong>Values</strong>:<ul>
@@ -543,7 +552,7 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
-<h3 id="cache-hit">Cache Hit %<a class="headerlink" href="#cache-hit" title="Permanent link"></a></h3>
+<h4 id="cache-hit">Cache Hit %<a class="headerlink" href="#cache-hit" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This indicates the percentage of times answers were retrieved from the cache, edited, or uncached. It highlights the efficiency of the caching mechanism in providing quick responses.</p>
 <ul>
 <li><strong>Values</strong>:<ul>
@@ -554,7 +563,7 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
-<h3 id="top-hallucinated-terms">Top Hallucinated Terms<a class="headerlink" href="#top-hallucinated-terms" title="Permanent link"></a></h3>
+<h4 id="top-hallucinated-terms">Top Hallucinated Terms<a class="headerlink" href="#top-hallucinated-terms" title="Permanent link"></a></h4>
 <p><a class="glightbox" href="../images/tophallucinated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Top hallucinated terms" src="../images/tophallucinated.png" /></a></p>
 <p><strong>Description</strong>: This pie chart identifies the most frequently hallucinated terms by the model. Hallucination in this context refers to terms generated by the model that were not present in the source material. The chart is divided into three categories.</p>
 <ul>
@@ -566,11 +575,11 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </li>
 </ul>
 <h2 id="documentation-insights">Documentation Insights<a class="headerlink" href="#documentation-insights" title="Permanent link"></a></h2>
-<h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link"></a></h3>
+<h4 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link"></a></h4>
 <p>This document provides an overview of the documentation insights for NeuralSeek. The insights are visualized using various gauge charts and pie charts, each representing different aspects of the documentation's performance and usage.</p>
-<h3 id="knowledgebase-insights">KnowledgeBase Insights<a class="headerlink" href="#knowledgebase-insights" title="Permanent link"></a></h3>
+<h4 id="knowledgebase-insights">KnowledgeBase Insights<a class="headerlink" href="#knowledgebase-insights" title="Permanent link"></a></h4>
 <p><a class="glightbox" href="../images/knowledgebase.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Knowledge base" src="../images/knowledgebase.png" /></a></p>
-<h3 id="knowledgebase-confidence">KnowledgeBase Confidence<a class="headerlink" href="#knowledgebase-confidence" title="Permanent link"></a></h3>
+<h4 id="knowledgebase-confidence">KnowledgeBase Confidence<a class="headerlink" href="#knowledgebase-confidence" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This chart indicates the confidence level in the information provided by the knowledge base. It shows the lowest, average, and highest confidence scores across different instances.</p>
 <ul>
 <li><strong>Values</strong>:<ul>
@@ -580,7 +589,7 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
-<h3 id="knowledgebase-coverage">KnowledgeBase Coverage<a class="headerlink" href="#knowledgebase-coverage" title="Permanent link"></a></h3>
+<h4 id="knowledgebase-coverage">KnowledgeBase Coverage<a class="headerlink" href="#knowledgebase-coverage" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This chart shows how extensively the knowledge base covers the necessary topics and information. It presents the smallest, average, and largest coverage percentages.</p>
 <ul>
 <li><strong>Values</strong>:<ul>
@@ -590,10 +599,10 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
-<h3 id="most-referenced-documents">Most Referenced Documents<a class="headerlink" href="#most-referenced-documents" title="Permanent link"></a></h3>
+<h4 id="most-referenced-documents">Most Referenced Documents<a class="headerlink" href="#most-referenced-documents" title="Permanent link"></a></h4>
 <p><a class="glightbox" href="../images/mostreferencedocs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Most referenced docs" src="../images/mostreferencedocs.png" /></a></p>
 <p><strong>Description</strong>: This pie chart identifies the documents that are most frequently referenced by the system. It provides a breakdown of the most utilized documentation sources, indicating their relative importance.</p>
-<h3 id="top-documents">Top Documents<a class="headerlink" href="#top-documents" title="Permanent link"></a></h3>
+<h4 id="top-documents">Top Documents<a class="headerlink" href="#top-documents" title="Permanent link"></a></h4>
 <ul>
 <li><strong>NeuralSeek Documentation</strong>: 56.1%</li>
 <li><strong>Changelog NeuralSeek Documentation</strong>: 9.3%</li>
@@ -606,10 +615,10 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 <li><strong>Configuring ElasticSearch for Vector Search NeuralSeek Documentation</strong>: Not specified</li>
 <li><strong>NeuralSeek User Interface NeuralSeek Documentation</strong>: Not specified</li>
 </ul>
-<h3 id="most-referenced-urls">Most Referenced URLs<a class="headerlink" href="#most-referenced-urls" title="Permanent link"></a></h3>
+<h4 id="most-referenced-urls">Most Referenced URLs<a class="headerlink" href="#most-referenced-urls" title="Permanent link"></a></h4>
 <p><a class="glightbox" href="../images/mostreferenceurls.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Most referenced urls" src="../images/mostreferenceurls.png" /></a></p>
 <p><strong>Description</strong>: This pie chart shows the URLs of the documents that are most frequently referenced. It provides a detailed breakdown of the most accessed online resources.</p>
-<h3 id="user-ratings">User Ratings<a class="headerlink" href="#user-ratings" title="Permanent link"></a></h3>
+<h4 id="user-ratings">User Ratings<a class="headerlink" href="#user-ratings" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This chart shows the average user ratings of the documentation. It helps in understanding the user satisfaction with the quality and usefulness of the documentation provided.</p>
 <ul>
 <li><strong>Values</strong>:<ul>
@@ -617,10 +626,36 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 </ul>
 </li>
 </ul>
+<h2 id="intent-insights">Intent Insights<a class="headerlink" href="#intent-insights" title="Permanent link"></a></h2>
+<h4 id="overview_2">Overview<a class="headerlink" href="#overview_2" title="Permanent link"></a></h4>
+<p>This document provides an overview of the coverage and confidence insights for NeuralSeek. The insights are visualized using distribution charts, each representing different aspects of intent coverage and confidence over a lookback period.</p>
+<h4 id="coverage-insights">Coverage Insights<a class="headerlink" href="#coverage-insights" title="Permanent link"></a></h4>
+<p><a class="glightbox" href="../images/coverage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Coverage" src="../images/coverage.png" /></a></p>
+<p><strong>Description</strong>: This chart shows the percentage of coverage for various intents, sorted by frequency. It provides insights into how well different intents are covered by the system.</p>
+<ul>
+<li><strong>Examples</strong>:<ul>
+<li><strong>FAQ-neuralseek</strong>: Shows high coverage, indicating that queries related to NeuralSeek are well supported.</li>
+<li><strong>FAQ-collection</strong>: Indicates low coverage, reflecting weak support for collection-related queries.</li>
+</ul>
+</li>
+</ul>
+<h4 id="confidence-insights">Confidence Insights<a class="headerlink" href="#confidence-insights" title="Permanent link"></a></h4>
+<p><a class="glightbox" href="../images/confidence.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confidence" src="../images/confidence.png" /></a></p>
+<p><strong>Description</strong>: This chart shows the confidence level for various intents, sorted by frequency. It provides insights into the system's confidence in answering queries related to different intents.</p>
+<ul>
+<li><strong>Examples</strong>:<ul>
+<li><strong>FAQ-maistro</strong>: Shows moderate confidence, reflecting a reasonable level of confidence in answering Maistro-related queries.</li>
+<li><strong>FAQ-collection</strong>: Displays good confidence, indicating strong confidence in addressing collection-related queries.</li>
+<li><strong>FAQ-industry</strong>: Demonstrates low confidence, suggesting some uncertainty in handling masking PII-related queries.</li>
+</ul>
+</li>
+</ul>
+<h4 id="lookback-period">Lookback Period<a class="headerlink" href="#lookback-period" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: The lookback period slider allows for the analysis of coverage and confidence based on the desired recent time period.</p>
 <h2 id="token-insights">Token Insights<a class="headerlink" href="#token-insights" title="Permanent link"></a></h2>
-<h3 id="overview_2">Overview<a class="headerlink" href="#overview_2" title="Permanent link"></a></h3>
+<h4 id="overview_3">Overview<a class="headerlink" href="#overview_3" title="Permanent link"></a></h4>
 <p>This document provides an overview of the token insights for NeuralSeek. The insights are visualized using various gauge charts, bar charts, and line charts, each representing different aspects of token usage, cost, and generation performance.</p>
-<h3 id="token-usage">Token Usage<a class="headerlink" href="#token-usage" title="Permanent link"></a></h3>
+<h4 id="token-usage">Token Usage<a class="headerlink" href="#token-usage" title="Permanent link"></a></h4>
 <p><a class="glightbox" href="../images/tokenusage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Token usage" src="../images/tokenusage.png" /></a></p>
 <h4 id="total-tokens">Total Tokens<a class="headerlink" href="#total-tokens" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This chart shows the total number of tokens processed, including both input and generated tokens.</p>
@@ -664,42 +699,95 @@ This insight reflects the smallest, average, and largest verbatim phrase or quot
 <li><strong>Average</strong>: 7 - The average rate of token generation per second.</li>
 <li><strong>Max</strong>: 41 - The maximum rate of token generation per second.</li>
 </ul>
-<h3 id="cost-insights">Cost Insights<a class="headerlink" href="#cost-insights" title="Permanent link"></a></h3>
+<h4 id="cost-insights">Cost Insights<a class="headerlink" href="#cost-insights" title="Permanent link"></a></h4>
 <p><a class="glightbox" href="../images/modelcost.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Model cost" src="../images/modelcost.png" /></a></p>
 <h4 id="model-cost-comparison">Model Cost Comparison<a class="headerlink" href="#model-cost-comparison" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This bar chart compares the costs associated with different models used within NeuralSeek. Easily compare your selected model cost against other popular models.</p>
-<h3 id="token-usage-over-time">Token Usage Over Time<a class="headerlink" href="#token-usage-over-time" title="Permanent link"></a></h3>
+<h4 id="token-usage-over-time">Token Usage Over Time<a class="headerlink" href="#token-usage-over-time" title="Permanent link"></a></h4>
 <p><a class="glightbox" href="../images/tokensovertime.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Tokens over time" src="../images/tokensovertime.png" /></a></p>
 <h4 id="tokens-over-time">Tokens Over Time<a class="headerlink" href="#tokens-over-time" title="Permanent link"></a></h4>
 <p><strong>Description</strong>: This line chart shows the total tokens, input tokens, and generated tokens over a period of time.</p>
-<h2 id="intent-insights">Intent Insights<a class="headerlink" href="#intent-insights" title="Permanent link"></a></h2>
-<h3 id="overview_3">Overview<a class="headerlink" href="#overview_3" title="Permanent link"></a></h3>
-<p>This document provides an overview of the coverage and confidence insights for NeuralSeek. The insights are visualized using distribution charts, each representing different aspects of intent coverage and confidence over a lookback period.</p>
-<h3 id="coverage-insights">Coverage Insights<a class="headerlink" href="#coverage-insights" title="Permanent link"></a></h3>
-<p><a class="glightbox" href="../images/coverage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Coverage" src="../images/coverage.png" /></a></p>
-<p><strong>Description</strong>: This chart shows the percentage of coverage for various intents, sorted by frequency. It provides insights into how well different intents are covered by the system.</p>
+<h1 id="maistro-governance">mAIstro Governance<a class="headerlink" href="#maistro-governance" title="Permanent link"></a></h1>
+<h2 id="flow-insights">Flow Insights<a class="headerlink" href="#flow-insights" title="Permanent link"></a></h2>
+<p><a class="glightbox" href="../images/flowinsights-one.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="flow-insights" src="../images/flowinsights-one.png" /></a></p>
+<h4 id="time-per-run">Time Per Run<a class="headerlink" href="#time-per-run" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: This chart shows the amount of time spent on a typical mAIstro run, measured in milliseconds.</p>
+<p><strong>Values</strong></p>
 <ul>
-<li><strong>Examples</strong>:<ul>
-<li><strong>FAQ-neuralseek</strong>: Shows high coverage, indicating that queries related to NeuralSeek are well supported.</li>
-<li><strong>FAQ-collection</strong>: Indicates low coverage, reflecting weak support for collection-related queries.</li>
+<li><strong>Min</strong>: 0 - Represents the lowest amount of time spent on a run.</li>
+<li><strong>Average</strong>: 7291.7 - Represents the typical amount of time spent on a run.</li>
+<li><strong>Max</strong>: 131885 - Represents the most time spent on a run.</li>
 </ul>
-</li>
-</ul>
-<h3 id="confidence-insights">Confidence Insights<a class="headerlink" href="#confidence-insights" title="Permanent link"></a></h3>
-<p><a class="glightbox" href="../images/confidence.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confidence" src="../images/confidence.png" /></a></p>
-<p><strong>Description</strong>: This chart shows the confidence level for various intents, sorted by frequency. It provides insights into the system's confidence in answering queries related to different intents.</p>
+<h4 id="equivalent-seeks-per-run">Equivalent Seeks per run<a class="headerlink" href="#equivalent-seeks-per-run" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: This chart shows the amount of seeks that would be used to complete a mAIstro template.</p>
+<p><strong>Values</strong></p>
 <ul>
-<li><strong>Examples</strong>:<ul>
-<li><strong>FAQ-maistro</strong>: Shows moderate confidence, reflecting a reasonable level of confidence in answering Maistro-related queries.</li>
-<li><strong>FAQ-collection</strong>: Displays good confidence, indicating strong confidence in addressing collection-related queries.</li>
-<li><strong>FAQ-industry</strong>: Demonstrates low confidence, suggesting some uncertainty in handling masking PII-related queries.</li>
+<li><strong>Min</strong>: 0.2 - Represents the lowest amount of seeks used on a run.</li>
+<li><strong>Average</strong>: 0.4 - Represents the typical amount of seeks used on a run.</li>
+<li><strong>Max</strong>: 3 - Represents the most seeks used on a run.</li>
 </ul>
-</li>
+<h4 id="template-runs">Template Runs<a class="headerlink" href="#template-runs" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: This pie chart shows how many times a specific mAIstro template has been run. By hovering over certain slices on the chart, you can see the template name and the number of times it has been run.</p>
+<h4 id="average-total-component-time-by-template">Average Total Component Time by Template<a class="headerlink" href="#average-total-component-time-by-template" title="Permanent link"></a></h4>
+<p><a class="glightbox" href="../images/average-time.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="average-time-flow" src="../images/average-time.png" /></a></p>
+<p><strong>Description</strong>: This radar chart shows the average amount of time it takes each component of a template to run, in milliseconds. By hovering over a component name, you can view the average time in that specific category.</p>
+<p><a class="glightbox" href="../images/hover.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="hover-label" src="../images/hover.png" /></a></p>
+<h4 id="template-run-times">Template Run times<a class="headerlink" href="#template-run-times" title="Permanent link"></a></h4>
+<p><a class="glightbox" href="../images/template-run-times.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="template-run-times" src="../images/template-run-times.png" /></a></p>
+<p><strong>Description</strong>: This chart shows the performance of different mAIstro templates over time, measured in milliseconds.</p>
+<h2 id="token-insights_1">Token Insights<a class="headerlink" href="#token-insights_1" title="Permanent link"></a></h2>
+<p><a class="glightbox" href="../images/tokens-charts.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="maistro-tokens" src="../images/tokens-charts.png" /></a></p>
+<h4 id="total-tokens_1">Total Tokens<a class="headerlink" href="#total-tokens_1" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: This chart shows the total number of tokens processed, including both input and generated tokens.</p>
+<ul>
+<li><strong>Input Tokens</strong>: 214,304 - The number of tokens received as input.</li>
+<li><strong>Generated Tokens</strong>: 1,438,276 - The number of tokens generated as output.</li>
+<li><strong>Total</strong>: 1,653K - The sum of input and generated tokens.</li>
 </ul>
-<h4 id="lookback-period">Lookback Period<a class="headerlink" href="#lookback-period" title="Permanent link"></a></h4>
-<p><strong>Description</strong>: The lookback period slider allows for the analysis of coverage and confidence based on the desired recent time period.</p>
+<h4 id="total-token-cost_1">Total Token Cost<a class="headerlink" href="#total-token-cost_1" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: This chart indicates the total cost associated with token processing, including both input and generated tokens.</p>
+<ul>
+<li><strong>Input Tokens Cost</strong>: $0.88 - The cost incurred for processing input tokens.</li>
+<li><strong>Generated Tokens Cost</strong>: $1.61 - The cost incurred for processing generated tokens.</li>
+<li><strong>Total Cost</strong>: $2.49 - The total cost for processing both input and generated tokens.</li>
+</ul>
+<h4 id="input-tokens-per-run">Input Tokens per run<a class="headerlink" href="#input-tokens-per-run" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: This chart shows the number of input tokens used per run, indicating the smallest, average, and largest number of tokens.</p>
+<ul>
+<li><strong>Min</strong>: 5 - The minimum number of input tokens used in a single run.</li>
+<li><strong>Average</strong>: 2,610.3 - The average number of input tokens used per run.</li>
+<li><strong>Max</strong>: 70,039 - The maximum number of input tokens used in a single run.</li>
+</ul>
+<h4 id="generated-tokens-per-run">Generated Tokens per run<a class="headerlink" href="#generated-tokens-per-run" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: This chart shows the number of generated tokens per run, indicating the smallest, average, and largest number of tokens.</p>
+<ul>
+<li><strong>Min</strong>: 0 - The minimum number of tokens generated in a single run.</li>
+<li><strong>Average</strong>: 389 - The average number of tokens generated per run.</li>
+<li><strong>Max</strong>: 4,032 - The maximum number of tokens generated in a single run.</li>
+</ul>
+<h4 id="cost-per-1k-runs">Cost per 1k runs<a class="headerlink" href="#cost-per-1k-runs" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: This chart indicates the cost associated with every 1,000 runs.</p>
+<ul>
+<li><strong>Min</strong>: $0.00 - The minimum cost per 1,000 runs.</li>
+<li><strong>Average</strong>: $15.17 - The average cost per 1,000 runs.</li>
+<li><strong>Max</strong>: $366.00 - The maximum cost per 1,000 runs.</li>
+</ul>
+<h4 id="token-generation-per-second_1">Token Generation per Second<a class="headerlink" href="#token-generation-per-second_1" title="Permanent link"></a></h4>
+<p><strong>Description</strong>: This chart shows the rate of token generation per second, indicating the smallest, average, and largest rates.</p>
+<ul>
+<li><strong>Min</strong>: 0.2 - The minimum rate of token generation per second.</li>
+<li><strong>Average</strong>: 9.1 - The average rate of token generation per second.</li>
+<li><strong>Max</strong>: 333.3 - The maximum rate of token generation per second.</li>
+</ul>
+<h4 id="model-cost-comparison_1">Model Cost Comparison<a class="headerlink" href="#model-cost-comparison_1" title="Permanent link"></a></h4>
+<p><a class="glightbox" href="../images/model-cost.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="model-cost-comparison" src="../images/model-cost.png" /></a></p>
+<p><strong>Description</strong>: This bar chart compares the costs associated with different models used within NeuralSeek. Easily compare your selected model cost against other popular models.</p>
+<h4 id="tokens-over-time_1">Tokens over Time<a class="headerlink" href="#tokens-over-time_1" title="Permanent link"></a></h4>
+<p><a class="glightbox" href="../images/tokens-over-time.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="tokens-over-time" src="../images/tokens-over-time.png" /></a></p>
+<p><strong>Description</strong>: This line chart shows the total tokens, input tokens, and generated tokens over a period of time.</p>
+<h1 id="system-governance">System Governance<a class="headerlink" href="#system-governance" title="Permanent link"></a></h1>
 <h2 id="system-performance">System Performance<a class="headerlink" href="#system-performance" title="Permanent link"></a></h2>
-<h3 id="overview_4">Overview<a class="headerlink" href="#overview_4" title="Permanent link"></a></h3>
+<h4 id="overview_4">Overview<a class="headerlink" href="#overview_4" title="Permanent link"></a></h4>
 <p>This provides an overview of the performance insights for NeuralSeek. The insights are visualized using line charts, each representing different aspects of instance and universe performance over time.</p>
 <h4 id="instance-performance">Instance Performance<a class="headerlink" href="#instance-performance" title="Permanent link"></a></h4>
 <p><a class="glightbox" href="../images/instanceperformance.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Instance performance" src="../images/instanceperformance.png" /></a></p>

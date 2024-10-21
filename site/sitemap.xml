@@ -139,6 +139,12 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/guides/tuning_guide/tuning_guide/"/>
     </url>
     <url>
+        <loc>https://documentation.neuralseek.com/reference_material/guides/virtualKB/virtualKB/</loc>
+        <lastmod>2024-10-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/guides/virtualKB/virtualKB/"/>
+    </url>
+    <url>
         <loc>https://documentation.neuralseek.com/reference_material/maistro/maistro/</loc>
         <lastmod>2024-10-21</lastmod>
         <changefreq>daily</changefreq>

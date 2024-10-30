@@ -127,6 +127,12 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/guides/proposals/proposals/"/>
     </url>
     <url>
+        <loc>https://documentation.neuralseek.com/reference_material/guides/providing_context/providing_context/</loc>
+        <lastmod>2024-10-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/guides/providing_context/providing_context/"/>
+    </url>
+    <url>
         <loc>https://documentation.neuralseek.com/reference_material/guides/training_virtual_agents/training_virtual_agents/</loc>
         <lastmod>2024-10-30</lastmod>
         <changefreq>daily</changefreq>

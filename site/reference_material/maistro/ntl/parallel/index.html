@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/extract_data/">
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/parallel/">
     <link rel="shortcut icon" href="../../../../img/ns-white.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
-    <title>Extract data - NeuralSeek Documentation</title>
+    <title>Parallel Execution with Nodes and Variables - NeuralSeek Documentation</title>
 
-  <meta property="og:title" content="Extract data" />
+  <meta property="og:title" content="Parallel Execution with Nodes and Variables" />
   <meta property="og:description" content="NeuralSeek Documentation" />
     <link href="../../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../../css/font-awesome-4.7.0.css" rel="stylesheet">
@@ -47,11 +47,8 @@
   var is_top_frame = false;
     
     var pageToc = [
-      {title: "Extract", url: "#extract", children: [
-      ]},
-      {title: "Extract Keywords", url: "#extract-keywords", children: [
-      ]},
-      {title: "Extract Grammar", url: "#extract-grammar", children: [
+      {title: "Parallel Execution with Nodes and Variables", url: "#parallel-execution-with-nodes-and-variables", children: [
+          {title: "Steps for Parallel Execution", url: "#steps-for-parallel-execution" },
       ]},
     ];
 
@@ -111,7 +108,7 @@
         
           <li class="wm-select__item">
             
-              <a href="/reference_material/maistro/ntl/extract_data/" hreflang="English" class="wm-select__link">
+              <a href="/reference_material/maistro/ntl/parallel/" hreflang="English" class="wm-select__link">
               English
             </a>
           </li>
@@ -320,7 +317,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev3  wm-current "><a href="../../../../reference_material/maistro/ntl/extract_data/" class="wm-article-link wm-toc-text">Extract data</a>
+<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/extract_data/" class="wm-article-link wm-toc-text">Extract data</a>
 </li>
       
 
@@ -371,7 +368,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev3   "><a href="../../../../reference_material/maistro/ntl/parallel/" class="wm-article-link wm-toc-text">Parallel Execution with Nodes and Variables</a>
+<li class="wm-toc-li wm-toc-lev3  wm-current "><a href="../../../../reference_material/maistro/ntl/parallel/" class="wm-article-link wm-toc-text">Parallel Execution with Nodes and Variables</a>
 </li>
   </ul>
 </li>
@@ -474,68 +471,36 @@
         <div class="wm-page-real-content">
           <a name="_top"></a>  
           
-          <h4 id="extract">Extract<a class="headerlink" href="#extract" title="Permanent link"></a></h4>
-<p>Extract entities from text. Configure entities in the Extract Tab. </p>
-<div class="highlight"><pre><span></span><code>{{ extract }}
-</code></pre></div>
-<p><strong>Returns:</strong> JSON representation of the extracted entities.</p>
-<p><strong>Example:</strong></p>
-<p>Input: </p>
-<div class="highlight"><pre><span></span><code>My phone number is 555-555-5555=&gt;{{ extract }}
-</code></pre></div>
-<p>Output: (You may see more entities than shown below - this is only an example)</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;phone-number&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;555-555-5555&quot;</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<h4 id="extract-keywords">Extract Keywords<a class="headerlink" href="#extract-keywords" title="Permanent link"></a></h4>
-<p>Extracts keywords from input text.</p>
-<div class="highlight"><pre><span></span><code>{{ keywords | nouns: true }}
-</code></pre></div>
-<p><strong>Parameters:</strong> </p>
+          <h1 id="parallel-execution-with-nodes-and-variables">Parallel Execution with Nodes and Variables<a class="headerlink" href="#parallel-execution-with-nodes-and-variables" title="Permanent link"></a></h1>
+<p>To optimize performance and reduce the overall execution time, you can run multiple nodes in parallel by assigning their outputs to variables. This allows the total execution time to depend on the longest-running node, rather than the sum of all nodes.</p>
+<h2 id="steps-for-parallel-execution">Steps for Parallel Execution<a class="headerlink" href="#steps-for-parallel-execution" title="Permanent link"></a></h2>
+<ol>
+<li><strong>Define Nodes</strong>: Set up multiple nodes to query different data sources (e.g., KnowledgeBase, Websites, Seek).</li>
+<li><strong>Assign Variables</strong>: Assign the output of each node to a variable (e.g., <code>kbResult</code>, <code>webResult</code>, <code>seekResult</code>).</li>
+<li><strong>Execute in Parallel</strong>: All nodes run simultaneously, and the system will wait only for the slowest node to complete.</li>
+<li><strong>Use Results</strong>: After all nodes finish, select the result that best fits your needs by comparing outputs across variables.</li>
+</ol>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link"></a></h3>
+<p>In this setup, three nodes are executed in parallel:</p>
 <ul>
-<li>Nouns: If true, return all nouns. If false, only return <a href="https://en.wikipedia.org/wiki/Proper_noun">proper nouns</a>.</li>
+<li>Node 1 retrieves data from a <strong>KnowledgeBase</strong>.</li>
 </ul>
-<p><strong>Returns:</strong> The resulting keywords.</p>
-<p><strong>Example 1:</strong></p>
-<div class="highlight"><pre><span></span><code>I have 20 cats and 40 dogs
-{{ keywords|nouns:true }}
-</code></pre></div>
-<p>Will yield:</p>
-<div class="highlight"><pre><span></span><code>20 cats, 40 dogs
-</code></pre></div>
-<p><strong>Example 2:</strong></p>
-<div class="highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs
-{{ keywords|nouns:false }}
-</code></pre></div>
-<p>Will yield:</p>
-<div class="highlight"><pre><span></span><code>Howard
-</code></pre></div>
-<p>If the <code>nouns: true</code> is used,</p>
-<div class="highlight"><pre><span></span><code>Howard, 20 cats, 40 dogs
-</code></pre></div>
-<p>Is returned.</p>
-<h4 id="extract-grammar">Extract Grammar<a class="headerlink" href="#extract-grammar" title="Permanent link"></a></h4>
-<p>Extracts grammar from input text, grouping by type of word.</p>
-<div class="highlight"><pre><span></span><code>{{ grammar }}
-</code></pre></div>
-<p><strong>Returns:</strong> This sets environment variables from the text given, classifying words into buckets like dates, nouns, determiners, etc</p>
-<p><strong>Example 1:</strong></p>
-<div class="highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs. 
-He took them to the vet last week.
-{{ grammar  }}
-</code></pre></div>
-<p>Will yield in the environment (see the Inspector):</p>
-<div class="highlight"><pre><span></span><code>grammar.year: [2024]
-grammar.context:
-grammar.dates: [&quot;last&quot;,&quot;week&quot;]
-grammar.propernouns: [&quot;Howard&quot;]
-grammar.nouns: [&quot;20 cats&quot;,&quot;40 dogs&quot;,&quot;vet&quot;,&quot;week&quot;]
-grammar.preps: [&quot;He&quot;,&quot;them&quot;]
-grammar.determiners: []
-</code></pre></div>
+<p><a class="glightbox" href="../images/nodekb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/nodekb.png" /></a></p>
+<p><a class="glightbox" href="../images/kb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/kb.png" /></a></p>
+<ul>
+<li>Node 2 scrapes content from a <strong>Website</strong>.</li>
+</ul>
+<p><a class="glightbox" href="../images/nodeweb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/nodeweb.png" /></a></p>
+<p><a class="glightbox" href="../images/website.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/website.png" /></a></p>
+<ul>
+<li>Node 3 performs a query using <strong>Seek</strong>.</li>
+</ul>
+<p><a class="glightbox" href="../images/nodeseek.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/nodeseek.png" /></a></p>
+<p><a class="glightbox" href="../images/seek.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/seek.png" /></a></p>
+<h3 id="final-result">Final Result<a class="headerlink" href="#final-result" title="Permanent link"></a></h3>
+<p><a class="glightbox" href="../images/llm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/llm.png" /></a></p>
+<p>By assigning each node's output to a variable, you ensure that the total runtime is determined by the longest-running node. This strategy improves efficiency by taking advantage of parallelism, ensuring your task completes in the shortest possible time.</p>
+<p>Using parallelism in this way significantly reduces execution time and enhances workflow efficiency.</p>
 
           <br>
           <footer class="wm-footer">

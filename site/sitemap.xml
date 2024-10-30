@@ -193,6 +193,12 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/guardrails/"/>
     </url>
     <url>
+        <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/parallel/</loc>
+        <lastmod>2024-10-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/parallel/"/>
+    </url>
+    <url>
         <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/rag_tools/</loc>
         <lastmod>2024-10-30</lastmod>
         <changefreq>daily</changefreq>

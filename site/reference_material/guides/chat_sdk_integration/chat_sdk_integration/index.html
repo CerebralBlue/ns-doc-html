@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/guides/multimodal/multimodal/">
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/guides/chat_sdk_integration/chat_sdk_integration/">
     <link rel="shortcut icon" href="../../../../img/ns-white.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
-    <title>Multimodal LLM Configuration - NeuralSeek Documentation</title>
+    <title>Chat SDK Integration - NeuralSeek Documentation</title>
 
-  <meta property="og:title" content="Multimodal LLM Configuration" />
+  <meta property="og:title" content="Chat SDK Integration" />
   <meta property="og:description" content="NeuralSeek Documentation" />
     <link href="../../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../../css/font-awesome-4.7.0.css" rel="stylesheet">
@@ -47,9 +47,9 @@
   var is_top_frame = false;
     
     var pageToc = [
-      {title: "Steps to Configure the LLM", url: "#steps-to-configure-the-llm", children: [
-      ]},
-      {title: "Steps to Process an Image", url: "#steps-to-process-an-image", children: [
+      {title: "Chat SDK Integration", url: "#chat-sdk-integration", children: [
+          {title: "Overview", url: "#overview" },
+          {title: "How to integrate Chat into a custom HTML or an existing website?", url: "#how-to-integrate-chat-into-a-custom-html-or-an-existing-website" },
       ]},
     ];
 
@@ -109,7 +109,7 @@
         
           <li class="wm-select__item">
             
-              <a href="/reference_material/guides/multimodal/multimodal/" hreflang="English" class="wm-select__link">
+              <a href="/reference_material/guides/chat_sdk_integration/chat_sdk_integration/" hreflang="English" class="wm-select__link">
               English
             </a>
           </li>
@@ -413,7 +413,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/chat_sdk_integration/chat_sdk_integration/" class="wm-article-link wm-toc-text">Chat SDK Integration</a>
+<li class="wm-toc-li wm-toc-lev2  wm-current "><a href="../../../../reference_material/guides/chat_sdk_integration/chat_sdk_integration/" class="wm-article-link wm-toc-text">Chat SDK Integration</a>
 </li>
       
 
@@ -425,7 +425,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev2  wm-current "><a href="../../../../reference_material/guides/multimodal/multimodal/" class="wm-article-link wm-toc-text">Multimodal LLM Configuration</a>
+<li class="wm-toc-li wm-toc-lev2   "><a href="../../../../reference_material/guides/multimodal/multimodal/" class="wm-article-link wm-toc-text">Multimodal LLM Configuration</a>
 </li>
       
 
@@ -490,38 +490,121 @@
         <div class="wm-page-real-content">
           <a name="_top"></a>  
           
-          <h2 id="steps-to-configure-the-llm">Steps to Configure the LLM<a class="headerlink" href="#steps-to-configure-the-llm" title="Permanent link"></a></h2>
-<p>To begin, navigate to the Configure tab and locate the LLM Details section. </p>
-<p><a class="glightbox" href="../images/llmdetails3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LLM details" src="../images/llmdetails3.png" /></a></p>
-<p>Click on "Add an LLM" and choose a model that can process images, such as OpenAI GPT-4o. </p>
-<p><a class="glightbox" href="../images/selectllm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select LLM" src="../images/selectllm.png" /></a></p>
-<p>Once selected, add the model and enter the necessary connection details, which, for GPT-4o, would be the API Key. </p>
-<p>Test the connection by clicking the Test button and ensure the button turns green, indicating a successful connection. </p>
-<p><a class="glightbox" href="../images/successtestllm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Successful LLM" src="../images/successtestllm.png" /></a></p>
-<p>Save the configuration and provide a meaningful name for the version. </p>
-<h2 id="steps-to-process-an-image">Steps to Process an Image<a class="headerlink" href="#steps-to-process-an-image" title="Permanent link"></a></h2>
-<p>Next, switch to the Maistro tab to upload an image. Use the left side pane to search for "Upload data" and then select "Upload a File" under that section. </p>
-<p>After selecting the local file, a local document node will be created. You can use the "Local Document" button to access a dropdown menu that shows all your locally uploaded files, and select the image you uploaded as your choice.</p>
-<div class="highlight"><pre><span></span><code>    &lt;&lt; name: img, prompt: true, desc: Enter image file name &gt;&gt;
+          <h1 id="chat-sdk-integration">Chat SDK Integration<a class="headerlink" href="#chat-sdk-integration" title="Permanent link"></a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>NeuralSeek's Chat feature enables users to test questions and generate answers using content from their connected KnowledgeBase, similar to Seek. The Chat SDK is easy to integrate, allowing seamless embedding in any website by adding a JavaScript snippet.</li>
+</ul>
+<p><strong>Why is it important?</strong></p>
+<ul>
+<li>This feature empowers users to integrate NeuralSeek's capabilities with a chat-like interface rapidly. It also allows users to drag and drop documents directly into the chat to inquire about them, enhancing interaction and accessibility.</li>
+</ul>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>NeuralSeek’s Chat SDK connects to the KnowledgeBase content. Users can ask questions directly through a customizable chat widget, which is embedded on their website. When a user submits a question, the Chat SDK queries the NeuralSeek, processes the information, and delivers a relevant response. The integration supports document uploads, making it possible for users to drop files and ask specific questions based on file content. Additionally, options for welcome messages and styling help personalize the chat experience.</li>
+</ul>
+<h2 id="how-to-integrate-chat-into-a-custom-html-or-an-existing-website">How to integrate Chat into a custom HTML or an existing website?<a class="headerlink" href="#how-to-integrate-chat-into-a-custom-html-or-an-existing-website" title="Permanent link"></a></h2>
+<p>This is a step-by-step guide to integrating NeuralSeek's Chat SDK into a custom HTML or website.</p>
+<ol>
+<li>
+<p>Go to the NerualSeek Chat tab.</p>
+<p><a class="glightbox" href="../images/chat.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="chat" src="../images/chat.png" /></a></p>
+</li>
+<li>
+<p>Copy the provided embed code for the chat feature, using the HTML <code>&lt;script&gt;</code> tag.</p>
+<p><a class="glightbox" href="../images/chat_config.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="chat_config" src="../images/chat_config.png" /></a></p>
+</li>
+<li>
+<p>Insert the snippet into your site or HTML file to embed the chat configuration. Below is an example using sample HTML. Make sure to match the chat container id in your HTML with the <code>chatElement</code> within the Chat SDK params.</p>
+</li>
+</ol>
+<details class="note">
+<summary>HTML Example</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>NeuralSeek Chat Integration<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nt">body</span><span class="o">,</span><span class="w"> </span><span class="nt">html</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">        </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">        </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">        </span><span class="k">flex-direction</span><span class="p">:</span><span class="w"> </span><span class="kc">column</span><span class="p">;</span>
+<span class="w">        </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">        </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nt">h1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">        </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="p">#</span><span class="nn">chat</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">%</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">        </span><span class="k">max-height</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="kt">%</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span>
+<span class="w">        </span><span class="k">box-shadow</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">);</span>
+<span class="w">        </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">        </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">        </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f9f9f9</span><span class="p">;</span>
+<span class="w">        </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome to NeuralSeek Chat Integration<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;chat&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;module&quot;</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">NsChat</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;https://test-neuralseek-instance.neuralseek.com/src/chatSDK.js&#39;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">chatConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;userId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;chatElement&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;chat&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;apiServer&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://test-neuralseek-instance.neuralseek.com&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;instanceId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test-instance-name&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;embedCode&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">123456</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;streaming&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;maistroLed&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;maistroFlow&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;enableDrop&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;allowedFiles&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;.png&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;.jpg&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;.jpeg&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">&quot;welcomeMessage&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Welcome to NeuralSeek Test!&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;welcomeBotMessages&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;How can we help?&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">&quot;welcomeButtons&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;Tell me about NeuralSeek Test&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">&quot;turnHistoryLimit&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;includeRequired&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">chat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">NsChat</span><span class="p">(</span><span class="nx">chatConfig</span><span class="p">);</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-<p><a class="glightbox" href="../images/localdocument.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Local document node" src="../images/localdocument.png" /></a></p>
-<p>If you plan to use this image for different purposes, it’s best to set it as a variable. Add a set variable node to the right of the local document node and give the variable a descriptive name. </p>
-<p><a class="glightbox" href="../images/setvariablenode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Local document node" src="../images/setvariablenode.png" /></a></p>
-<p>Below these nodes, add a send to LLM node. For the prompt, you can use:</p>
-<div class="highlight"><pre><span></span><code>What is this a picture of?
-</code></pre></div>
-<p>For the image, reference the variable you defined earlier:</p>
-<div class="highlight"><pre><span></span><code>  &lt;&lt; name: img, prompt:false &gt;&gt;
-</code></pre></div>
-<p>And the node should be end up like this:</p>
-<p><a class="glightbox" href="../images/sendtollmnode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Complete template" src="../images/sendtollmnode.png" /></a></p>
-<p>Select an LLM that supports reading images, such as GPT-4o. </p>
-<p>Press the Evaluate button. You will be prompted to enter the name of the image file you want to process, including its file extension. Once entered, the setup will allow Maistro to describe the image.</p>
-<p><a class="glightbox" href="../images/maistroworkflow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Complete template" src="../images/maistroworkflow.png" /></a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is a basic example, but you can expand on this logic to achieve more complex procedures.</p>
-</div>
+</details>
+<ol start="4">
+<li>
+<p>The chat widget will appear as configured and can be further customized to fit the website's design and requirements.</p>
+<p><a class="glightbox" href="../images/chat_integrated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="chat_integrated" src="../images/chat_integrated.png" /></a></p>
+</li>
+<li>
+<p>Or embed the chat configuration into an existing website.</p>
+<p><a class="glightbox" href="../images/chat_website.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="chat_website" src="../images/chat_website.png" /></a></p>
+</li>
+</ol>
 
           <br>
           <footer class="wm-footer">

@@ -133,6 +133,12 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/guides/providing_context/providing_context/"/>
     </url>
     <url>
+        <loc>https://documentation.neuralseek.com/reference_material/guides/semantic_model/semantic/</loc>
+        <lastmod>2024-11-01</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/guides/semantic_model/semantic/"/>
+    </url>
+    <url>
         <loc>https://documentation.neuralseek.com/reference_material/guides/training_virtual_agents/training_virtual_agents/</loc>
         <lastmod>2024-11-01</lastmod>
         <changefreq>daily</changefreq>

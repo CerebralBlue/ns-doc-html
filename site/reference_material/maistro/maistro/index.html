@@ -66,6 +66,8 @@
           {title: "Loading the template", url: "#loading-the-template" },
           {title: "Output Formats", url: "#output-formats" },
       ]},
+      {title: "Automagic Parallel Execution", url: "#automagic-parallel-execution", children: [
+      ]},
     ];
 
 </script>
@@ -312,8 +314,6 @@
       
       
       
-      
-      
 
 <li class="wm-toc-li wm-toc-lev2 wm-toc-opener  "><span class="wm-toc-text">All NTL Functions</span>
 </li>
@@ -381,10 +381,6 @@
       
 
 <li class="wm-toc-li wm-toc-lev3   "><a href="../../../reference_material/maistro/ntl/send_data/" class="wm-article-link wm-toc-text">Send data</a>
-</li>
-      
-
-<li class="wm-toc-li wm-toc-lev3   "><a href="../../../reference_material/maistro/ntl/parallel/" class="wm-article-link wm-toc-text">Parallel Execution with Nodes and Variables</a>
 </li>
   </ul>
 </li>
@@ -642,6 +638,33 @@
 <p><a class="glightbox" href="../images/output_csv_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CSV_output" src="../images/output_csv_1.png" /></a></p>
 <p>The resulting CSV will look similar to this:</p>
 <p><a class="glightbox" href="../images/output_csv_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CSV_output" src="../images/output_csv_2.png" /></a></p>
+<h2 id="automagic-parallel-execution">Automagic Parallel Execution<a class="headerlink" href="#automagic-parallel-execution" title="Permanent link"></a></h2>
+<p>To optimize performance and reduce the overall execution time, you can run multiple nodes in parallel by assigning their outputs to variables. This allows the total execution time to depend on the longest-running node, rather than the sum of all nodes. This all happens automatically under the hood!</p>
+<p><strong>Steps for Parallel Execution</strong></p>
+<ol>
+<li><strong>Define Nodes</strong>: Set up multiple nodes to query different data sources (e.g., KnowledgeBase, Websites, Seek).</li>
+<li><strong>Assign Variables</strong>: Assign the output of each node to a variable (e.g., <code>kbResult</code>, <code>webResult</code>, <code>seekResult</code>).</li>
+<li><strong>Execute in Parallel</strong>: All nodes run simultaneously, and the system will wait only for the slowest node to complete.</li>
+<li><strong>Use Results</strong>: After all nodes finish, select the result that best fits your needs by comparing outputs across variables.</li>
+</ol>
+<p><strong>Example</strong></p>
+<p>In this setup, three nodes are executed in parallel:</p>
+<ul>
+<li>Node 1 retrieves data from a <strong>KnowledgeBase</strong>.</li>
+</ul>
+<p><a class="glightbox" href="../images/kb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/kb.png" /></a> <a class="glightbox" href="../images/nodekb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/nodekb.png" /></a> </p>
+<ul>
+<li>Node 2 scrapes content from a <strong>Website</strong>.</li>
+</ul>
+<p><a class="glightbox" href="../images/website.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/website.png" /></a> <a class="glightbox" href="../images/nodeweb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/nodeweb.png" /></a></p>
+<ul>
+<li>Node 3 performs a query using <strong>Seek</strong>.</li>
+</ul>
+<p><a class="glightbox" href="../images/seek.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/seek.png" /></a> <a class="glightbox" href="../images/nodeseek.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/nodeseek.png" /></a> </p>
+<p><strong>Final Result</strong></p>
+<p><a class="glightbox" href="../images/llm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb" src="../images/llm.png" /></a></p>
+<p>By assigning each node's output to a variable, you ensure that the total runtime is determined by the longest-running node. This strategy improves efficiency by taking advantage of parallelism, ensuring your task completes in the shortest possible time.</p>
+<p>Using parallelism in this way significantly reduces execution time and enhances workflow efficiency, without having to write complex code or manage states.</p>
 
           <br>
           <footer class="wm-footer">

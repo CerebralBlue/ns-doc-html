@@ -64,7 +64,6 @@
           {title: "Answer Engineering and Preferences", url: "#answer-engineering-and-preferences" },
           {title: "Intent Matching and Cache Configuration", url: "#intent-matching-and-cache-configuration" },
           {title: "Table Understanding", url: "#table-understanding" },
-          {title: "Personal Identifiable Information (PII) Handling", url: "#personal-identifiable-information-pii-handling" },
           {title: "Corporate Document Filter", url: "#corporate-document-filter" },
           {title: "Corporate Logging", url: "#corporate-logging" },
       ]},
@@ -574,11 +573,6 @@
 </ul>
 <h3 id="governance-and-guardrails">Governance and Guardrails<a class="headerlink" href="#governance-and-guardrails" title="Permanent link"></a></h3>
 <p>Settings related to governance, prompt protection, profanity filtering, etc</p>
-<h4 id="attribute-checking">Attribute Checking<a class="headerlink" href="#attribute-checking" title="Permanent link"></a></h4>
-<p><a class="glightbox" href="../images/attribute_checking.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="attribute_checking" src="../images/attribute_checking.png" /></a></p>
-<ul>
-<li>Adjust misinformation tolerance for generating text about the company, or associating people or things that lack specific references in the KnowledgeBase material by using the sliding scale from "Rigid" to "Standard". The more rigid your settings, the higher the chances of occasionally blocking legitimate questions that use alternate wording or are poorly documented in your KnowledgeBase.</li>
-</ul>
 <h4 id="semantic-score">Semantic Score<a class="headerlink" href="#semantic-score" title="Permanent link"></a></h4>
 <p>Toggle the icons to enable or disable the Semantic Score Model, using Semantic Score as the basis for Warning &amp; Minimum confidence (e.g. Do NOT Enable for use cases requiring language translation), re-ranking the search results based on the Semantic Match, and checking the document titles and URL's as part of the Semantic Match. Note that semantic scoring will not be accurate when getting answers in a different language than your KnowledgeBase source docs.</p>
 <p><a class="glightbox" href="../images/semantic_score.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="semantic_score" src="../images/semantic_score.png" /></a></p>
@@ -588,6 +582,7 @@
 <li><strong>Re-rank search results based on Semantic Match:</strong> Re-order the KnowledgeBase documentation snippets based on how well the passage matches the answer given.</li>
 <li><strong>Check document titles as part of the Semantic Match:</strong> Include the document title while calculating the Semantic Match Score.</li>
 <li><strong>Check document URLs as part of the Semantic Match:</strong> Include the document URL while calculating the Semantic Match Score.</li>
+<li><strong>Remove sentences containing hallucinated key words:</strong> Remove key words not contained or related to the KnowledgeBase.</li>
 </ul>
 <p><a class="glightbox" href="../images/semantic_model_tuning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="semantic_model_tuning" src="../images/semantic_model_tuning.png" /></a></p>
 <ul>
@@ -597,21 +592,51 @@
 <li><strong>Source Jump penalty:</strong> When answers join across many source documents it can be an indication of lost meaning or intent, depending on your source documentation.</li>
 <li><strong>Total Coverage weight:</strong> Looking at the answer, how much weight should be given to the total coverage alone, regardless of other penalty. Increasing this helps prevent abnormally low scores from long, highly-stitched answers. Decreasing will better catch hallucination in short answers.</li>
 <li><strong>Re-Rank Min Coverage %:</strong> What is the minimum coverage of the total answer that the top <em>used</em> source document needs to be re-ranked over the top <em>KB-scored</em> document.</li>
+<li><strong>Words or phrases to allow:</strong> Always avoid penalty for selected words or phrases in reponses.</li>
 </ul>
 <h4 id="prompt-injection-mitigation">Prompt Injection Mitigation<a class="headerlink" href="#prompt-injection-mitigation" title="Permanent link"></a></h4>
 <p>Users are able to block malicious attempts from users trying to get the LLM to respond in disruptive, embarrassing, or harmful ways.</p>
 <p><a class="glightbox" href="../images/prompt_injection_mitigation.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="prompt_injection_mitigation" src="../images/prompt_injection_mitigation.png" /></a></p>
 <ul>
+<li><strong>Prompt Injection Removal Threshold:</strong> A sliding scale to strip out portions of user input that exceed this specified percentage against the Prompt Injection model, allowing partial input filtering without blocking the entire prompt. </li>
 <li><strong>Prompt Injection Threshold:</strong> A sliding scale to block any inputs that score higher than this percentage against the Prompt Injection model.</li>
 <li><strong>Blocked Word Action:</strong> Either remove the offending words from the user input, or block the question altogether.</li>
 <li><strong>Blocked Word List:</strong> Enter words or phrases (separated by commas) that are not allowed on the user input. This is useful for blocking specific competitive customer or product names, as well as other sensitive words not covered by NeuralSeek's base corpus.</li>
 </ul>
+<h4 id="personally-identifiable-information-pii">Personally Identifiable Information (PII)<a class="headerlink" href="#personally-identifiable-information-pii" title="Permanent link"></a></h4>
+<p>Users can define how to handle any detected PII data that was included in the question.</p>
+<p><a class="glightbox" href="../images/pii.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pii" src="../images/pii.png" /></a></p>
+<ul>
+<li><strong>Action to take:</strong> Specify actions when PII is detected:<ul>
+<li><strong>Mask:</strong> Mask, and store, PII when it is detected in the user input. Masking will hide the PII in all locations.</li>
+<li><strong>Flag:</strong> Flag, and store, for PII when it is detected in the user input. PII will be flagged in all locations.</li>
+<li><strong>No Action:</strong> No action will be taken when PII is detected in the user input. It will be stored in plain text.</li>
+<li><strong>Hide (retain for Analytics):</strong> Hide (mask) the PII when it is detected in the user input, but keep the PII in the database for Analytics.</li>
+<li><strong>Delete (including from Analytics):</strong> Delete the PII entirely when it is detected in the user input, including from the stored Analytics.</li>
+</ul>
+</li>
+<li><strong>Trust words found in source docs:</strong> Indicate if certain trusted terms in source documents should be acknowledged or ignored.</li>
+<li><strong>Pre-LLM PII Filters:</strong> These run dynamically on user input before it is sent to the LLM or KnowledgeBase. Click the light bulb icon to add a description such as a phone number and a corresponding regular expression.</li>
+<li><strong>LLM-Based PII Filters:</strong> These use the chosen LLM to identify PII. Click the light bulb icon to add an example sentence and corresponding PII elements, separated by commas.</li>
+<li><strong>NeuralSeek PII Detectors:</strong> Select the default NeuralSeek detectors to capture PII.</li>
+</ul>
+<p><a class="glightbox" href="../images/neuralseek_pii_detectors.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="neuralseek_pii_detectors" src="../images/neuralseek_pii_detectors.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Utilize the "Try it Out" feature to test the set PII filters. Input an example sentence and click the 'Test' button. The output will show the test sentence, a true or false response if PII was detected, and what element of the sentence was detected as PII.</p>
+</div>
+<p><a class="glightbox" href="../images/pii_testing.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pii_testing" src="../images/pii_testing.png" /></a></p>
 <h4 id="profanity-filter-hap-hate-abuse-profanity-filter">Profanity Filter / HAP (Hate, Abuse, Profanity) Filter<a class="headerlink" href="#profanity-filter-hap-hate-abuse-profanity-filter" title="Permanent link"></a></h4>
 <p>Users are able to enable or disable the profanity filter, as well as add a text to reply with for sensitive questions that are blocked.</p>
 <p><a class="glightbox" href="../images/profanity_filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="profanity_filter" src="../images/profanity_filter.png" /></a></p>
 <ul>
 <li><strong>Enable profanity filter:</strong> Choose which filter to use for profanity filtering. You may use the LLM's moderation endpoint if available, the NeuralSeek Filter, or disable it.</li>
 <li><strong>Blocked reply text:</strong> The text to show when the input or question is blocked. E.g. "That seems like a sensitive question."</li>
+</ul>
+<h4 id="attribute-protection">Attribute Protection<a class="headerlink" href="#attribute-protection" title="Permanent link"></a></h4>
+<p><a class="glightbox" href="../images/attribution_protection.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="attribution_protection" src="../images/attribution_protection.png" /></a></p>
+<ul>
+<li>Adjust misinformation tolerance for generating text about the company, or associating people or things that lack specific references in the KnowledgeBase material by using the sliding scale from "Rigid" to "Standard". The more rigid your settings, the higher the chances of occasionally blocking legitimate questions that use alternate wording or are poorly documented in your KnowledgeBase.</li>
 </ul>
 <h4 id="warning-confidence">Warning Confidence<a class="headerlink" href="#warning-confidence" title="Permanent link"></a></h4>
 <p>Use the sliding scale to increase the confidence threshold.</p>
@@ -625,15 +650,42 @@
 <p><a class="glightbox" href="../images/min_confidence.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="min_confidence" src="../images/min_confidence.png" /></a></p>
 <ul>
 <li><strong>Minimum Confidence %:</strong> Any answers lower than this number will have the below text substituted in place of the answer.</li>
+<li><strong>mAIstro template</strong> Optional - A mAIstro template to handle minimum confidence in a customized way.</li>
 <li><strong>Reply text:</strong> The response to give when answers are below the minimum confidence % set.</li>
 <li><strong>Minimum Confidence % to display a URL:</strong> Any answers lower than this number will not return a linked URL.</li>
 <li><strong>URL Fallback</strong> Optional - A URL to offer when the minimum confidence is not met.</li>
 </ul>
+<h4 id="minimum-confidence-with-maistro-fallback">Minimum Confidence with mAIstro Fallback<a class="headerlink" href="#minimum-confidence-with-maistro-fallback" title="Permanent link"></a></h4>
+<p>Use the mAIstro template to set up a fallback plan for cases where the confidence threshold is not met. This ensures a seamless transition to a more suitable response or action, like notifying teams or escalating the issue.</p>
+<ol>
+<li><strong>Create a mAIstro template</strong>: Build a fallback template for handling low-confidence scenarios. In the 'Min Confidence - IN' node (which should be positioned at the top), define the logic for how it should respond.</li>
+</ol>
+<p><a class="glightbox" href="../images/min_confidence_template.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="min_confidence_template" src="../images/min_confidence_template.png" /></a></p>
+<ol start="2">
+<li><strong>Select your template</strong>: Once your template is ready, select it in the 'mAIstro template for custom Minimum Confidence message' dropdown. </li>
+</ol>
+<p><a class="glightbox" href="../images/select_template.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="select_template" src="../images/select_template.png" /></a></p>
+<ol start="3">
+<li><strong>Test with out-of-scope queries</strong>: After setup, try asking a question that's out of the knowledge base. Seek will default to your new template. Play around with it and see how it handles fallback scenarios!</li>
+</ol>
+<p><a class="glightbox" href="../images/seek_fallback.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="seek_fallback" src="../images/seek_fallback.png" /></a></p>
+<ul>
+<li><strong>Notify via Slack</strong>: If an out-of-scope question is asked, notify your team on Slack so they can improve the documentation for future use.</li>
+</ul>
+<p><a class="glightbox" href="../images/slack_template.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="slack_template" src="../images/slack_template.png" /></a></p>
+<ul>
+<li><strong>Create an Issue in GitHub</strong>: Automatically create a GitHub issue with details like <code>minConfMsg.originalQuery</code> and <code>minConfMsg.language</code>.</li>
+</ul>
+<p><a class="glightbox" href="../images/github_template.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="github_template" src="../images/github_template.png" /></a></p>
 <h4 id="minimum-text">Minimum Text<a class="headerlink" href="#minimum-text" title="Permanent link"></a></h4>
 <p>Use the sliding scale to set a desired minimum amount of words in a question.</p>
 <p><a class="glightbox" href="../images/min_text.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="min_text" src="../images/min_text.png" /></a></p>
 <ul>
 <li><strong>Minimum Words:</strong> The minimum number of words in a user question/input.</li>
+<li><strong>mAIstro template</strong> Optional - A mAIstro template to handle minimum text in a customized way. In this case we need to use the 'Min Text - IN' node and you can try template flows as in the 'Minimum Confidence' section.</li>
+</ul>
+<p><a class="glightbox" href="../images/min_text_template.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="min_text_template" src="../images/min_text_template.png" /></a></p>
+<ul>
 <li><strong>Reply Text:</strong> Add a text to reply with for questions not meeting the minimum input word length. (e.g. "Give me a bit more to go on...").</li>
 </ul>
 <h4 id="maximum-length">Maximum Length<a class="headerlink" href="#maximum-length" title="Permanent link"></a></h4>
@@ -641,6 +693,10 @@
 <p><a class="glightbox" href="../images/max_length.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="max_length" src="../images/max_length.png" /></a></p>
 <ul>
 <li><strong>Maximum Words:</strong> The maximum number of words in a user question/input. Set to 100 to remove the limit. Use a low limit to help mitigate adversarial questions designed to generate inappropriate answers.</li>
+<li><strong>mAIstro template</strong> Optional - A mAIstro template to handle maximum text in a customized way. In this case we need to use the 'Max Words - IN' node and you can try template flows as in the 'Minimum Confidence' section.</li>
+</ul>
+<p><a class="glightbox" href="../images/max_text_template.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="max_text_template" src="../images/max_text_template.png" /></a></p>
+<ul>
 <li><strong>Reply Text:</strong> Add a text to reply with for questions over the input word limit. (e.g. "Can you please summarize your question for me? Questions should be limited to 20 words.").</li>
 </ul>
 <h2 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link"></a></h2>
@@ -722,28 +778,6 @@
 </div>
 <p>Table Understanding requires a compatible LLM with Table Understanding Enabled. Not all LLMs are capable of Table Understanding.</p>
 <p><a class="glightbox" href="../images/table_understanding.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="table_understanding" src="../images/table_understanding.png" /></a></p>
-<h3 id="personal-identifiable-information-pii-handling">Personal Identifiable Information (PII) Handling<a class="headerlink" href="#personal-identifiable-information-pii-handling" title="Permanent link"></a></h3>
-<p>Users can define how to handle any detected PII data that was included in the question.</p>
-<p><a class="glightbox" href="../images/pii_handling.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pii_handling" src="../images/pii_handling.png" /></a></p>
-<p>The following actions to take when PII is found on user input are available:</p>
-<ul>
-<li><strong>Mask:</strong> Mask, and store, PII when it is detected in the user input. Masking will hide the PII in all locations.</li>
-<li><strong>Flag:</strong> Flag, and store, for PII when it is detected in the user input. PII will be flagged in all locations.</li>
-<li><strong>No Action:</strong> No action will be taken when PII is detected in the user input. It will be stored in plain text.</li>
-<li><strong>Hide (retain for Analytics):</strong> Hide (mask) the PII when it is detected in the user input, but keep the PII in the database for Analytics.</li>
-<li><strong>Delete (including from Analytics):</strong> Delete the PII entirely when it is detected in the user input, including from the stored Analytics.</li>
-</ul>
-<p>The configuration also lets you add any particular examples of PII data, so it can be better detected.</p>
-<ul>
-<li><strong>Pre-LLM PII Filters:</strong> These run dynamically on user input before it is sent to the LLM or KnowledgeBase. Click the light bulb icon to add a description such as a phone number and a corresponding regular expression.</li>
-<li><strong>LLM - Based PII Filters:</strong> These use the chosen LLM to identify PII. Click the light bulb icon to add an example sentence and corresponding PII elements, separated by commas.</li>
-</ul>
-<p>Some of NeuralSeek's PII Detectors are shown here:</p>
-<p><a class="glightbox" href="../images/pii_detectors.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pii_detectors" src="../images/pii_detectors.png" /></a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>Utilize the "Try it Out" feature to test the set PII filters. Input an example sentence and click the 'Test' button. The output will show the test sentence, a true or false response if PII was detected, and what element of the sentence was detected as PII.</p>
 <h3 id="corporate-document-filter">Corporate Document Filter<a class="headerlink" href="#corporate-document-filter" title="Permanent link"></a></h3>
 <p>Connect NeuralSeek to an external corporate rules engine to filter allowed documentation by user. Each request will send the ID's of the found documentation to an endpoint you set here. Any IDs not returned from the corporate filter will be blocked.</p>
 <ul>

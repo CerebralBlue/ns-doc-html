@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Stringtools/">
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/XMLtools/">
     <link rel="shortcut icon" href="../../../../../img/ns-white.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
-    <title>String Toolbox - NeuralSeek Documentation</title>
+    <title>XML Tools - NeuralSeek Documentation</title>
 
-  <meta property="og:title" content="String Toolbox" />
+  <meta property="og:title" content="XML Tools" />
   <meta property="og:description" content="NeuralSeek Documentation" />
     <link href="../../../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../../../css/font-awesome-4.7.0.css" rel="stylesheet">
@@ -47,25 +47,9 @@
   var is_top_frame = false;
     
     var pageToc = [
-      {title: "UPPERCASE", url: "#uppercase", children: [
+      {title: "XML to JSON", url: "#xml-to-json", children: [
       ]},
-      {title: "lowercase", url: "#lowercase", children: [
-      ]},
-      {title: "Base64 Encode", url: "#base64-encode", children: [
-      ]},
-      {title: "Base64 Decode", url: "#base64-decode", children: [
-      ]},
-      {title: "URL Encode", url: "#url-encode", children: [
-      ]},
-      {title: "URL Decode", url: "#url-decode", children: [
-      ]},
-      {title: "Split (extract section)", url: "#split-extract-section", children: [
-      ]},
-      {title: "Split (on delimiter)", url: "#split-on-delimiter", children: [
-      ]},
-      {title: "Regular Expression", url: "#regular-expression", children: [
-      ]},
-      {title: "Escape a String", url: "#escape-a-string", children: [
+      {title: "JSON to XML", url: "#json-to-xml", children: [
       ]},
     ];
 
@@ -125,7 +109,7 @@
         
           <li class="wm-select__item">
             
-              <a href="/reference_material/maistro/ntl/modify_data/Stringtools/" hreflang="English" class="wm-select__link">
+              <a href="/reference_material/maistro/ntl/modify_data/XMLtools/" hreflang="English" class="wm-select__link">
               English
             </a>
           </li>
@@ -370,11 +354,11 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../../reference_material/maistro/ntl/modify_data/XMLtools/" class="wm-article-link wm-toc-text">XML Tools</a>
+<li class="wm-toc-li wm-toc-lev4  wm-current "><a href="../../../../../reference_material/maistro/ntl/modify_data/XMLtools/" class="wm-article-link wm-toc-text">XML Tools</a>
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev4  wm-current "><a href="../../../../../reference_material/maistro/ntl/modify_data/Stringtools/" class="wm-article-link wm-toc-text">String Toolbox</a>
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../../../reference_material/maistro/ntl/modify_data/Stringtools/" class="wm-article-link wm-toc-text">String Toolbox</a>
 </li>
       
 
@@ -506,174 +490,142 @@
         <div class="wm-page-real-content">
           <a name="_top"></a>  
           
-          <h4 id="uppercase">UPPERCASE<a class="headerlink" href="#uppercase" title="Permanent link"></a></h4>
-<p>Convert a string to uppercase characters.</p>
-<div class="highlight"><pre><span></span><code>{{ uppercase  }}
+          <h4 id="xml-to-json">XML to JSON<a class="headerlink" href="#xml-to-json" title="Permanent link"></a></h4>
+<p>Convert an XML document into JSON format.</p>
+<p>Use this when you need JSON-formatted data but only have XML available, such as in document processing or API responses.</p>
+<div class="highlight"><pre><span></span><code>{{ XMLtoJSON }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into all uppercase.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
-{{ uppercase  }}
-</code></pre></div>
-<p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
-</code></pre></div>
-<h4 id="lowercase">lowercase<a class="headerlink" href="#lowercase" title="Permanent link"></a></h4>
-<p>Convert a string to lowercase characters.</p>
-<div class="highlight"><pre><span></span><code>{{ lowercase }}
-</code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into all lowercase.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
-{{ lowercase  }}
-</code></pre></div>
-<p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>the quick brown fox jumps over the lazy dog
-</code></pre></div>
-<h4 id="base64-encode">Base64 Encode<a class="headerlink" href="#base64-encode" title="Permanent link"></a></h4>
-<p>Encode a string to Base64,</p>
-<div class="highlight"><pre><span></span><code>{{ b64encode }}
-</code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into Base64.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
-{{ b64encode  }}
-</code></pre></div>
-<p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>VGhlIFF1aWNrIEJyb3duIEZveCBKdW1wcyBPdmVyIFRoZSBMYXp5IERvZwo=
-</code></pre></div>
-<h4 id="base64-decode">Base64 Decode<a class="headerlink" href="#base64-decode" title="Permanent link"></a></h4>
-<p>Decode a string from Base64.</p>
-<div class="highlight"><pre><span></span><code>{{ b64decode }}
-</code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The Base64 string converted into "normal" text.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>VGhlIFF1aWNrIEJyb3duIEZveCBKdW1wcyBPdmVyIFRoZSBMYXp5IERvZwo=
-{{ b64decode  }}
-</code></pre></div>
-<p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
-</code></pre></div>
-<h4 id="url-encode">URL Encode<a class="headerlink" href="#url-encode" title="Permanent link"></a></h4>
-<p>URL Encode a string (helpful when working with APIs).</p>
-<div class="highlight"><pre><span></span><code>{{ urlencode }}
-</code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into a URL encode.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
-{{ urlencode  }}
-</code></pre></div>
-<p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>The%20Quick%20Brown%20Fox%20Jumps%20Over%20The%20Lazy%20Dog%0A
-</code></pre></div>
-<h4 id="url-decode">URL Decode<a class="headerlink" href="#url-decode" title="Permanent link"></a></h4>
-<p>URL decodes a string.</p>
-<div class="highlight"><pre><span></span><code>{{ urldecode }}
-</code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into a URL decode.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The%20Quick%20Brown%20Fox%20Jumps%20Over%20The%20Lazy%20Dog%0A
-{{ urldecode }}
-</code></pre></div>
-<p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
-</code></pre></div>
-<h4 id="split-extract-section">Split (extract section)<a class="headerlink" href="#split-extract-section" title="Permanent link"></a></h4>
-<p>Extracts a section from a text or document.</p>
-<div class="highlight"><pre><span></span><code>{{ split  | start: &quot;&quot; | end: &quot;&quot; | removeHeaders: &quot;true&quot; }}
-</code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>
-<p>Start: Match string to begin the split. Included in the result. Case-sensitive.</p>
-</li>
-<li>
-<p>End: The match string to end the split. Excluded from the result. Case-sensitive.</p>
-</li>
-<li>
-<p>Remove Headers: If true, remove repeating lines of text (e.g. headers or footers). If false, do not remove repeating text.</p>
-</li>
+<li><strong>None</strong> - The XML data should be provided as chained input to this function.</li>
 </ul>
-<p><strong>Returns: The resulting split chunk of text.</strong></p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>I have 20 cats and 40 dogs.
-{{ split | start: &quot;20&quot; | end: &quot;40&quot; | removeHeaders: false }}
-</code></pre></div>
-<p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>20 cats and
-</code></pre></div>
-<h4 id="split-on-delimiter">Split (on delimiter)<a class="headerlink" href="#split-on-delimiter" title="Permanent link"></a></h4>
-<p>Split a string on the specified delimiter, and store it in the variable name you choose for later use (eg, take a list of comma-separated names, and run a loop with each value).</p>
-<div class="highlight"><pre><span></span><code>{{ splitDelim  | delimiter: &quot;,&quot; | outputJson: &quot;&quot; | variable: &quot;&quot; }}
-</code></pre></div>
-<p><strong>Parameters:</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
 <ul>
-<li>Delimiter: The delimiting string or regex on which to split the input text.</li>
-<li>Output Json: If true, outputs the split result as a JSON array. Otherwise, this sets the mAIstro variables for the resulting split.</li>
-<li>Variable: The base variable name to use for the array.</li>
+<li>JSON representation of the input XML.</li>
 </ul>
-<p><strong>Returns:</strong> If Output Json is set to true, returns an array split based on your delimiter.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>I have 20 cats and 40 dogs.
-{{ splitDelim  | delimiter: &quot;cats&quot; | outputJson: &quot;true&quot; | variable: &quot;&quot; }}
+</div>
+<details class="note">
+<summary>Example Usage</summary>
+<p>Here’s how to convert XML data into JSON using some sample XML:</p>
+<div class="highlight"><pre><span></span><code>&lt;library&gt;
+  &lt;book&gt;
+    &lt;title&gt;The Great Gatsby&lt;/title&gt;
+    &lt;author&gt;F. Scott Fitzgerald&lt;/author&gt;
+    &lt;year&gt;1925&lt;/year&gt;
+    &lt;genre&gt;Fiction&lt;/genre&gt;
+  &lt;/book&gt;
+  &lt;book&gt;
+    &lt;title&gt;To Kill a Mockingbird&lt;/title&gt;
+    &lt;author&gt;Harper Lee&lt;/author&gt;
+    &lt;year&gt;1960&lt;/year&gt;
+    &lt;genre&gt;Fiction&lt;/genre&gt;
+  &lt;/book&gt;
+&lt;/library&gt;=&gt;{{ XMLtoJSON }}=&gt;{{ variable | name: &quot;jsonOutput&quot; }}
+&lt;&lt; name: jsonOutput, prompt: false &gt;&gt;
 </code></pre></div>
-<p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>[&quot;I have 20 &quot;,&quot; and 40 dogs.\n&quot;]
+<p>The result will be in JSON format and can be further processed within mAIstro:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;LIBRARY&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;BOOK&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;TITLE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;The Great Gatsby&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;AUTHOR&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;F. Scott Fitzgerald&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;YEAR&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;1925&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;GENRE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;Fiction&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;TITLE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;To Kill a Mockingbird&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;AUTHOR&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;Harper Lee&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;YEAR&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;1960&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;GENRE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;Fiction&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<h4 id="regular-expression">Regular Expression<a class="headerlink" href="#regular-expression" title="Permanent link"></a></h4>
-<p>Performs regular expression on input data. Regular expression can be a powerful feature to extract or replace certain data.</p>
-<div class="highlight"><pre><span></span><code>{{ regex  | match: &quot;&quot; | replace: &quot;&quot; | group: &quot;&quot; }}
+</details>
+<hr />
+<h4 id="json-to-xml">JSON to XML<a class="headerlink" href="#json-to-xml" title="Permanent link"></a></h4>
+<p>Transform JSON data into XML format for use in XML-compliant systems.</p>
+<p>Use this when you need XML-formatted data but only have JSON available, such as in document processing or API responses.</p>
+<div class="highlight"><pre><span></span><code>{{ JSONtoXML }}
 </code></pre></div>
-<p><strong>Parameters:</strong> </p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Match: The match regex to use. E.g. <code>/[^0-9A-Za-z\s]/g</code></li>
-<li>Replace: The string to substitute for matches.</li>
-<li>Group: The group to extract. This is useful when multiple strings match the regex defined in the Match parameter, and you are only looking for one specific string.</li>
+<li><strong>None</strong> - The JSON data should be provided as chained input to this function.</li>
 </ul>
-<p><strong>Returns:</strong> The replaced text, or in case of using the <code>group</code> parameter, the group match.</p>
-<p><strong>Example 1:</strong></p>
-<p>If you have a text that you need to replace with something else, you can use the following expression:</p>
-<div class="highlight"><pre><span></span><code>my name is howardyoo
-{{ regex  | match: &quot;yoo&quot; | replace: &quot;yu&quot; }}
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<ul>
+<li>XML representation of the input JSON.</li>
+</ul>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
+<p>Here’s how to convert JSON data into XML using some sample JSON:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;library&quot;: {
+    &quot;book&quot;: [
+      {
+        &quot;title&quot;: &quot;The Great Gatsby&quot;,
+        &quot;author&quot;: &quot;F. Scott Fitzgerald&quot;,
+        &quot;year&quot;: &quot;1925&quot;,
+        &quot;genre&quot;: &quot;Fiction&quot;
+      },
+      {
+        &quot;title&quot;: &quot;To Kill a Mockingbird&quot;,
+        &quot;author&quot;: &quot;Harper Lee&quot;,
+        &quot;year&quot;: &quot;1960&quot;,
+        &quot;genre&quot;: &quot;Fiction&quot;
+      }
+    ]
+  }
+}=&gt;{{ JSONtoXML }}=&gt;{{ variable | name: &quot;xmlOutput&quot; }}
+&lt;&lt; name: xmlOutput, prompt: false &gt;&gt;
 </code></pre></div>
-<p>Which yields:</p>
-<div class="highlight"><pre><span></span><code>my name is howardyu
+<p>The resulting XML will follow the same structure as the original JSON.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
+<span class="w">  </span><span class="nt">&lt;book&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title&gt;</span>The<span class="w"> </span>Great<span class="w"> </span>Gatsby<span class="nt">&lt;/title&gt;</span>
+<span class="w">    </span><span class="nt">&lt;author&gt;</span>F.<span class="w"> </span>Scott<span class="w"> </span>Fitzgerald<span class="nt">&lt;/author&gt;</span>
+<span class="w">    </span><span class="nt">&lt;year&gt;</span>1925<span class="nt">&lt;/year&gt;</span>
+<span class="w">    </span><span class="nt">&lt;genre&gt;</span>Fiction<span class="nt">&lt;/genre&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/book&gt;</span>
+<span class="w">  </span><span class="nt">&lt;book&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title&gt;</span>To<span class="w"> </span>Kill<span class="w"> </span>a<span class="w"> </span>Mockingbird<span class="nt">&lt;/title&gt;</span>
+<span class="w">    </span><span class="nt">&lt;author&gt;</span>Harper<span class="w"> </span>Lee<span class="nt">&lt;/author&gt;</span>
+<span class="w">    </span><span class="nt">&lt;year&gt;</span>1960<span class="nt">&lt;/year&gt;</span>
+<span class="w">    </span><span class="nt">&lt;genre&gt;</span>Fiction<span class="nt">&lt;/genre&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/book&gt;</span>
+<span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
-<p><strong>Example 2:</strong></p>
-<p>Regex also supports extraction. For example, if you want to extract the email address in a text message, you can do so:</p>
-<div class="highlight"><pre><span></span><code>my name is howardyoo@email.com
-{{ regex | match: &quot;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}&quot; | group: &quot;0&quot; }}
-</code></pre></div>
-<p>This will extract the email address (group 0). The result is:</p>
-<div class="highlight"><pre><span></span><code>howardyoo@email.com
-</code></pre></div>
-<p><strong>Example 3:</strong></p>
-<p>Regex also supports groups, so in case you want to get the last digits of a phone number, you can do so:</p>
-<div class="highlight"><pre><span></span><code>my phone number is 213-292-3322
-{{ regex  | match: &quot;([0-9]+)-([0-9]+)-([0-9]+)&quot; | group: &quot;3&quot; }}
-</code></pre></div>
-<p>which will result in:
-<div class="highlight"><pre><span></span><code>3322
-</code></pre></div></p>
-<h4 id="escape-a-string">Escape a String<a class="headerlink" href="#escape-a-string" title="Permanent link"></a></h4>
-<p>Escapes a string for use within a JSON object.</p>
-<div class="highlight"><pre><span></span><code>{{ jsonEscape  }}
-</code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> Escapes a string by inserting backslashes next to special characters, in order to overcome programming limitations.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>&quot;I saw my mother today, and I told her &quot;I have 20 cats and 40 dogs&quot;.&quot;
-{{ jsonEscape  }}
-</code></pre></div>
-<p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>\&quot;I saw my mother today, and I told her \&quot;I have 20 cats and 40 dogs\&quot;.\&quot;\n
-</code></pre></div>
+</details>
+<hr />
+<div class="admonition important">
+<p class="admonition-title">Note</p>
+<p>Using these transformations allows for easy data format conversions within mAIstro, enabling smooth data handling across applications. Make sure that the input format aligns with expected syntax to avoid conversion errors.</p>
+</div>
 
           <br>
           <footer class="wm-footer">

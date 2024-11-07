@@ -252,4 +252,10 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Transform/"/>
     </url>
+    <url>
+        <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/XMLtools/</loc>
+        <lastmod>2024-11-07</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/XMLtools/"/>
+    </url>
 </urlset>

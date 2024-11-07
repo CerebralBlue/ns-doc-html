@@ -340,6 +340,8 @@
       
       
       
+      
+      
 
 <li class="wm-toc-li wm-toc-lev3 wm-toc-opener  "><span class="wm-toc-text">Modify Data</span>
 </li>
@@ -348,6 +350,10 @@
       
 
 <li class="wm-toc-li wm-toc-lev4   "><a href="../../../reference_material/maistro/ntl/modify_data/Jsontools/" class="wm-article-link wm-toc-text">JSON Toolbox</a>
+</li>
+      
+
+<li class="wm-toc-li wm-toc-lev4   "><a href="../../../reference_material/maistro/ntl/modify_data/XMLtools/" class="wm-article-link wm-toc-text">XML Tools</a>
 </li>
       
 
@@ -484,7 +490,6 @@
           <a name="_top"></a>  
           
           <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p><strong>NeuralSeek Template Language (NTL)</strong></p>
 <p>NeuralSeek's <strong>mAIstro</strong> feature is powered by <strong>NeuralSeek Template Language (NTL)</strong>, enabling users to extract and format data from various sources for subsequent processing by LLM without traditional coding. Often times, this is faster than a custom Python script.</p>
 <p>It simplifies many tasks - API connections, data formatting, mathematics - streamlining the process of preparing data for further language model processing.</p>
 <p><strong>How does it work?</strong></p>
@@ -501,6 +506,15 @@
 <p>The NeuralSeek Template Language (NTL) brings flexibility to mAIstro by enabling dynamic workflows through functions that support data querying, HTTP requests, calculations, and variable management. Now, with <strong>syntax highlighting</strong> in the <strong>NTL Editor</strong>, it’s even easier to write, read, and manage complex code snippets for efficient development.</p>
 <p><strong>Examples of Syntax Highlighting</strong></p>
 <p><a class="glightbox" href="../images/highlighting.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Syntax Highlighting" src="../images/highlighting.png" /></a></p>
+<ul>
+<li>Considering the extensive use of double quotes in NTL, typically you will need to \"\" escape double quotes to use in functions. For example, in SQL / Database queries.</li>
+<li>Any blank value (e.g. "") is considered "not present" or null-equivalent.</li>
+<li>Variables used with &lt;&lt; &gt;&gt; notation will always expand in-place.</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Any of the example NTL shown here can be copy-pasted into the NTL editor tab, and then switch back to the Visual Editor for easier analysis.</p>
+</div>
 
           <br>
           <footer class="wm-footer">

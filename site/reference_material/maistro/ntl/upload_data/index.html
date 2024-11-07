@@ -49,6 +49,8 @@
     var pageToc = [
       {title: "Upload Document", url: "#upload-document", children: [
       ]},
+      {title: "OCR an Image", url: "#ocr-an-image", children: [
+      ]},
     ];
 
 </script>
@@ -484,19 +486,89 @@
           
           <h4 id="upload-document">Upload Document<a class="headerlink" href="#upload-document" title="Permanent link"></a></h4>
 <p>Uploading a document works in two steps. When you click the <code>Upload Document</code> button, you are presented with a file selector to select a local document for upload. Some supported files are .docx, .doc, .pdf, .txt, .csv, .json, and .xlsx.</p>
+<p>mAIstro will automatically run OCR processing if a PDF is uploaded, but returns no text contents.</p>
 <p>After the document is successfully uploaded, it is available in the <code>Upload Document</code> pane:</p>
 <p><a class="glightbox" href="../images/ntl_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="upload_document" src="../images/ntl_1.png" /></a></p>
 <p>The uploaded document can then be used with the following syntax:</p>
 <div class="highlight"><pre><span></span><code>{{ doc|name:output.csv }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Name: The name of the uploaded document.</li>
+<li><strong>File Upload</strong>: The file to be processed.</li>
 </ul>
-<p><strong>Returns:</strong> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
 <ul>
-<li>The plain text of the document. Currently, the document processing does not support OCR.</li>
+<li>The plain text of the document. If an image-based PDF is uploaded, returning no text from the scraper, we will automatically return OCR'd text from the document.</li>
 </ul>
+</div>
+<hr />
+<h4 id="ocr-an-image">OCR an Image<a class="headerlink" href="#ocr-an-image" title="Permanent link"></a></h4>
+<p><strong>mAIstro’s</strong> OCR feature automatically processes image-based PDFs and images, converting them into searchable, editable text.</p>
+<p>OCR'ing a document works in two steps. When you click the <code>OCR an Image</code> button, you are presented with a file selector to select a local document for upload. Some supported files are .pdf, .png, .jpeg.</p>
+<p>After the document is successfully uploaded, it is available in the <code>Upload Document</code> pane:</p>
+<p><a class="glightbox" href="../images/screenshot_ocr.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ocr_screenshot" src="../images/screenshot_ocr.png" /></a></p>
+<p>The uploaded document or image can then be used with the following syntax:</p>
+<div class="highlight"><pre><span></span><code>{{ doc|name:screenshot_2024-11-05.png }}
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><strong>File Upload</strong>: PDF or image file to be processed with OCR.</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<ul>
+<li>The plain text of the document. If an image-based PDF is uploaded, returning no text from the scraper, we will automatically return OCR'd text from the document.</li>
+</ul>
+</div>
+<details class="note">
+<summary>Example 1: Using OCR with PDF Files</summary>
+<ol>
+<li>
+<p>Go to <strong>Upload Data</strong> in mAIstro.</p>
+</li>
+<li>
+<p>Select <strong>Upload Document</strong> or <strong>OCR an Image</strong> and choose your PDF file.</p>
+</li>
+<li>
+<p>OCR will be automatically applied, transforming the document into searchable text.</p>
+</li>
+</ol>
+<p><strong>NTL Snippet:</strong>
+  <div class="highlight"><pre><span></span><code><span class="p">{{</span> <span class="n">doc</span> <span class="o">|</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;example.pdf&quot;</span> <span class="p">}}</span>
+<span class="p">{{</span> <span class="n">LLM</span> <span class="o">|</span> <span class="n">prompt</span><span class="p">:</span> <span class="s2">&quot;List names in this document:&quot;</span> <span class="o">|</span> <span class="n">cache</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span> <span class="p">}}</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>This example returns a text-rich version of <code>example.pdf</code>, with names extracted as specified in the prompt.</p>
+</div>
+</details>
+<details class="note">
+<summary>Example 2: Using OCR with Image Files</summary>
+<ol>
+<li>
+<p>Go to <strong>Upload Data</strong> in mAIstro.</p>
+</li>
+<li>
+<p>Select <strong>OCR an Image</strong> to upload an image file.</p>
+</li>
+<li>
+<p>OCR processing starts automatically, converting the image into searchable text.</p>
+</li>
+</ol>
+<p><strong>NTL Snippet:</strong>
+  <div class="highlight"><pre><span></span><code><span class="p">{{</span> <span class="n">doc</span>  <span class="o">|</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;image.png&quot;</span> <span class="p">}}</span>
+<span class="p">{{</span> <span class="n">LLM</span> <span class="o">|</span> <span class="n">prompt</span><span class="p">:</span> <span class="s2">&quot;List names in this document:&quot;</span> <span class="o">|</span> <span class="n">cache</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span> <span class="p">}}</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>This example returns a text-rich version of <code>image.png</code>, optimized for data extraction and analysis.</p>
+</div>
+</details>
 
           <br>
           <footer class="wm-footer">

@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -56,7 +63,8 @@
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -468,7 +476,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -500,15 +508,15 @@
           
           <h4 id="extract">Extract<a class="headerlink" href="#extract" title="Permanent link"></a></h4>
 <p>Extract entities from text. Configure entities in the Extract Tab. </p>
-<div class="highlight"><pre><span></span><code>{{ extract }}
+<div class="language-text highlight"><pre><span></span><code>{{ extract }}
 </code></pre></div>
 <p><strong>Returns:</strong> JSON representation of the extracted entities.</p>
 <p><strong>Example:</strong></p>
 <p>Input: </p>
-<div class="highlight"><pre><span></span><code>My phone number is 555-555-5555=&gt;{{ extract }}
+<div class="language-text highlight"><pre><span></span><code>My phone number is 555-555-5555=&gt;{{ extract }}
 </code></pre></div>
 <p>Output: (You may see more entities than shown below - this is only an example)</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;phone-number&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s2">&quot;555-555-5555&quot;</span>
 <span class="w">  </span><span class="p">]</span>
@@ -516,7 +524,7 @@
 </code></pre></div>
 <h4 id="extract-keywords">Extract Keywords<a class="headerlink" href="#extract-keywords" title="Permanent link"></a></h4>
 <p>Extracts keywords from input text.</p>
-<div class="highlight"><pre><span></span><code>{{ keywords | nouns: true }}
+<div class="language-text highlight"><pre><span></span><code>{{ keywords | nouns: true }}
 </code></pre></div>
 <p><strong>Parameters:</strong> </p>
 <ul>
@@ -524,35 +532,35 @@
 </ul>
 <p><strong>Returns:</strong> The resulting keywords.</p>
 <p><strong>Example 1:</strong></p>
-<div class="highlight"><pre><span></span><code>I have 20 cats and 40 dogs
+<div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs
 {{ keywords|nouns:true }}
 </code></pre></div>
 <p>Will yield:</p>
-<div class="highlight"><pre><span></span><code>20 cats, 40 dogs
+<div class="language-text highlight"><pre><span></span><code>20 cats, 40 dogs
 </code></pre></div>
 <p><strong>Example 2:</strong></p>
-<div class="highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs
+<div class="language-text highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs
 {{ keywords|nouns:false }}
 </code></pre></div>
 <p>Will yield:</p>
-<div class="highlight"><pre><span></span><code>Howard
+<div class="language-text highlight"><pre><span></span><code>Howard
 </code></pre></div>
 <p>If the <code>nouns: true</code> is used,</p>
-<div class="highlight"><pre><span></span><code>Howard, 20 cats, 40 dogs
+<div class="language-text highlight"><pre><span></span><code>Howard, 20 cats, 40 dogs
 </code></pre></div>
 <p>Is returned.</p>
 <h4 id="extract-grammar">Extract Grammar<a class="headerlink" href="#extract-grammar" title="Permanent link"></a></h4>
 <p>Extracts grammar from input text, grouping by type of word.</p>
-<div class="highlight"><pre><span></span><code>{{ grammar }}
+<div class="language-text highlight"><pre><span></span><code>{{ grammar }}
 </code></pre></div>
 <p><strong>Returns:</strong> This sets environment variables from the text given, classifying words into buckets like dates, nouns, determiners, etc</p>
 <p><strong>Example 1:</strong></p>
-<div class="highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs. 
+<div class="language-text highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs. 
 He took them to the vet last week.
 {{ grammar  }}
 </code></pre></div>
 <p>Will yield in the environment (see the Inspector):</p>
-<div class="highlight"><pre><span></span><code>grammar.year: [2024]
+<div class="language-text highlight"><pre><span></span><code>grammar.year: [2024]
 grammar.context:
 grammar.dates: [&quot;last&quot;,&quot;week&quot;]
 grammar.propernouns: [&quot;Howard&quot;]

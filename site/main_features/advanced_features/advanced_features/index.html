@@ -39,28 +39,35 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../..';
   var is_top_frame = false;
     
     var pageToc = [
       {title: "PII Detection", url: "#pii-detection", children: [
-          {title: "Defining a specific PII", url: "#defining-a-specific-pii" },
-          {title: "Ignoring certain PII", url: "#ignoring-certain-pii" },
+          {title: htmlDecode("Defining a specific PII"), url: "#defining-a-specific-pii" },
+          {title: htmlDecode("Ignoring certain PII"), url: "#ignoring-certain-pii" },
       ]},
       {title: "Round Trip Logging", url: "#round-trip-logging", children: [
       ]},
       {title: "Semantic Analytics", url: "#semantic-analytics", children: [
-          {title: "Configuring Semantic Analytics", url: "#configuring-semantic-analytics" },
-          {title: "Using Semantic Analysis", url: "#using-semantic-analysis" },
-          {title: "Setting the Date Penalty or Score Range", url: "#setting-the-date-penalty-or-score-range" },
-          {title: "Examples of Semantic Analysis", url: "#examples-of-semantic-analysis" },
+          {title: htmlDecode("Configuring Semantic Analytics"), url: "#configuring-semantic-analytics" },
+          {title: htmlDecode("Using Semantic Analysis"), url: "#using-semantic-analysis" },
+          {title: htmlDecode("Setting the Date Penalty or Score Range"), url: "#setting-the-date-penalty-or-score-range" },
+          {title: htmlDecode("Examples of Semantic Analysis"), url: "#examples-of-semantic-analysis" },
       ]},
       {title: "Sentiment Analysis", url: "#sentiment-analysis", children: [
-          {title: "Sentiment Analysis REST API", url: "#sentiment-analysis-rest-api" },
+          {title: htmlDecode("Sentiment Analysis REST API"), url: "#sentiment-analysis-rest-api" },
       ]},
       {title: "Replay", url: "#replay", children: [
       ]},
@@ -71,7 +78,8 @@
     ];
 
 </script>
-    <script src="../../../js/base.js?v=2"></script>
+    <script src="../../../js/hl.js?v=3"></script>
+    <script src="../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -483,7 +491,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -535,13 +543,13 @@
 <p>However, this is what NeuralSeek does against common PII patterns, and there may be a specific PII that you would like to hide for your specific business needs. If you want to help NeuralSeek better detect and process PII for that, you can configure it under <code>Configure &gt; Personal Identifiable Information (PII)</code> Handling in the top menu:</p>
 <p><a class="glightbox" href="../images/pii_image_004.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="defining pii" src="../images/pii_image_004.png" /></a></p>
 <p>How it works is based on an example sentence, and does not have to be an exact pattern or rules. For example, setting the example sentence as:</p>
-<div class="highlight"><pre><span></span><code>My name is Howard Yoo and my blood type is O, and I live in Chicago.
+<div class="language-text highlight"><pre><span></span><code>My name is Howard Yoo and my blood type is O, and I live in Chicago.
 </code></pre></div>
 <p>For each PII element in that sentence, you can define the PII elements in that sentence delimited by comma as such:</p>
-<div class="highlight"><pre><span></span><code>Howard Yoo, 0
+<div class="language-text highlight"><pre><span></span><code>Howard Yoo, 0
 </code></pre></div>
 <p>So, next time, when somebody enters a PII matching the example as such:</p>
-<div class="highlight"><pre><span></span><code>This is my blood type: A
+<div class="language-text highlight"><pre><span></span><code>This is my blood type: A
 </code></pre></div>
 <p>NeuralSeek now detects that and masks the blood type that the user provided from being exposed:</p>
 <p><a class="glightbox" href="../images/pii_image_005.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="masking PII result" src="../images/pii_image_005.png" /></a></p>
@@ -632,7 +640,7 @@
 </ul>
 <h2 id="sentiment-analysis-rest-api">Sentiment Analysis REST API<a class="headerlink" href="#sentiment-analysis-rest-api" title="Permanent link"></a></h2>
 <p>When using REST API, for example, providing negative comments could trigger a low sentiment analysis score.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-JSON highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;I don&#39;t like NeuralSeek&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
 <span class="w">  </span><span class="nt">&quot;user_session&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -645,7 +653,7 @@
 <span class="w">  </span><span class="p">},</span>
 </code></pre></div>
 <p>Would yield a response with low sentiment score:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-JSON highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;String i&#39;m sorry to hear that you don&#39;t like NeuralSeek. If you have any specific concerns or feedback, please let me know and I&#39;ll do my best to assist you.&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;cachedResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;langCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -661,7 +669,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>Notice the sentiment score of 3, which is in the low range of 0 - 10. On the other hand, if you express a positive sentiment as such:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-JSON highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;I really love NeuralSeek. It&#39;s the best software in the world.&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
 <span class="w">  </span><span class="nt">&quot;user_session&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -674,7 +682,7 @@
 <span class="w">  </span><span class="p">},</span>
 </code></pre></div>
 <p>The response will have a higher sentiment score:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-JSON highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Thank you for sharing your positive feedback about NeuralSeek.  I cannot have personal opinions, but I&#39;m glad to hear that you find NeuralSeek to be the best software in the world.&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;cachedResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;langCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -742,7 +750,7 @@
 <p>With everything set, ask some questions related to the data inside the table in the PDF file.</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>What were the GHG emissions for business travel in 2021?
+<div class="language-text highlight"><pre><span></span><code>What were the GHG emissions for business travel in 2021?
 </code></pre></div>
 <p>You can also ask questions about a specific place or name and if there are multiple tables with data, NeuralSeek will take from each table and provide you with everything.</p>
 <h1 id="multimodal-llms-in-maistro">Multimodal LLMs in mAIstro<a class="headerlink" href="#multimodal-llms-in-maistro" title="Permanent link"></a></h1>

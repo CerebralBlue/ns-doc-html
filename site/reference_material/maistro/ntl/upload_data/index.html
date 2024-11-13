@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -54,7 +61,8 @@
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -466,7 +474,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -502,7 +510,7 @@
 <p>After the document is successfully uploaded, it is available in the <code>Upload Document</code> pane:</p>
 <p><a class="glightbox" href="../images/ntl_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="upload_document" src="../images/ntl_1.png" /></a></p>
 <p>The uploaded document can then be used with the following syntax:</p>
-<div class="highlight"><pre><span></span><code>{{ doc|name:output.csv }}
+<div class="language-text highlight"><pre><span></span><code>{{ doc|name:output.csv }}
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Parameters</p>
@@ -523,7 +531,7 @@
 <p>After the document is successfully uploaded, it is available in the <code>Upload Document</code> pane:</p>
 <p><a class="glightbox" href="../images/screenshot_ocr.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ocr_screenshot" src="../images/screenshot_ocr.png" /></a></p>
 <p>The uploaded document or image can then be used with the following syntax:</p>
-<div class="highlight"><pre><span></span><code>{{ doc|name:screenshot_2024-11-05.png }}
+<div class="language-text highlight"><pre><span></span><code>{{ doc|name:screenshot_2024-11-05.png }}
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Parameters</p>
@@ -551,7 +559,7 @@
 </li>
 </ol>
 <p><strong>NTL Snippet:</strong>
-  <div class="highlight"><pre><span></span><code><span class="p">{{</span> <span class="n">doc</span> <span class="o">|</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;example.pdf&quot;</span> <span class="p">}}</span>
+  <div class="language-python highlight"><pre><span></span><code><span class="p">{{</span> <span class="n">doc</span> <span class="o">|</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;example.pdf&quot;</span> <span class="p">}}</span>
 <span class="p">{{</span> <span class="n">LLM</span> <span class="o">|</span> <span class="n">prompt</span><span class="p">:</span> <span class="s2">&quot;List names in this document:&quot;</span> <span class="o">|</span> <span class="n">cache</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span> <span class="p">}}</span>
 </code></pre></div></p>
 <div class="admonition success">
@@ -573,7 +581,7 @@
 </li>
 </ol>
 <p><strong>NTL Snippet:</strong>
-  <div class="highlight"><pre><span></span><code><span class="p">{{</span> <span class="n">doc</span>  <span class="o">|</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;image.png&quot;</span> <span class="p">}}</span>
+  <div class="language-python highlight"><pre><span></span><code><span class="p">{{</span> <span class="n">doc</span>  <span class="o">|</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;image.png&quot;</span> <span class="p">}}</span>
 <span class="p">{{</span> <span class="n">LLM</span> <span class="o">|</span> <span class="n">prompt</span><span class="p">:</span> <span class="s2">&quot;List names in this document:&quot;</span> <span class="o">|</span> <span class="n">cache</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span> <span class="p">}}</span>
 </code></pre></div></p>
 <div class="admonition success">

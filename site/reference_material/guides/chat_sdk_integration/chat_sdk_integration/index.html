@@ -39,22 +39,30 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
     var pageToc = [
       {title: "Chat SDK Integration", url: "#chat-sdk-integration", children: [
-          {title: "Overview", url: "#overview" },
-          {title: "How to integrate Chat into a custom HTML or an existing website?", url: "#how-to-integrate-chat-into-a-custom-html-or-an-existing-website" },
+          {title: htmlDecode("Overview"), url: "#overview" },
+          {title: htmlDecode("How to integrate Chat into a custom HTML or an existing website?"), url: "#how-to-integrate-chat-into-a-custom-html-or-an-existing-website" },
       ]},
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -466,7 +474,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -527,7 +535,7 @@
 </ol>
 <details class="note">
 <summary>HTML Example</summary>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>

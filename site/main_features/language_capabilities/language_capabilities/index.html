@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../..';
   var is_top_frame = false;
     
@@ -54,14 +61,15 @@
       {title: "Language Translation", url: "#language-translation", children: [
       ]},
       {title: "Multi Language Support", url: "#multi-language-support", children: [
-          {title: "Supported Languages", url: "#supported-languages" },
-          {title: "Specifying a Language", url: "#specifying-a-language" },
-          {title: "Cross-language support for KBs", url: "#cross-language-support-for-kbs" },
+          {title: htmlDecode("Supported Languages"), url: "#supported-languages" },
+          {title: htmlDecode("Specifying a Language"), url: "#specifying-a-language" },
+          {title: htmlDecode("Cross-language support for KBs"), url: "#cross-language-support-for-kbs" },
       ]},
     ];
 
 </script>
-    <script src="../../../js/base.js?v=2"></script>
+    <script src="../../../js/hl.js?v=3"></script>
+    <script src="../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -473,7 +481,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -516,12 +524,12 @@
 <ul>
 <li>Language identification is provided as REST API, and can be tested on <a href="https://api.neuralseek.com/">NeuralSeek API documentation</a>. Message payload is in <code>text/plain</code> format, and contains <code>text</code> in certain languages. An example message would look something like this:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>이 언어는 어떤 언어입니까?
+<div class="language-text highlight"><pre><span></span><code>이 언어는 어떤 언어입니까?
 </code></pre></div>
 <ul>
 <li>NeuralSeek would then identify what language this is in, and returns the language code and the confidence score:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<div class="language-JSON highlight"><pre><span></span><code><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ko&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95</span>
@@ -555,7 +563,7 @@
 <li>Translation is provided as REST API, and can be tested on <a href="https://api.neuralseek.com/">NeuralSeek API documentation</a>. </li>
 <li>Message payload is in JSON format, and contains an array of <code>text</code> in certain language(s). Another attribute is <code>target</code> which specifies the target language the translation needs to be performed in. An example message would look something like this:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-JSON highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s2">&quot;NeuralSeek introduced several new features in July 2023, including streaming responses for web use cases, enhanced cross-lingual support, curate to CSV/upload curated QA from CSV, improved semantic match analysis, updated IBM WatsonX model compatibility, and AWS Lex round-trip monitoring.&quot;</span>
 <span class="w">    </span><span class="p">],</span>
@@ -566,7 +574,7 @@
 <p>For more details on what language codes are supported, please refer to <a href="./#multi-language-support">Multi Language Support</a>.</p>
 </blockquote>
 <p>NeuralSeek would then translate the given text into the target language <code>ko</code> which is Korean:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-JSON highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;word_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;character_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">289</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;translations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -577,7 +585,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>You can also provide texts in different languages that can all be translated into the target language:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-JSON highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s2">&quot;soy un chico.&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="s2">&quot;나는 소년입니다.&quot;</span><span class="p">,</span>
@@ -587,7 +595,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>Which will be translated into <code>en</code> which is English:</p>
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="p">{</span>
+<div class="language-JSON highlight"><pre><span></span><code><span class="w">        </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;word_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;character_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;translations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>

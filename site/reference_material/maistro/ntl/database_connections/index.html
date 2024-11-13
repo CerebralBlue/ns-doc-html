@@ -39,22 +39,30 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
     var pageToc = [
       {title: "Overview", url: "#overview", children: [
-          {title: "IBM DB2", url: "#ibm-db2" },
-          {title: "MySQL / Others", url: "#mysql-others" },
+          {title: htmlDecode("IBM DB2"), url: "#ibm-db2" },
+          {title: htmlDecode("MySQL / Others"), url: "#mysql-others" },
       ]},
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -466,7 +474,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -499,7 +507,7 @@
           <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h3>
 <p>The Database Connections allow us to use SQL queries to retrieve data, and subsequently use that data for natural language processing with <code>TableUnderstanding</code> or <code>TablePrep</code>.</p>
 <h4 id="ibm-db2">IBM DB2<a class="headerlink" href="#ibm-db2" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span></span><code>{{ db2|query:&quot;your db2 query&quot; | DATABASE: &quot;&quot; | HOSTNAME: &quot;&quot; | UID: &quot;&quot; | PWD: &quot;&quot; | PORT: &quot;&quot; | SECURE: &quot;true&quot; | sentences: &quot;true&quot;}}
+<div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">db2</span>|<span class="n">query</span>:&quot;<span class="n">your</span><span class="w"> </span><span class="n">db2</span><span class="w"> </span><span class="n">query</span>&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">DATABASE</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">HOSTNAME</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">UID</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">PWD</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">PORT</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">SECURE</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -518,12 +526,12 @@
 <li>If Sentences is set to false, returns the query response in tabular format.</li>
 </ul>
 <h4 id="mysql-others">MySQL / Others<a class="headerlink" href="#mysql-others" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span></span><code>{{ postgres | query:&quot;&quot; | uri: &quot;&quot; | sentences: &quot;true&quot; | rds: &quot;false&quot;}}
-{{ mariadb | query:&quot;&quot; | uri: &quot;&quot; | sentences: &quot;true&quot;}}
-{{ mysql | query:&quot;&quot; | uri: &quot;&quot; | sentences: &quot;true&quot;}}
-{{ mssql | query:&quot;&quot; | uri: &quot;&quot; | sentences: &quot;true&quot;}}
-{{ oracle | query:&quot;&quot; | uri: &quot;&quot; | sentences: &quot;true&quot;}}
-{{ redshift | query:&quot;&quot; | uri: &quot;&quot; | sentences: &quot;true&quot;}}
+<div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">postgres</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">rds</span>:<span class="w"> </span>&quot;<span class="n">false</span>&quot;}}
+{{<span class="w"> </span><span class="n">mariadb</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
+{{<span class="w"> </span><span class="n">mysql</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
+{{<span class="w"> </span><span class="n">mssql</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
+{{<span class="w"> </span><span class="n">oracle</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
+{{<span class="w"> </span><span class="n">redshift</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>

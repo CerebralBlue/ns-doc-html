@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../../..';
   var is_top_frame = false;
     
@@ -70,7 +77,8 @@
     ];
 
 </script>
-    <script src="../../../../../js/base.js?v=2"></script>
+    <script src="../../../../../js/hl.js?v=3"></script>
+    <script src="../../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -482,7 +490,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -514,85 +522,85 @@
           
           <h4 id="uppercase">UPPERCASE<a class="headerlink" href="#uppercase" title="Permanent link"></a></h4>
 <p>Convert a string to uppercase characters.</p>
-<div class="highlight"><pre><span></span><code>{{ uppercase  }}
+<div class="language-text highlight"><pre><span></span><code>{{ uppercase  }}
 </code></pre></div>
 <p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
 <p><strong>Returns:</strong> The string converted into all uppercase.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
+<div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 {{ uppercase  }}
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+<div class="language-text highlight"><pre><span></span><code>THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 </code></pre></div>
 <h4 id="lowercase">lowercase<a class="headerlink" href="#lowercase" title="Permanent link"></a></h4>
 <p>Convert a string to lowercase characters.</p>
-<div class="highlight"><pre><span></span><code>{{ lowercase }}
+<div class="language-text highlight"><pre><span></span><code>{{ lowercase }}
 </code></pre></div>
 <p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
 <p><strong>Returns:</strong> The string converted into all lowercase.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
+<div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 {{ lowercase  }}
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>the quick brown fox jumps over the lazy dog
+<div class="language-text highlight"><pre><span></span><code>the quick brown fox jumps over the lazy dog
 </code></pre></div>
 <h4 id="base64-encode">Base64 Encode<a class="headerlink" href="#base64-encode" title="Permanent link"></a></h4>
 <p>Encode a string to Base64,</p>
-<div class="highlight"><pre><span></span><code>{{ b64encode }}
+<div class="language-text highlight"><pre><span></span><code>{{ b64encode }}
 </code></pre></div>
 <p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
 <p><strong>Returns:</strong> The string converted into Base64.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
+<div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 {{ b64encode  }}
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>VGhlIFF1aWNrIEJyb3duIEZveCBKdW1wcyBPdmVyIFRoZSBMYXp5IERvZwo=
+<div class="language-text highlight"><pre><span></span><code>VGhlIFF1aWNrIEJyb3duIEZveCBKdW1wcyBPdmVyIFRoZSBMYXp5IERvZwo=
 </code></pre></div>
 <h4 id="base64-decode">Base64 Decode<a class="headerlink" href="#base64-decode" title="Permanent link"></a></h4>
 <p>Decode a string from Base64.</p>
-<div class="highlight"><pre><span></span><code>{{ b64decode }}
+<div class="language-text highlight"><pre><span></span><code>{{ b64decode }}
 </code></pre></div>
 <p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
 <p><strong>Returns:</strong> The Base64 string converted into "normal" text.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>VGhlIFF1aWNrIEJyb3duIEZveCBKdW1wcyBPdmVyIFRoZSBMYXp5IERvZwo=
+<div class="language-text highlight"><pre><span></span><code>VGhlIFF1aWNrIEJyb3duIEZveCBKdW1wcyBPdmVyIFRoZSBMYXp5IERvZwo=
 {{ b64decode  }}
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
+<div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 </code></pre></div>
 <h4 id="url-encode">URL Encode<a class="headerlink" href="#url-encode" title="Permanent link"></a></h4>
 <p>URL Encode a string (helpful when working with APIs).</p>
-<div class="highlight"><pre><span></span><code>{{ urlencode }}
+<div class="language-text highlight"><pre><span></span><code>{{ urlencode }}
 </code></pre></div>
 <p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
 <p><strong>Returns:</strong> The string converted into a URL encode.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
+<div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 {{ urlencode  }}
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>The%20Quick%20Brown%20Fox%20Jumps%20Over%20The%20Lazy%20Dog%0A
+<div class="language-text highlight"><pre><span></span><code>The%20Quick%20Brown%20Fox%20Jumps%20Over%20The%20Lazy%20Dog%0A
 </code></pre></div>
 <h4 id="url-decode">URL Decode<a class="headerlink" href="#url-decode" title="Permanent link"></a></h4>
 <p>URL decodes a string.</p>
-<div class="highlight"><pre><span></span><code>{{ urldecode }}
+<div class="language-text highlight"><pre><span></span><code>{{ urldecode }}
 </code></pre></div>
 <p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
 <p><strong>Returns:</strong> The string converted into a URL decode.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>The%20Quick%20Brown%20Fox%20Jumps%20Over%20The%20Lazy%20Dog%0A
+<div class="language-text highlight"><pre><span></span><code>The%20Quick%20Brown%20Fox%20Jumps%20Over%20The%20Lazy%20Dog%0A
 {{ urldecode }}
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
+<div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 </code></pre></div>
 <h4 id="split-extract-section">Split (extract section)<a class="headerlink" href="#split-extract-section" title="Permanent link"></a></h4>
 <p>Extracts a section from a text or document.</p>
-<div class="highlight"><pre><span></span><code>{{ split  | start: &quot;&quot; | end: &quot;&quot; | removeHeaders: &quot;true&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ split  | start: &quot;&quot; | end: &quot;&quot; | removeHeaders: &quot;true&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -608,15 +616,15 @@
 </ul>
 <p><strong>Returns: The resulting split chunk of text.</strong></p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>I have 20 cats and 40 dogs.
+<div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs.
 {{ split | start: &quot;20&quot; | end: &quot;40&quot; | removeHeaders: false }}
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>20 cats and
+<div class="language-text highlight"><pre><span></span><code>20 cats and
 </code></pre></div>
 <h4 id="split-on-delimiter">Split (on delimiter)<a class="headerlink" href="#split-on-delimiter" title="Permanent link"></a></h4>
 <p>Split a string on the specified delimiter, and store it in the variable name you choose for later use (eg, take a list of comma-separated names, and run a loop with each value).</p>
-<div class="highlight"><pre><span></span><code>{{ splitDelim  | delimiter: &quot;,&quot; | outputJson: &quot;&quot; | variable: &quot;&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ splitDelim  | delimiter: &quot;,&quot; | outputJson: &quot;&quot; | variable: &quot;&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -626,15 +634,15 @@
 </ul>
 <p><strong>Returns:</strong> If Output Json is set to true, returns an array split based on your delimiter.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>I have 20 cats and 40 dogs.
+<div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs.
 {{ splitDelim  | delimiter: &quot;cats&quot; | outputJson: &quot;true&quot; | variable: &quot;&quot; }}
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>[&quot;I have 20 &quot;,&quot; and 40 dogs.\n&quot;]
+<div class="language-text highlight"><pre><span></span><code>[&quot;I have 20 &quot;,&quot; and 40 dogs.\n&quot;]
 </code></pre></div>
 <h4 id="regular-expression">Regular Expression<a class="headerlink" href="#regular-expression" title="Permanent link"></a></h4>
 <p>Performs regular expression on input data. Regular expression can be a powerful feature to extract or replace certain data.</p>
-<div class="highlight"><pre><span></span><code>{{ regex  | match: &quot;&quot; | replace: &quot;&quot; | group: &quot;&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ regex  | match: &quot;&quot; | replace: &quot;&quot; | group: &quot;&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong> </p>
 <ul>
@@ -645,40 +653,40 @@
 <p><strong>Returns:</strong> The replaced text, or in case of using the <code>group</code> parameter, the group match.</p>
 <p><strong>Example 1:</strong></p>
 <p>If you have a text that you need to replace with something else, you can use the following expression:</p>
-<div class="highlight"><pre><span></span><code>my name is howardyoo
+<div class="language-text highlight"><pre><span></span><code>my name is howardyoo
 {{ regex  | match: &quot;yoo&quot; | replace: &quot;yu&quot; }}
 </code></pre></div>
 <p>Which yields:</p>
-<div class="highlight"><pre><span></span><code>my name is howardyu
+<div class="language-text highlight"><pre><span></span><code>my name is howardyu
 </code></pre></div>
 <p><strong>Example 2:</strong></p>
 <p>Regex also supports extraction. For example, if you want to extract the email address in a text message, you can do so:</p>
-<div class="highlight"><pre><span></span><code>my name is howardyoo@email.com
+<div class="language-text highlight"><pre><span></span><code>my name is howardyoo@email.com
 {{ regex | match: &quot;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}&quot; | group: &quot;0&quot; }}
 </code></pre></div>
 <p>This will extract the email address (group 0). The result is:</p>
-<div class="highlight"><pre><span></span><code>howardyoo@email.com
+<div class="language-text highlight"><pre><span></span><code>howardyoo@email.com
 </code></pre></div>
 <p><strong>Example 3:</strong></p>
 <p>Regex also supports groups, so in case you want to get the last digits of a phone number, you can do so:</p>
-<div class="highlight"><pre><span></span><code>my phone number is 213-292-3322
+<div class="language-text highlight"><pre><span></span><code>my phone number is 213-292-3322
 {{ regex  | match: &quot;([0-9]+)-([0-9]+)-([0-9]+)&quot; | group: &quot;3&quot; }}
 </code></pre></div>
 <p>which will result in:
-<div class="highlight"><pre><span></span><code>3322
+<div class="language-text highlight"><pre><span></span><code>3322
 </code></pre></div></p>
 <h4 id="escape-a-string">Escape a String<a class="headerlink" href="#escape-a-string" title="Permanent link"></a></h4>
 <p>Escapes a string for use within a JSON object.</p>
-<div class="highlight"><pre><span></span><code>{{ jsonEscape  }}
+<div class="language-text highlight"><pre><span></span><code>{{ jsonEscape  }}
 </code></pre></div>
 <p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
 <p><strong>Returns:</strong> Escapes a string by inserting backslashes next to special characters, in order to overcome programming limitations.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>&quot;I saw my mother today, and I told her &quot;I have 20 cats and 40 dogs&quot;.&quot;
+<div class="language-text highlight"><pre><span></span><code>&quot;I saw my mother today, and I told her &quot;I have 20 cats and 40 dogs&quot;.&quot;
 {{ jsonEscape  }}
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>\&quot;I saw my mother today, and I told her \&quot;I have 20 cats and 40 dogs\&quot;.\&quot;\n
+<div class="language-text highlight"><pre><span></span><code>\&quot;I saw my mother today, and I told her \&quot;I have 20 cats and 40 dogs\&quot;.\&quot;\n
 </code></pre></div>
 
           <br>

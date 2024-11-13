@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -52,11 +59,11 @@
       {title: "Bootstrapping your Agent", url: "#bootstrapping-your-agent", children: [
       ]},
       {title: "Improving Answers", url: "#improving-answers", children: [
-          {title: "Understanding Generated Answers", url: "#understanding-generated-answers" },
-          {title: "Optimal Settings", url: "#optimal-settings" },
-          {title: "Improving Source Documentation", url: "#improving-source-documentation" },
-          {title: "Hybrid and Vector Search", url: "#hybrid-and-vector-search" },
-          {title: "Answer Variations", url: "#answer-variations" },
+          {title: htmlDecode("Understanding Generated Answers"), url: "#understanding-generated-answers" },
+          {title: htmlDecode("Optimal Settings"), url: "#optimal-settings" },
+          {title: htmlDecode("Improving Source Documentation"), url: "#improving-source-documentation" },
+          {title: htmlDecode("Hybrid and Vector Search"), url: "#hybrid-and-vector-search" },
+          {title: htmlDecode("Answer Variations"), url: "#answer-variations" },
       ]},
       {title: "Filtering Documentation", url: "#filtering-documentation", children: [
       ]},
@@ -69,7 +76,8 @@
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -481,7 +489,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 

@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -54,24 +61,25 @@
       {title: "Locating Semantic Scoring", url: "#locating-semantic-scoring", children: [
       ]},
       {title: "Tuning Your Search Results", url: "#tuning-your-search-results", children: [
-          {title: "Missing key search term Penalty", url: "#missing-key-search-term-penalty" },
-          {title: "Missing search term Penalty", url: "#missing-search-term-penalty" },
-          {title: "Source Jump Penalty", url: "#source-jump-penalty" },
-          {title: "LLM Decline Penalty", url: "#llm-decline-penalty" },
-          {title: "Total Coverage Weight", url: "#total-coverage-weight" },
-          {title: "Re-Rank Min Coverage %", url: "#re-rank-min-coverage" },
-          {title: "Allowed Terms", url: "#allowed-terms" },
+          {title: htmlDecode("Missing key search term Penalty"), url: "#missing-key-search-term-penalty" },
+          {title: htmlDecode("Missing search term Penalty"), url: "#missing-search-term-penalty" },
+          {title: htmlDecode("Source Jump Penalty"), url: "#source-jump-penalty" },
+          {title: htmlDecode("LLM Decline Penalty"), url: "#llm-decline-penalty" },
+          {title: htmlDecode("Total Coverage Weight"), url: "#total-coverage-weight" },
+          {title: htmlDecode("Re-Rank Min Coverage %"), url: "#re-rank-min-coverage" },
+          {title: htmlDecode("Allowed Terms"), url: "#allowed-terms" },
       ]},
       {title: "How to make use of Semantic Model Tuning", url: "#how-to-make-use-of-semantic-model-tuning", children: [
-          {title: "Example 1", url: "#example-1" },
-          {title: "Example 2", url: "#example-2" },
+          {title: htmlDecode("Example 1"), url: "#example-1" },
+          {title: htmlDecode("Example 2"), url: "#example-2" },
       ]},
       {title: "Conclusions", url: "#conclusions", children: [
       ]},
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -483,7 +491,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 

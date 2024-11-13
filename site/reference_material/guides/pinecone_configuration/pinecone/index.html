@@ -39,28 +39,36 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
     var pageToc = [
       {title: "Pinecone Integration with NeuralSeek", url: "#pinecone-integration-with-neuralseek", children: [
-          {title: "Prerequisites", url: "#prerequisites" },
-          {title: "Steps", url: "#steps" },
+          {title: htmlDecode("Prerequisites"), url: "#prerequisites" },
+          {title: htmlDecode("Steps"), url: "#steps" },
       ]},
       {title: "Technical Explanation: How Pinecone and NeuralSeek Work Together", url: "#technical-explanation-how-pinecone-and-neuralseek-work-together", children: [
-          {title: "Pinecone", url: "#pinecone" },
-          {title: "NeuralSeek Embedding Model", url: "#neuralseek-embedding-model" },
-          {title: "Integration Workflow", url: "#integration-workflow" },
-          {title: "Benefits of This Configuration", url: "#benefits-of-this-configuration" },
+          {title: htmlDecode("Pinecone"), url: "#pinecone" },
+          {title: htmlDecode("NeuralSeek Embedding Model"), url: "#neuralseek-embedding-model" },
+          {title: htmlDecode("Integration Workflow"), url: "#integration-workflow" },
+          {title: htmlDecode("Benefits of This Configuration"), url: "#benefits-of-this-configuration" },
       ]},
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -472,7 +480,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -567,9 +575,9 @@
 <p><a class="glightbox" href="../images/embedding2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add Embedding Model 2" src="../images/embedding2.png" /></a></p>
 <h3 id="4-add-documents-to-pinecone-index-via-nodejs-script">4. Add Documents to Pinecone Index via Node.js Script<a class="headerlink" href="#4-add-documents-to-pinecone-index-via-nodejs-script" title="Permanent link"></a></h3>
 <h4 id="41-install-required-packages">4.1. Install Required Packages<a class="headerlink" href="#41-install-required-packages" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>axios<span class="w"> </span>fs<span class="w"> </span>path<span class="w"> </span>@pinecone-database/pinecone<span class="w"> </span>@langchain/openai
+<div class="language-bash highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>axios<span class="w"> </span>fs<span class="w"> </span>path<span class="w"> </span>@pinecone-database/pinecone<span class="w"> </span>@langchain/openai
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>import axios from &quot;axios&quot;;
+<div class="language-text highlight"><pre><span></span><code>import axios from &quot;axios&quot;;
 import fs from &quot;fs&quot;;
 import path from &quot;path&quot;;
 import { Pinecone } from &quot;@pinecone-database/pinecone&quot;;
@@ -711,7 +719,7 @@ await kb.importFiles(&quot;text-embedding-3-small&quot;, &quot;docs&quot;, &quot
 </code></pre></div>
 <h3 id="42-create-and-run-the-script">4.2. Create and Run the Script<a class="headerlink" href="#42-create-and-run-the-script" title="Permanent link"></a></h3>
 <p>Create a file named upload-documents.js and add the following script:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>node<span class="w"> </span>upload-documents.js
+<div class="language-bash highlight"><pre><span></span><code><span class="w">    </span>node<span class="w"> </span>upload-documents.js
 </code></pre></div>
 <h3 id="5-save-configuration">5. Save Configuration<a class="headerlink" href="#5-save-configuration" title="Permanent link"></a></h3>
 <p>Save all the configurations made in NeuralSeek.</p>

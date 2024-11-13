@@ -39,23 +39,31 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
     var pageToc = [
       {title: "Overview", url: "#overview", children: [
-          {title: "Common use cases", url: "#common-use-cases" },
-          {title: "How to use Proposals", url: "#how-to-use-proposals" },
-          {title: "Frequently Asked Questions (FAQs)", url: "#frequently-asked-questions-faqs" },
+          {title: htmlDecode("Common use cases"), url: "#common-use-cases" },
+          {title: htmlDecode("How to use Proposals"), url: "#how-to-use-proposals" },
+          {title: htmlDecode("Frequently Asked Questions (FAQs)"), url: "#frequently-asked-questions-faqs" },
       ]},
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -467,7 +475,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 

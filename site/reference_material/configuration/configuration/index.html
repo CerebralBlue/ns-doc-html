@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../..';
   var is_top_frame = false;
     
@@ -50,29 +57,30 @@
       {title: "Overview", url: "#overview", children: [
       ]},
       {title: "Default Configurations", url: "#default-configurations", children: [
-          {title: "KnowledgeBase Connection", url: "#knowledgebase-connection" },
-          {title: "LLM Details", url: "#llm-details" },
-          {title: "Company/Organization Preferences", url: "#companyorganization-preferences" },
-          {title: "Platform Preferences", url: "#platform-preferences" },
-          {title: "Intent Categorization", url: "#intent-categorization" },
-          {title: "Governance and Guardrails", url: "#governance-and-guardrails" },
+          {title: htmlDecode("KnowledgeBase Connection"), url: "#knowledgebase-connection" },
+          {title: htmlDecode("LLM Details"), url: "#llm-details" },
+          {title: htmlDecode("Company/Organization Preferences"), url: "#companyorganization-preferences" },
+          {title: htmlDecode("Platform Preferences"), url: "#platform-preferences" },
+          {title: htmlDecode("Intent Categorization"), url: "#intent-categorization" },
+          {title: htmlDecode("Governance and Guardrails"), url: "#governance-and-guardrails" },
       ]},
       {title: "Advanced Configuration", url: "#advanced-configuration", children: [
-          {title: "KnowledgeBase Tuning", url: "#knowledgebase-tuning" },
-          {title: "Hybrid and Vector Search Settings", url: "#hybrid-and-vector-search-settings" },
-          {title: "Prompt Engineering", url: "#prompt-engineering" },
-          {title: "Answer Engineering and Preferences", url: "#answer-engineering-and-preferences" },
-          {title: "Intent Matching and Cache Configuration", url: "#intent-matching-and-cache-configuration" },
-          {title: "Table Understanding", url: "#table-understanding" },
-          {title: "Corporate Document Filter", url: "#corporate-document-filter" },
-          {title: "Corporate Logging", url: "#corporate-logging" },
+          {title: htmlDecode("KnowledgeBase Tuning"), url: "#knowledgebase-tuning" },
+          {title: htmlDecode("Hybrid and Vector Search Settings"), url: "#hybrid-and-vector-search-settings" },
+          {title: htmlDecode("Prompt Engineering"), url: "#prompt-engineering" },
+          {title: htmlDecode("Answer Engineering and Preferences"), url: "#answer-engineering-and-preferences" },
+          {title: htmlDecode("Intent Matching and Cache Configuration"), url: "#intent-matching-and-cache-configuration" },
+          {title: htmlDecode("Table Understanding"), url: "#table-understanding" },
+          {title: htmlDecode("Corporate Document Filter"), url: "#corporate-document-filter" },
+          {title: htmlDecode("Corporate Logging"), url: "#corporate-logging" },
       ]},
       {title: "Settings and Changelogs", url: "#settings-and-changelogs", children: [
       ]},
     ];
 
 </script>
-    <script src="../../../js/base.js?v=2"></script>
+    <script src="../../../js/hl.js?v=3"></script>
+    <script src="../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -484,7 +492,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -553,8 +561,8 @@
 <p class="admonition-title">Note</p>
 </div>
 <p>This section is only available if you are using BYOLLM (bring your own LLM) plan of NeuralSeek.</p>
-<pre><code>Not all LLM providers are equal - All options are listed here, even though your provider may not need these specific parameters.
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>Not all LLM providers are equal - All options are listed here, even though your provider may not need these specific parameters.
+</code></pre></div>
 <h3 id="companyorganization-preferences">Company/Organization Preferences<a class="headerlink" href="#companyorganization-preferences" title="Permanent link"></a></h3>
 <p>This is where you can configure your company name, and description of what the company primarily focuses on.</p>
 <p><a class="glightbox" href="../images/company_org_preferences.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="company_org_preferences" src="../images/company_org_preferences.png" /></a></p>

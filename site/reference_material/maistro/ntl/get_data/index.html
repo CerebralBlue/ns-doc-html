@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -60,7 +67,8 @@
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -472,7 +480,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -506,7 +514,7 @@
 <p>This is plain, minimally processed text that gets sent to the next step - usually either directly to the base LLM, or sent through a chain.</p>
 <h4 id="kb-documentation">KB Documentation<a class="headerlink" href="#kb-documentation" title="Permanent link"></a></h4>
 <p>KB stands for KnowledgeBase, and the query is used to retrieve snippets of document from the configured KnowledgeBase.</p>
-<div class="highlight"><pre><span></span><code>{{ kb|query:&quot;your KB query&quot; | snippet: &quot;&quot; | scoreRange: &quot;&quot; | filter: &quot;&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ kb|query:&quot;your KB query&quot; | snippet: &quot;&quot; | scoreRange: &quot;&quot; | filter: &quot;&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -523,7 +531,7 @@
 </div>
 <h4 id="seek">Seek<a class="headerlink" href="#seek" title="Permanent link"></a></h4>
 <p>Perform a <code>seek</code> action, as if entering a question on the <code>seek</code> tab. </p>
-<div class="highlight"><pre><span></span><code>{{ seek|query:&quot;your Seek query&quot; | stump: &quot;&quot; | filter: &quot;&quot; | language: &quot;&quot; | seekLLM: &quot;&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ seek|query:&quot;your Seek query&quot; | stump: &quot;&quot; | filter: &quot;&quot; | language: &quot;&quot; | seekLLM: &quot;&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -541,7 +549,7 @@
 </div>
 <h4 id="rest">REST<a class="headerlink" href="#rest" title="Permanent link"></a></h4>
 <p>Connect to any REST API.</p>
-<div class="highlight"><pre><span></span><code>{{ post|url: &quot;&quot; | headers: &quot;&quot; | body: &quot;&quot; | operation: &quot;POST&quot; | jsonToVars: &quot;true&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ post|url: &quot;&quot; | headers: &quot;&quot; | body: &quot;&quot; | operation: &quot;POST&quot; | jsonToVars: &quot;true&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -562,7 +570,7 @@
 </ul>
 <h4 id="website-text">Website Text<a class="headerlink" href="#website-text" title="Permanent link"></a></h4>
 <p>Scrapes the URL given for any available plain text.</p>
-<div class="highlight"><pre><span></span><code>{{ web|url:&quot;https://yourpage.com/&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ web|url:&quot;https://yourpage.com/&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -573,10 +581,10 @@
 <li>The plain text contents of URL.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>{{ web|url:&quot;https://en.wikipedia.org/wiki/Roman&quot; }}=&gt;{{ keywords|nouns:false }}
+<div class="language-text highlight"><pre><span></span><code>{{ web|url:&quot;https://en.wikipedia.org/wiki/Roman&quot; }}=&gt;{{ keywords|nouns:false }}
 </code></pre></div>
 <p>This will extract proper nouns from the Wikipedia page for <code>Roman</code>. The result will be similar to:</p>
-<div class="highlight"><pre><span></span><code>Wikipedia, encyclopedia, Roman, Romans, român, Wiktionary, Rome, Italy Ancient Rome, BC, Rome Epistle, Testament, Christian Bible Roman, Music Romans, Sound Horizon, EP, Teen, Boy, Morning Musume Film, Film Roman, Indian Malayalam, Doctor, People Roman, Romans Ῥωμαῖοι, Rhomaioi, Greeks, Middle Ages, Ottoman, Rûm, Muslim, Bulgaria Roman Municipality Roman, Eure, France Roman, Romania Roman County, Sakha Republic, Russia Roman River, Essex, England Roman Valley, Nova Scotia, Canada Romans Romans, Ain, France Romans, Deux, Sèvres, France Romans dIsonzo, Italy Romans, sur-Isère, France Religion Roman Catholic, Roman Catholic, Nancy Grace Roman Space Telescope, Roman Space Telescope, NASA, ROMAN, Search, Wikipedia., Romans History, Greco, Romany, Gypsies, Roma, Disambiguation, Wikidata
+<div class="language-text highlight"><pre><span></span><code>Wikipedia, encyclopedia, Roman, Romans, român, Wiktionary, Rome, Italy Ancient Rome, BC, Rome Epistle, Testament, Christian Bible Roman, Music Romans, Sound Horizon, EP, Teen, Boy, Morning Musume Film, Film Roman, Indian Malayalam, Doctor, People Roman, Romans Ῥωμαῖοι, Rhomaioi, Greeks, Middle Ages, Ottoman, Rûm, Muslim, Bulgaria Roman Municipality Roman, Eure, France Roman, Romania Roman County, Sakha Republic, Russia Roman River, Essex, England Roman Valley, Nova Scotia, Canada Romans Romans, Ain, France Romans, Deux, Sèvres, France Romans dIsonzo, Italy Romans, sur-Isère, France Religion Roman Catholic, Roman Catholic, Nancy Grace Roman Space Telescope, Roman Space Telescope, NASA, ROMAN, Search, Wikipedia., Romans History, Greco, Romany, Gypsies, Roma, Disambiguation, Wikidata
 </code></pre></div>
 
           <br>

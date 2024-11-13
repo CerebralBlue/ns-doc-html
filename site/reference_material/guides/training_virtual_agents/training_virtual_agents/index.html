@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -56,17 +63,18 @@
       {title: "Uploading Curated Q/A", url: "#uploading-curated-qa", children: [
       ]},
       {title: "Importing Q/A into Watson Assistant", url: "#importing-qa-into-watson-assistant", children: [
-          {title: "Importing into Watson Assistant as Actions", url: "#importing-into-watson-assistant-as-actions" },
-          {title: "Importing into Watson Assistant as Dialogs", url: "#importing-into-watson-assistant-as-dialogs" },
+          {title: htmlDecode("Importing into Watson Assistant as Actions"), url: "#importing-into-watson-assistant-as-actions" },
+          {title: htmlDecode("Importing into Watson Assistant as Dialogs"), url: "#importing-into-watson-assistant-as-dialogs" },
       ]},
       {title: "Importing into AWS Lex", url: "#importing-into-aws-lex", children: [
-          {title: "AWS Lex Bot Merge Import", url: "#aws-lex-bot-merge-import" },
-          {title: "AWS Lex Bot Import Only", url: "#aws-lex-bot-import-only" },
+          {title: htmlDecode("AWS Lex Bot Merge Import"), url: "#aws-lex-bot-merge-import" },
+          {title: htmlDecode("AWS Lex Bot Import Only"), url: "#aws-lex-bot-import-only" },
       ]},
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -478,7 +486,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -537,7 +545,7 @@
 <li>In the instructions, you will see a link of <code>template</code> file that you can download from. It's a template file in CSV format. click it to download.</li>
 <li>Use the file to enter the list of questions. For example,</li>
 </ol>
-<div class="highlight"><pre><span></span><code>    ID,Question
+<div class="language-text highlight"><pre><span></span><code>    ID,Question
     1,&quot;What are the main features of NeuralSeek?&quot;
     2,&quot;What are the knowledgebases supported by NeuralSeek?&quot;
     3,&quot;I want to integration NeuralSeek with Watson Assistant. What do I need to do?&quot;
@@ -563,7 +571,7 @@
 </ol>
 <h2 id="uploading-curated-qa">Uploading Curated Q/A<a class="headerlink" href="#uploading-curated-qa" title="Permanent link"></a></h2>
 <p>This feature is very similar to <code>Upload Test Questions</code>, but uses the CSV format that has <code>ID,Question,Answer</code>. User can create question and answer pairs to submit it, which will then be populated as <code>edited answers</code> in NeuralSeek. This feature is useful when you need to edit and upload answers in bulk fashion. An example format of the CSV is as follows:</p>
-<div class="highlight"><pre><span></span><code>ID,Question,Answer
+<div class="language-text highlight"><pre><span></span><code>ID,Question,Answer
 1,Tell me about NeralSeek,&quot;NeuralSeek is an AI-powered platform that generates natural-language answers to complex, open-ended, and contextual questions from real customers.&quot;
 </code></pre></div>
 <h2 id="importing-qa-into-watson-assistant">Importing Q/A into Watson Assistant<a class="headerlink" href="#importing-qa-into-watson-assistant" title="Permanent link"></a></h2>

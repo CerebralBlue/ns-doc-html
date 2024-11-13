@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../../..';
   var is_top_frame = false;
     
@@ -54,7 +61,8 @@
     ];
 
 </script>
-    <script src="../../../../../js/base.js?v=2"></script>
+    <script src="../../../../../js/hl.js?v=3"></script>
+    <script src="../../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -466,7 +474,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -499,7 +507,7 @@
           <h4 id="xml-to-json">XML to JSON<a class="headerlink" href="#xml-to-json" title="Permanent link"></a></h4>
 <p>Convert an XML document into JSON format.</p>
 <p>Use this when you need JSON-formatted data but only have XML available, such as in document processing or API responses.</p>
-<div class="highlight"><pre><span></span><code>{{ XMLtoJSON }}
+<div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">XMLtoJSON</span><span class="w"> </span>}}
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Parameters</p>
@@ -516,24 +524,24 @@
 <details class="note">
 <summary>Example Usage</summary>
 <p>Here’s how to convert XML data into JSON using some sample XML:</p>
-<div class="highlight"><pre><span></span><code>&lt;library&gt;
-  &lt;book&gt;
-    &lt;title&gt;The Great Gatsby&lt;/title&gt;
-    &lt;author&gt;F. Scott Fitzgerald&lt;/author&gt;
-    &lt;year&gt;1925&lt;/year&gt;
-    &lt;genre&gt;Fiction&lt;/genre&gt;
-  &lt;/book&gt;
-  &lt;book&gt;
-    &lt;title&gt;To Kill a Mockingbird&lt;/title&gt;
-    &lt;author&gt;Harper Lee&lt;/author&gt;
-    &lt;year&gt;1960&lt;/year&gt;
-    &lt;genre&gt;Fiction&lt;/genre&gt;
-  &lt;/book&gt;
-&lt;/library&gt;=&gt;{{ XMLtoJSON }}=&gt;{{ variable | name: &quot;jsonOutput&quot; }}
-&lt;&lt; name: jsonOutput, prompt: false &gt;&gt;
+<div class="language-ntl highlight"><pre><span></span><code>&lt;<span class="n">library</span>&gt;
+<span class="w">  </span>&lt;<span class="n">book</span>&gt;
+<span class="w">    </span>&lt;<span class="n">title</span>&gt;<span class="n">The</span><span class="w"> </span><span class="n">Great</span><span class="w"> </span><span class="n">Gatsby</span>&lt;<span class="o">/</span><span class="n">title</span>&gt;
+<span class="w">    </span>&lt;<span class="n">author</span>&gt;<span class="n">F</span>.<span class="w"> </span><span class="n">Scott</span><span class="w"> </span><span class="n">Fitzgerald</span>&lt;<span class="o">/</span><span class="n">author</span>&gt;
+<span class="w">    </span>&lt;<span class="n">year</span>&gt;<span class="m">1925</span>&lt;<span class="o">/</span><span class="n">year</span>&gt;
+<span class="w">    </span>&lt;<span class="n">genre</span>&gt;<span class="n">Fiction</span>&lt;<span class="o">/</span><span class="n">genre</span>&gt;
+<span class="w">  </span>&lt;<span class="o">/</span><span class="n">book</span>&gt;
+<span class="w">  </span>&lt;<span class="n">book</span>&gt;
+<span class="w">    </span>&lt;<span class="n">title</span>&gt;<span class="n">To</span><span class="w"> </span><span class="n">Kill</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Mockingbird</span>&lt;<span class="o">/</span><span class="n">title</span>&gt;
+<span class="w">    </span>&lt;<span class="n">author</span>&gt;<span class="n">Harper</span><span class="w"> </span><span class="n">Lee</span>&lt;<span class="o">/</span><span class="n">author</span>&gt;
+<span class="w">    </span>&lt;<span class="n">year</span>&gt;<span class="m">1960</span>&lt;<span class="o">/</span><span class="n">year</span>&gt;
+<span class="w">    </span>&lt;<span class="n">genre</span>&gt;<span class="n">Fiction</span>&lt;<span class="o">/</span><span class="n">genre</span>&gt;
+<span class="w">  </span>&lt;<span class="o">/</span><span class="n">book</span>&gt;
+&lt;<span class="o">/</span><span class="n">library</span>&gt;<span class="o">=</span>&gt;{{<span class="w"> </span><span class="n">XMLtoJSON</span><span class="w"> </span>}}<span class="o">=</span>&gt;{{<span class="w"> </span><span class="n">variable</span><span class="w"> </span>|<span class="w"> </span><span class="n">name</span>:<span class="w"> </span>&quot;<span class="n">jsonOutput</span>&quot;<span class="w"> </span>}}
+&lt;&lt;<span class="w"> </span><span class="n">name</span>:<span class="w"> </span><span class="n">jsonOutput</span>,<span class="w"> </span><span class="n">prompt</span>:<span class="w"> </span><span class="n">false</span><span class="w"> </span>&gt;&gt;
 </code></pre></div>
 <p>The result will be in JSON format and can be further processed within mAIstro:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;LIBRARY&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;BOOK&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
@@ -573,7 +581,7 @@
 <h4 id="json-to-xml">JSON to XML<a class="headerlink" href="#json-to-xml" title="Permanent link"></a></h4>
 <p>Transform JSON data into XML format for use in XML-compliant systems.</p>
 <p>Use this when you need XML-formatted data but only have JSON available, such as in document processing or API responses.</p>
-<div class="highlight"><pre><span></span><code>{{ JSONtoXML }}
+<div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">JSONtoXML</span><span class="w"> </span>}}
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Parameters</p>
@@ -590,28 +598,28 @@
 <details class="note">
 <summary>Example Usage</summary>
 <p>Here’s how to convert JSON data into XML using some sample JSON:</p>
-<div class="highlight"><pre><span></span><code>{
-  &quot;library&quot;: {
-    &quot;book&quot;: [
-      {
-        &quot;title&quot;: &quot;The Great Gatsby&quot;,
-        &quot;author&quot;: &quot;F. Scott Fitzgerald&quot;,
-        &quot;year&quot;: &quot;1925&quot;,
-        &quot;genre&quot;: &quot;Fiction&quot;
-      },
-      {
-        &quot;title&quot;: &quot;To Kill a Mockingbird&quot;,
-        &quot;author&quot;: &quot;Harper Lee&quot;,
-        &quot;year&quot;: &quot;1960&quot;,
-        &quot;genre&quot;: &quot;Fiction&quot;
-      }
-    ]
-  }
-}=&gt;{{ JSONtoXML }}=&gt;{{ variable | name: &quot;xmlOutput&quot; }}
-&lt;&lt; name: xmlOutput, prompt: false &gt;&gt;
+<div class="language-ntl highlight"><pre><span></span><code>{
+<span class="w">  </span>&quot;<span class="n">library</span>&quot;:<span class="w"> </span>{
+<span class="w">    </span>&quot;<span class="n">book</span>&quot;:<span class="w"> </span>[
+<span class="w">      </span>{
+<span class="w">        </span>&quot;<span class="n">title</span>&quot;:<span class="w"> </span>&quot;<span class="n">The</span><span class="w"> </span><span class="n">Great</span><span class="w"> </span><span class="n">Gatsby</span>&quot;,
+<span class="w">        </span>&quot;<span class="n">author</span>&quot;:<span class="w"> </span>&quot;<span class="n">F</span>.<span class="w"> </span><span class="n">Scott</span><span class="w"> </span><span class="n">Fitzgerald</span>&quot;,
+<span class="w">        </span>&quot;<span class="n">year</span>&quot;:<span class="w"> </span>&quot;<span class="m">1925</span>&quot;,
+<span class="w">        </span>&quot;<span class="n">genre</span>&quot;:<span class="w"> </span>&quot;<span class="n">Fiction</span>&quot;
+<span class="w">      </span>},
+<span class="w">      </span>{
+<span class="w">        </span>&quot;<span class="n">title</span>&quot;:<span class="w"> </span>&quot;<span class="n">To</span><span class="w"> </span><span class="n">Kill</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Mockingbird</span>&quot;,
+<span class="w">        </span>&quot;<span class="n">author</span>&quot;:<span class="w"> </span>&quot;<span class="n">Harper</span><span class="w"> </span><span class="n">Lee</span>&quot;,
+<span class="w">        </span>&quot;<span class="n">year</span>&quot;:<span class="w"> </span>&quot;<span class="m">1960</span>&quot;,
+<span class="w">        </span>&quot;<span class="n">genre</span>&quot;:<span class="w"> </span>&quot;<span class="n">Fiction</span>&quot;
+<span class="w">      </span>}
+<span class="w">    </span>]
+<span class="w">  </span>}
+}<span class="o">=</span>&gt;{{<span class="w"> </span><span class="n">JSONtoXML</span><span class="w"> </span>}}<span class="o">=</span>&gt;{{<span class="w"> </span><span class="n">variable</span><span class="w"> </span>|<span class="w"> </span><span class="n">name</span>:<span class="w"> </span>&quot;<span class="n">xmlOutput</span>&quot;<span class="w"> </span>}}
+&lt;&lt;<span class="w"> </span><span class="n">name</span>:<span class="w"> </span><span class="n">xmlOutput</span>,<span class="w"> </span><span class="n">prompt</span>:<span class="w"> </span><span class="n">false</span><span class="w"> </span>&gt;&gt;
 </code></pre></div>
 <p>The resulting XML will follow the same structure as the original JSON.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
 <span class="w">  </span><span class="nt">&lt;book&gt;</span>
 <span class="w">    </span><span class="nt">&lt;title&gt;</span>The<span class="w"> </span>Great<span class="w"> </span>Gatsby<span class="nt">&lt;/title&gt;</span>
 <span class="w">    </span><span class="nt">&lt;author&gt;</span>F.<span class="w"> </span>Scott<span class="w"> </span>Fitzgerald<span class="nt">&lt;/author&gt;</span>

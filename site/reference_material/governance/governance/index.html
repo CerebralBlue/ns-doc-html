@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../..';
   var is_top_frame = false;
     
@@ -50,23 +57,24 @@
       {title: "Overview", url: "#overview", children: [
       ]},
       {title: "Seek Governance", url: "#seek-governance", children: [
-          {title: "Semantic Insights", url: "#semantic-insights" },
-          {title: "Documentation Insights", url: "#documentation-insights" },
-          {title: "Intent Insights", url: "#intent-insights" },
-          {title: "Token Insights", url: "#token-insights" },
-          {title: "Seek Logs", url: "#seek-logs" },
+          {title: htmlDecode("Semantic Insights"), url: "#semantic-insights" },
+          {title: htmlDecode("Documentation Insights"), url: "#documentation-insights" },
+          {title: htmlDecode("Intent Insights"), url: "#intent-insights" },
+          {title: htmlDecode("Token Insights"), url: "#token-insights" },
+          {title: htmlDecode("Seek Logs"), url: "#seek-logs" },
       ]},
       {title: "mAIstro Governance", url: "#maistro-governance", children: [
-          {title: "Flow Insights", url: "#flow-insights" },
-          {title: "Token Insights", url: "#token-insights_1" },
+          {title: htmlDecode("Flow Insights"), url: "#flow-insights" },
+          {title: htmlDecode("Token Insights"), url: "#token-insights_1" },
       ]},
       {title: "System Governance", url: "#system-governance", children: [
-          {title: "System Performance", url: "#system-performance" },
+          {title: htmlDecode("System Performance"), url: "#system-performance" },
       ]},
     ];
 
 </script>
-    <script src="../../../js/base.js?v=2"></script>
+    <script src="../../../js/hl.js?v=3"></script>
+    <script src="../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -478,7 +486,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 

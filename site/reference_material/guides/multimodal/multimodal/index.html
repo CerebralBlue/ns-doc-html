@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -54,7 +61,8 @@
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -466,7 +474,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -508,16 +516,16 @@
 <h2 id="steps-to-process-an-image">Steps to Process an Image<a class="headerlink" href="#steps-to-process-an-image" title="Permanent link"></a></h2>
 <p>Next, switch to the Maistro tab to upload an image. Use the left side pane to search for "Upload data" and then select "Upload a File" under that section. </p>
 <p>After selecting the local file, a local document node will be created. You can use the "Local Document" button to access a dropdown menu that shows all your locally uploaded files, and select the image you uploaded as your choice.</p>
-<div class="highlight"><pre><span></span><code>    &lt;&lt; name: img, prompt: true, desc: Enter image file name &gt;&gt;
+<div class="language-text highlight"><pre><span></span><code>    &lt;&lt; name: img, prompt: true, desc: Enter image file name &gt;&gt;
 </code></pre></div>
 <p><a class="glightbox" href="../images/localdocument.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Local document node" src="../images/localdocument.png" /></a></p>
 <p>If you plan to use this image for different purposes, it’s best to set it as a variable. Add a set variable node to the right of the local document node and give the variable a descriptive name. </p>
 <p><a class="glightbox" href="../images/setvariablenode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Local document node" src="../images/setvariablenode.png" /></a></p>
 <p>Below these nodes, add a send to LLM node. For the prompt, you can use:</p>
-<div class="highlight"><pre><span></span><code>What is this a picture of?
+<div class="language-text highlight"><pre><span></span><code>What is this a picture of?
 </code></pre></div>
 <p>For the image, reference the variable you defined earlier:</p>
-<div class="highlight"><pre><span></span><code>  &lt;&lt; name: img, prompt:false &gt;&gt;
+<div class="language-text highlight"><pre><span></span><code>  &lt;&lt; name: img, prompt:false &gt;&gt;
 </code></pre></div>
 <p>And the node should be end up like this:</p>
 <p><a class="glightbox" href="../images/sendtollmnode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Complete template" src="../images/sendtollmnode.png" /></a></p>

@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -58,7 +65,8 @@
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -470,7 +478,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -502,22 +510,22 @@
           
           <h4 id="current-date">Current Date<a class="headerlink" href="#current-date" title="Permanent link"></a></h4>
 <p>Returns the current <strong>UTC</strong> date in <code>YYYY-MM-DD</code> format. Also sets the <code>sys_Date</code> variable globally.</p>
-<div class="highlight"><pre><span></span><code>{{ date }}
+<div class="language-text highlight"><pre><span></span><code>{{ date }}
 </code></pre></div>
 <p><strong>Example output:</strong> <code>2024-2-16</code></p>
 <h4 id="current-time">Current Time<a class="headerlink" href="#current-time" title="Permanent link"></a></h4>
 <p>Returns the current <strong>UTC</strong> time in <code>HH:MM:SS</code> format. Also sets the <code>sys_Time</code> variable globally.</p>
-<div class="highlight"><pre><span></span><code>{{ time }}
+<div class="language-text highlight"><pre><span></span><code>{{ time }}
 </code></pre></div>
 <p><strong>Example output:</strong> <code>1:16:42</code></p>
 <h4 id="generate-uuid">Generate UUID<a class="headerlink" href="#generate-uuid" title="Permanent link"></a></h4>
 <p>Returns a randomly generated UUID. Also sets the <code>sys_UUID</code> variable globally.</p>
-<div class="highlight"><pre><span></span><code>{{ uuid }}
+<div class="language-text highlight"><pre><span></span><code>{{ uuid }}
 </code></pre></div>
 <p><strong>Example output:</strong> <code>c4c6fc20-12212aea-9129f14b-5de16d39</code></p>
 <h4 id="random-number">Random Number<a class="headerlink" href="#random-number" title="Permanent link"></a></h4>
 <p>Returns a randomly generated number. Also sets the <code>sys_Random</code> variable globally.</p>
-<div class="highlight"><pre><span></span><code>{{ random }}
+<div class="language-text highlight"><pre><span></span><code>{{ random }}
 </code></pre></div>
 <p><strong>Example output:</strong> <code>0.6449217301057322</code></p>
 

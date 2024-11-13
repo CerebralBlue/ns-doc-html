@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/dynamic%20filters/dynamic_filters/">
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/dynamic_filters/dynamic_filters/">
     <link rel="shortcut icon" href="../../../img/ns-white.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../..';
   var is_top_frame = false;
     
@@ -50,31 +57,32 @@
       {title: "Overview", url: "#overview", children: [
       ]},
       {title: "Setting up Dynamic Filters", url: "#setting-up-dynamic-filters", children: [
-          {title: "Applying filters in Seek", url: "#applying-filters-in-seek" },
-          {title: "Applying filters in mAIstro", url: "#applying-filters-in-maistro" },
-          {title: "Applying filters via the API", url: "#applying-filters-via-the-api" },
+          {title: htmlDecode("Applying filters in Seek"), url: "#applying-filters-in-seek" },
+          {title: htmlDecode("Applying filters in mAIstro"), url: "#applying-filters-in-maistro" },
+          {title: htmlDecode("Applying filters via the API"), url: "#applying-filters-via-the-api" },
       ]},
       {title: "Query Filtering Examples", url: "#query-filtering-examples", children: [
       ]},
       {title: "Operator reference", url: "#operator-reference", children: [
-          {title: "Delimiter . (JSON hierarchy delimiter)", url: "#delimiter-json-hierarchy-delimiter" },
-          {title: "Includes :", url: "#includes" },
-          {title: "Phrase Query \"\"", url: "#phrase-query" },
-          {title: "Exact Match ::", url: "#exact-match" },
-          {title: "Does Not Include :!", url: "#does-not-include" },
-          {title: "Not an Exact Match ::!", url: "#not-an-exact-match" },
-          {title: "Nested Grouping ()", url: "#nested-grouping" },
-          {title: "OR |", url: "#or" },
-          {title: "AND ,", url: "#and" },
-          {title: "Numerical and Date Comparisons \u0026gt;, \u0026lt;, \u0026gt;=, \u0026lt;=", url: "#numerical-and-date-comparisons" },
-          {title: "Field Exists :*", url: "#field-exists" },
-          {title: "Field Does Not Exist :*!", url: "#field-does-not-exist" },
-          {title: "Wildcard Operator :*", url: "#wildcard-operator" },
+          {title: htmlDecode("Delimiter . (JSON hierarchy delimiter)"), url: "#delimiter-json-hierarchy-delimiter" },
+          {title: htmlDecode("Includes :"), url: "#includes" },
+          {title: htmlDecode("Phrase Query \"\""), url: "#phrase-query" },
+          {title: htmlDecode("Exact Match ::"), url: "#exact-match" },
+          {title: htmlDecode("Does Not Include :!"), url: "#does-not-include" },
+          {title: htmlDecode("Not an Exact Match ::!"), url: "#not-an-exact-match" },
+          {title: htmlDecode("Nested Grouping ()"), url: "#nested-grouping" },
+          {title: htmlDecode("OR |"), url: "#or" },
+          {title: htmlDecode("AND ,"), url: "#and" },
+          {title: htmlDecode("Numerical and Date Comparisons \u0026gt;, \u0026lt;, \u0026gt;=, \u0026lt;="), url: "#numerical-and-date-comparisons" },
+          {title: htmlDecode("Field Exists :*"), url: "#field-exists" },
+          {title: htmlDecode("Field Does Not Exist :*!"), url: "#field-does-not-exist" },
+          {title: htmlDecode("Wildcard Operator :*"), url: "#wildcard-operator" },
       ]},
     ];
 
 </script>
-    <script src="../../../js/base.js?v=2"></script>
+    <script src="../../../js/hl.js?v=3"></script>
+    <script src="../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -129,7 +137,7 @@
         
           <li class="wm-select__item">
             
-              <a href="/reference_material/dynamic%20filters/dynamic_filters/" hreflang="English" class="wm-select__link">
+              <a href="/reference_material/dynamic_filters/dynamic_filters/" hreflang="English" class="wm-select__link">
               English
             </a>
           </li>
@@ -486,7 +494,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1  wm-current "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1  wm-current "><a href="../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -572,7 +580,7 @@
 <p><a class="glightbox" href="../images/api_filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="api filter" src="../images/api_filter.png" /></a></p>
 <h2 id="query-filtering-examples">Query Filtering Examples<a class="headerlink" href="#query-filtering-examples" title="Permanent link"></a></h2>
 <p>Here are some examples of how to filter the KnowledgeBase in NeuralSeek using dynamic filters, given this example document that we want to highlight using filters:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><span class="filename">bubble_sort.py</span><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;document_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;doc_001&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;section_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Overview&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -586,17 +594,17 @@
 <ul>
 <li><strong>Exact Match Filter</strong>: To retrieve only documents that are exactly matched with the term <code>"Overview"</code>, apply the filter as follows. This will return documents related to 'neuralseek use cases' with "Overview" specifically in the <code>section_name</code> property.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>section_name::&quot;Overview&quot;
+<div class="language-text highlight"><pre><span></span><code>section_name::&quot;Overview&quot;
 </code></pre></div>
 <ul>
 <li><strong>Delimiter and Date Comparison Filter</strong>: To retrieve only documents that are greater or equal <code>"2023-01-01"</code>, apply the filter as follows. This will return documents in that range specifically in the <code>content.date_created</code> property.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>content.date_created &gt;= &quot;2023-01-01&quot;
+<div class="language-text highlight"><pre><span></span><code>content.date_created &gt;= &quot;2023-01-01&quot;
 </code></pre></div>
 <ul>
 <li><strong>Wildcard Filter</strong>: To retrieve documents where the <code>title</code> within <code>content</code> begins with "neu" and is followed by any characters, use the wildcard filter as shown below. This filter will return all documents with a <code>content.title</code> that starts with "neu" (e.g., "NeuralSeek," "neurobiology").</li>
 </ul>
-<div class="highlight"><pre><span></span><code>content.title:neu*
+<div class="language-text highlight"><pre><span></span><code>content.title:neu*
 </code></pre></div>
 <h2 id="operator-reference">Operator reference<a class="headerlink" href="#operator-reference" title="Permanent link"></a></h2>
 <h3 id="delimiter-json-hierarchy-delimiter">Delimiter <code>.</code> (JSON hierarchy delimiter)<a class="headerlink" href="#delimiter-json-hierarchy-delimiter" title="Permanent link"></a></h3>

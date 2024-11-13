@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -56,14 +63,15 @@
       {title: "Seek With a Virtual KB", url: "#seek-with-a-virtual-kb", children: [
       ]},
       {title: "Expanding Your KnowledgeBase", url: "#expanding-your-knowledgebase", children: [
-          {title: "Building a Flow", url: "#building-a-flow" },
-          {title: "Configuring a Virtual KB", url: "#configuring-a-virtual-kb" },
-          {title: "Seek with a Virtual KB", url: "#seek-with-a-virtual-kb_1" },
+          {title: htmlDecode("Building a Flow"), url: "#building-a-flow" },
+          {title: htmlDecode("Configuring a Virtual KB"), url: "#configuring-a-virtual-kb" },
+          {title: htmlDecode("Seek with a Virtual KB"), url: "#seek-with-a-virtual-kb_1" },
       ]},
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -475,7 +483,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -527,7 +535,7 @@
 <a class="glightbox" href="../images/virtualKB_selectVirtualKBtemplate.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/virtualKB_selectVirtualKBtemplate.png" /></a></p>
 <p>This flow utilizes the <strong>Virtual In</strong> and <strong>Virtual Out</strong> nodes, located underneath RAG Tools on the sidebar menu. It passes a DuckDuckGo Search connector and a Rest API connector with a Wikipedia URL to the Large Language Model for answer generation within the Seek tab. We are now able to utilize the World Wide Web as a knowledge source for answer generation.</p>
 <p><a class="glightbox" href="../images/virtualKB_mAIstroVisual.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/virtualKB_mAIstroVisual.png" /></a></p>
-<div class="highlight"><pre><span></span><code>{{ virtualKbIn  }}
+<div class="language-text highlight"><pre><span></span><code>{{ virtualKbIn  }}
 {{ duckSearch  | query: &quot;&lt;&lt; name: virtualKbIn.contextQuery&gt;&gt;&quot; }}=&gt;{{ variable  | name: &quot;parallelDuckRaw&quot; }}
 {{ post  | url: &quot;https://en.wikipedia.org/w/api.php?action=query&amp;format=json&amp;list=search&amp;srsearch=&lt;&lt; name: virtualKbIn.contextQuery, prompt: true &gt;&gt;&quot; | body: &quot;&quot; | headers: &quot;&quot; | username: &quot;&quot; | password: &quot;&quot; | apikey: &quot;&quot; | operation: &quot;POST&quot; | jsonToVars: &quot;true&quot; }}=&gt;{{ varsToJSON  | path: &quot;query.search&quot; | variable: &quot;s1&quot; | includePath: &quot;false&quot; | output: &quot;true&quot; }}=&gt;{{ arrayFilter  | filter: &quot;0-3&quot; | filterType: &quot;IndexRange&quot; }}=&gt;{{ reMapJSON  | match: &quot;title&quot; | replace: &quot;document&quot; }}=&gt;{{ reMapJSON  | match: &quot;snippet&quot; | replace: &quot;passage&quot; }}=&gt;{{ regex  | match: &quot;/(\&quot;document\&quot;:\&quot;)([^\&quot;]+)/g&quot; | replace: &quot;$1$2\&quot;,\&quot;url\&quot;:\&quot;https://en.wikipedia.org/wiki/$2&quot; | group: &quot;&quot; }}=&gt;{{ regex  | match: &quot;/^\[/&quot; | replace: &quot;&quot; | group: &quot;&quot; }}=&gt;{{ regex  | match: &quot;/&lt;\/?span.*?&gt;/g&quot; | replace: &quot;&quot; | group: &quot;&quot; }}=&gt;{{ variable  | name: &quot;wikipedia&quot; }}
 &lt;&lt; name: parallelDuckRaw, prompt: false &gt;&gt;=&gt;{{ jsonEscape  }}=&gt;{{ variable  | name: &quot;duck&quot; }}=&gt;
@@ -602,7 +610,7 @@
 <p><a class="glightbox" href="../images/virtualKB_addKBout.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/virtualKB_addKBout.png" /></a>
 <a class="glightbox" href="../images/virtualKB_finalBuild.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/virtualKB_finalBuild.png" /></a>
 <a class="glightbox" href="../images/virtualKB_saveNewFlow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/virtualKB_saveNewFlow.png" /></a></p>
-<div class="highlight"><pre><span></span><code>{{ virtualKbIn  }}
+<div class="language-text highlight"><pre><span></span><code>{{ virtualKbIn  }}
 {{ web  | url: &quot;https://www.google.com/search?gfns=1&amp;q=&lt;&lt; name: virtualKbIn.contextQuery&gt;&gt;&quot; }}=&gt;{{ variable  | name: &quot;google&quot; }}
 {{ web  | url: &quot;https://documentation.neuralseek.com/&quot; }}=&gt;{{ variable  | name: &quot;docs&quot; }}
 {{ virtualKbOut  | context: &quot;&lt;&lt; name: google &gt;&gt;\n&lt;&lt; name: docs &gt;&gt;&quot; | kbCoverage: 0 | kbScore: 0 | url: &quot;&quot; | document: &quot;Virtual KB&quot; }}

@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -56,7 +63,8 @@
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -468,7 +476,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -544,7 +552,7 @@
 <li>Navigating to the 'Integrate' tab within NeuralSeek's interface. There we will be using the 'API' menu item.</li>
 <li>Send a request to the <code>/seek</code> endpoint. The <code>lastTurn</code> field should be an empty structure, since there is no prior context to reference. For example:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;How NeuralSeek can help businesses in different industries with Gen AI?&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;lastTurn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -557,7 +565,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>The answer will look like the one below. We should keep this <code>answer</code> value and the current user question for our next request.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek can help your business harness the power of generative AI. Our no-code platform connects to large language models and your company&#39;s data, making it much easier to deploy AI-powered solutions like virtual agents, content gen eration, and more. With NeuralSeek, you can create an AI agent, connect it to your knowledge base, and quickly generate intents and responses to automate customer support and share information with employees. This can enhance customer experiences and boost internal productivity across various functions. NeuralSeek is especially valuable for Fortune 500 companies looking to streamline their operations with AI. We&#39;ve already partnered with multiple Fortune 500 businesses to help them rapidly implement AI without the typical complexity. I&#39;d encourage you to explore some of these resources to learn more about how NeuralSeek can drive results in your industry: - Understanding NeuralSeek and Its Business Applications: https://ceoweekly.com/neuralseek-wh y-businesses-need-more-than-gen-ai-chatbots/ - NeuralSeek: The Future of AI Integration for Fortune 500 Companies: https://11mr eporter.com/posts/neuralseek-the-future-of-ai-integration-for-fortune-500-companies/&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -565,7 +573,7 @@
 <li>Send a second request. The <code>lastTurn</code> field should contain now the input (the previous question) and the corresponding response from NeuralSeek. This enables the API to consider the prior exchange and provide a more context-aware answer.</li>
 </ol>
 <p>Example of a follow-up request with context:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;What about a pharmaceutical business?&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;lastTurn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -578,7 +586,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>In this follow-up request, the <code>lastTurn</code> provides context by including the previous question about generative AI and its response. This helps NeuralSeek better understand and address the new question about the pharmaceutical business in light of the prior exchange.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The pharmaceutical industry is a complex and highly regulated sector that discovers, develops, produces, and markets drugs for use as medications to be administered to patie nts. It&#39;s one of the fastest-growing economic sectors worldwide with sales exceeding $1 trillion, as a pharmaceutical business, you likely face challenges around drug development, clinical trials, regulatory compliance, patents, and commercialization. Utilizing AI and analytics at scale could help accelerate innovation and time-to-market for new therapies. NeuralSeek&#39;s no-code AI platform could enable your pharmaceutical company to:  - Automate customer support and medical information sharing - Generate content like scientific publications and regulatory documents - Streamline drug discovery and clinical trial processes - Personalize HCP and patient engagement  - Optimize supply chain and manufacturing operations. By connecting NeuralSeek to your company&#39;s proprietary data and systems, you can rapidly deploy AI solutions tailored to your specific needs and workflows as a pharma business. This can drive efficiencies, reduce costs, and ultimately help bring life-saving treatments to patients faster. I&#39;d suggest checking out these resources to dive deeper into AI use cases fo r_pharma:  - The future of the pharmaceutical industry: https://www2.deloitte.com/us/en/insights/industry/health-care/future-of-pharmaceutical-industry.html - Pharma trends 2824: Sha ping the future landscape: https://www.zs.com/insights/trends-shaping-pharmaceutical-landscape-2824-and-beyond Let me know if you have any other questions!&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>

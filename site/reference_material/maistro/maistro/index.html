@@ -39,39 +39,47 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../..';
   var is_top_frame = false;
     
     var pageToc = [
       {title: "Overview", url: "#overview", children: [
-          {title: "Visual Editor", url: "#visual-editor" },
-          {title: "NTL Editor", url: "#ntl-editor" },
-          {title: "mAIstro Inspector", url: "#maistro-inspector" },
+          {title: htmlDecode("Visual Editor"), url: "#visual-editor" },
+          {title: htmlDecode("NTL Editor"), url: "#ntl-editor" },
+          {title: htmlDecode("mAIstro Inspector"), url: "#maistro-inspector" },
       ]},
       {title: "Quick start with auto-builder", url: "#quick-start-with-auto-builder", children: [
       ]},
       {title: "Understanding the Visual Editor", url: "#understanding-the-visual-editor", children: [
-          {title: "Click to insert", url: "#click-to-insert" },
-          {title: "Click to edit", url: "#click-to-edit" },
-          {title: "Deleting a node", url: "#deleting-a-node" },
-          {title: "Hover Menus", url: "#hover-menus" },
-          {title: "Stacking elements", url: "#stacking-elements" },
-          {title: "Chaining elements", url: "#chaining-elements" },
-          {title: "Evaluating", url: "#evaluating" },
-          {title: "Saving as user template", url: "#saving-as-user-template" },
-          {title: "Loading the template", url: "#loading-the-template" },
-          {title: "Output Formats", url: "#output-formats" },
+          {title: htmlDecode("Click to insert"), url: "#click-to-insert" },
+          {title: htmlDecode("Click to edit"), url: "#click-to-edit" },
+          {title: htmlDecode("Deleting a node"), url: "#deleting-a-node" },
+          {title: htmlDecode("Hover Menus"), url: "#hover-menus" },
+          {title: htmlDecode("Stacking elements"), url: "#stacking-elements" },
+          {title: htmlDecode("Chaining elements"), url: "#chaining-elements" },
+          {title: htmlDecode("Evaluating"), url: "#evaluating" },
+          {title: htmlDecode("Saving as user template"), url: "#saving-as-user-template" },
+          {title: htmlDecode("Loading the template"), url: "#loading-the-template" },
+          {title: htmlDecode("Output Formats"), url: "#output-formats" },
       ]},
       {title: "Automagic Parallel Execution", url: "#automagic-parallel-execution", children: [
       ]},
     ];
 
 </script>
-    <script src="../../../js/base.js?v=2"></script>
+    <script src="../../../js/hl.js?v=3"></script>
+    <script src="../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -483,7 +491,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 

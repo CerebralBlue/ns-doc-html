@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -56,7 +63,8 @@
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -468,7 +476,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -500,9 +508,9 @@
           
           <h4 id="send-to-llm">Send to LLM<a class="headerlink" href="#send-to-llm" title="Permanent link"></a></h4>
 <p>Send to LLM may be the most frequently used function in NTL. This function sends all previous post-chain content to the LLM for processing.</p>
-<div class="highlight"><pre><span></span><code>{{ LLM }}
-{{ LLM | prompt: &quot;&quot; }}
-{{ LLM | prompt: &quot;&quot; | modelCard: &quot;&quot; | maxTokens: &quot;&quot; | minTokens: &quot;&quot; | temperatureMod: &quot;&quot; | toppMod: &quot;&quot; | freqpenaltyMod: &quot;&quot; }}
+<div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">LLM</span><span class="w"> </span>}}
+{{<span class="w"> </span><span class="n">LLM</span><span class="w"> </span>|<span class="w"> </span><span class="n">prompt</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>}}
+{{<span class="w"> </span><span class="n">LLM</span><span class="w"> </span>|<span class="w"> </span><span class="n">prompt</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">modelCard</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">maxTokens</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">minTokens</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">temperatureMod</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">toppMod</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">freqpenaltyMod</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>}}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -519,24 +527,24 @@
 <li>The textual generated output/response of the LLM.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>Write a short poem about NeuralSeek
-Here is the definition of NeuralSeek:
-{{ web|url:&quot;https://documentation.neuralseek.com/&quot; }}=&gt;{{ summarize|length:200 }}
-{{ LLM }}
+<div class="language-ntl highlight"><pre><span></span><code><span class="n">Write</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">poem</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">NeuralSeek</span>
+<span class="n">Here</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">definition</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">NeuralSeek</span>:
+{{<span class="w"> </span><span class="n">web</span>|<span class="n">url</span>:&quot;<span class="n">https</span>:<span class="o">//</span><span class="n">documentation</span>.<span class="n">neuralseek</span>.<span class="n">com</span><span class="o">/</span>&quot;<span class="w"> </span>}}<span class="o">=</span>&gt;{{<span class="w"> </span><span class="n">summarize</span>|<span class="n">length</span>:<span class="m">200</span><span class="w"> </span>}}
+{{<span class="w"> </span><span class="n">LLM</span><span class="w"> </span>}}
 </code></pre></div>
 <p>This will write a short poem about NeuralSeek, based on the content retrieved from our documentation. </p>
 <p>In the LLM syntax, you can add additional prompts such as:</p>
-<div class="highlight"><pre><span></span><code>Write a short poem about NeuralSeek
-Here is the definition of NeuralSeek:
-{{ web|url:&quot;https://documentation.neuralseek.com/&quot; }}=&gt;{{ summarize|length:200 }}
-{{ LLM|prompt: &quot;write in Spanish&quot; }}
+<div class="language-ntl highlight"><pre><span></span><code><span class="n">Write</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">poem</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">NeuralSeek</span>
+<span class="n">Here</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">definition</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">NeuralSeek</span>:
+{{<span class="w"> </span><span class="n">web</span>|<span class="n">url</span>:&quot;<span class="n">https</span>:<span class="o">//</span><span class="n">documentation</span>.<span class="n">neuralseek</span>.<span class="n">com</span><span class="o">/</span>&quot;<span class="w"> </span>}}<span class="o">=</span>&gt;{{<span class="w"> </span><span class="n">summarize</span>|<span class="n">length</span>:<span class="m">200</span><span class="w"> </span>}}
+{{<span class="w"> </span><span class="n">LLM</span>|<span class="n">prompt</span>:<span class="w"> </span>&quot;<span class="n">write</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Spanish</span>&quot;<span class="w"> </span>}}
 </code></pre></div>
 <p>This will prepend "write in Spanish" to the whole prompt given to the LLM, outputting a poem in Spanish.</p>
 <h4 id="table-understanding">Table Understanding<a class="headerlink" href="#table-understanding" title="Permanent link"></a></h4>
 <p>This function allows for natural language Q/A against csv/xlsx files.</p>
 <p>You start by uploading a spreadsheet, either an Excel or CSV file. Then, you are able to generate insightful responses about the source data by providing queries in natural language. </p>
 <p>NeuralSeek undertakes a comprehensive examination of the provided data to output an accurate response. At the bottom of the screen, NeuralSeek provides a confidence percentage, accompanied by a statement of confidence, for example: "Table Understanding reports a confidence level of %". This percentage is based on how much the system trusts the answer it gave you based on what it found in the data. </p>
-<div class="highlight"><pre><span></span><code>{{ TableUnderstanding|query:&quot;What year had the highest revenue?&quot; }}
+<div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">TableUnderstanding</span>|<span class="n">query</span>:&quot;<span class="n">What</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="n">had</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">highest</span><span class="w"> </span><span class="n">revenue</span>?&quot;<span class="w"> </span>}}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -550,7 +558,7 @@ Here is the definition of NeuralSeek:
 <p><a class="glightbox" href="../images/explore_feature_tableunderstanding1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="explore_feature_tableunderstanding1" src="../images/explore_feature_tableunderstanding1.png" /></a>
 <a class="glightbox" href="../images/explore_feature_tableunderstanding2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="explore_feature_tableunderstanding2" src="../images/explore_feature_tableunderstanding2.png" /></a></p>
 <h4 id="mathematical-equation">Mathematical Equation<a class="headerlink" href="#mathematical-equation" title="Permanent link"></a></h4>
-<div class="highlight"><pre><span></span><code>{{ math|equation:&quot;1 + 1&quot; }}
+<div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">math</span>|<span class="n">equation</span>:&quot;<span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>&quot;<span class="w"> </span>}}
 </code></pre></div>
 <p>Performs mathematical equation on input strings.</p>
 <p>It allows parsing of complex mathematical expressions, supporting a wide range of mathematical computations, from simple math and operators to trigonometric functions, logarithms, and more. The parser handles nested expressions and variables. Overall, it simplifies mathematical computations with LLMs.</p>

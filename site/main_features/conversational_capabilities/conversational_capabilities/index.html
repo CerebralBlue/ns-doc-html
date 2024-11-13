@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../..';
   var is_top_frame = false;
     
@@ -50,23 +57,24 @@
       {title: "Conversational Context", url: "#conversational-context", children: [
       ]},
       {title: "Curation of Answers", url: "#curation-of-answers", children: [
-          {title: "Curating Intents and Answers", url: "#curating-intents-and-answers" },
-          {title: "Searching the intent", url: "#searching-the-intent" },
-          {title: "Filtering the intent", url: "#filtering-the-intent" },
-          {title: "Editing the Answer", url: "#editing-the-answer" },
-          {title: "Deleting Questions and Answers", url: "#deleting-questions-and-answers" },
+          {title: htmlDecode("Curating Intents and Answers"), url: "#curating-intents-and-answers" },
+          {title: htmlDecode("Searching the intent"), url: "#searching-the-intent" },
+          {title: htmlDecode("Filtering the intent"), url: "#filtering-the-intent" },
+          {title: htmlDecode("Editing the Answer"), url: "#editing-the-answer" },
+          {title: htmlDecode("Deleting Questions and Answers"), url: "#deleting-questions-and-answers" },
       ]},
       {title: "Dynamic Personalization", url: "#dynamic-personalization", children: [
       ]},
       {title: "Entity Extraction", url: "#entity-extraction", children: [
-          {title: "Entity Extraction From Conversation", url: "#entity-extraction-from-conversation" },
-          {title: "Custom Entities", url: "#custom-entities" },
-          {title: "Entity Extraction REST API", url: "#entity-extraction-rest-api" },
+          {title: htmlDecode("Entity Extraction From Conversation"), url: "#entity-extraction-from-conversation" },
+          {title: htmlDecode("Custom Entities"), url: "#custom-entities" },
+          {title: htmlDecode("Entity Extraction REST API"), url: "#entity-extraction-rest-api" },
       ]},
     ];
 
 </script>
-    <script src="../../../js/base.js?v=2"></script>
+    <script src="../../../js/hl.js?v=3"></script>
+    <script src="../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -478,7 +486,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 

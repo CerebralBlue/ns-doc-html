@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../..';
   var is_top_frame = false;
     
@@ -74,7 +81,8 @@
     ];
 
 </script>
-    <script src="../../../../js/base.js?v=2"></script>
+    <script src="../../../../js/hl.js?v=3"></script>
+    <script src="../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -486,7 +494,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -594,7 +602,7 @@
 <li>Run this command to install the Eland Python client with PyTorch: <code>python -m pip install 'eland[pytorch]'</code></li>
 <li>Run this script to download the model from Hugging Face, convert it to TorchScript format, and upload to the Elasticsearch cluster:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    eland_import_hub_model
+<div class="language-text highlight"><pre><span></span><code>    eland_import_hub_model
     --cloud-id &lt;cloud-id&gt; \
     -u &lt;username&gt; -p &lt;password&gt; \
     --hub-model-id elastic
@@ -623,7 +631,7 @@
 <li>Delete any code that appears.</li>
 <li>To create the source index, enter the following code:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    PUT /search-gs-docs-src
+<div class="language-text highlight"><pre><span></span><code>    PUT /search-gs-docs-src
     {
     &quot;mappings&quot;: {
         &quot;properties&quot;: {
@@ -650,7 +658,7 @@
 <li>Hit the <strong>run</strong> icon.</li>
 <li>Prepare the data for bulk ingestion by manually converting the data and using the dev console to load it by entering the following code:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    POST _bulk
+<div class="language-text highlight"><pre><span></span><code>    POST _bulk
     { &quot;index&quot; : { &quot;_index&quot; : &quot;search-gs-docs-src&quot;, &quot;_id&quot; : &quot;1&quot; } }
     { &quot;title&quot; : &quot;Top 3 Best Practices to Secure Your Gainsight PX Subscription&quot;,
     &quot;content&quot; : &quot;We should all protect what has been entrusted…”,
@@ -675,7 +683,7 @@
 <ul>
 <li>Enter the following code to utilize the client helper function to create the index and load the data:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    &#39;use strict&#39;
+<div class="language-text highlight"><pre><span></span><code>    &#39;use strict&#39;
 
     require(&#39;array.prototype.flatmap&#39;).shim()
     const { Client } = require(&#39;@elastic/elasticsearch&#39;)
@@ -757,7 +765,7 @@
 <ul>
 <li>Enter the following code, then hit the <strong>run</strong> icon.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    PUT /search-gs-docs-dest
+<div class="language-text highlight"><pre><span></span><code>    PUT /search-gs-docs-dest
     {
     &quot;mappings&quot;: {
         &quot;properties&quot;: {
@@ -787,7 +795,7 @@
 <ul>
 <li>Create an ingest pipeline with an inference processor. Enter the following code:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    PUT _ingest/pipeline/my-content-embedding-pipeline
+<div class="language-text highlight"><pre><span></span><code>    PUT _ingest/pipeline/my-content-embedding-pipeline
     {
     &quot;processors&quot;: [
         {
@@ -812,7 +820,7 @@
 <p>Ingest the data through the inference index pipeline to create the text embeddings. Enter the following code into the dev console:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>    POST _reindex?wait_for_completion=false
+<div class="language-text highlight"><pre><span></span><code>    POST _reindex?wait_for_completion=false
     {
     &quot;source&quot;: {
         &quot;index&quot;: &quot;search-gs-docs-src&quot;,
@@ -847,7 +855,7 @@
 <ul>
 <li>
 <p>Enter the following code into the dev console to create an index mapping that defines field containing the model output. 
-<div class="highlight"><pre><span></span><code>    PUT my-index
+<div class="language-text highlight"><pre><span></span><code>    PUT my-index
     {
     &quot;mappings&quot;: {
         &quot;properties&quot;: {
@@ -878,7 +886,7 @@
 <ul>
 <li>Enter the following code into the dev console:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>        GET search-gs-docs-dest/_search
+<div class="language-text highlight"><pre><span></span><code>        GET search-gs-docs-dest/_search
     {
     &quot;query&quot;:{
         &quot;text_expansion&quot;:{
@@ -900,7 +908,7 @@
 <ul>
 <li>Enter the following code into the dev console:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    GET my-index/_search
+<div class="language-text highlight"><pre><span></span><code>    GET my-index/_search
     {
     &quot;knn&quot;: {
         &quot;field&quot;: &quot;my_embeddings.predicted_value&quot;,
@@ -952,7 +960,7 @@
 <div class="admonition warning">
 <p class="admonition-title">If using 'IBM Databases for ElasticSearch'</p>
 <p>With Hybrid search, the KnnScoreDocQuery was created by a different reader. To fix this, enter the following code into the Kibana dev console:
-<div class="highlight"><pre><span></span><code>    PUT /&lt;INDEX_NAME&gt;/_settings
+<div class="language-text highlight"><pre><span></span><code>    PUT /&lt;INDEX_NAME&gt;/_settings
     {
         &quot;index&quot; : {
             &quot;highlight.weight_matches_mode.enabled&quot; : &quot;false&quot;

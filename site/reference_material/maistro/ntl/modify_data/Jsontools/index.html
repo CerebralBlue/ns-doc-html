@@ -39,10 +39,17 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../../../..';
   var is_top_frame = false;
     
@@ -64,7 +71,8 @@
     ];
 
 </script>
-    <script src="../../../../../js/base.js?v=2"></script>
+    <script src="../../../../../js/hl.js?v=3"></script>
+    <script src="../../../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -476,7 +484,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -508,7 +516,7 @@
           
           <h4 id="json-tools">JSON Tools<a class="headerlink" href="#json-tools" title="Permanent link"></a></h4>
 <p>Cleanse and filter JSON for later use.</p>
-<div class="highlight"><pre><span></span><code>{{ jsonTools  | filter: &quot;value&quot; | filterType: &quot;&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ jsonTools  | filter: &quot;value&quot; | filterType: &quot;&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong> </p>
 <ul>
@@ -517,7 +525,7 @@
 </ul>
 <p><strong>Returns:</strong> The resulting JSON.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="nt">&quot;books&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w"> </span><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby&quot;</span><span class="p">,</span>
@@ -529,7 +537,7 @@
 <span class="p">{{</span><span class="w"> </span><span class="err">jso</span><span class="kc">n</span><span class="err">Tools</span><span class="w"> </span><span class="err"> |</span><span class="w"> </span><span class="kc">f</span><span class="err">il</span><span class="kc">ter</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="kc">f</span><span class="err">il</span><span class="kc">ter</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Equals&quot;</span><span class="w"> </span><span class="p">}}</span>
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="nt">&quot;books&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w"> </span><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby&quot;</span>
@@ -538,7 +546,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>Where setting <code>filterType</code> to <code>Not Equals</code> would yield:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="nt">&quot;books&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w"> </span><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby is a novel by F. Scott Fitzgerald that follows the story of Jay Gatsby, a wealthy and mysterious man, and his pursuit of the American Dream. Set in the 1920s, the book explores themes of love, wealth, and the corruption of the American Dream.&quot;</span><span class="p">,</span>
@@ -549,7 +557,7 @@
 </code></pre></div>
 <h4 id="remap-json">ReMap JSON<a class="headerlink" href="#remap-json" title="Permanent link"></a></h4>
 <p>Remap elements in a JSON object from one key name to another.</p>
-<div class="highlight"><pre><span></span><code>{{ reMapJSON  | match: &quot;&quot; | replace: &quot;&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ reMapJSON  | match: &quot;&quot; | replace: &quot;&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -558,7 +566,7 @@
 </ul>
 <p><strong>Returns:</strong> Changes the key name of a variable to the name used in the Replace parameter.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="nt">&quot;books&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w"> </span><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby&quot;</span><span class="p">,</span>
@@ -570,7 +578,7 @@
 <span class="p">{{</span><span class="w"> </span><span class="err">reMapJSON</span><span class="w"> </span><span class="err"> |</span><span class="w"> </span><span class="err">ma</span><span class="kc">t</span><span class="err">ch</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;To Kill a Mockingbird&quot;</span><span class="w"> </span><span class="p">}}</span>
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="nt">&quot;books&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w"> </span><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;To Kill a Mockingbird&quot;</span><span class="p">,</span>
@@ -582,7 +590,7 @@
 </code></pre></div>
 <h4 id="json-array-filter">JSON Array Filter<a class="headerlink" href="#json-array-filter" title="Permanent link"></a></h4>
 <p>Filter a JSON array</p>
-<div class="highlight"><pre><span></span><code>{{ arrayFilter  | filter: &quot;&quot; | filterType: &quot;&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ arrayFilter  | filter: &quot;&quot; | filterType: &quot;&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -605,7 +613,7 @@
 </ol>
 <h4 id="json-key-filter">JSON Key Filter<a class="headerlink" href="#json-key-filter" title="Permanent link"></a></h4>
 <p>Filter a JSON Object by a list of keys.</p>
-<div class="highlight"><pre><span></span><code>{{ keyFilter  | filter: &quot;&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ keyFilter  | filter: &quot;&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
@@ -613,7 +621,7 @@
 </ul>
 <p><strong>Returns:</strong> The JSON object, filtered by the keys inputted in the parameters.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="w"> </span><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby&quot;</span><span class="p">,</span>
 <span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby is a novel by F. Scott Fitzgerald that follows the story of Jay Gatsby, a wealthy and mysterious man, and his pursuit of the American Dream. Set in the 1920s, the book explores themes of love, wealth, and the corruption of the American Dream.&quot;</span><span class="p">,</span>
 <span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;F. Scott Fitzgerald&quot;</span>
@@ -621,17 +629,17 @@
 <span class="p">{{</span><span class="w"> </span><span class="err">keyFil</span><span class="kc">ter</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="kc">f</span><span class="err">il</span><span class="kc">ter</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;title, author&quot;</span><span class="w"> </span><span class="p">}}</span>
 </code></pre></div>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code>{&quot;title&quot;:&quot;The Great Gatsby&quot;,&quot;author&quot;:&quot;F. Scott Fitzgerald&quot;}
+<div class="language-text highlight"><pre><span></span><code>{&quot;title&quot;:&quot;The Great Gatsby&quot;,&quot;author&quot;:&quot;F. Scott Fitzgerald&quot;}
 </code></pre></div>
 <h4 id="json-to-variables">JSON to Variables<a class="headerlink" href="#json-to-variables" title="Permanent link"></a></h4>
 <p>Accepts JSON as an input, flattens the object keys, and sets those keys as variables in mAIstro's context.</p>
 <p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
 <p><strong>Returns:</strong> None - Variables are assigned as a result of this function.</p>
 <p><strong>Example:</strong> Data can come from a LLM, a file, REST API response, etc</p>
-<div class="highlight"><pre><span></span><code>{{ LLM  | prompt: &quot;Output some information about a book in JSON format. Include title, summary, and author.&quot; | modelCard: &quot;&quot; }}=&gt;{{ jsonToVars }}
+<div class="language-text highlight"><pre><span></span><code>{{ LLM  | prompt: &quot;Output some information about a book in JSON format. Include title, summary, and author.&quot; | modelCard: &quot;&quot; }}=&gt;{{ jsonToVars }}
 </code></pre></div>
 <p>The output from the LLM:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby&quot;</span><span class="p">,</span>
 <span class="err"> </span><span class="w"> </span><span class="nt">&quot;summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby is a novel by F. Scott Fitzgerald that follows the story of Jay Gatsby, a wealthy and mysterious man, and his pursuit of the American Dream. Set in the 1920s, the book explores themes of love, wealth, and the corruption of the American Dream.&quot;</span><span class="p">,</span>
 <span class="err"> </span><span class="w"> </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;F. Scott Fitzgerald&quot;</span>
@@ -641,7 +649,7 @@
 <p><a class="glightbox" href="../images/explore_variable_inspector_json_variables.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="variable inspector" src="../images/explore_variable_inspector_json_variables.png" /></a></p>
 <h4 id="variables-to-json">Variables to JSON<a class="headerlink" href="#variables-to-json" title="Permanent link"></a></h4>
 <p>Convert environment variables into JSON.</p>
-<div class="highlight"><pre><span></span><code>{{ varsToJSON  | path: &quot;&quot; | variable: &quot;&quot; }}
+<div class="language-text highlight"><pre><span></span><code>{{ varsToJSON  | path: &quot;&quot; | variable: &quot;&quot; }}
 </code></pre></div>
 <p><strong>Parameters:</strong> </p>
 <ul>
@@ -650,13 +658,13 @@
 </ul>
 <p><strong>Returns:</strong> Nothing - Output is assigned to the set variable name.</p>
 <p><strong>Example 1:</strong></p>
-<div class="highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs. 
+<div class="language-text highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs. 
 He took them to the vet last week.=&gt;{{ grammar }}=&gt;{{ variable | name: &quot;text&quot; }}
 {{ varsToJSON  | path: &quot;&quot; | variable: &quot;gm&quot; }}
 &lt;&lt; name: gm, prompt: false &gt;&gt;
 </code></pre></div>
 <p>Will yield:</p>
-<div class="highlight"><pre><span></span><code>{
+<div class="language-text highlight"><pre><span></span><code>{
  &quot;grammar&quot;: {
  &quot;year&quot;: [
  2024
@@ -686,13 +694,13 @@ He took them to the vet last week.=&gt;{{ grammar }}=&gt;{{ variable | name: &qu
 </code></pre></div>
 <p><strong>Example 2:</strong>
 Using the <code>path</code> parameter, we can specify the starting path of values we want:</p>
-<div class="highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs. 
+<div class="language-text highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs. 
 He took them to the vet last week.=&gt;{{ grammar }}=&gt;{{ variable | name: &quot;text&quot; }}
 {{ varsToJSON  | path: &quot;grammar.dates&quot; | variable: &quot;gm&quot; }}
 &lt;&lt; name: gm, prompt: false &gt;&gt;
 </code></pre></div>
 <p>Will yield:</p>
-<div class="highlight"><pre><span></span><code>{
+<div class="language-text highlight"><pre><span></span><code>{
  &quot;grammar&quot;: {
  &quot;dates&quot;: [
  &quot;last&quot;,
@@ -703,12 +711,12 @@ He took them to the vet last week.=&gt;{{ grammar }}=&gt;{{ variable | name: &qu
 </code></pre></div>
 <h4 id="json-escape">JSON Escape<a class="headerlink" href="#json-escape" title="Permanent link"></a></h4>
 <p>Escapes a string for use within a JSON object.</p>
-<div class="highlight"><pre><span></span><code>{{ jsonEscape  }}
+<div class="language-text highlight"><pre><span></span><code>{{ jsonEscape  }}
 </code></pre></div>
 <p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
 <p><strong>Returns:</strong> An escaped JSON string, which removes special characters to make parsing and storing easier.</p>
 <p><strong>Example</strong>:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="nt">&quot;books&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w"> </span><span class="p">{</span>
 <span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The Great Gatsby&quot;</span><span class="p">,</span>
@@ -720,7 +728,7 @@ He took them to the vet last week.=&gt;{{ grammar }}=&gt;{{ variable | name: &qu
 <span class="p">{{</span><span class="w"> </span><span class="err">jso</span><span class="kc">n</span><span class="err">Escape</span><span class="w"> </span><span class="p">}}</span>
 </code></pre></div></p>
 <p>Would yield:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="err">\</span><span class="kc">n</span><span class="w"> </span><span class="err">\&quot;books\&quot;: [\n {\n \&quot;title\&quot;: \&quot;The Great Gatsby\&quot;,\n \&quot;summary\&quot;: \&quot;The Great Gatsby is a novel by F. Scott Fitzgerald that follows the story of Jay Gatsby, a wealthy and mysterious man, and his pursuit of the American Dream. Set in the 1920s, the book explores themes of love, wealth, and the corruption of the American Dream.\&quot;,\n \&quot;author\&quot;: \&quot;F. Scott Fitzgerald\&quot;\n }\n ]\n}\n</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span><span class="err">\</span><span class="kc">n</span><span class="w"> </span><span class="err">\&quot;books\&quot;: [\n {\n \&quot;title\&quot;: \&quot;The Great Gatsby\&quot;,\n \&quot;summary\&quot;: \&quot;The Great Gatsby is a novel by F. Scott Fitzgerald that follows the story of Jay Gatsby, a wealthy and mysterious man, and his pursuit of the American Dream. Set in the 1920s, the book explores themes of love, wealth, and the corruption of the American Dream.\&quot;,\n \&quot;author\&quot;: \&quot;F. Scott Fitzgerald\&quot;\n }\n ]\n}\n</span>
 </code></pre></div>
 
           <br>

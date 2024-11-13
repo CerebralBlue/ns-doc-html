@@ -39,22 +39,30 @@
     <base target="_top">
     <script>
       hljs.addPlugin(new CopyButtonPlugin());
-      hljs.configure({languages:[]});
-      hljs.highlightAll();
     </script>
     <script>
+  function htmlDecode(input){
+    if (!input || (input && !input.includes('&')))
+      return input;
+
+    var e = document.createElement('textarea');
+    e.innerHTML = input;
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   var base_url = '../../..';
   var is_top_frame = false;
     
     var pageToc = [
       {title: "Overview", url: "#overview", children: [
-          {title: "Example of curl command to invoke REST API", url: "#example-of-curl-command-to-invoke-rest-api" },
-          {title: "Example of JSON Response", url: "#example-of-json-response" },
+          {title: htmlDecode("Example of curl command to invoke REST API"), url: "#example-of-curl-command-to-invoke-rest-api" },
+          {title: htmlDecode("Example of JSON Response"), url: "#example-of-json-response" },
       ]},
     ];
 
 </script>
-    <script src="../../../js/base.js?v=2"></script>
+    <script src="../../../js/hl.js?v=3"></script>
+    <script src="../../../js/base.js?v=3"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -466,7 +474,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic_filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -499,7 +507,7 @@
           <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h1>
 <p>Virtual Agents, chatbots, and applications can send user questions and receive answers via NeuralSeek’s REST API. In the <code>Integrate &gt; API</code>, you can access its openAPI documentation that covers its service endpoints, and also can test its executions, as well as access the message schema. For more information, please refer to <a href="https://api.neuralseek.com/">https://api.neuralseek.com/</a>.</p>
 <h2 id="example-of-curl-command-to-invoke-rest-api">Example of curl command to invoke REST API<a class="headerlink" href="#example-of-curl-command-to-invoke-rest-api" title="Permanent link"></a></h2>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;https://api.neuralseek.com/v1/test/seek&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;apikey: xxxxxx07-xxxxxxbc-xxxxxxae-xxxxxxef&#39;</span><span class="w"> </span><span class="se">\</span>
@@ -507,7 +515,7 @@
 <span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{ &quot;question&quot;: &quot;I want to know more about NeuralSeek&quot; }&#39;</span>
 </code></pre></div>
 <h2 id="example-of-json-response">Example of JSON Response<a class="headerlink" href="#example-of-json-response" title="Permanent link"></a></h2>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek is an AI-powered Answers-as-a-Service platform designed to enhance information sharing and customer support within virtual agents. It leverages a sophisticated Large Language Model (LLM) and a corporate KnowledgeBase to provide contextually relevant responses to user queries. NeuralSeek offers features such as fact-checking, data analytics, and step-by-step instructions to improve AI-generated responses. It can be integrated with virtual agents like IBM Watson Assistant or AWS Lex and used as an internal organization tool. NeuralSeek also provides training resources, demos, and support for users.&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;ufa&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek is an AI-powered Answers-as-a-Service platform designed to enhance information sharing and customer support within virtual agents. It leverages a sophisticated Large Language Model (LLM) and a corporate KnowledgeBase to provide contextually relevant responses to user queries. NeuralSeek offers features such as fact-checking, data analytics, and step-by-step instructions to improve AI-generated responses. It can be integrated with virtual agents like IBM Watson Assistant or AWS Lex and used as an internal organization tool. NeuralSeek also provides training resources, demos, and support for users.&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FAQ-neuralseek&quot;</span><span class="p">,</span>

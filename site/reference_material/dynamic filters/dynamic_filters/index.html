@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://documentation.neuralseek.com/main_features/data_management/data_management/">
+    <link rel="canonical" href="https://documentation.neuralseek.com/reference_material/dynamic%20filters/dynamic_filters/">
     <link rel="shortcut icon" href="../../../img/ns-white.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
-    <title>Data Management - NeuralSeek Documentation</title>
+    <title>Dynamic Filters - NeuralSeek Documentation</title>
 
-  <meta property="og:title" content="Data Management" />
+  <meta property="og:title" content="Dynamic Filters" />
   <meta property="og:description" content="NeuralSeek Documentation" />
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
@@ -47,13 +47,22 @@
   var is_top_frame = false;
     
     var pageToc = [
-      {title: "Automatic Data Cleansing and Preparation", url: "#automatic-data-cleansing-and-preparation", children: [
+      {title: "Overview", url: "#overview", children: [
       ]},
-      {title: "Caching", url: "#caching", children: [
-          {title: "Corporate KnowledgeBase Cache", url: "#corporate-knowledgebase-cache" },
-          {title: "Answer Cache", url: "#answer-cache" },
-      ]},
-      {title: "Content Analytics", url: "#content-analytics", children: [
+      {title: "Operator reference", url: "#operator-reference", children: [
+          {title: "Delimiter . (JSON hierarchy delimiter)", url: "#delimiter-json-hierarchy-delimiter" },
+          {title: "Includes :", url: "#includes" },
+          {title: "Phrase Query \"\"", url: "#phrase-query" },
+          {title: "Exact Match ::", url: "#exact-match" },
+          {title: "Does Not Include :!", url: "#does-not-include" },
+          {title: "Not an Exact Match ::!", url: "#not-an-exact-match" },
+          {title: "Nested Grouping ()", url: "#nested-grouping" },
+          {title: "OR |", url: "#or" },
+          {title: "AND ,", url: "#and" },
+          {title: "Numerical and Date Comparisons \u0026gt;, \u0026lt;, \u0026gt;=, \u0026lt;=", url: "#numerical-and-date-comparisons" },
+          {title: "Field Exists :*", url: "#field-exists" },
+          {title: "Field Does Not Exist :*!", url: "#field-does-not-exist" },
+          {title: "Wildcard Operator :*", url: "#wildcard-operator" },
       ]},
     ];
 
@@ -113,7 +122,7 @@
         
           <li class="wm-select__item">
             
-              <a href="/main_features/data_management/data_management/" hreflang="English" class="wm-select__link">
+              <a href="/reference_material/dynamic%20filters/dynamic_filters/" hreflang="English" class="wm-select__link">
               English
             </a>
           </li>
@@ -194,9 +203,9 @@
       
       
 
-<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Main Features</span>
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  "><span class="wm-toc-text">Main Features</span>
 </li>
-<li class="wm-toc-li-nested collapse in">
+<li class="wm-toc-li-nested collapse ">
   <ul class="wm-toctree">
       
 
@@ -212,7 +221,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1  wm-current "><a href="../../../main_features/data_management/data_management/" class="wm-article-link wm-toc-text">Data Management</a>
+<li class="wm-toc-li wm-toc-lev1   "><a href="../../../main_features/data_management/data_management/" class="wm-article-link wm-toc-text">Data Management</a>
 </li>
       
 
@@ -262,9 +271,9 @@
       
       
 
-<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  "><span class="wm-toc-text">Reference Material</span>
+<li class="wm-toc-li wm-toc-lev0 wm-toc-opener  wm-toc-open"><span class="wm-toc-text">Reference Material</span>
 </li>
-<li class="wm-toc-li-nested collapse ">
+<li class="wm-toc-li-nested collapse in">
   <ul class="wm-toctree">
       
       
@@ -470,7 +479,7 @@
 </li>
       
 
-<li class="wm-toc-li wm-toc-lev1   "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
+<li class="wm-toc-li wm-toc-lev1  wm-current "><a href="../../../reference_material/dynamic%20filters/dynamic_filters/" class="wm-article-link wm-toc-text">Dynamic Filters</a>
 </li>
       
 
@@ -500,74 +509,115 @@
         <div class="wm-page-real-content">
           <a name="_top"></a>  
           
-          <h1 id="automatic-data-cleansing-and-preparation">Automatic Data Cleansing and Preparation<a class="headerlink" href="#automatic-data-cleansing-and-preparation" title="Permanent link"></a></h1>
+          <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <p><strong>What is it?</strong></p>
 <ul>
-<li>When using webpages as documentation for the KnowledgeBase, nuisance information such as banners and cookies will deteriorate information relevant to the users organization. The Automatic Data Cleansing feature of NeuralSeek will automatically cleanse the web pages that were scraped, exposing information pertinent to the organization, at the users own pace.</li>
+<li>Dynamic Query Language (DQL) is a system for defining flexible, operator and rule-based filters that refine document results based on specific criteria. This interprets filter expressions, enabling real-time adjustments to document queries without modifying the core dataset.</li>
 </ul>
 <p><strong>Why is it important?</strong></p>
 <ul>
-<li>Condensing and focusing the information, while removing useless wording returned by the KnowledgeBase is critical to high quality answer generation.  Most web content is not great at directly answering questions because of the amount of nuisance webpage language that gets extracted with the core content.</li>
+<li>Dynamic filters empower users to refine document searches using DQL operators. This allows for more precise queries by narrowing document results to specific groups or areas without being limited to filtering by one singular metadata property in a very rigid manner (exact matches). DQL allows you to filter by many or few facets as needed.</li>
 </ul>
 <p><strong>How does it work?</strong></p>
+<p>To use dynamic filter capabilities within NeuralSeek, we need to configure <code>DQL_Pushdown</code> as follows:</p>
+<ol>
+<li>Navigate to the <strong>Configuration</strong> tab in the <strong>KnowledgeBase Connection</strong> section.</li>
+</ol>
+<p><a class="glightbox" href="../images/config_knowledge.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Configuration Knowledge Base" src="../images/config_knowledge.png" /></a></p>
+<ol start="2">
+<li>In the <strong>Additional Payload Field</strong> drop-down, select the <code>DQL_Pushdown</code> option. This enables queries to include dynamic filters.</li>
+</ol>
+<p><a class="glightbox" href="../images/dql_pushdown.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="DQL Pushdown" src="../images/dql_pushdown.png" /></a></p>
+<ol start="3">
+<li>Locate the <code>KB Search</code> node in mAIstro.</li>
+</ol>
+<p><a class="glightbox" href="../images/kb_search.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="KB Search Node" src="../images/kb_search.png" /></a></p>
+<ol start="4">
+<li>You can now begin adding filters to query the KnowledgeBase effectively.</li>
+</ol>
+<p><a class="glightbox" href="../images/kb_search_example.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="KB Search Example" src="../images/kb_search_example.png" /></a></p>
+<h2 id="operator-reference">Operator reference<a class="headerlink" href="#operator-reference" title="Permanent link"></a></h2>
+<h3 id="delimiter-json-hierarchy-delimiter">Delimiter <code>.</code> (JSON hierarchy delimiter)<a class="headerlink" href="#delimiter-json-hierarchy-delimiter" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>.</code> operator is used to access fields within a nested JSON structure. It allows you to specify subfields within a field, making it easy to search within specific sections of hierarchical data.</p>
+<p><code>title.subsection:"AI"</code>  </p>
+<h3 id="includes">Includes <code>:</code><a class="headerlink" href="#includes" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>:</code> operator performs a search to see if the specified field includes the given term or phrase. This is a broad match that will return results containing the specified term anywhere within the field.</p>
+<p><code>title:"LLMs"</code>  </p>
+<h3 id="phrase-query">Phrase Query <code>""</code><a class="headerlink" href="#phrase-query" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+Placing terms within quotation marks <code>" "</code> searches for an exact phrase match within the specified field, preserving the word order. This is useful for finding specific phrases instead of individual terms.</p>
+<p><code>url:"neuralseek"</code>  </p>
+<h3 id="exact-match">Exact Match <code>::</code><a class="headerlink" href="#exact-match" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>::</code> operator performs an exact match, ensuring that the field content matches the specified term or phrase exactly. It is stricter than <code>:</code> and <code>""</code>, as it does not allow partial or flexible matches.</p>
+<p><code>content::"AI"</code>  </p>
+<h3 id="does-not-include">Does Not Include <code>:!</code><a class="headerlink" href="#does-not-include" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>:!</code> operator is used to exclude documents that contain a specified term within a field. It is the negation of the <code>:</code> operator and helps filter out unwanted terms.</p>
+<p><code>content:!"profanity"</code>  </p>
+<h3 id="not-an-exact-match">Not an Exact Match <code>::!</code><a class="headerlink" href="#not-an-exact-match" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>::!</code> operator excludes documents that exactly match a specified term or phrase. It is the negation of the <code>::</code> operator and can be useful for filtering out precise phrases.</p>
+<p><code>content::!"large models"</code>  </p>
+<h3 id="nested-grouping">Nested Grouping <code>()</code><a class="headerlink" href="#nested-grouping" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+Parentheses <code>()</code> are used to group queries, allowing for more complex expressions with combined operators. They let you control the order of operations in a query, much like in mathematical expressions.</p>
+<p><code>(title:"AI" | title:"ML") , content:"deep learning"</code>  </p>
+<h3 id="or">OR <code>|</code><a class="headerlink" href="#or" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>|</code> operator allows you to perform an OR operation between two or more terms. It returns documents that contain at least one of the specified terms, making it useful for broad searches.</p>
+<p><code>title:"AI" | title:"machine learning"</code>  </p>
+<h3 id="and">AND <code>,</code><a class="headerlink" href="#and" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>,</code> operator performs an AND operation, requiring that both terms appear within the specified fields. This is useful when you need to find documents containing multiple specific terms.</p>
+<p><code>title:"AI", content:"neural networks"</code>  </p>
+<h3 id="numerical-and-date-comparisons">Numerical and Date Comparisons <code>&gt;, &lt;, &gt;=, &lt;=</code><a class="headerlink" href="#numerical-and-date-comparisons" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+These operators allow for numerical or date comparisons within fields. Use them to search for records within a specific range or threshold of values.</p>
+<p><code>publish_date&gt;=2023-01-01</code><br />
+<code>revision&gt;5, revision&lt;10</code></p>
+<h3 id="field-exists">Field Exists <code>:*</code><a class="headerlink" href="#field-exists" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>:*</code> operator checks if a field is present in a document, regardless of its content. It’s useful for filtering records based on the existence of specific fields.</p>
+<p><code>author:*</code>  </p>
+<h3 id="field-does-not-exist">Field Does Not Exist <code>:*!</code><a class="headerlink" href="#field-does-not-exist" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>:*!</code> operator checks if a field is absent in a document. It’s useful for finding records missing a specific field.</p>
+<p><code>author:*!</code>  </p>
+<h3 id="wildcard-operator">Wildcard Operator <code>:*</code><a class="headerlink" href="#wildcard-operator" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>:*</code> operator is used to match any value within a specified field, acting as a wildcard. This operator is helpful for locating records where a field contains any value, rather than a specific one.</p>
+<p><code>author:*</code> </p>
+<h4 id="query-filtering-examples">Query Filtering Examples<a class="headerlink" href="#query-filtering-examples" title="Permanent link"></a></h4>
+<p>Here are some examples of how to filter the KnowledgeBase in NeuralSeek using dynamic filters:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;document_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;doc_001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;section_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Overview&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek Use Cases Overview&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;An introductory guide to NeuralSeek use cases, focusing on application and benefits.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;date_created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-02-15&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek Bot&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 <ul>
-<li>NeuralSeek will identify documents in the KnowledgeBase that come from webscrapes.  NeuralSeek will then run its own algorithm against the full webpage HTML to extract just the core content and remove as much of the extraneous information as possible.</li>
+<li><strong>Exact Match Filter</strong>: To retrieve only documents that are exactly matched with the term <code>"Overview"</code>, apply the filter as follows. This will return documents related to 'neuralseek use cases' with "Overview" specifically in the <code>section_name</code> property.</li>
 </ul>
-<h1 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link"></a></h1>
-<p><strong>What is it?</strong></p>
+<div class="highlight"><pre><span></span><code>section_name:&quot;Overview&quot;
+</code></pre></div>
 <ul>
-<li>NeuralSeek uses <a href="https://en.wikipedia.org/wiki/Cache_(computing)">caching</a> strategy in two areas (Corporate KnowledgeBase and Answer) to enhance performance and reduce computational cost during its operation.</li>
+<li><strong>Delimiter and Date Comparison Filter</strong>: To retrieve only documents that are greater or equal <code>"2023-01-01"</code>, apply the filter as follows. This will return documents in that range specifically in the <code>content.date_created</code> property.</li>
 </ul>
-<p><strong>Why is it important?</strong></p>
+<div class="highlight"><pre><span></span><code>content.date_created &gt;= &quot;2023-01-01&quot;
+</code></pre></div>
 <ul>
-<li>Caching frequently returned answers saves both time and computation cost to run virtual agents, as it reduces NeuralSeek having to generate responses repeatedly, especially on the more frequently asked questions or seldom updated answers.</li>
+<li><strong>Wildcard Filter</strong>: To retrieve documents where the <code>title</code> within <code>content</code> begins with "neu" and is followed by any characters, use the wildcard filter as shown below. This filter will return all documents with a <code>content.title</code> that starts with "neu" (e.g., "NeuralSeek," "neurobiology").</li>
 </ul>
-<p><strong>How does it work?</strong></p>
-<ul>
-<li>The first part is when NeuralSeek searches through the corporate knowledge base to obtain the original information. You can set the cache duration of such responses to be cached, so that the original information’s retrieval time can be reduced.</li>
-<li>NeuralSeek then utilizes two types of caches for both your edited answers and generated answers that can serve cached answers to user questions in order to speed up response times and produce more consistent results.</li>
-</ul>
-<h2 id="corporate-knowledgebase-cache">Corporate KnowledgeBase Cache<a class="headerlink" href="#corporate-knowledgebase-cache" title="Permanent link"></a></h2>
-<p>When NeuralSeek accesses the Corporate KnowledgeBase, it processes the original data from it, cleanses its contents (e.g. removing unnecessary contents, filtering, deduplicating, etc.), compresses it, and prioritize the returned contents which is then processed with LLM (Large Language Model) to form the completed response, usually at the range of 8,000 ~ 9,000 characters. It then derives a hash value of that response window which acts as a check to later see if the original data is updated. This response is what actually gets cached within NeuralSeek, so that all the search, processing, and LLM-generated time is effectively saved when the same answer needs to be derived.</p>
-<p>Under the <code>Configure &gt; Corporate KnowledgeBase Details</code> section, user can set the duration of the cache measured in minutes to control how long these responses need to be cached.</p>
-<p><a class="glightbox" href="../images/image_001.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kb cache setting" src="../images/image_001.png" /></a></p>
-<h2 id="answer-cache">Answer Cache<a class="headerlink" href="#answer-cache" title="Permanent link"></a></h2>
-<p>When the user asks a question to NeuralSeek, it tries to use the question to find the matching ‘intent’ of the question. And when the matching intent is discovered (usually via fuzzy matching), the provided answer, either normal or user edited, can then be cached.</p>
-<p><a class="glightbox" href="../images/image_002.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="answers" src="../images/image_002.png" /></a></p>
-<p>Under the <code>Configure &gt; Intent Matching &amp; Cache Configuration</code> section, you can enable or disable the edited answer cache or normal answer cache, and set the following parameters to control how it works:</p>
-<p><a class="glightbox" href="../images/image_003.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="answer cache settings" src="../images/image_003.png" /></a></p>
-<p>Each cache type (edited answer, normal) would have the answer threshold bar and edited answer match tolerance. You can adjust the threshold to control when the caching will start caching for the answer, depending on how many answers exist for a given user question. For example, if you set the threshold to 5, the caching will not start until there exist 5 or more different answers to the given question. Setting the threshold to 1 would let NeuralSeek start caching as soon as it sees at least a single answer exists. Setting the value to 0 will disable caching completely.</p>
-<p>The matching method (Exact Match, Fuzzy Match, etc.) is the method you can specify to tell NeuralSeek on how to perform the intent matching on the question.</p>
-<p>There is also a more advanced matching method of ‘Exact Match, exact conversational context’ on the normal answers that would try to find the match if the consecutive conversation (e.g. one and the one after) both have the matching result, so that the match could be more correct in terms of how the conversation flow is occurring.</p>
-<p>In terms of the edited answers, this ‘conversational context’ matching is not provided given that the edited answers should be more concise and based on a more substantial ground and thus should not rely on the conversational context.</p>
-<h3 id="detecting-changes-in-the-original-source">Detecting changes in the original source<a class="headerlink" href="#detecting-changes-in-the-original-source" title="Permanent link"></a></h3>
-<p>In order to make sure the cached answers retain the authenticity, every cached answers are fed into a hashing algorithm to generate a unique hash key, which is then compared with the original source to detect whether the original source has been altered or not.</p>
-<p>If the hash keys do not match, NeuralSeek will notify users that the answers are not up-to-date with what’s found in the KnowledgeBase. This would happen when a particular answer is being used during the Seek time, so that the answer would be kept in check with the original.</p>
-<p><a class="glightbox" href="../images/image_004.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="out of date data in kb" src="../images/image_004.png" /></a></p>
-<p>Users can then take a look at the outdated answer, and can either delete and reload it, or edit it and then mark it as current, so that NeuralSeek will be able to check it off from its outdated list.</p>
-<p><a class="glightbox" href="../images/image_005.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="acknowledge of currency" src="../images/image_005.png" /></a></p>
-<blockquote>
-<p>One other way the answer would be checked is when NeuralSeek is handling round trip logging. During that time, NeuralSeek would check which answers are getting frequently returned and also perform asynchronous checks with the KnowledgeBase to make sure they are up-to-date.</p>
-</blockquote>
-<h3 id="how-do-we-know-the-answers-are-coming-from-cache">How do we know the answers are coming from cache?<a class="headerlink" href="#how-do-we-know-the-answers-are-coming-from-cache" title="Permanent link"></a></h3>
-<p>You can check whether your query matched and returned the cached answer in the <code>Seek</code> tab. For example, this is an example of the answer returned from the cache.</p>
-<p><a class="glightbox" href="../images/image_006.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="answer from cache" src="../images/image_006.png" /></a></p>
-<p>Next to the <code>Total Response Time</code>, you will see a label <code>Cached</code> which indicates that the answer came straight from the cache.</p>
-<h1 id="content-analytics">Content Analytics<a class="headerlink" href="#content-analytics" title="Permanent link"></a></h1>
-<p><strong>What is it?</strong></p>
-<ul>
-<li>NeuralSeek incorporates content analytics as a built-in feature, eliminating the need for additional code. With Content Analytics in NeuralSeek, users can effortlessly gather information about what users are searching for, assess the extent of documentation available on those topics, and evaluate documentation efficiency in addressing user queries.</li>
-</ul>
-<p><strong>Why is it important?</strong></p>
-<ul>
-<li>Content Analytics are a powerful feature that enable insight on the performance of your corporate documentation.  You can gain insights on where content is excellent, underperforming,  nonexistent or seldom used - and inform the groups responsible for creating or updating that information on how better to allocate their time.</li>
-</ul>
-<p><strong>How does it work?</strong></p>
-<p>Two main scores are returned when a user asks a question to NeuralSeek:</p>
-<ul>
-<li><strong>Coverage Score:</strong> This score represents the number of documents or sections of documents that discuss the subject area(s) of a question from NeuralSeek.</li>
-<li><strong>Confidence Score:</strong> The confidence score represents the likelihood that the information found in the KnowledgeBase of NeuralSeek and presented as a response is correct. This probability is given as a percentage.  Low scoring questions with low coverage scores tend to mean there is little or no documentation on the subject.  Low scoring questions with high coverage tends to mean there are conflicting source documents. </li>
-</ul>
+<div class="highlight"><pre><span></span><code>content.title:neu*
+</code></pre></div>
 
           <br>
           <footer class="wm-footer">

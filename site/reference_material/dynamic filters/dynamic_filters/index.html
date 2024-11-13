@@ -49,6 +49,13 @@
     var pageToc = [
       {title: "Overview", url: "#overview", children: [
       ]},
+      {title: "Setting up Dynamic Filters", url: "#setting-up-dynamic-filters", children: [
+          {title: "Applying filters in Seek", url: "#applying-filters-in-seek" },
+          {title: "Applying filters in mAIstro", url: "#applying-filters-in-maistro" },
+          {title: "Applying filters via the API", url: "#applying-filters-via-the-api" },
+      ]},
+      {title: "Query Filtering Examples", url: "#query-filtering-examples", children: [
+      ]},
       {title: "Operator reference", url: "#operator-reference", children: [
           {title: "Delimiter . (JSON hierarchy delimiter)", url: "#delimiter-json-hierarchy-delimiter" },
           {title: "Includes :", url: "#includes" },
@@ -63,8 +70,6 @@
           {title: "Field Exists :*", url: "#field-exists" },
           {title: "Field Does Not Exist :*!", url: "#field-does-not-exist" },
           {title: "Wildcard Operator :*", url: "#wildcard-operator" },
-      ]},
-      {title: "Query Filtering Examples", url: "#query-filtering-examples", children: [
       ]},
     ];
 
@@ -521,23 +526,78 @@
 <li>Dynamic filters empower users to refine document searches using DQL operators. This allows for more precise queries by narrowing document results to specific groups or areas without being limited to filtering by one singular metadata property in a very rigid manner (exact matches). DQL allows you to filter by many or few facets as needed.</li>
 </ul>
 <p><strong>How does it work?</strong></p>
+<ul>
+<li>NeuralSeek converts DQL into the correct query format for the connected KnowledgeBase (KB), allowing support for DQL even on KBs that do not natively support it.</li>
+</ul>
+<h2 id="setting-up-dynamic-filters">Setting up Dynamic Filters<a class="headerlink" href="#setting-up-dynamic-filters" title="Permanent link"></a></h2>
 <p>To use dynamic filter capabilities within NeuralSeek, we need to configure <code>DQL_Pushdown</code> as follows:</p>
 <ol>
 <li>Navigate to the <strong>Configuration</strong> tab in the <strong>KnowledgeBase Connection</strong> section.</li>
 </ol>
 <p><a class="glightbox" href="../images/config_knowledge.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Configuration Knowledge Base" src="../images/config_knowledge.png" /></a></p>
 <ol start="2">
-<li>In the <strong>Additional Payload Field</strong> drop-down, select the <code>DQL_Pushdown</code> option. This enables queries to include dynamic filters.</li>
+<li>In the <strong>Filter Field</strong> drop-down, select the <code>DQL_Pushdown</code> option. This enables queries to include dynamic filters.</li>
 </ol>
 <p><a class="glightbox" href="../images/dql_pushdown.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="DQL Pushdown" src="../images/dql_pushdown.png" /></a></p>
-<ol start="3">
-<li>Locate the <code>KB Search</code> node in mAIstro.</li>
+<p>You can now pass dynamic filter language through the filter parameters available.</p>
+<div class="admonition warning">
+<p class="admonition-title">Elasticsearch and watsonx Discovery users</p>
+<p>Please note that due to the tokenization method that Elasticsearch uses, dynamic filters will not always work as expected on properties that are not of type <code>keyword</code>. For best results, set up your index to either have important types as <code>keyword</code> or have a duplicate nested property that is type <code>keyword</code> for use with dynamic filters.</p>
+</div>
+<h4 id="applying-filters-in-seek">Applying filters in Seek<a class="headerlink" href="#applying-filters-in-seek" title="Permanent link"></a></h4>
+<ol>
+<li>
+<p>Navigate to the Seek tab.</p>
+</li>
+<li>
+<p>Find the "filters" button (highlighted by the red arrow)</p>
+</li>
+<li>
+<p>Input your DQL filter string.</p>
+</li>
 </ol>
-<p><a class="glightbox" href="../images/kb_search.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="KB Search Node" src="../images/kb_search.png" /></a></p>
-<ol start="4">
-<li>You can now begin adding filters to query the KnowledgeBase effectively.</li>
+<p><a class="glightbox" href="../images/seek_filters.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="seek filters" src="../images/seek_filters.png" /></a></p>
+<h4 id="applying-filters-in-maistro">Applying filters in mAIstro<a class="headerlink" href="#applying-filters-in-maistro" title="Permanent link"></a></h4>
+<ol>
+<li>
+<p>Locate the <code>KB Search</code> node in mAIstro.</p>
+</li>
+<li>
+<p>You can now begin adding filters to query the KnowledgeBase effectively.</p>
+</li>
 </ol>
 <p><a class="glightbox" href="../images/kb_search_example.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="KB Search Example" src="../images/kb_search_example.png" /></a></p>
+<h4 id="applying-filters-via-the-api">Applying filters via the API<a class="headerlink" href="#applying-filters-via-the-api" title="Permanent link"></a></h4>
+<p>Simply pass the regular or DQL filter string as the <code>filter</code> parameter of the Seek API call.</p>
+<p><a class="glightbox" href="../images/api_filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="api filter" src="../images/api_filter.png" /></a></p>
+<h2 id="query-filtering-examples">Query Filtering Examples<a class="headerlink" href="#query-filtering-examples" title="Permanent link"></a></h2>
+<p>Here are some examples of how to filter the KnowledgeBase in NeuralSeek using dynamic filters, given this example document that we want to highlight using filters:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;document_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;doc_001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;section_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Overview&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek Use Cases Overview&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;An introductory guide to NeuralSeek use cases, focusing on application and benefits.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;date_created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-02-15&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek Bot&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>Exact Match Filter</strong>: To retrieve only documents that are exactly matched with the term <code>"Overview"</code>, apply the filter as follows. This will return documents related to 'neuralseek use cases' with "Overview" specifically in the <code>section_name</code> property.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>section_name::&quot;Overview&quot;
+</code></pre></div>
+<ul>
+<li><strong>Delimiter and Date Comparison Filter</strong>: To retrieve only documents that are greater or equal <code>"2023-01-01"</code>, apply the filter as follows. This will return documents in that range specifically in the <code>content.date_created</code> property.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>content.date_created &gt;= &quot;2023-01-01&quot;
+</code></pre></div>
+<ul>
+<li><strong>Wildcard Filter</strong>: To retrieve documents where the <code>title</code> within <code>content</code> begins with "neu" and is followed by any characters, use the wildcard filter as shown below. This filter will return all documents with a <code>content.title</code> that starts with "neu" (e.g., "NeuralSeek," "neurobiology").</li>
+</ul>
+<div class="highlight"><pre><span></span><code>content.title:neu*
+</code></pre></div>
 <h2 id="operator-reference">Operator reference<a class="headerlink" href="#operator-reference" title="Permanent link"></a></h2>
 <h3 id="delimiter-json-hierarchy-delimiter">Delimiter <code>.</code> (JSON hierarchy delimiter)<a class="headerlink" href="#delimiter-json-hierarchy-delimiter" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
@@ -592,34 +652,6 @@ The <code>:*!</code> operator checks if a field is absent in a document. It’s 
 <p><strong>Description</strong>:<br />
 The <code>:*</code> operator is used to match any value within a specified field, acting as a wildcard. This operator is helpful for locating records where a field contains any value, rather than a specific one.</p>
 <p><code>author:*</code> </p>
-<h2 id="query-filtering-examples">Query Filtering Examples<a class="headerlink" href="#query-filtering-examples" title="Permanent link"></a></h2>
-<p>Here are some examples of how to filter the KnowledgeBase in NeuralSeek using dynamic filters:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;document_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;doc_001&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;section_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Overview&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek Use Cases Overview&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;An introductory guide to NeuralSeek use cases, focusing on application and benefits.&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;date_created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-02-15&quot;</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek Bot&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-<ul>
-<li><strong>Exact Match Filter</strong>: To retrieve only documents that are exactly matched with the term <code>"Overview"</code>, apply the filter as follows. This will return documents related to 'neuralseek use cases' with "Overview" specifically in the <code>section_name</code> property.</li>
-</ul>
-<div class="highlight"><pre><span></span><code>section_name:&quot;Overview&quot;
-</code></pre></div>
-<ul>
-<li><strong>Delimiter and Date Comparison Filter</strong>: To retrieve only documents that are greater or equal <code>"2023-01-01"</code>, apply the filter as follows. This will return documents in that range specifically in the <code>content.date_created</code> property.</li>
-</ul>
-<div class="highlight"><pre><span></span><code>content.date_created &gt;= &quot;2023-01-01&quot;
-</code></pre></div>
-<ul>
-<li><strong>Wildcard Filter</strong>: To retrieve documents where the <code>title</code> within <code>content</code> begins with "neu" and is followed by any characters, use the wildcard filter as shown below. This filter will return all documents with a <code>content.title</code> that starts with "neu" (e.g., "NeuralSeek," "neurobiology").</li>
-</ul>
-<div class="highlight"><pre><span></span><code>content.title:neu*
-</code></pre></div>
 
           <br>
           <footer class="wm-footer">

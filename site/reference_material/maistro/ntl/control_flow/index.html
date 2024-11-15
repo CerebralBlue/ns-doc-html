@@ -66,8 +66,7 @@
       ]},
       {title: "Variable Loop", url: "#variable-loop", children: [
       ]},
-      {title: "Variable Loop Example 2", url: "#variable-loop-example-2", children: [
-          {title: htmlDecode("Condition"), url: "#condition" },
+      {title: "Condition", url: "#condition", children: [
       ]},
     ];
 
@@ -519,63 +518,79 @@
 <div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">maistro</span>|<span class="n">template</span>:<span class="w"> </span>&quot;<span class="n">templateName</span>&quot;<span class="w"> </span>}}
 </code></pre></div>
 <p>Imports the contents of <code>templateName</code> into the current environment.</p>
-<p><strong>Example 1:</strong></p>
+<details class="note">
+<summary>Example Usage 1</summary>
 <p>Given an example template, <code>neuralseek_updates</code>:</p>
-<div class="language-ntl highlight"><pre><span></span><code><span class="n">Based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">changelogs</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">here</span>:
-{{<span class="w"> </span><span class="n">web</span>|<span class="n">url</span>:&quot;<span class="n">https</span>:<span class="o">//</span><span class="n">documentation</span>.<span class="n">neuralseek</span>.<span class="n">com</span><span class="o">/</span><span class="n">changelog</span><span class="o">/</span>&quot;<span class="w"> </span>}}
-<span class="n">list</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">latest</span><span class="w"> </span><span class="n">month</span>.
-{{<span class="w"> </span><span class="n">LLM</span><span class="w"> </span>}}
+<div class="language-text highlight"><pre><span></span><code>Based on the changelogs found here:
+{{ web|url:&quot;https://documentation.neuralseek.com/changelog/&quot; }}
+list the items for the latest month.
+{{ LLM }}
 </code></pre></div>
 <p>Simply using <code>{{ maistro|template: "neuralseek_updates" }}</code> will produce the sample result.</p>
-<p><strong>Example 2:</strong></p>
+</details>
+<details class="note">
+<summary>Example Usage 2</summary>
 <p>To pass parameters to mAIstro templates, you simply define the variables in your current environment.</p>
 <p>Given an example template, <code>neuralseek_updates</code>:</p>
-<div class="language-ntl highlight"><pre><span></span><code><span class="n">Based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">changelogs</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">here</span>:
-{{<span class="w"> </span><span class="n">web</span>|<span class="n">url</span>:&quot;&lt;&lt;<span class="w"> </span><span class="n">name</span>:<span class="n">url</span><span class="w"> </span>&gt;&gt;&quot;<span class="w"> </span>}}
-<span class="n">list</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">latest</span><span class="w"> </span><span class="n">month</span>.
-{{<span class="w"> </span><span class="n">LLM</span><span class="w"> </span>}}
+<div class="language-text highlight"><pre><span></span><code>Based on the changelogs found here:
+{{ web|url:&quot;&lt;&lt; name:&#39;url&#39; &gt;&gt;&quot; }}
+list the items for the latest month.
+{{ LLM }}
 </code></pre></div>
 <p>To pass the <code>url</code> variable to the template:</p>
-<div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">variable</span><span class="w">  </span>|<span class="w"> </span><span class="n">name</span>:<span class="w"> </span>&quot;<span class="n">url</span>&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">value</span>:<span class="w"> </span>&quot;<span class="n">https</span>:<span class="o">//</span><span class="n">documentation</span>.<span class="n">neuralseek</span>.<span class="n">com</span><span class="o">/</span><span class="n">changelog</span><span class="o">/</span>&quot;<span class="w"> </span>}}
+<div class="language-text highlight"><pre><span></span><code>{{ variable  | name: &quot;url&quot; | value: &quot;https://documentation.neuralseek.com/changelog/&quot; }}
 
-{{<span class="w"> </span><span class="n">maistro</span>|<span class="n">template</span>:<span class="w"> </span>&quot;<span class="n">neuralseek_updates</span>&quot;<span class="w"> </span>}}
+{{ maistro|template: &quot;neuralseek_updates&quot; }}
 </code></pre></div>
 <p>This allows templates to be brought into current context, effectively "splicing" the contents into the desired context.</p>
+</details>
+<hr />
 <h4 id="set-variable">Set Variable<a class="headerlink" href="#set-variable" title="Permanent link"></a></h4>
 <p>Creates or sets a variable that can be used later in the NTL expression. For example, </p>
 <div class="language-text highlight"><pre><span></span><code>34=&gt;{{ variable | name:&quot;age&quot; }}
 or
 {{ variable  | name: &quot;age&quot; | value: &quot;34&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Name: The name of the variable to set.</li>
-<li>Value: The optional (override) value to set to the variable.</li>
+<li><strong>Name</strong>: The name of the variable to set.</li>
+<li><strong>Value</strong>: The optional (override) value to set to the variable.</li>
 </ul>
-<p><strong>No Returns.</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">No Returns</p>
+</div>
+<hr />
 <h4 id="use-variable">Use Variable<a class="headerlink" href="#use-variable" title="Permanent link"></a></h4>
 <p>Syntax to use / expand a variable into the environment.</p>
 <div class="language-text highlight"><pre><span></span><code>&lt;&lt; name: variableName, prompt: true &gt;&gt;
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Name: The name of the variable</li>
-<li>Prompt: If set to true, the UI will prompt for the value for this variable. If set to false, the UI will avoid prompting for this variable.</li>
+<li><strong>Name</strong>: The name of the variable</li>
+<li><strong>Prompt</strong>: If set to true, the UI will prompt for the value for this variable. If set to false, the UI will avoid prompting for this variable.</li>
 </ul>
-<p><strong>Returns:</strong> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
 <ul>
 <li>The contents of the variable.</li>
 </ul>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note about variables</p>
 <p>When the variable is NOT found but used in &lt;&lt; &gt;&gt; notation, the variable is considered as user input, and mAIstro will prompt for the value prior to evaluation. 
 For example, if you have <code>&lt;&lt; name: new &gt;&gt;</code> or <code>&lt;&lt; name: new, prompt: true &gt;&gt;</code> and there is not such thing as <code>{{ variable|name: "new" }}</code> in the expression, mAIstro will ask for it like this:</p>
 <p><a class="glightbox" href="../images/ntl_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="set_params" src="../images/ntl_2.png" /></a></p>
 </div>
+<hr />
 <h4 id="stop">Stop<a class="headerlink" href="#stop" title="Permanent link"></a></h4>
 <p>Stops all further processing. Full stop.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ stop }}
 </code></pre></div>
+<hr />
 <h4 id="loops-start-end-break">Loops: Start, End, Break<a class="headerlink" href="#loops-start-end-break" title="Permanent link"></a></h4>
 <p><strong>Start Loop</strong></p>
 <p>Denotes the beginning of a loop, and declares the maximum number of loops to perform.</p>
@@ -589,7 +604,8 @@ For example, if you have <code>&lt;&lt; name: new &gt;&gt;</code> or <code>&lt;&
 <p>Stops a loop early. Useful with the condition node.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ breakLoop }}
 </code></pre></div>
-<p><strong>Loop Example</strong></p>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>{{ variable  | name: &quot;count&quot; | mode: &quot;&quot; | value: &quot;0&quot; }}
 {{ startLoop  | count: &quot;5&quot; }}
 {{ math  | equation: &quot;&lt;&lt; name: count &gt;&gt; + 1&quot; }}=&gt;{{ variable  | name: &quot;count&quot; }}
@@ -599,16 +615,18 @@ The count is now: &lt;&lt; name: count &gt;&gt;
 <p>Will Yield:</p>
 <div class="language-text highlight"><pre><span></span><code>The count is now: 6
 </code></pre></div>
+</details>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The number of loops assigned in <code>startLoop</code> is the number of <em>additional</em> times the nodes will be executed. As seen above, the middle node (math) will be executed a total of 6 times - Once to begin, and then 5 more times (the number of loops set).</p>
 </div>
+<hr />
 <h4 id="variable-loop">Variable Loop<a class="headerlink" href="#variable-loop" title="Permanent link"></a></h4>
 <p>The Variable Loop function allows us to loop arrays, nested arrays, or JSON objects. You can use this feature to format arrays nicely or to take action on the contents during each loop.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ variableLoop  | variable: &quot;categories&quot; | loopType: &quot;array-strings&quot; }}
 </code></pre></div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<strong>Variable Loop Example 1</strong></p>
+<details class="note">
+<summary>Example Usage 1</summary>
 <div class="language-json highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;looper&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">]}</span><span class="err">=&gt;</span><span class="p">{{</span><span class="w"> </span><span class="err">jso</span><span class="kc">n</span><span class="err">ToVars</span><span class="w">  </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="err">variableLoop</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">variable</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;looper&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">loopType</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">}}</span>
 <span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
@@ -624,23 +642,9 @@ The count is now: &lt;&lt; name: count &gt;&gt;
 <span class="err">c</span><span class="w"> </span>
 <span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
 </code></pre></div>
-<h1 id="variable-loop-example-2"><strong>Variable Loop Example 2</strong><a class="headerlink" href="#variable-loop-example-2" title="Permanent link"></a></h1>
-<p><strong>Variable Loop Example</strong></p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>c54e8bcb70e0885a930a426e9dc57bb5542214e8</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+</details>
+<details class="note">
+<summary>Example Usage 2</summary>
 <div class="language-json highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, how can I assist you today?&quot;</span><span class="p">,</span>
@@ -681,23 +685,26 @@ The count is now: &lt;&lt; name: count &gt;&gt;
 <span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">45</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">User</span><span class="p">:</span><span class="w"> </span><span class="err">Tha</span><span class="kc">t</span><span class="err">&#39;s</span><span class="w"> </span><span class="err">grea</span><span class="kc">t</span><span class="p">,</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">apprecia</span><span class="kc">te</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">availabili</span><span class="kc">t</span><span class="err">y.</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">was</span><span class="w"> </span><span class="err">wo</span><span class="kc">n</span><span class="err">deri</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">i</span><span class="kc">f</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">could</span><span class="w"> </span><span class="err">help</span><span class="w"> </span><span class="err">me</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">projec</span><span class="kc">t</span><span class="w"> </span><span class="err">I&#39;m</span><span class="w"> </span><span class="err">worki</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">o</span><span class="kc">n</span><span class="err">.</span>
 <span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">00</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">Assis</span><span class="kc">tant</span><span class="p">:</span><span class="w"> </span><span class="err">Absolu</span><span class="kc">tel</span><span class="err">y</span><span class="p">,</span><span class="w"> </span><span class="err">I&#39;d</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">happy</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">assis</span><span class="kc">t</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">projec</span><span class="kc">t</span><span class="err">.</span><span class="w"> </span><span class="err">Please</span><span class="w"> </span><span class="err">go</span><span class="w"> </span><span class="err">ahead</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">provide</span><span class="w"> </span><span class="err">me</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">de</span><span class="kc">ta</span><span class="err">ils</span><span class="p">,</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">I&#39;ll</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">my</span><span class="w"> </span><span class="err">bes</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">help.</span>
 </code></pre></div>
+</details>
+<hr />
 <h4 id="condition">Condition<a class="headerlink" href="#condition" title="Permanent link"></a></h4>
 <p>The Conditional function allows us to direct the flow of operations. </p>
 <div class="language-text highlight"><pre><span></span><code>{{ condition | value: &quot;1 == 1&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Value: The conditional / logic to evaluate. Supports the following:<ul>
+<li><strong>Value</strong>: The conditional / logic to evaluate. Supports the following:</li>
 <li>Common comparison operators like <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>&lt;&gt;</code>.</li>
 <li>Common mathematical operators like <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code> wrapped within parenthesis <code>()</code>.</li>
-<li>Logical functions:<ul>
+<li><strong>Logical functions</strong>:<ul>
 <li>IF: Ternary operator: <code>IF(condition or function, truevalue, falsevalue)</code></li>
 <li>NOT: Inverse operator: <code>NOT(condition)</code></li>
 <li>AND: Logical and: <code>AND(condition, condition)</code> - Accepts 2 or more conditions</li>
 <li>OR: Logical or: <code>OR(condition, condition)</code> - Accepts 2 or more conditions</li>
 </ul>
 </li>
-<li>String comparisons: <ul>
+<li><strong>String comparisons</strong>: <ul>
 <li>Using single-quoted strings, you can use equality conditions <code>==</code> and <code>!=</code>.</li>
 <li>CONTAINS: You can check for substrings: <code>CONTAINS('long string to check', 'string')</code></li>
 <li>LENGTH: You can evaluate the length of a string to use in conditions: <code>LENGTH('string')</code> (this example evaluates to 6)</li>
@@ -705,13 +712,15 @@ The count is now: &lt;&lt; name: count &gt;&gt;
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<p><strong>Returns:</strong> No returns, however:</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>No returns, however:</p>
 <ul>
 <li>A condition that evaluates to 'true' will continue the horizontal chain. </li>
 <li>A condition that evaluates to 'false' will stop the horizontal chain from executing and continue to the next flow step.</li>
 </ul>
+</div>
 <details class="abstract">
 <summary>Example usage</summary>
 <p><strong>Example set 1:</strong> Basic</p>

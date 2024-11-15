@@ -506,20 +506,23 @@
           
           <h4 id="rest">REST<a class="headerlink" href="#rest" title="Permanent link"></a></h4>
 <p>See <a href="../get_data/#rest">REST</a> under "Get Data". This is the same function.</p>
+<hr />
 <h4 id="email">Email<a class="headerlink" href="#email" title="Permanent link"></a></h4>
 <p>SMTP Server connection. Easily send emails. Particularly useful in templates.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ email|host:&quot;&quot; | port: &quot;&quot; | user: &quot;&quot; | pass: &quot;&quot; | from: &quot;&quot; | to: &quot;&quot; | subject: &quot;&quot; | message: &quot;&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Host: The hostname of the SMTP server.</li>
-<li>Port: The port of the SMTP server.</li>
-<li>User &amp; Pass: The credentials for the server.</li>
-<li>From: The "from" email address.</li>
-<li>To: The target email address.</li>
-<li>Subject: The subject of the email.</li>
-<li>Message: The body contents of the email.</li>
+<li><strong>Host</strong>: The hostname of the SMTP server.</li>
+<li><strong>Port</strong>: The port of the SMTP server.</li>
+<li><strong>User &amp; Pass</strong>: The credentials for the server.</li>
+<li><strong>From</strong>: The "from" email address.</li>
+<li><strong>To</strong>: The target email address.</li>
+<li><strong>Subject</strong>: The subject of the email.</li>
+<li><strong>Message</strong>: The body contents of the email.</li>
 </ul>
+</div>
 
           <br>
           <footer class="wm-footer">

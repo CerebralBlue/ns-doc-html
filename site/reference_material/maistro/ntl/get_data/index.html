@@ -512,80 +512,102 @@
           
           <h4 id="text">Text<a class="headerlink" href="#text" title="Permanent link"></a></h4>
 <p>This is plain, minimally processed text that gets sent to the next step - usually either directly to the base LLM, or sent through a chain.</p>
+<hr />
 <h4 id="kb-documentation">KB Documentation<a class="headerlink" href="#kb-documentation" title="Permanent link"></a></h4>
 <p>KB stands for KnowledgeBase, and the query is used to retrieve snippets of document from the configured KnowledgeBase.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ kb|query:&quot;your KB query&quot; | snippet: &quot;&quot; | scoreRange: &quot;&quot; | filter: &quot;&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Query: The KB query. Best results are achieved by removing stopwords from this text, or using keywords.</li>
-<li>Snippet: Snippet size (character count): 10 - 2000.</li>
-<li>Score range: Upper bound of document scores to return: 0.0 - 1.0. For example, a score range of "0.8" will return the highest 80% scoring documents, discarding the lowest/20% of scored documents.</li>
-<li>Filter: If there is a filter field set for the connected KnowledgeBase (in the Configure Tab), set the value to filter/match.</li>
+<li><strong>Query</strong>: The KB query. Best results are achieved by removing stopwords from this text, or using keywords.</li>
+<li><strong>Snippet</strong>: Snippet size (character count): 10 - 2000.</li>
+<li><strong>Score range</strong>: Upper bound of document scores to return: 0.0 - 1.0. For example, a score range of "0.8" will return the highest 80% scoring documents, discarding the lowest/20% of scored documents.</li>
+<li><strong>Filter</strong>: If there is a filter field set for the connected KnowledgeBase (in the Configure Tab), set the value to filter/match.</li>
 </ul>
-<p><strong>Returns:</strong> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
 <p>Documentation snippets from configured KnowledgeBase data source.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This sets some global variables after use, like <code>kb.score</code>, <code>kb.context</code>, <code>kb.url</code>, and more. All of the KB search return values are available under this <code>kb</code> object. Use the Inspector to see all variables set.</p>
 </div>
+<hr />
 <h4 id="seek">Seek<a class="headerlink" href="#seek" title="Permanent link"></a></h4>
 <p>Perform a <code>seek</code> action, as if entering a question on the <code>seek</code> tab. </p>
 <div class="language-text highlight"><pre><span></span><code>{{ seek|query:&quot;your Seek query&quot; | stump: &quot;&quot; | filter: &quot;&quot; | language: &quot;&quot; | seekLLM: &quot;&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Query: The question/query.</li>
-<li>Stump: Information to add as priority in the Context. Use this to add relevant data/documentation to help <code>seek</code> answer your question.</li>
-<li>Filter: If there is a filter field set for the connected KnowledgeBase (in the Configure Tab), set the value to filter/match.</li>
-<li>Language: Target language for the generated answer.</li>
-<li>Seek LLM: Explicitly set the LLM to use for this query. Available on BYOLLM (Bring your own LLM) plans.</li>
+<li><strong>Query</strong>: The question/query.</li>
+<li><strong>Stump</strong>: Information to add as priority in the Context. Use this to add relevant data/documentation to help <code>seek</code> answer your question.</li>
+<li><strong>Filter</strong>: If there is a filter field set for the connected KnowledgeBase (in the Configure Tab), set the value to filter/match.</li>
+<li><strong>Language</strong>: Target language for the generated answer.</li>
+<li><strong>Seek LLM</strong>: Explicitly set the LLM to use for this query. Available on BYOLLM (Bring your own LLM) plans.</li>
 </ul>
-<p><strong>Returns:</strong> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
 <p>A natural language generated answer to <code>query</code>.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This sets some global variables after use, like <code>seek.score</code>, <code>seek.answer</code>, <code>seek.semanticScore</code>, and more. All of seek's return values are available under this <code>seek</code> object. Use the Inspector to see all variables set.</p>
 </div>
+<hr />
 <h4 id="rest">REST<a class="headerlink" href="#rest" title="Permanent link"></a></h4>
 <p>Connect to any REST API.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ post|url: &quot;&quot; | headers: &quot;&quot; | body: &quot;&quot; | operation: &quot;POST&quot; | jsonToVars: &quot;true&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>URL: The API connection target.</li>
-<li>Headers: JSON headers of the request. </li>
-<li>Body: The body of the request.</li>
-<li>Operation: The type of connection request: POST, GET, PUT, DELETE, PATCH</li>
-<li>JSON to Vars: Parse the API/JSON response into mAIstro-usable environment variables: true, false</li>
+<li><strong>URL</strong>: The API connection target.</li>
+<li><strong>Headers</strong>: JSON headers of the request. </li>
+<li><strong>Body</strong>: The body of the request.</li>
+<li><strong>Operation</strong>: The type of connection request: POST, GET, PUT, DELETE, PATCH</li>
+<li><strong>JSON to Vars</strong>: Parse the API/JSON response into mAIstro-usable environment variables: true, false</li>
 </ul>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This sets some global variables if "JSON to Vars" is enabled. Use the Inspector to see all variables set from the API response.</p>
 </div>
-<p><strong>Returns:</strong> </p>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
 <ul>
 <li>If <code>jsonToVars</code> is false, the JSON response from the API request.</li>
 <li>If <code>jsonToVars</code> is true, returns blank/empty as the return response is imported into the environment as variables.</li>
 </ul>
+</div>
+<hr />
 <h4 id="website-text">Website Text<a class="headerlink" href="#website-text" title="Permanent link"></a></h4>
 <p>Scrapes the URL given for any available plain text.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ web|url:&quot;https://yourpage.com/&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>URL: The API connection target.</li>
+<li><strong>URL</strong>: The API connection target.</li>
 </ul>
-<p><strong>Returns:</strong> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
 <ul>
 <li>The plain text contents of URL.</li>
 </ul>
-<p><strong>Example:</strong></p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>{{ web|url:&quot;https://en.wikipedia.org/wiki/Roman&quot; }}=&gt;{{ keywords|nouns:false }}
 </code></pre></div>
 <p>This will extract proper nouns from the Wikipedia page for <code>Roman</code>. The result will be similar to:</p>
 <div class="language-text highlight"><pre><span></span><code>Wikipedia, encyclopedia, Roman, Romans, român, Wiktionary, Rome, Italy Ancient Rome, BC, Rome Epistle, Testament, Christian Bible Roman, Music Romans, Sound Horizon, EP, Teen, Boy, Morning Musume Film, Film Roman, Indian Malayalam, Doctor, People Roman, Romans Ῥωμαῖοι, Rhomaioi, Greeks, Middle Ages, Ottoman, Rûm, Muslim, Bulgaria Roman Municipality Roman, Eure, France Roman, Romania Roman County, Sakha Republic, Russia Roman River, Essex, England Roman Valley, Nova Scotia, Canada Romans Romans, Ain, France Romans, Deux, Sèvres, France Romans dIsonzo, Italy Romans, sur-Isère, France Religion Roman Catholic, Roman Catholic, Nancy Grace Roman Space Telescope, Roman Space Telescope, NASA, ROMAN, Search, Wikipedia., Romans History, Greco, Romany, Gypsies, Roma, Disambiguation, Wikidata
 </code></pre></div>
+</details>
 
           <br>
           <footer class="wm-footer">

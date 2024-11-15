@@ -509,22 +509,27 @@
 <h4 id="ibm-db2">IBM DB2<a class="headerlink" href="#ibm-db2" title="Permanent link"></a></h4>
 <div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">db2</span>|<span class="n">query</span>:&quot;<span class="n">your</span><span class="w"> </span><span class="n">db2</span><span class="w"> </span><span class="n">query</span>&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">DATABASE</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">HOSTNAME</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">UID</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">PWD</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">PORT</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">SECURE</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Query: The SQL query to pass to DB2. Double quotes must be escaped \" \" to pass through to DB2.</li>
-<li>DATABASE: The database name.</li>
-<li>HOSTNAME: The hostname of the DB2 instance.</li>
-<li>UID: The user ID to use for authentication.</li>
-<li>PWD: The user password for authentication.</li>
-<li>PORT: The port number.</li>
-<li>SECURE: Set to true or false depending on the use of SSL.</li>
-<li>Sentences: To return the query response in tabular format, set this to false. To return the response in natural language, set this to true.</li>
+<li><strong>Query</strong>: The SQL query to pass to DB2. Double quotes must be escaped \" \" to pass through to DB2.</li>
+<li><strong>DATABASE</strong>: The database name.</li>
+<li><strong>HOSTNAME</strong>: The hostname of the DB2 instance.</li>
+<li><strong>UID</strong>: The user ID to use for authentication.</li>
+<li><strong>PWD</strong>: The user password for authentication.</li>
+<li><strong>PORT</strong>: The port number.</li>
+<li><strong>SECURE</strong>: Set to true or false depending on the use of SSL.</li>
+<li><strong>Sentences</strong>: To return the query response in tabular format, set this to false. To return the response in natural language, set this to true.</li>
 </ul>
-<p><strong>Returns:</strong> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
 <ul>
 <li>If Sentences is set to true, returns results in natural language description similar to TablePrep.</li>
 <li>If Sentences is set to false, returns the query response in tabular format.</li>
 </ul>
+</div>
+<hr />
 <h4 id="mysql-others">MySQL / Others<a class="headerlink" href="#mysql-others" title="Permanent link"></a></h4>
 <div class="language-ntl highlight"><pre><span></span><code>{{<span class="w"> </span><span class="n">postgres</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">rds</span>:<span class="w"> </span>&quot;<span class="n">false</span>&quot;}}
 {{<span class="w"> </span><span class="n">mariadb</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
@@ -533,18 +538,22 @@
 {{<span class="w"> </span><span class="n">oracle</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
 {{<span class="w"> </span><span class="n">redshift</span><span class="w"> </span>|<span class="w"> </span><span class="n">query</span>:&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">uri</span>:<span class="w"> </span>&quot;&quot;<span class="w"> </span>|<span class="w"> </span><span class="n">sentences</span>:<span class="w"> </span>&quot;<span class="n">true</span>&quot;}}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Query: The SQL query to use. Double quotes must be escaped \" \" to pass through.</li>
-<li>URI: The connection URI. The preceding "mysql://" is not required.</li>
-<li>Sentences: To return the query response in tabular format, set this to false. To return the response in natural language, set this to true.</li>
-<li>RDS: For Postgres only - Only enable this if using RDS Proxy in front of Postgres.</li>
+<li><strong>Query</strong>: The SQL query to use. Double quotes must be escaped \" \" to pass through.</li>
+<li><strong>URI</strong>: The connection URI. The preceding "mysql://" is not required.</li>
+<li><strong>Sentences</strong>: To return the query response in tabular format, set this to false. To return the response in natural language, set this to true.</li>
+<li><strong>RDS</strong>: For Postgres only - Only enable this if using RDS Proxy in front of Postgres.</li>
 </ul>
-<p><strong>Returns:</strong> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
 <ul>
 <li>If Sentences is set to true, returns results in natural language description similar to TablePrep.</li>
 <li>If Sentences is set to false, returns the query response in tabular format.</li>
 </ul>
+</div>
 
           <br>
           <footer class="wm-footer">

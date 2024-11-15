@@ -524,134 +524,210 @@
 <p>Convert a string to uppercase characters.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ uppercase  }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into all uppercase.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<p>None - Data should be "chained" into this function.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The string converted into all uppercase.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 {{ uppercase  }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 </code></pre></div>
+</details>
+<hr />
 <h4 id="lowercase">lowercase<a class="headerlink" href="#lowercase" title="Permanent link"></a></h4>
 <p>Convert a string to lowercase characters.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ lowercase }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into all lowercase.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<p>None - Data should be "chained" into this function.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The string converted into all lowercase.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 {{ lowercase  }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>the quick brown fox jumps over the lazy dog
 </code></pre></div>
+</details>
+<hr />
 <h4 id="base64-encode">Base64 Encode<a class="headerlink" href="#base64-encode" title="Permanent link"></a></h4>
-<p>Encode a string to Base64,</p>
+<p>Encode a string to Base64.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ b64encode }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into Base64.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<p>None - Data should be "chained" into this function.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The string converted into Base64.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 {{ b64encode  }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>VGhlIFF1aWNrIEJyb3duIEZveCBKdW1wcyBPdmVyIFRoZSBMYXp5IERvZwo=
 </code></pre></div>
+</details>
+<hr />
 <h4 id="base64-decode">Base64 Decode<a class="headerlink" href="#base64-decode" title="Permanent link"></a></h4>
 <p>Decode a string from Base64.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ b64decode }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The Base64 string converted into "normal" text.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<p>None - Data should be "chained" into this function.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The Base64 string converted into "normal" text.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>VGhlIFF1aWNrIEJyb3duIEZveCBKdW1wcyBPdmVyIFRoZSBMYXp5IERvZwo=
 {{ b64decode  }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 </code></pre></div>
+</details>
+<hr />
 <h4 id="url-encode">URL Encode<a class="headerlink" href="#url-encode" title="Permanent link"></a></h4>
 <p>URL Encode a string (helpful when working with APIs).</p>
 <div class="language-text highlight"><pre><span></span><code>{{ urlencode }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into a URL encode.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<p>None - Data should be "chained" into this function.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The string converted into a URL encode.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 {{ urlencode  }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>The%20Quick%20Brown%20Fox%20Jumps%20Over%20The%20Lazy%20Dog%0A
 </code></pre></div>
+</details>
+<hr />
 <h4 id="url-decode">URL Decode<a class="headerlink" href="#url-decode" title="Permanent link"></a></h4>
 <p>URL decodes a string.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ urldecode }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The string converted into a URL decode.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<p>None - Data should be "chained" into this function.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The string converted into a URL decode.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>The%20Quick%20Brown%20Fox%20Jumps%20Over%20The%20Lazy%20Dog%0A
 {{ urldecode }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>The Quick Brown Fox Jumps Over The Lazy Dog
 </code></pre></div>
+</details>
+<hr />
 <h4 id="split-extract-section">Split (extract section)<a class="headerlink" href="#split-extract-section" title="Permanent link"></a></h4>
 <p>Extracts a section from a text or document.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ split  | start: &quot;&quot; | end: &quot;&quot; | removeHeaders: &quot;true&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
 <li>
-<p>Start: Match string to begin the split. Included in the result. Case-sensitive.</p>
+<p><strong>Start</strong>: Match string to begin the split. Included in the result. Case-sensitive.</p>
 </li>
 <li>
-<p>End: The match string to end the split. Excluded from the result. Case-sensitive.</p>
+<p><strong>End</strong>: The match string to end the split. Excluded from the result. Case-sensitive.</p>
 </li>
 <li>
-<p>Remove Headers: If true, remove repeating lines of text (e.g. headers or footers). If false, do not remove repeating text.</p>
+<p><strong>Remove Headers</strong>: If true, remove repeating lines of text (e.g. headers or footers). If false, do not remove repeating text.</p>
 </li>
 </ul>
-<p><strong>Returns: The resulting split chunk of text.</strong></p>
-<p><strong>Example:</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The resulting split chunk of text.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs.
 {{ split | start: &quot;20&quot; | end: &quot;40&quot; | removeHeaders: false }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>20 cats and
 </code></pre></div>
+</details>
+<hr />
 <h4 id="split-on-delimiter">Split (on delimiter)<a class="headerlink" href="#split-on-delimiter" title="Permanent link"></a></h4>
 <p>Split a string on the specified delimiter, and store it in the variable name you choose for later use (eg, take a list of comma-separated names, and run a loop with each value).</p>
 <div class="language-text highlight"><pre><span></span><code>{{ splitDelim  | delimiter: &quot;,&quot; | outputJson: &quot;&quot; | variable: &quot;&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Delimiter: The delimiting string or regex on which to split the input text.</li>
-<li>Output Json: If true, outputs the split result as a JSON array. Otherwise, this sets the mAIstro variables for the resulting split.</li>
-<li>Variable: The base variable name to use for the array.</li>
+<li><strong>Delimiter</strong>: The delimiting string or regex on which to split the input text.</li>
+<li><strong>Output Json</strong>: If true, outputs the split result as a JSON array. Otherwise, this sets the mAIstro variables for the resulting split.</li>
+<li><strong>Variable</strong>: The base variable name to use for the array.</li>
 </ul>
-<p><strong>Returns:</strong> If Output Json is set to true, returns an array split based on your delimiter.</p>
-<p><strong>Example:</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>If Output Json is set to true, returns an array split based on your delimiter.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs.
 {{ splitDelim  | delimiter: &quot;cats&quot; | outputJson: &quot;true&quot; | variable: &quot;&quot; }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>[&quot;I have 20 &quot;,&quot; and 40 dogs.\n&quot;]
 </code></pre></div>
+</details>
+<hr />
 <h4 id="regular-expression">Regular Expression<a class="headerlink" href="#regular-expression" title="Permanent link"></a></h4>
 <p>Performs regular expression on input data. Regular expression can be a powerful feature to extract or replace certain data.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ regex  | match: &quot;&quot; | replace: &quot;&quot; | group: &quot;&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong> </p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Match: The match regex to use. E.g. <code>/[^0-9A-Za-z\s]/g</code></li>
-<li>Replace: The string to substitute for matches.</li>
-<li>Group: The group to extract. This is useful when multiple strings match the regex defined in the Match parameter, and you are only looking for one specific string.</li>
+<li><strong>Match</strong>: The match regex to use. E.g. <code>/[^0-9A-Za-z\s]/g</code></li>
+<li><strong>Replace</strong>: The string to substitute for matches.</li>
+<li><strong>Group</strong>: The group to extract. This is useful when multiple strings match the regex defined in the Match parameter, and you are only looking for one specific string.</li>
 </ul>
-<p><strong>Returns:</strong> The replaced text, or in case of using the <code>group</code> parameter, the group match.</p>
-<p><strong>Example 1:</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The replaced text, or in case of using the <code>group</code> parameter, the group match.</p>
+</div>
+<details class="note">
+<summary>Example Usage 1</summary>
 <p>If you have a text that you need to replace with something else, you can use the following expression:</p>
 <div class="language-text highlight"><pre><span></span><code>my name is howardyoo
 {{ regex  | match: &quot;yoo&quot; | replace: &quot;yu&quot; }}
@@ -659,7 +735,9 @@
 <p>Which yields:</p>
 <div class="language-text highlight"><pre><span></span><code>my name is howardyu
 </code></pre></div>
-<p><strong>Example 2:</strong></p>
+</details>
+<details class="note">
+<summary>Example Usage 2</summary>
 <p>Regex also supports extraction. For example, if you want to extract the email address in a text message, you can do so:</p>
 <div class="language-text highlight"><pre><span></span><code>my name is howardyoo@email.com
 {{ regex | match: &quot;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}&quot; | group: &quot;0&quot; }}
@@ -667,7 +745,9 @@
 <p>This will extract the email address (group 0). The result is:</p>
 <div class="language-text highlight"><pre><span></span><code>howardyoo@email.com
 </code></pre></div>
-<p><strong>Example 3:</strong></p>
+</details>
+<details class="note">
+<summary>Example Usage 3</summary>
 <p>Regex also supports groups, so in case you want to get the last digits of a phone number, you can do so:</p>
 <div class="language-text highlight"><pre><span></span><code>my phone number is 213-292-3322
 {{ regex  | match: &quot;([0-9]+)-([0-9]+)-([0-9]+)&quot; | group: &quot;3&quot; }}
@@ -675,19 +755,29 @@
 <p>which will result in:
 <div class="language-text highlight"><pre><span></span><code>3322
 </code></pre></div></p>
+</details>
+<hr />
 <h4 id="escape-a-string">Escape a String<a class="headerlink" href="#escape-a-string" title="Permanent link"></a></h4>
 <p>Escapes a string for use within a JSON object.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ jsonEscape  }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> Escapes a string by inserting backslashes next to special characters, in order to overcome programming limitations.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<p>None - Data should be "chained" into this function.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>Escapes a string by inserting backslashes next to special characters, in order to overcome programming limitations.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>&quot;I saw my mother today, and I told her &quot;I have 20 cats and 40 dogs&quot;.&quot;
 {{ jsonEscape  }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>\&quot;I saw my mother today, and I told her \&quot;I have 20 cats and 40 dogs\&quot;.\&quot;\n
 </code></pre></div>
+</details>
 
           <br>
           <footer class="wm-footer">

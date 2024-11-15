@@ -516,13 +516,19 @@
 <p>Summarizes input text while preserving the main subject of the content.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ summarize|length:100|match:&quot;&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong> </p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Length: The total maximum character length of the output/summary.</li>
-<li>Match: The text around which to prioritize the summary.</li>
+<li><strong>Length</strong>: The total maximum character length of the output/summary.</li>
+<li><strong>Match</strong>: The text around which to prioritize the summary.</li>
 </ul>
-<p><strong>Returns:</strong> The resulting summary.</p>
-<p><strong>Example 1:</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The resulting summary.</p>
+</div>
+<details class="note">
+<summary>Example Usage 1</summary>
 <div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs - it&#39;s a lot of furry friends to take care of! 
 My name is Jane and I run an animal rescue shelter out of my home. 
 It all started a few years ago when I took in a litter of abandoned kittens. 
@@ -532,7 +538,9 @@ I fell in love with them and decided to make it my mission to give unwanted anim
 <p>Yields:</p>
 <div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs - it&#39;s a lot of furry friends to take care of!
 </code></pre></div>
-<p><strong>Example 2:</strong> Using <code>match</code></p>
+</details>
+<details class="note">
+<summary>Example Usage 2 - Using <code>match</code></summary>
 <div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs - it&#39;s a lot of furry friends to take care of! 
 My name is Jane and I run an animal rescue shelter out of my home. 
 It all started a few years ago when I took in a litter of abandoned kittens. 
@@ -542,42 +550,67 @@ I fell in love with them and decided to make it my mission to give unwanted anim
 <p>Yields:</p>
 <div class="language-text highlight"><pre><span></span><code>I fell in love with them and decided to make it my mission to give unwanted animals a forever home.
 </code></pre></div>
+</details>
+<hr />
 <h4 id="translate">Translate<a class="headerlink" href="#translate" title="Permanent link"></a></h4>
 <p>Translates input text into a language of your choice.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ translate  | target: &quot;&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Target: The language you wish to translate the text into. You must enter the language's 2-character ISO 639 code to get the results. A full list of language codes can be found here: https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes#Table</li>
+<li><strong>Target</strong>: The language you wish to translate the text into. You must enter the language's 2-character ISO 639 code to get results. A full list of language codes can be found <a href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes#Table">here</a>.</li>
 </ul>
-<p><strong>Returns:</strong> The original text translated into the language of your choice.</p>
-<p><strong>Example:</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The original text translated into the language of your choice.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>The translate function can easily translate text into any language you desire!
 {{ translate  | target: &quot;es&quot; }}
 </code></pre></div>
 <p>Would yield:</p>
 <div class="language-text highlight"><pre><span></span><code>La función de traducción puede traducir fácilmente el texto a cualquier idioma que desee.
 </code></pre></div>
+</details>
+<hr />
 <h4 id="truncate-by-tokens">Truncate by Tokens<a class="headerlink" href="#truncate-by-tokens" title="Permanent link"></a></h4>
 <p>Helpful to manage the size of context sent to the LLM, this allows you to truncate to a specific number of tokens effortlessly.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ truncateToken  | tokens: &quot;&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Tokens: The maximum number of tokens to allow in the returned text.</li>
+<li><strong>Tokens</strong>: The maximum number of tokens to allow in the returned text.</li>
 </ul>
-<p><strong>Returns:</strong> The resulting text clipped to the specified amount of tokens.</p>
-<p><strong>Example 1:</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The resulting text clipped to the specified amount of tokens.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>{{ kb | query: &quot;NeuralSeek&quot; }}=&gt;{{ truncateToken | tokens: &quot;2000&quot; }}=&gt;{{ variable | name: &quot;documentation&quot; }}
 </code></pre></div>
 <p>Would yield a variable far too large to include here, but would limit the resulting documentation text to 2000 (2k) tokens before assigning to the <code>documentation</code> variable. This helps prevent exceeding context windows of some smaller LLMs.</p>
+</details>
+<hr />
 <h4 id="remove-stopwords">Remove Stopwords<a class="headerlink" href="#remove-stopwords" title="Permanent link"></a></h4>
 <p>Removes <a href="https://en.wikipedia.org/wiki/Stop_word">stop words</a> from input text.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ stopwords }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The resulting text with stopwords removed.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<p>None - Data should be "chained" into this function.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The resulting text with stopwords removed.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs, isn&#39;t this amazing?
 {{ stopwords }}
 </code></pre></div>
@@ -585,29 +618,46 @@ I fell in love with them and decided to make it my mission to give unwanted anim
 <div class="language-text highlight"><pre><span></span><code>20 cats 40 dogs, amazing?
 </code></pre></div>
 <p>Notice the words <code>I, have, and, isn't, this</code> are deemed as stopwords and thus have been removed.</p>
+</details>
+<hr />
 <h4 id="force-numeric">Force Numeric<a class="headerlink" href="#force-numeric" title="Permanent link"></a></h4>
 <p>This function removes all non-numeric characters, and string-style concatenates the remainder into a single value.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ forceNumeric }}
 </code></pre></div>
-<p><strong>Parameters:</strong> None - Data should be "chained" into this function.</p>
-<p><strong>Returns:</strong> The resulting number.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<p>None - Data should be "chained" into this function.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The resulting number.</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <p><code>I have 20 cats and 40 dogs</code> contains numeric values.  So, running this:</p>
 <div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs
 {{ forceNumeric }}
 </code></pre></div>
 <p>Will yield: <code>2040</code></p>
+</details>
+<hr />
 <h4 id="table-prep">Table Prep<a class="headerlink" href="#table-prep" title="Permanent link"></a></h4>
 <p>This function prepares tabular data to be better understood and processed by LLM.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ tablePrep | query:&quot;&quot; | sentences: &quot;true&quot; }}
 </code></pre></div>
-<p><strong>Parameters:</strong> </p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>Query: Keywords to help narrow the returned data.</li>
-<li>Sentences: If true, return the output in natural language expressions. If false, return JSON format.</li>
+<li><strong>Query</strong>: Keywords to help narrow the returned data.</li>
+<li><strong>Sentences</strong>: If true, return the output in natural language expressions. If false, return JSON format.</li>
 </ul>
-<p><strong>Returns:</strong> The resulting natural language text or JSON.</p>
-<p><strong>Example 1:</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The resulting natural language text or JSON.</p>
+</div>
+<details class="note">
+<summary>Example Usage 1</summary>
 <p>If we have CSV data, table prep will convert it to JSON or natural language:</p>
 <div class="language-text highlight"><pre><span></span><code>col1,col2,col3
 data1,data2,data3
@@ -616,21 +666,23 @@ data11,data22,data33
 </code></pre></div>
 <p>The result will be:</p>
 <div class="language-text highlight"><pre><span></span><code>{
- &quot;col1&quot;: [
- &quot;data1&quot;,
- &quot;data11&quot;
- ],
- &quot;col2&quot;: [
- &quot;data2&quot;,
- &quot;data22&quot;
- ],
- &quot;col3&quot;: [
- &quot;data3&quot;,
- &quot;data33&quot;
- ]
+&quot;col1&quot;: [
+&quot;data1&quot;,
+&quot;data11&quot;
+],
+&quot;col2&quot;: [
+&quot;data2&quot;,
+&quot;data22&quot;
+],
+&quot;col3&quot;: [
+&quot;data3&quot;,
+&quot;data33&quot;
+]
 }
 </code></pre></div>
-<p><strong>Example 2:</strong> Using the <code>query</code> parameter:</p>
+</details>
+<details class="note">
+<summary>Example Usage 2 - Using the <code>query</code> parameter</summary>
 <div class="language-text highlight"><pre><span></span><code>col1,col2,col3
 data1,data2,data3
 data11,data22,data33
@@ -638,13 +690,15 @@ data11,data22,data33
 </code></pre></div>
 <p>Will yield all the values for col1:</p>
 <div class="language-text highlight"><pre><span></span><code>{
- &quot;col1&quot;: [
- &quot;data1&quot;,
- &quot;data11&quot;
- ]
+&quot;col1&quot;: [
+&quot;data1&quot;,
+&quot;data11&quot;
+]
 }
 </code></pre></div>
-<p><strong>Example 3:</strong> Using the <code>sentences: true</code> parameter:</p>
+</details>
+<details class="note">
+<summary>Example Usage 3 - Using the <code>sentences: true</code> parameter</summary>
 <div class="language-text highlight"><pre><span></span><code>col1,col2,col3
 data1,data2,data3
 data11,data22,data33
@@ -654,6 +708,7 @@ data11,data22,data33
 <div class="language-text highlight"><pre><span></span><code>Record number 0 lists that col1 is data1, and the col2 is data2, and the col3 is data3.
 Record number 1 lists that col1 is data11, and the col2 is data22, and the col3 is data33.
 </code></pre></div>
+</details>
 
           <br>
           <footer class="wm-footer">

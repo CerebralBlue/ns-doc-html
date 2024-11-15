@@ -510,8 +510,14 @@
 <p>Extract entities from text. Configure entities in the Extract Tab. </p>
 <div class="language-text highlight"><pre><span></span><code>{{ extract }}
 </code></pre></div>
-<p><strong>Returns:</strong> JSON representation of the extracted entities.</p>
-<p><strong>Example:</strong></p>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<ul>
+<li>JSON representation of the extracted entities.</li>
+</ul>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <p>Input: </p>
 <div class="language-text highlight"><pre><span></span><code>My phone number is 555-555-5555=&gt;{{ extract }}
 </code></pre></div>
@@ -522,39 +528,56 @@
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
+</details>
+<hr />
 <h4 id="extract-keywords">Extract Keywords<a class="headerlink" href="#extract-keywords" title="Permanent link"></a></h4>
 <p>Extracts keywords from input text.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ keywords | nouns: true }}
 </code></pre></div>
-<p><strong>Parameters:</strong> </p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
 <li>Nouns: If true, return all nouns. If false, only return <a href="https://en.wikipedia.org/wiki/Proper_noun">proper nouns</a>.</li>
 </ul>
-<p><strong>Returns:</strong> The resulting keywords.</p>
-<p><strong>Example 1:</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The resulting keywords.</p>
+</div>
+<details class="note">
+<summary>Example Usage 1</summary>
 <div class="language-text highlight"><pre><span></span><code>I have 20 cats and 40 dogs
 {{ keywords|nouns:true }}
 </code></pre></div>
-<p>Will yield:</p>
+<p>Will yield:
 <div class="language-text highlight"><pre><span></span><code>20 cats, 40 dogs
-</code></pre></div>
-<p><strong>Example 2:</strong></p>
+</code></pre></div></p>
+</details>
+<details class="note">
+<summary>Example Usage 2</summary>
 <div class="language-text highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs
 {{ keywords|nouns:false }}
 </code></pre></div>
 <p>Will yield:</p>
 <div class="language-text highlight"><pre><span></span><code>Howard
 </code></pre></div>
-<p>If the <code>nouns: true</code> is used,</p>
+<p>If the <code>nouns: true</code> is used, the following below is returned:</p>
 <div class="language-text highlight"><pre><span></span><code>Howard, 20 cats, 40 dogs
 </code></pre></div>
-<p>Is returned.</p>
+</details>
+<hr />
 <h4 id="extract-grammar">Extract Grammar<a class="headerlink" href="#extract-grammar" title="Permanent link"></a></h4>
 <p>Extracts grammar from input text, grouping by type of word.</p>
 <div class="language-text highlight"><pre><span></span><code>{{ grammar }}
 </code></pre></div>
-<p><strong>Returns:</strong> This sets environment variables from the text given, classifying words into buckets like dates, nouns, determiners, etc</p>
-<p><strong>Example 1:</strong></p>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<ul>
+<li>This sets environment variables from the text given, classifying words into buckets like dates, nouns, determiners, etc</li>
+</ul>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
 <div class="language-text highlight"><pre><span></span><code>Howard has 20 cats and 40 dogs. 
 He took them to the vet last week.
 {{ grammar  }}
@@ -568,6 +591,7 @@ grammar.nouns: [&quot;20 cats&quot;,&quot;40 dogs&quot;,&quot;vet&quot;,&quot;we
 grammar.preps: [&quot;He&quot;,&quot;them&quot;]
 grammar.determiners: []
 </code></pre></div>
+</details>
 
           <br>
           <footer class="wm-footer">

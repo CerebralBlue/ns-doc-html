@@ -241,6 +241,12 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/upload_data/"/>
     </url>
     <url>
+        <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Codetools/</loc>
+        <lastmod>2024-12-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Codetools/"/>
+    </url>
+    <url>
         <loc>https://documentation.neuralseek.com/reference_material/maistro/ntl/modify_data/Jsontools/</loc>
         <lastmod>2024-12-03</lastmod>
         <changefreq>daily</changefreq>

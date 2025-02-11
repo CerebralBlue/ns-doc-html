@@ -1,16 +1,16 @@
 :root > * {
-  --md-primary-fg-color:               hsla(209, 94%, 37%, 1); /* #0d67b4 */
+  --md-primary-fg-color:               #000000; /* #3D91F0 */
   --md-primary-fg-color--light:        hsla(209, 94%, 47%, 1); /* Adjusted lighter shade */
   --md-primary-fg-color--dark:         hsla(209, 94%, 27%, 1); /* Adjusted darker shade */
   --md-primary-bg-color:               hsla(0, 0%, 100%, 1); /* #ffffff */
   --md-primary-bg-color--light:        hsla(0, 0%, 100%, 0.7);
 
-  --md-accent-fg-color:                hsla(204, 77%, 59%, 1); /* #4bb5f2 */
+  --md-accent-fg-color:                #3D91F0; /* #4bb5f2 */
   --md-accent-fg-color--transparent:   hsla(204, 77%, 59%, 0.1);
   --md-accent-bg-color:                hsla(0, 0%, 100%, 1); /* #ffffff */
   --md-accent-bg-color--light:         hsla(0, 0%, 100%, 0.7);
 
-  --md-secondary-fg-color:             hsla(210, 5%, 60%, 1); /* #a8a9ad */
+  --md-secondary-fg-color:             #9D2FF9; /* #a8a9ad */
   --md-standard-font-color:            hsla(210, 90%, 5%, 1); /* #01090f */
 
   /* Additional Colors */
@@ -41,7 +41,6 @@
 }
 
 .md-typeset .twemoji svg {
-
 }
 
 .md-typeset .twemoji {

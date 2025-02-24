@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../assets/ns-new.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
     
     
       
@@ -746,6 +746,8 @@
       
         
       
+        
+      
     
     
     
@@ -831,6 +833,28 @@
   
   <span class="md-ellipsis">
     Generate Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_cache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local Cache
     
   </span>
   
@@ -1037,6 +1061,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Categories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intents
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1094,10 +1136,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_12" >
         
           
-          <label class="md-nav__link" for="__nav_2_7_2_11" id="__nav_2_7_2_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_7_2_12" id="__nav_2_7_2_12_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1109,8 +1151,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_7_2_11">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_2_12">
             <span class="md-nav__icon md-icon"></span>
             Modify Data
           </label>
@@ -2685,6 +2727,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Categories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intents
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2705,27 +2765,129 @@
 
 <h4 id="current_date">Current Date<a class="headerlink" href="#current_date" title="Permanent link"></a></h4>
 <p>Returns the current <strong>UTC</strong> date in <code>YYYY-MM-DD</code> format. Also sets the <code>sys_Date</code> variable globally.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{{ date }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{{ date | timezone: &quot;&quot; }}
 </span></code></pre></div>
-<p><strong>Example output:</strong> <code>2024-2-16</code></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><strong>Timezone</strong>: Users can optionally set the UTC timezone for a specific region. </li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The current date in <code>YYYY-MM-DD</code> format. </p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
+<p>Set the sys_Date variable globally by evaluating the <strong>Current Date</strong> mAIstro node. 
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{{</span> date <span class="p">}}</span>
+</span></code></pre></div></p>
+<p>The generated output will show the following date, and set the sys_Date variable.</p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">`</span><span class="n">2024-2-16</span><span class="err">`</span>
+</span></code></pre></div>
+</details>
 <hr />
 <h4 id="current_time">Current Time<a class="headerlink" href="#current_time" title="Permanent link"></a></h4>
 <p>Returns the current <strong>UTC</strong> time in <code>HH:MM:SS</code> format. Also sets the <code>sys_Time</code> variable globally.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{{ time }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{{ time  | timezone: &quot;&quot; }}
 </span></code></pre></div>
-<p><strong>Example output:</strong> <code>1:16:42</code></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><strong>Timezone</strong>: Users can optionally set the UTC timezone for a specific region. </li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The current time in military time format. </p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
+<p>Set the sys_Time variable globally by evaluating the <strong>Current Time</strong> mAIstro node. </p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{{</span> time  <span class="p">|</span> <span class="na">timezone</span><span class="p">:</span> <span class="s">&quot;UTC−05:00, R&quot;</span> <span class="p">}}</span>
+</span></code></pre></div>
+<p>The generated output will show the following time, and set the sys_Time variable.</p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="err">`</span><span class="n">20</span><span class="p">:</span><span class="n">20</span><span class="p">:</span><span class="n">44</span><span class="err">`</span>
+</span></code></pre></div>
+</details>
 <hr />
 <h4 id="generate_uuid">Generate UUID<a class="headerlink" href="#generate_uuid" title="Permanent link"></a></h4>
 <p>Returns a randomly generated UUID. Also sets the <code>sys_UUID</code> variable globally.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{{ uuid }}
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{{</span> uuid <span class="p">}}</span>
 </span></code></pre></div>
-<p><strong>Example output:</strong> <code>c4c6fc20-12212aea-9129f14b-5de16d39</code></p>
+<details class="note">
+<summary>Example Usage</summary>
+<p>Set the sys_UUID variable globally by evaluating the <strong>Generate UUID</strong> mAIstro node. </p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{{</span> uuid <span class="p">}}</span>
+</span></code></pre></div>
+<p>The generated output will show a randomly generated UUID, and set the sys_UUID variable.</p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="err">`</span><span class="n">c4c6fc20-12212aea-9129f14b-5de16d39</span><span class="err">`</span>
+</span></code></pre></div>
+</details>
 <hr />
 <h4 id="random_number">Random Number<a class="headerlink" href="#random_number" title="Permanent link"></a></h4>
 <p>Returns a randomly generated number. Also sets the <code>sys_Random</code> variable globally.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{{ random }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>{{ random  | upper: &quot;&quot; | lower: &quot;&quot; }}
 </span></code></pre></div>
-<p><strong>Example output:</strong> <code>0.6449217301057322</code></p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><strong>Upper</strong>: The upper limit, or highest value that the node will generate.</li>
+<li><strong>Lower</strong>: The lower limit, or lowest value that the node will generate.</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>A randomly generated number that falls inbetween the user set upper and lower bounds. </p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
+<p>Set the sys_Random variable globally by evaluating the <strong>Random Number</strong> mAIstro node. </p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{{</span> random  <span class="p">|</span> <span class="na">upper</span><span class="p">:</span> <span class="s">&quot;200&quot;</span> <span class="p">|</span> <span class="na">lower</span><span class="p">:</span> <span class="s">&quot;100&quot;</span> <span class="p">}}</span>
+</span></code></pre></div>
+<p>The generated output will show a randomly generated number, and set the sys_Random variable.</p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="err">`</span><span class="n">153</span><span class="err">`</span>
+</span></code></pre></div>
+</details>
+<hr />
+<h4 id="categories">Categories<a class="headerlink" href="#categories" title="Permanent link"></a></h4>
+<p>Return the categories in the active configuration.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>{{ categories  | timezone: &quot;&quot; }}
+</span></code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><strong>Timezone</strong>: Users can optionally set the UTC timezone for a specific region. </li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The active categories in your current configuration</p>
+</div>
+<details class="note">
+<summary>Example Usage</summary>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{{</span> categories  <span class="p">|</span> <span class="na">timezone</span><span class="p">:</span> <span class="s">&quot;UTC−05:00, R&quot;</span> <span class="p">}}</span>
+</span></code></pre></div>
+<p>The generated output will show the category types that are currently active in your configuration.</p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="err">`</span><span class="n">LLMs</span><span class="p">,</span><span class="w"> </span><span class="n">Chatbots</span><span class="p">,</span><span class="w"> </span><span class="n">KnowledgeBases</span><span class="p">,</span><span class="w"> </span><span class="n">Finances</span><span class="err">`</span>
+</span></code></pre></div>
+</details>
+<hr />
+<h4 id="intents">Intents<a class="headerlink" href="#intents" title="Permanent link"></a></h4>
+<p>Returns the most recent 10 intents. If used as part of seek they will be filtered by the detected category.</p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{{</span> intents  <span class="p">}}</span>
+</span></code></pre></div>
+<details class="note">
+<summary>Example Usage</summary>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{{</span> intents  <span class="p">}}</span>
+</span></code></pre></div>
+<p>The generated output will show the most recent intents in your currently active configuration.</p>
+<p><code>The intent "LinkedIn_post-Agentic_Workflows_in_NeuralSeek" has questions like "I need help writing a post about our new Agentic workflows in NeuralSeek. it's for linkedin social media"</code></p>
+<p><code>The intent "Other-draft_sow" has questions like "draft sow"</code></p>
+<p><code>The intent "Other-nerualseek" has questions like "what is nerualseek"</code></p>
+<p><code>The intent "Other-neuralseek" has questions like "what is neuralseek"</code></p>
+<p><code>The intent "Social_Media_Post-Agentic_Workflows_in_NeuralSeek" has questions like "I need help writing a post about our new Agentic workflows in NeuralSeek. it's for linkedin social media"</code></p>
+</details>
 
 
 

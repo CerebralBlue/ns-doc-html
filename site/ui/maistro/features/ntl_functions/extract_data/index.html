@@ -11,14 +11,14 @@
         <link rel="canonical" href="https://documentation.neuralseek.com/ui/maistro/features/ntl_functions/extract_data/">
       
       
-        <link rel="prev" href="../generate_data/">
+        <link rel="prev" href="../local_cache/">
       
       
         <link rel="next" href="../agent_registry/">
       
       
       <link rel="icon" href="../../../../../assets/ns-new.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
     
     
       
@@ -121,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#extract" class="md-skip">
+        <a href="#extract_entities" class="md-skip">
           Skip to content
         </a>
       
@@ -746,6 +746,8 @@
       
         
       
+        
+      
     
     
     
@@ -845,6 +847,28 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_cache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local Cache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -892,9 +916,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#extract" class="md-nav__link">
+  <a href="#extract_entities" class="md-nav__link">
     <span class="md-ellipsis">
-      Extract
+      Extract Entities
     </span>
   </a>
   
@@ -913,6 +937,15 @@
   <a href="#extract_grammar" class="md-nav__link">
     <span class="md-ellipsis">
       Extract Grammar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR
     </span>
   </a>
   
@@ -1085,10 +1118,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_12" >
         
           
-          <label class="md-nav__link" for="__nav_2_7_2_11" id="__nav_2_7_2_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_7_2_12" id="__nav_2_7_2_12_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1100,8 +1133,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_7_2_11">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_2_12">
             <span class="md-nav__icon md-icon"></span>
             Modify Data
           </label>
@@ -2641,9 +2674,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#extract" class="md-nav__link">
+  <a href="#extract_entities" class="md-nav__link">
     <span class="md-ellipsis">
-      Extract
+      Extract Entities
     </span>
   </a>
   
@@ -2667,6 +2700,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ocr" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2685,9 +2727,9 @@
 
   <h1>Extract Data</h1>
 
-<h4 id="extract">Extract<a class="headerlink" href="#extract" title="Permanent link"></a></h4>
+<h4 id="extract_entities">Extract Entities<a class="headerlink" href="#extract_entities" title="Permanent link"></a></h4>
 <p>Extract entities from text. Configure entities in the Extract Tab. </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{{ extract }}
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{{</span> extract <span class="p">}}</span>
 </span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Returns</p>
@@ -2711,12 +2753,12 @@
 <hr />
 <h4 id="extract_keywords">Extract Keywords<a class="headerlink" href="#extract_keywords" title="Permanent link"></a></h4>
 <p>Extracts keywords from input text.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{{ keywords | nouns: true }}
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{{</span> keywords <span class="p">|</span> <span class="na">nouns</span><span class="p">:</span> true <span class="p">}}</span>
 </span></code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Parameters</p>
 <ul>
-<li>Nouns: If true, return all nouns. If false, only return <a href="https://en.wikipedia.org/wiki/Proper_noun">proper nouns</a>.</li>
+<li><strong>Nouns</strong>: If true, return all nouns. If false, only return <a href="https://en.wikipedia.org/wiki/Proper_noun">proper nouns</a>.</li>
 </ul>
 </div>
 <div class="admonition success">
@@ -2747,7 +2789,7 @@
 <hr />
 <h4 id="extract_grammar">Extract Grammar<a class="headerlink" href="#extract_grammar" title="Permanent link"></a></h4>
 <p>Extracts grammar from input text, grouping by type of word.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>{{ grammar }}
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{{</span> grammar <span class="p">}}</span>
 </span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Returns</p>
@@ -2771,6 +2813,22 @@
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>grammar.determiners: []
 </span></code></pre></div>
 </details>
+<hr />
+<h4 id="ocr">OCR<a class="headerlink" href="#ocr" title="Permanent link"></a></h4>
+<p>Utilize the OCR node to convert the uploaded image into searchable text. </p>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{{</span> ocr  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;&quot;</span> <span class="p">}}</span>
+</span></code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><strong>Name</strong>: The image file name.</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Returns</p>
+<p>The OCR'd text from the uploaded image file. </p>
+</div>
+<hr />
 
 
 

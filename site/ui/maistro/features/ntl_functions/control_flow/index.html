@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://documentation.neuralseek.com/ui/maistro/features/ntl_functions/control_flow/">
       
       
-        <link rel="prev" href="../agent_registry/">
+        <link rel="prev" href="../multi-agent/">
       
       
         <link rel="next" href="../rag_tools/">
@@ -121,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#set_variable" class="md-skip">
+        <a href="#control_flow" class="md-skip">
           Skip to content
         </a>
       
@@ -894,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agent_registry/" class="md-nav__link">
+      <a href="../multi-agent/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -921,6 +921,8 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -952,12 +954,23 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#set_variable" class="md-nav__link">
@@ -969,9 +982,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use_variable" class="md-nav__link">
+  <a href="#usevariable" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Variable
+      useVariable
     </span>
   </a>
   
@@ -987,9 +1000,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loops_start_end_break" class="md-nav__link">
+  <a href="#start_loop" class="md-nav__link">
     <span class="md-ellipsis">
-      Loops: Start, End, Break
+      Start Loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      End Loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#break_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Break Loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context Loop
     </span>
   </a>
   
@@ -999,6 +1039,15 @@
   <a href="#variable_loop" class="md-nav__link">
     <span class="md-ellipsis">
       Variable Loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Loop
     </span>
   </a>
   
@@ -1026,6 +1075,15 @@
   <a href="#condition" class="md-nav__link">
     <span class="md-ellipsis">
       Condition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stream_a_string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stream a string
     </span>
   </a>
   
@@ -1183,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modify_data/code_tools/" class="md-nav__link">
+      <a href="../modify_data/code_toolbox/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1205,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modify_data/json_tools/" class="md-nav__link">
+      <a href="../modify_data/json_toolbox/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1227,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modify_data/string_tools/" class="md-nav__link">
+      <a href="../modify_data/string_toolbox/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1271,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modify_data/xml_tools/" class="md-nav__link">
+      <a href="../modify_data/xml_toolbox/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1322,9 +1380,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../database_connections/" class="md-nav__link">
+    
+    
+      
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_2_14" id="__nav_2_7_2_14_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
     Integrations
@@ -1332,7 +1424,261 @@
   </span>
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_2_14">
+            <span class="md-nav__icon md-icon"></span>
+            Integrations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/aws_s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS S3
+    
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/databases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Databases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/google_drive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Drive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/jira/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jira
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/knowledgebases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KnowledgeBases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/sharepoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sharepoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/slack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/trello/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trello
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/watsonx.governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    watsonx.governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrations/web_searches/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web Searches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1790,6 +2136,8 @@
       
         
       
+        
+      
     
     
     
@@ -2174,6 +2522,61 @@
           
           
           <div class="md-nav__link md-nav__container">
+            <a href="../../../../../guides/integration/wa_context_guide/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    mAIstro Streaming Endpoint with Watsonx
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            mAIstro Streaming Endpoint with Watsonx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
             <a href="../../../../../guides/integration/implementing_feedback/" class="md-nav__link ">
               
   
@@ -2187,8 +2590,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_7">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_8">
             <span class="md-nav__icon md-icon"></span>
             Implementing Feedback
           </label>
@@ -2702,12 +3105,23 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#set_variable" class="md-nav__link">
@@ -2719,9 +3133,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use_variable" class="md-nav__link">
+  <a href="#usevariable" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Variable
+      useVariable
     </span>
   </a>
   
@@ -2737,9 +3151,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loops_start_end_break" class="md-nav__link">
+  <a href="#start_loop" class="md-nav__link">
     <span class="md-ellipsis">
-      Loops: Start, End, Break
+      Start Loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      End Loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#break_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Break Loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context Loop
     </span>
   </a>
   
@@ -2749,6 +3190,15 @@
   <a href="#variable_loop" class="md-nav__link">
     <span class="md-ellipsis">
       Variable Loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Loop
     </span>
   </a>
   
@@ -2781,6 +3231,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stream_a_string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stream a string
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2797,313 +3256,385 @@
 
 
 
-  <h1>Control Flow</h1>
-
-<h4 id="set_variable">Set Variable<a class="headerlink" href="#set_variable" title="Permanent link"></a></h4>
-<p>Creates or sets a variable that can be used later in the NTL expression. For example, </p>
-<div class="language-ntl highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">34</span><span class="o">=&gt;</span><span class="p">{{</span> variable <span class="p">|</span> <span class="na">name</span><span class="p">:</span><span class="s">&quot;age&quot;</span> <span class="p">}}</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">or</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;age&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;34&quot;</span> <span class="p">}}</span>
-</span></code></pre></div>
+<h1 id="control_flow">Control Flow<a class="headerlink" href="#control_flow" title="Permanent link"></a></h1>
+<h4 id="comment">Comment<a class="headerlink" href="#comment" title="Permanent link"></a></h4>
+<p>This node allows for comments and description of surrounding NTL</p>
 <div class="admonition example">
 <p class="admonition-title">Parameters</p>
 <ul>
-<li><strong>Name</strong>: The name of the variable to set.</li>
-<li><strong>Value</strong>: The optional (override) value to set to the variable.</li>
+<li><strong>nsdescription</strong>: Comments</li>
 </ul>
 </div>
+<hr />
+<h4 id="set_variable">Set Variable<a class="headerlink" href="#set_variable" title="Permanent link"></a></h4>
+<p>Collect all current flowing text into this node, and set it to a variable for use in later steps. You can also use this to clear existing text.</p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li>
+<p><strong>name</strong>: The name of the variable</p>
+</li>
+<li>
+<p><strong>mode</strong>: Overwrite (default) or Append to this variable</p>
+</li>
+<li>
+<p><strong>value</strong>: (Optional) Directly set the value. Leave this blank to collect the input to this node.</p>
+</li>
+</ul>
+</div>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;age&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;34&quot;</span> <span class="p">}}</span>
+</span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">No Returns</p>
 </div>
 <hr />
-<h4 id="use_variable">Use Variable<a class="headerlink" href="#use_variable" title="Permanent link"></a></h4>
-<p>Syntax to use / expand a variable into the environment.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;&lt; name: variableName, prompt: true &gt;&gt;
+<h4 id="usevariable">useVariable<a class="headerlink" href="#usevariable" title="Permanent link"></a></h4>
+<p>undefined</p>
+<hr />
+<h4 id="stop">Stop<a class="headerlink" href="#stop" title="Permanent link"></a></h4>
+<p>Stop all further processing</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{{ stop }}
 </span></code></pre></div>
+<hr />
+<h4 id="start_loop">Start Loop<a class="headerlink" href="#start_loop" title="Permanent link"></a></h4>
+<p>Loop for a set number of times. Use the Break Loop node to stop the loop early</p>
 <div class="admonition example">
 <p class="admonition-title">Parameters</p>
 <ul>
-<li><strong>Name</strong>: The name of the variable</li>
-<li><strong>Prompt</strong>: If set to true, the UI will prompt for the value for this variable. If set to false, the UI will avoid prompting for this variable.</li>
+<li><strong>count</strong>: <ul>
+<li><strong>text</strong>: The times to loop unless a loop break is recieved</li>
+<li><strong>min</strong>: 1</li>
+<li><strong>max</strong>: 10</li>
+<li><strong>step</strong>: 1</li>
+<li><strong>default</strong>: 2</li>
+</ul>
+</li>
 </ul>
 </div>
-<div class="admonition success">
-<p class="admonition-title">Returns</p>
+<hr />
+<h4 id="end_loop">End Loop<a class="headerlink" href="#end_loop" title="Permanent link"></a></h4>
+<p>Loop for a set number of times. Use the Break Loop node to stop the loop early</p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>The contents of the variable.</li>
+<li><strong>sleep</strong>: <ul>
+<li><strong>text</strong>: Amount of time in milliseconds to delay the next loop iteration</li>
+<li><strong>min</strong>: 0</li>
+<li><strong>max</strong>: 4000</li>
+<li><strong>step</strong>: 100</li>
+<li><strong>default</strong>: 0</li>
+</ul>
+</li>
 </ul>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note about variables</p>
-<p>When the variable is NOT found but used in &lt;&lt; &gt;&gt; notation, the variable is considered as user input, and mAIstro will prompt for the value prior to evaluation. 
-For example, if you have <code>&lt;&lt; name: new &gt;&gt;</code> or <code>&lt;&lt; name: new, prompt: true &gt;&gt;</code> and there is not such thing as <code>{{ variable|name: "new" }}</code> in the expression, mAIstro will ask for it like this:</p>
-<p><a class="glightbox" href="../images/ntl_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="set_params" src="../images/ntl_2.png" /></a></p>
-</div>
 <hr />
-<h4 id="stop">Stop<a class="headerlink" href="#stop" title="Permanent link"></a></h4>
-<p>Stops all further processing. Full stop.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{{ stop }}
-</span></code></pre></div>
+<h4 id="break_loop">Break Loop<a class="headerlink" href="#break_loop" title="Permanent link"></a></h4>
+<p>Break Loop stops a loop early.  Use it in conjunction with the condition node.</p>
 <hr />
-<h4 id="loops_start_end_break">Loops: Start, End, Break<a class="headerlink" href="#loops_start_end_break" title="Permanent link"></a></h4>
-<p><strong>Start Loop</strong></p>
-<p>Denotes the beginning of a loop, and declares the maximum number of loops to perform.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{{ startLoop  | count: &quot;3&quot; }}
-</span></code></pre></div>
-<p><strong>End Loop</strong></p>
-<p>Denotes the end of a loop. This does not stop the loop, but rather sends the execution back to the beginning if the total number of loops have not yet been reached.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>{{ endLoop }}
-</span></code></pre></div>
-<p><strong>Break Loop</strong></p>
-<p>Stops a loop early. Useful with the condition node.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>{{ breakLoop }}
-</span></code></pre></div>
-<details class="note">
-<summary>Example Usage</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>{{ variable  | name: &quot;count&quot; | mode: &quot;&quot; | value: &quot;0&quot; }}
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>{{ startLoop  | count: &quot;5&quot; }}
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>{{ math  | equation: &quot;&lt;&lt; name: count &gt;&gt; + 1&quot; }}=&gt;{{ variable  | name: &quot;count&quot; }}
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>{{ endLoop  }}
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>The count is now: &lt;&lt; name: count &gt;&gt;
-</span></code></pre></div>
-<p>Will Yield:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>The count is now: 6
-</span></code></pre></div>
-</details>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The number of loops assigned in <code>startLoop</code> is the number of <em>additional</em> times the nodes will be executed. As seen above, the middle node (math) will be executed a total of 6 times - Once to begin, and then 5 more times (the number of loops set).</p>
+<h4 id="context_loop">Context Loop<a class="headerlink" href="#context_loop" title="Permanent link"></a></h4>
+<p>Split on input text based on token count and set a percentage of overlap for each loop, then loop on the split.</p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li>
+<p><strong>tokens</strong>: </p>
+<ul>
+<li><strong>text</strong>: The number of tokens to split and loop on</li>
+<li><strong>min</strong>: 200</li>
+<li><strong>max</strong>: 16000</li>
+<li><strong>step</strong>: 200</li>
+<li><strong>default</strong>: 1000</li>
+</ul>
+</li>
+<li>
+<p><strong>overlap</strong>: </p>
+<ul>
+<li><strong>text</strong>: The percentage of overlap between successive iterations.</li>
+<li><strong>min</strong>: 0</li>
+<li><strong>max</strong>: 50</li>
+<li><strong>step</strong>: 1</li>
+<li><strong>default</strong>: 0</li>
+</ul>
+</li>
+</ul>
 </div>
 <hr />
 <h4 id="variable_loop">Variable Loop<a class="headerlink" href="#variable_loop" title="Permanent link"></a></h4>
-<p>The Variable Loop function allows us to loop arrays, nested arrays, or JSON objects. You can use this feature to format arrays nicely or to take action on the contents during each loop.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>{{ variableLoop  | variable: &quot;categories&quot; | loopType: &quot;array-strings&quot; }}
-</span></code></pre></div>
-<details class="note">
-<summary>Example Usage 1</summary>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span><span class="nt">&quot;looper&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">]}</span><span class="err">=&gt;</span><span class="p">{{</span><span class="w"> </span><span class="err">jso</span><span class="kc">n</span><span class="err">ToVars</span><span class="w">  </span><span class="p">}}</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{{</span><span class="w"> </span><span class="err">variableLoop</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">variable</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;looper&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">loopType</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">}}</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">{{</span><span class="w"> </span><span class="err">variable</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;myVar&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;append&quot;</span><span class="w"> </span><span class="p">}}</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">{{</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="err">dLoop</span><span class="w">  </span><span class="p">}}</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="err">&lt;&lt;</span><span class="w"> </span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">myVar</span><span class="p">,</span><span class="w"> </span><span class="err">promp</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="err">&gt;&gt;</span>
-</span></code></pre></div>
-<p>Will yield:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="err">a</span><span class="w"> </span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="err">b</span><span class="w"> </span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="err">c</span><span class="w"> </span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
-</span></code></pre></div>
-</details>
-<details class="note">
-<summary>Example Usage 2</summary>
-<div class="language-ntl highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="err">{</span><span class="s">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">[</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="err">{</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Hello, how can I assist you today?&quot;</span><span class="p">,</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Assistant&quot;</span><span class="p">,</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:30:00Z&quot;</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="err">}</span><span class="p">,</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="err">{</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;I&#39;m doing well, thanks for asking. How can I help you?&quot;</span><span class="p">,</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;User&quot;</span><span class="p">,</span>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:30:15Z&quot;</span>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span><span class="err">}</span><span class="p">,</span>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">  </span><span class="err">{</span>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;I&#39;m afraid I don&#39;t have a specific task for you at the moment. I&#39;m just here to chat and help out however I can.&quot;</span><span class="p">,</span>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Assistant&quot;</span><span class="p">,</span>
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:30:30Z&quot;</span>
-</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">  </span><span class="err">}</span><span class="p">,</span>
-</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">  </span><span class="err">{</span>
-</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;That&#39;s great, I appreciate your availability. I was wondering if you could help me with a project I&#39;m working on.&quot;</span><span class="p">,</span>
-</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;User&quot;</span><span class="p">,</span>
-</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:30:45Z&quot;</span>
-</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">  </span><span class="err">}</span><span class="p">,</span>
-</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">  </span><span class="err">{</span>
-</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Absolutely, I&#39;d be happy to assist you with your project. Please go ahead and provide me with the details, and I&#39;ll do my best to help.&quot;</span><span class="p">,</span>
-</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Assistant&quot;</span><span class="p">,</span>
-</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:31:00Z&quot;</span>
-</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">  </span><span class="err">}</span>
-</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="n">]</span><span class="err">}</span><span class="o">=&gt;</span><span class="p">{{</span> jsonToVars  <span class="p">}}</span>
-</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="p">{{</span> variableLoop  <span class="p">|</span> <span class="na">variable</span><span class="p">:</span> <span class="s">&quot;messages&quot;</span> <span class="p">|</span> <span class="na">loopType</span><span class="p">:</span> <span class="s">&quot;array-objects&quot;</span> <span class="p">}}</span>
-</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="n">[</span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> loopObject.timestamp<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="n">]</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> loopObject.sender<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> loopObject.message<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
-</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;messagesFormatted&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
-</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="p">{{</span> endLoop  <span class="p">}}</span>
-</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> messagesFormatted<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
-</span></code></pre></div>
-<p>Will yield:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">Assis</span><span class="kc">tant</span><span class="p">:</span><span class="w"> </span><span class="err">Hello</span><span class="p">,</span><span class="w"> </span><span class="err">how</span><span class="w"> </span><span class="err">ca</span><span class="kc">n</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">assis</span><span class="kc">t</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="kc">t</span><span class="err">oday?</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">15</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">User</span><span class="p">:</span><span class="w"> </span><span class="err">I&#39;m</span><span class="w"> </span><span class="err">doi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">well</span><span class="p">,</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">n</span><span class="err">ks</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">aski</span><span class="kc">n</span><span class="err">g.</span><span class="w"> </span><span class="err">How</span><span class="w"> </span><span class="err">ca</span><span class="kc">n</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">help</span><span class="w"> </span><span class="err">you?</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">30</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">Assis</span><span class="kc">tant</span><span class="p">:</span><span class="w"> </span><span class="err">I&#39;m</span><span class="w"> </span><span class="err">a</span><span class="kc">fra</span><span class="err">id</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">do</span><span class="kc">n</span><span class="err">&#39;</span><span class="kc">t</span><span class="w"> </span><span class="err">have</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">speci</span><span class="kc">f</span><span class="err">ic</span><span class="w"> </span><span class="kc">tas</span><span class="err">k</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">a</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">mome</span><span class="kc">nt</span><span class="err">.</span><span class="w"> </span><span class="err">I&#39;m</span><span class="w"> </span><span class="err">jus</span><span class="kc">t</span><span class="w"> </span><span class="err">here</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">cha</span><span class="kc">t</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">help</span><span class="w"> </span><span class="err">ou</span><span class="kc">t</span><span class="w"> </span><span class="err">however</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">ca</span><span class="kc">n</span><span class="err">.</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">45</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">User</span><span class="p">:</span><span class="w"> </span><span class="err">Tha</span><span class="kc">t</span><span class="err">&#39;s</span><span class="w"> </span><span class="err">grea</span><span class="kc">t</span><span class="p">,</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">apprecia</span><span class="kc">te</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">availabili</span><span class="kc">t</span><span class="err">y.</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">was</span><span class="w"> </span><span class="err">wo</span><span class="kc">n</span><span class="err">deri</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">i</span><span class="kc">f</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">could</span><span class="w"> </span><span class="err">help</span><span class="w"> </span><span class="err">me</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">projec</span><span class="kc">t</span><span class="w"> </span><span class="err">I&#39;m</span><span class="w"> </span><span class="err">worki</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">o</span><span class="kc">n</span><span class="err">.</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">00</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">Assis</span><span class="kc">tant</span><span class="p">:</span><span class="w"> </span><span class="err">Absolu</span><span class="kc">tel</span><span class="err">y</span><span class="p">,</span><span class="w"> </span><span class="err">I&#39;d</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">happy</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">assis</span><span class="kc">t</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">projec</span><span class="kc">t</span><span class="err">.</span><span class="w"> </span><span class="err">Please</span><span class="w"> </span><span class="err">go</span><span class="w"> </span><span class="err">ahead</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">provide</span><span class="w"> </span><span class="err">me</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">de</span><span class="kc">ta</span><span class="err">ils</span><span class="p">,</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">I&#39;ll</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">my</span><span class="w"> </span><span class="err">bes</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">help.</span>
-</span></code></pre></div>
-</details>
-<hr />
-<h4 id="video_loop">Video Loop<a class="headerlink" href="#video_loop" title="Permanent link"></a></h4>
-<p>The Video Loop function allows us to process videos by extracting and looping through individual frames. This is particularly useful when you need to analyze specific moments from a video, generate frame-based insights, or create frame-by-frame descriptions using AI models.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>{{ videoLoop }}
-</span></code></pre></div></p>
-<details class="note">
-<summary>Example Usage 1</summary>
-<div class="language-ntl highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;instructions&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;This picture is a frame from a video of a person knitting. Your job is to describe in detail the breakdancer&#39;s each of the objects in the frame describing each of them</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="s">&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">{{</span> videoLoop  <span class="p">|</span> <span class="na">video</span><span class="p">:</span> <span class="s">&quot;&quot;</span> <span class="p">|</span> <span class="na">url</span><span class="p">:</span> <span class="s">&quot;https://www.pexels.com/download/video/29890007&quot;</span> <span class="p">|</span> <span class="na">fps</span><span class="p">:</span> <span class="s">&quot;0.31000000000000005&quot;</span> <span class="p">|</span> <span class="na">framesPerLoop</span><span class="p">:</span> <span class="s">&quot;5&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage0, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage0, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame0&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage1, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage1, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame1&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage2, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage2, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame2&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage3, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage3, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame3&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage4, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage4, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame4&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage0, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame0<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame0<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage1, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame1<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame1<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage2, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame2<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame2<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage3, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
-</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame3<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
-</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame3<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage4, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
-</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame4<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
-</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame4<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
-</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="p">{{</span> endLoop  <span class="p">}}</span>
-</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;You will be given descriptions of frames from a person knitting video. Take this series of described frames and determine all the objects present in the video with their descriptions.</span>
-</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>
-</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="s">Here are the frames:</span>
-</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="s">&lt;&lt; name: frameTotal, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;true&quot;</span> <span class="p">|</span> <span class="na">maxTokens</span><span class="p">:</span> <span class="s">&quot;3000&quot;</span> <span class="p">}}</span>
-</span></code></pre></div>
-<p>Will yield:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Hands - The hands of the person knitting or crocheting are the main focus in all the frames.
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Knitting needles/Crochet hooks - The person is using either knitting needles or crochet hooks to create the textile project.
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Yarn/Thread - The person is manipulating yarn or thread to create the knitted or crocheted item.
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Textile project - In each frame, the person is working on a knitted or crocheted textile project, such as a piece of fabric, a square, or an unfinished item.
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Cup/Mug - In most frames, there is a cup or mug on the table, containing what appears to be tea, coffee, or a red beverage like wine.
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>Table - The knitting or crocheting is taking place on a table or other surface.
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>Couch/Soft surface - In one frame, the knitting or crocheting is taking place on a couch or other soft surface.
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>The overall scene depicts a relaxing, cozy activity of knitting or crocheting, with the person focused on the needlework and enjoying a warm beverage.
-</span></code></pre></div>
-</details>
-<hr />
-<h4 id="pdf_loop">PDF Loop<a class="headerlink" href="#pdf_loop" title="Permanent link"></a></h4>
-<p>The PDF Loop function allows us the processing of PDF files on a page-by-page basis. This feature extracts the content of each page individually and stores it in the <code>pdfLoopText0</code> variable. The extracted text can then be utilized for further processing, such as making LLM calls.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>{{ pdfLoop  | file: &quot;&quot; | pagesPerLoop: 1 }}
-</span></code></pre></div>
-<details class="note">
-<summary>Example Usage 1</summary>
-<div class="language-ntl highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;instructions&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;Summarize the provided text into 5 concise bullet points that capture the main ideas. Do not include explanations or add any information that isn’t in the original text. Your response should only contain the text itself, formatted appropriately. Do not interpret or explain the content.&quot;</span> <span class="p">}}</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="p">{{</span> pdfLoop  <span class="p">|</span> <span class="na">file</span><span class="p">:</span> <span class="s">&quot;somatosensory.pdf&quot;</span> <span class="p">|</span> <span class="na">pagesPerLoop</span><span class="p">:</span> <span class="s">&quot;1&quot;</span> <span class="p">}}</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="s">&lt;&lt; name: pdfLoopText0, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;output&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&quot;</span> <span class="p">}}</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">{{</span> endLoop  <span class="p">}}</span>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;Each section of the text below corresponds to a page in a pdf. Format it correctly listing the bullet points for each section. </span>
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="s">&lt;&lt; name: output, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;true&quot;</span> <span class="p">}}</span>
-</span></code></pre></div>
-<p>Will yield:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Page 1:
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>The somatosensory system consists of sensors in the skin, muscles, tendons, and joints.
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Cutaneous receptors in the skin provide information about temperature, pressure, texture, and pain.
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>Receptors in muscles and joints provide information about muscle length, tension, and joint angles.
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>Meissner corpuscles and rapidly adapting afferents help adjust grip force when lifting objects.
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>The skin contains various types of mechanoreceptors, both free receptors and encapsulated receptors.
-</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
-</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>Page 2:
-</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>Mammalian muscle spindles have sensory endings that detect stretch and provide feedback for motor control.
-</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>Rapidly adapting afferent activity from touch receptors triggers reflexive muscle force increases.
-</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>Slowly adapting Merkel&#39;s receptors mediate form and texture perception, with higher density in digits and around the mouth.
-</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>Pacinian corpuscles detect vibration, while Ruffini corpuscles respond to lateral skin movement or stretching.
-</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>Nociceptors are free nerve endings that detect high-threshold mechanical or thermal stimuli as pain.
-</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>
-</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>Page 3:
-</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>Rapidly adapting and slowly adapting surface receptors (e.g., hair receptors, Meissner&#39;s corpuscle, Merkel&#39;s receptor) detect different types of mechanical stimuli.
-</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>Deep receptors with large receptive fields (e.g., Pacinian corpuscle, Ruffini&#39;s corpuscle) detect diffuse vibrations and skin stretch.
-</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>Polymodal receptors respond to intense mechanical, thermal, and chemical stimuli, and transmit pain signals.
-</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>Pain signals can be separated into different components (first pain, second pain, deep pain) based on transmission speed and localization.
-</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>Muscle spindles are stretch receptors scattered throughout striated muscles, consisting of intrafusal fibers attached to extrafusal fibers.
-</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>
-</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>Page 4:
-</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>Force control signal
-</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>Length control signal
-</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>Load and external forces
-</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>Tendon organs and muscle force/length feedback
-</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>Muscle spindles and joint receptors
-</span></code></pre></div>
-</details>
-<hr />
-<h4 id="condition">Condition<a class="headerlink" href="#condition" title="Permanent link"></a></h4>
-<p>The Conditional function allows us to direct the flow of operations. </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>{{ condition | value: &quot;1 == 1&quot; }}
-</span></code></pre></div>
+<p>Loop on an array variable, iterating thru each element of the array</p>
 <div class="admonition example">
 <p class="admonition-title">Parameters</p>
 <ul>
-<li><strong>Value</strong>: The conditional / logic to evaluate. Supports the following:</li>
-<li>Common comparison operators like <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>&lt;&gt;</code>.</li>
-<li>Common mathematical operators like <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code> wrapped within parenthesis <code>()</code>.</li>
-<li><strong>Logical functions</strong>:<ul>
-<li>IF: Ternary operator: <code>IF(condition or function, truevalue, falsevalue)</code></li>
-<li>NOT: Inverse operator: <code>NOT(condition)</code></li>
-<li>AND: Logical and: <code>AND(condition, condition)</code> - Accepts 2 or more conditions</li>
-<li>OR: Logical or: <code>OR(condition, condition)</code> - Accepts 2 or more conditions</li>
-</ul>
+<li>
+<p><strong>variable</strong>: The base variable name</p>
 </li>
-<li><strong>String comparisons</strong>: <ul>
-<li>Using single-quoted strings, you can use equality conditions <code>==</code> and <code>!=</code>.</li>
-<li>CONTAINS: You can check for substrings: <code>CONTAINS('long string to check', 'string')</code></li>
-<li>LENGTH: You can evaluate the length of a string to use in conditions: <code>LENGTH('string')</code> (this example evaluates to 6)</li>
-<li>Variables must be wrapped in single quotes for comparison or substring check.</li>
-</ul>
+<li>
+<p><strong>loopType</strong>: The type of input object (defaults to 'array-strings')</p>
 </li>
 </ul>
 </div>
-<div class="admonition success">
-<p class="admonition-title">Returns</p>
-<p>No returns, however:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{{ variableLoop  | variable: &quot;categories&quot; | loopType: &quot;array-strings&quot; }}
+</span></code></pre></div>
+<details class="note">
+<summary>Example Usage 1</summary>
+<p><div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span><span class="nt">&quot;looper&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">]}</span><span class="err">=&gt;</span><span class="p">{{</span><span class="w"> </span><span class="err">jso</span><span class="kc">n</span><span class="err">ToVars</span><span class="w">  </span><span class="p">}}</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{{</span><span class="w"> </span><span class="err">variableLoop</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">variable</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;looper&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">loopType</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">}}</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">{{</span><span class="w"> </span><span class="err">variable</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;myVar&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;append&quot;</span><span class="w"> </span><span class="p">}}</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">{{</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="err">dLoop</span><span class="w">  </span><span class="p">}}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="err">&lt;&lt;</span><span class="w"> </span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">myVar</span><span class="p">,</span><span class="w"> </span><span class="err">promp</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="err">&gt;&gt;</span>
+</span></code></pre></div>
+Will yield:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">a</span><span class="w"> </span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="err">b</span><span class="w"> </span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="err">c</span><span class="w"> </span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="err">.</span>
+</span></code></pre></div></p>
+</details>
+<details class="note">
+<summary>Example Usage 2</summary>
+<p><div class="language-ntl highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="err">{</span><span class="s">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">[</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="err">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Hello, how can I assist you today?&quot;</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Assistant&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:30:00Z&quot;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="err">}</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="err">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;I&#39;m doing well, thanks for asking. How can I help you?&quot;</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;User&quot;</span><span class="p">,</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:30:15Z&quot;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="err">}</span><span class="p">,</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="err">{</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;I&#39;m afraid I don&#39;t have a specific task for you at the moment. I&#39;m just here to chat and help out however I can.&quot;</span><span class="p">,</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Assistant&quot;</span><span class="p">,</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:30:30Z&quot;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="err">}</span><span class="p">,</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="err">{</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;That&#39;s great, I appreciate your availability. I was wondering if you could help me with a project I&#39;m working on.&quot;</span><span class="p">,</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;User&quot;</span><span class="p">,</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:30:45Z&quot;</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">  </span><span class="err">}</span><span class="p">,</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">  </span><span class="err">{</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Absolutely, I&#39;d be happy to assist you with your project. Please go ahead and provide me with the details, and I&#39;ll do my best to help.&quot;</span><span class="p">,</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="s">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Assistant&quot;</span><span class="p">,</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="s">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-04-12T10:31:00Z&quot;</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">  </span><span class="err">}</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="n">]</span><span class="err">}</span><span class="o">=&gt;</span><span class="p">{{</span> jsonToVars  <span class="p">}}</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="p">{{</span> variableLoop  <span class="p">|</span> <span class="na">variable</span><span class="p">:</span> <span class="s">&quot;messages&quot;</span> <span class="p">|</span> <span class="na">loopType</span><span class="p">:</span> <span class="s">&quot;array-objects&quot;</span> <span class="p">}}</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="n">[</span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> loopObject.timestamp<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="n">]</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> loopObject.sender<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> loopObject.message<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;messagesFormatted&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="p">{{</span> endLoop  <span class="p">}}</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> messagesFormatted<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
+</span></code></pre></div>
+Will yield:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">Assis</span><span class="kc">tant</span><span class="p">:</span><span class="w"> </span><span class="err">Hello</span><span class="p">,</span><span class="w"> </span><span class="err">how</span><span class="w"> </span><span class="err">ca</span><span class="kc">n</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">assis</span><span class="kc">t</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="kc">t</span><span class="err">oday?</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">15</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">User</span><span class="p">:</span><span class="w"> </span><span class="err">I&#39;m</span><span class="w"> </span><span class="err">doi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">well</span><span class="p">,</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">n</span><span class="err">ks</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">aski</span><span class="kc">n</span><span class="err">g.</span><span class="w"> </span><span class="err">How</span><span class="w"> </span><span class="err">ca</span><span class="kc">n</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">help</span><span class="w"> </span><span class="err">you?</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">30</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">Assis</span><span class="kc">tant</span><span class="p">:</span><span class="w"> </span><span class="err">I&#39;m</span><span class="w"> </span><span class="err">a</span><span class="kc">fra</span><span class="err">id</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">do</span><span class="kc">n</span><span class="err">&#39;</span><span class="kc">t</span><span class="w"> </span><span class="err">have</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">speci</span><span class="kc">f</span><span class="err">ic</span><span class="w"> </span><span class="kc">tas</span><span class="err">k</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">a</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">mome</span><span class="kc">nt</span><span class="err">.</span><span class="w"> </span><span class="err">I&#39;m</span><span class="w"> </span><span class="err">jus</span><span class="kc">t</span><span class="w"> </span><span class="err">here</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">cha</span><span class="kc">t</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">help</span><span class="w"> </span><span class="err">ou</span><span class="kc">t</span><span class="w"> </span><span class="err">however</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">ca</span><span class="kc">n</span><span class="err">.</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">45</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">User</span><span class="p">:</span><span class="w"> </span><span class="err">Tha</span><span class="kc">t</span><span class="err">&#39;s</span><span class="w"> </span><span class="err">grea</span><span class="kc">t</span><span class="p">,</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">apprecia</span><span class="kc">te</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">availabili</span><span class="kc">t</span><span class="err">y.</span><span class="w"> </span><span class="err">I</span><span class="w"> </span><span class="err">was</span><span class="w"> </span><span class="err">wo</span><span class="kc">n</span><span class="err">deri</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">i</span><span class="kc">f</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">could</span><span class="w"> </span><span class="err">help</span><span class="w"> </span><span class="err">me</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">projec</span><span class="kc">t</span><span class="w"> </span><span class="err">I&#39;m</span><span class="w"> </span><span class="err">worki</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">o</span><span class="kc">n</span><span class="err">.</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">[</span><span class="mi">2023-04-12</span><span class="err">T</span><span class="mi">10</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">00</span><span class="err">Z</span><span class="p">]</span><span class="w"> </span><span class="err">Assis</span><span class="kc">tant</span><span class="p">:</span><span class="w"> </span><span class="err">Absolu</span><span class="kc">tel</span><span class="err">y</span><span class="p">,</span><span class="w"> </span><span class="err">I&#39;d</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">happy</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">assis</span><span class="kc">t</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">projec</span><span class="kc">t</span><span class="err">.</span><span class="w"> </span><span class="err">Please</span><span class="w"> </span><span class="err">go</span><span class="w"> </span><span class="err">ahead</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">provide</span><span class="w"> </span><span class="err">me</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">de</span><span class="kc">ta</span><span class="err">ils</span><span class="p">,</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">I&#39;ll</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">my</span><span class="w"> </span><span class="err">bes</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">help.</span>
+</span></code></pre></div></p>
+</details>
+<hr />
+<h4 id="agent_loop">Agent Loop<a class="headerlink" href="#agent_loop" title="Permanent link"></a></h4>
+<p>Loop thru an Agent Plan. Must be used with selectAgentPlan</p>
+<hr />
+<h4 id="video_loop">Video Loop<a class="headerlink" href="#video_loop" title="Permanent link"></a></h4>
+<p>Break a video down to still frames and loop thru the frames. Each iteration of the loop will populate 2 variables:<br>videoLoopFrame - the frame number<br>videoLoopImage[0-x] - the frame as a jpg</p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
 <ul>
-<li>A condition that evaluates to 'true' will continue the horizontal chain. </li>
-<li>A condition that evaluates to 'false' will stop the horizontal chain from executing and continue to the next flow step.</li>
+<li>
+<p><strong>url</strong>: URL of remote file (this or video required)</p>
+</li>
+<li>
+<p><strong>video</strong>: Video file (this or url required)</p>
+</li>
+<li>
+<p><strong>fps</strong>: </p>
+<ul>
+<li><strong>text</strong>: Frames per second</li>
+<li><strong>min</strong>: 0.01</li>
+<li><strong>max</strong>: 10</li>
+<li><strong>step</strong>: 0.1</li>
+<li><strong>default</strong>: 1</li>
+</ul>
+</li>
+<li>
+<p><strong>framesPerLoop</strong>: </p>
+<ul>
+<li><strong>text</strong>: Frames per loop (create additional variables to do parallel calls inside the loop)</li>
+<li><strong>min</strong>: 1</li>
+<li><strong>max</strong>: 20</li>
+<li><strong>step</strong>: 1</li>
+<li><strong>default</strong>: 1</li>
+</ul>
+</li>
 </ul>
 </div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>{{ videoLoop }}
+</span></code></pre></div>
+<details class="note">
+<summary>Example Usage 1</summary>
+<p><div class="language-ntl highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;instructions&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;This picture is a frame from a video of a person knitting. Your job is to describe in detail the breakdancer&#39;s each of the objects in the frame describing each of them</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="s">&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">{{</span> videoLoop  <span class="p">|</span> <span class="na">video</span><span class="p">:</span> <span class="s">&quot;&quot;</span> <span class="p">|</span> <span class="na">url</span><span class="p">:</span> <span class="s">&quot;https://www.pexels.com/download/video/29890007&quot;</span> <span class="p">|</span> <span class="na">fps</span><span class="p">:</span> <span class="s">&quot;0.31000000000000005&quot;</span> <span class="p">|</span> <span class="na">framesPerLoop</span><span class="p">:</span> <span class="s">&quot;5&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage0, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage0, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame0&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage1, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage1, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame1&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage2, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage2, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame2&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage3, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage3, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame3&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage4, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">images</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: videoLoopImage4, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frame4&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage0, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame0<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame0<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage1, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame1<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame1<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage2, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame2<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame2<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage3, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame3<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame3<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: videoLoopImage4, prompt: false &gt;&gt;&#39; != &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="n">Frame</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> videoLoopFrame4<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> frame4<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;frameTotal&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">}}</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="p">{{</span> endLoop  <span class="p">}}</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;You will be given descriptions of frames from a person knitting video. Take this series of described frames and determine all the objects present in the video with their descriptions.</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="s">Here are the frames:</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="s">&lt;&lt; name: frameTotal, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;true&quot;</span> <span class="p">|</span> <span class="na">maxTokens</span><span class="p">:</span> <span class="s">&quot;3000&quot;</span> <span class="p">}}</span>
+</span></code></pre></div>
+Will yield:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Hands - The hands of the person knitting or crocheting are the main focus in all the frames.
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Knitting needles/Crochet hooks - The person is using either knitting needles or crochet hooks to create the textile project.
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Yarn/Thread - The person is manipulating yarn or thread to create the knitted or crocheted item.
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Textile project - In each frame, the person is working on a knitted or crocheted textile project, such as a piece of fabric, a square, or an unfinished item.
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Cup/Mug - In most frames, there is a cup or mug on the table, containing what appears to be tea, coffee, or a red beverage like wine.
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Table - The knitting or crocheting is taking place on a table or other surface.
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>Couch/Soft surface - In one frame, the knitting or crocheting is taking place on a couch or other soft surface.
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>The overall scene depicts a relaxing, cozy activity of knitting or crocheting, with the person focused on the needlework and enjoying a warm beverage.
+</span></code></pre></div></p>
+</details>
+<hr />
+<h4 id="pdf_loop">PDF Loop<a class="headerlink" href="#pdf_loop" title="Permanent link"></a></h4>
+<p>Split a PDF by page and loop thru the pages as both text and images. Each iteration of the loop will populate 3 variables:<br>pdfLoopPage - the page number<br>pdfLoopText[0-x] - the text on the page<br>pdfLoopImage[0-x] - a png image of the page</p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li>
+<p><strong>file</strong>: PDF File</p>
+</li>
+<li>
+<p><strong>pagesPerLoop</strong>: </p>
+<ul>
+<li><strong>text</strong>: Pages per loop (create additional variables to do parallel calls inside the loop)</li>
+<li><strong>min</strong>: 1</li>
+<li><strong>max</strong>: 20</li>
+<li><strong>step</strong>: 1</li>
+<li><strong>default</strong>: 1</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>{{ pdfLoop  | file: &quot;&quot; | pagesPerLoop: 1 }}
+</span></code></pre></div>
+<details class="note">
+<summary>Example Usage 1</summary>
+<p><div class="language-ntl highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;instructions&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;Summarize the provided text into 5 concise bullet points that capture the main ideas. Do not include explanations or add any information that isn’t in the original text. Your response should only contain the text itself, formatted appropriately. Do not interpret or explain the content.&quot;</span> <span class="p">}}</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">{{</span> pdfLoop  <span class="p">|</span> <span class="na">file</span><span class="p">:</span> <span class="s">&quot;somatosensory.pdf&quot;</span> <span class="p">|</span> <span class="na">pagesPerLoop</span><span class="p">:</span> <span class="s">&quot;1&quot;</span> <span class="p">}}</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: instructions, prompt: false &gt;&gt;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="s">&lt;&lt; name: pdfLoopText0, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;output&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;append&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&quot;</span> <span class="p">}}</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">{{</span> endLoop  <span class="p">}}</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;Each section of the text below corresponds to a page in a pdf. Format it correctly listing the bullet points for each section. </span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="s">&lt;&lt; name: output, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;true&quot;</span> <span class="p">}}</span>
+</span></code></pre></div>
+Will yield:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Page 1:
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>The somatosensory system consists of sensors in the skin, muscles, tendons, and joints.
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Cutaneous receptors in the skin provide information about temperature, pressure, texture, and pain.
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Receptors in muscles and joints provide information about muscle length, tension, and joint angles.
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Meissner corpuscles and rapidly adapting afferents help adjust grip force when lifting objects.
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>The skin contains various types of mechanoreceptors, both free receptors and encapsulated receptors.
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>Page 2:
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>Mammalian muscle spindles have sensory endings that detect stretch and provide feedback for motor control.
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>Rapidly adapting afferent activity from touch receptors triggers reflexive muscle force increases.
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>Slowly adapting Merkel&#39;s receptors mediate form and texture perception, with higher density in digits and around the mouth.
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>Pacinian corpuscles detect vibration, while Ruffini corpuscles respond to lateral skin movement or stretching.
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>Nociceptors are free nerve endings that detect high-threshold mechanical or thermal stimuli as pain.
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>Page 3:
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>Rapidly adapting and slowly adapting surface receptors (e.g., hair receptors, Meissner&#39;s corpuscle, Merkel&#39;s receptor) detect different types of mechanical stimuli.
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>Deep receptors with large receptive fields (e.g., Pacinian corpuscle, Ruffini&#39;s corpuscle) detect diffuse vibrations and skin stretch.
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>Polymodal receptors respond to intense mechanical, thermal, and chemical stimuli, and transmit pain signals.
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>Pain signals can be separated into different components (first pain, second pain, deep pain) based on transmission speed and localization.
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>Muscle spindles are stretch receptors scattered throughout striated muscles, consisting of intrafusal fibers attached to extrafusal fibers.
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>Page 4:
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>Force control signal
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>Length control signal
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>Load and external forces
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>Tendon organs and muscle force/length feedback
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>Muscle spindles and joint receptors
+</span></code></pre></div></p>
+</details>
+<hr />
+<h4 id="condition">Condition<a class="headerlink" href="#condition" title="Permanent link"></a></h4>
+<p>Evaluate a condition. If true continue processing the attached chain.  If false, break out of the chain and continue to the next node in the flow. Use single quotes around text string to compare them.</p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><strong>value</strong>: A condition to evaluate</li>
+</ul>
+</div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>{{ condition | value: &quot;1 == 1&quot; }}
+</span></code></pre></div>
 <details class="abstract">
 <summary>Example usage</summary>
-<p><strong>Example set 1:</strong> Basic</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>{{ condition  | value: &quot;1 == 1&quot; }}=&gt;This is true!
+<p><strong>Example set 1:</strong> Basic
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>{{ condition  | value: &quot;1 == 1&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<p>Will yield the output text: <code>This is true!</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>{{ condition  | value: &quot;(5 + 5) == 10&quot; }}=&gt;This is true!
+  Will yield the output text: <code>This is true!</code>
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>{{ condition  | value: &quot;(5 + 5) == 10&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<p>Will yield the output text: <code>This is true!</code></p>
-<p><strong>Example set 2:</strong> OR, AND</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>{{ condition  | value: &quot;OR(1==1, 2==3, 1==2, 1==1)&quot; }}=&gt;This is true!
+  Will yield the output text: <code>This is true!</code>
+  <strong>Example set 2:</strong> OR, AND
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>{{ condition  | value: &quot;OR(1==1, 2==3, 1==2, 1==1)&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<p>Will continue the chain and yield the output text: <code>This is true!</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>{{ condition  | value: &quot;AND(1==1, 2==2, 3==3, 4==4)&quot; }}=&gt;This is true!
+  Will continue the chain and yield the output text: <code>This is true!</code>.
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>{{ condition  | value: &quot;AND(1==1, 2==2, 3==3, 4==4)&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<p>Will continue the chain and yield the output text: <code>This is true!</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>{{ condition  | value: &quot;OR(1==2,2==3)&quot; }}=&gt;This is true!
+  Will continue the chain and yield the output text: <code>This is true!</code>.
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>{{ condition  | value: &quot;OR(1==2,2==3)&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<p>Will stop the chain and yield no output, as the chain was blocked with a false condition.</p>
-<p><strong>Example set 3:</strong> Strings</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>{{ condition  | value: &quot;&#39;name&#39; == &#39;name&#39;&quot; }}=&gt;This is true!
+  Will stop the chain and yield no output, as the chain was blocked with a false condition.
+  <strong>Example set 3:</strong> Strings
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>{{ condition  | value: &quot;&#39;name&#39; == &#39;name&#39;&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<p>Will yield the output text: <code>This is true!</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>{{ condition  | value: &quot;CONTAINS(&#39;this is a test string&#39;, &#39;test&#39;)&quot; }}=&gt;This is true!
+  Will yield the output text: <code>This is true!</code>
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>{{ condition  | value: &quot;CONTAINS(&#39;this is a test string&#39;, &#39;test&#39;)&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>{{ condition  | value: &quot;CONTAINS(&#39;&lt;&lt; name: variableContainingTest, prompt: false &gt;&gt;&#39;, &#39;test&#39;)&quot; }}=&gt;This is true!
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>{{ condition  | value: &quot;CONTAINS(&#39;&lt;&lt; name: variableContainingTest, prompt: false &gt;&gt;&#39;, &#39;test&#39;)&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<p>Both will yield the output text: <code>This is true!</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>{{ condition  | value: &quot;LENGTH(&#39;Hello World&#39;) &gt; 5&quot; }}=&gt;This is true!
+  Both will yield the output text: <code>This is true!</code>
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>{{ condition  | value: &quot;LENGTH(&#39;Hello World&#39;) &gt; 5&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<p>Will yield the output text: <code>This is true!</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>{{ condition  | value: &quot;(LENGTH(&#39;&lt;&lt; name: variableContainingTest, prompt: false &gt;&gt;&#39;) + 12) &gt; 10&quot; }}=&gt;This is true!
+  Will yield the output text: <code>This is true!</code>
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>{{ condition  | value: &quot;(LENGTH(&#39;&lt;&lt; name: variableContainingTest, prompt: false &gt;&gt;&#39;) + 12) &gt; 10&quot; }}=&gt;This is true!
 </span></code></pre></div>
-<p>Will yield the output text: <code>This is true!</code></p>
+  Will yield the output text: <code>This is true!</code></p>
 </details>
 <p><strong>For more:</strong> See the "Conditional Logic" Example Template for a working example on routing chains based on a variable value:</p>
-<p><a class="glightbox" href="../images/conditional_explore.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Conditional mAIstro Example" src="../images/conditional_explore.png" /></a></p>
+<p><a class="glightbox" href="../images/conditionals.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Conditional mAIstro Example" src="../images/conditionals.png" /></a></p>
+<hr />
+<h4 id="stream_a_string">Stream a string<a class="headerlink" href="#stream_a_string" title="Permanent link"></a></h4>
+<p>Send a string to the client when response streaming is enabled</p>
+<div class="admonition example">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><strong>string</strong>: The text to stream (leave blank for current input)</li>
+</ul>
+</div>
 
 
 

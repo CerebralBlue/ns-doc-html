@@ -21,8 +21,14 @@
   --accent-color-orange:               hsla(30, 84%, 57%, 1); /* #f2984b */
   --accent-color-green:                hsla(114, 55%, 34%, 1); /* #3e8a2e */
   --accent-color-red:                  hsla(0, 78%, 50%, 1); /* #da1e28 */
+
+  --md-typeset-a-color: #3D91F0; 
 }
 
+.logo {
+  max-height: 50% !important;
+  max-width: 50% !important;
+}
 
 .md-grid {
   max-width: initial;

@@ -1,0 +1,71 @@
+
+@font-face {
+    font-family: "Nexa-Heavy";
+    src: url("https://01a52fc7fd79cbb4cb4f0ed69b404bcd.cdn.bubble.io/f1738285938770x652145509400248200/Nexa-Heavy.ttf");
+  }
+
+  .containerAnimation1 {
+    overflow: hidden;
+    min-height: auto;
+    width: 100%;
+    display: auto;
+    align-items: center;
+    justify-content: center;
+    font-family: "Nexa-Heavy";
+    background: transparent;
+  }
+
+  .containerAnimation1 .text {
+    position: relative;
+    color: #4F1FF4;
+    font-size: 42px;
+  }
+  .containerAnimation1 .text.first-text {
+    color: black;
+  }
+  .text.sec-text:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border-left: 2px solid #4F1FF4;
+    animation: animate 2s steps(12) infinite;
+  }
+
+  @keyframes animate {
+    40%,
+    60% {
+      left: calc(100% + 3px);
+    }
+    100% {
+      left: 0%;
+    }
+  }
+
+@media (max-width: 615px) {
+  .containerAnimation1 .text {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 450px) {
+  .containerAnimation1 .text {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 615px) {
+  .text.sec-text:before {
+    animation: animate 2s steps(10) infinite; /* Ajusta el número de pasos */
+  }
+}
+
+@media (max-width: 450px) {
+  .text.sec-text:before {
+    animation: animate 2s steps(8) infinite; /* Ajusta el número de pasos */
+  }
+}
+

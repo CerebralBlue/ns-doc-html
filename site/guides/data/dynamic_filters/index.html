@@ -2963,15 +2963,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#includes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Includes :
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#phrase_query" class="md-nav__link">
     <span class="md-ellipsis">
       Phrase Query ""
@@ -2984,15 +2975,6 @@
   <a href="#exact_match" class="md-nav__link">
     <span class="md-ellipsis">
       Exact Match ::
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#does_not_include" class="md-nav__link">
-    <span class="md-ellipsis">
-      Does Not Include :!
     </span>
   </a>
   
@@ -3038,6 +3020,24 @@
   <a href="#numerical_and_date_comparisons" class="md-nav__link">
     <span class="md-ellipsis">
       Numerical and Date Comparisons &gt;, &lt;, &gt;=, &lt;=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Includes :
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does_not_include" class="md-nav__link">
+    <span class="md-ellipsis">
+      Does Not Include :!
     </span>
   </a>
   
@@ -3158,6 +3158,7 @@
 <ul>
 <li>NeuralSeek converts DQL into the correct query format for the connected KnowledgeBase (KB), allowing support for DQL even on KBs that do not natively support it.</li>
 </ul>
+<hr />
 <h2 id="setting_up_dynamic_filters">Setting up Dynamic Filters<a class="headerlink" href="#setting_up_dynamic_filters" title="Permanent link"></a></h2>
 <p>To use dynamic filter capabilities within NeuralSeek, we need to configure <code>DQL_Pushdown</code> as follows:</p>
 <ol>
@@ -3199,6 +3200,17 @@
 <h4 id="applying_filters_via_the_api">Applying filters via the API<a class="headerlink" href="#applying_filters_via_the_api" title="Permanent link"></a></h4>
 <p>Simply pass the regular or DQL filter string as the <code>filter</code> parameter of the Seek API call.</p>
 <p><a class="glightbox" href="images/api_filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="api filter" src="images/api_filter.png" /></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>NeuralSeek's DQL parser is able to distinguish between numbers, booleans, and strings. It also allows for intentionally blank values.</p>
+<p>For example: </p>
+<ul>
+<li><code>age::25</code> is a <strong>number</strong>, where <code>age::"25"</code> is a <strong>string</strong>.</li>
+<li><code>available::true</code> is a <strong>boolean</strong>, where <code>available::"true"</code> is a <strong>string</strong>.</li>
+<li><code>value::""</code> is an intentionally blank value. </li>
+</ul>
+</div>
+<hr />
 <h2 id="query_filtering_examples">Query Filtering Examples<a class="headerlink" href="#query_filtering_examples" title="Permanent link"></a></h2>
 <p>Here are some examples of how to filter the KnowledgeBase in NeuralSeek using dynamic filters, given this example document that we want to highlight using filters:</p>
 <div class="language-json highlight"><span class="filename">bubble_sort.py</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
@@ -3227,60 +3239,159 @@
 </ul>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>content.title:neu*
 </span></code></pre></div>
+<hr />
 <h2 id="operator_reference">Operator reference<a class="headerlink" href="#operator_reference" title="Permanent link"></a></h2>
 <h3 id="delimiter_json_hierarchy_delimiter">Delimiter <code>.</code> (JSON hierarchy delimiter)<a class="headerlink" href="#delimiter_json_hierarchy_delimiter" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 The <code>.</code> operator is used to access fields within a nested JSON structure. It allows you to specify subfields within a field, making it easy to search within specific sections of hierarchical data.</p>
-<p><code>title.subsection:"AI"</code>  </p>
-<h3 id="includes">Includes <code>:</code><a class="headerlink" href="#includes" title="Permanent link"></a></h3>
-<p><strong>Description</strong>:<br />
-The <code>:</code> operator performs a search to see if the specified field includes the given term or phrase. This is a broad match that will return results containing the specified term anywhere within the field.</p>
-<p><code>title:"LLMs"</code>  </p>
+<p><code>title.subsection:"AI"</code></p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+<li>Kendra</li>
+</ul>
+<hr />
 <h3 id="phrase_query">Phrase Query <code>""</code><a class="headerlink" href="#phrase_query" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
-Placing terms within quotation marks <code>" "</code> searches for an exact phrase match within the specified field, preserving the word order. This is useful for finding specific phrases instead of individual terms.</p>
-<p><code>url:"neuralseek"</code>  </p>
+Placing terms within quotation marks <code>" "</code> searches for an exact phrase match within the specified field, preserving the word order. This is useful for finding specific phrases instead of individual terms. Please note that Phrase Query converts all values to strings, even in KnowledgeBases that support native data types such as numbers, booleans, or dates. </p>
+<p><code>url:"neuralseek"</code></p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+<li>Kendra</li>
+</ul>
+<hr />
 <h3 id="exact_match">Exact Match <code>::</code><a class="headerlink" href="#exact_match" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 The <code>::</code> operator performs an exact match, ensuring that the field content matches the specified term or phrase exactly. It is stricter than <code>:</code> and <code>""</code>, as it does not allow partial or flexible matches.</p>
 <p><code>content::"AI"</code>  </p>
-<h3 id="does_not_include">Does Not Include <code>:!</code><a class="headerlink" href="#does_not_include" title="Permanent link"></a></h3>
-<p><strong>Description</strong>:<br />
-The <code>:!</code> operator is used to exclude documents that contain a specified term within a field. It is the negation of the <code>:</code> operator and helps filter out unwanted terms.</p>
-<p><code>content:!"profanity"</code>  </p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+<li>Kendra</li>
+</ul>
+<hr />
 <h3 id="not_an_exact_match">Not an Exact Match <code>::!</code><a class="headerlink" href="#not_an_exact_match" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 The <code>::!</code> operator excludes documents that exactly match a specified term or phrase. It is the negation of the <code>::</code> operator and can be useful for filtering out precise phrases.</p>
 <p><code>content::!"large models"</code>  </p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+<li>Kendra</li>
+</ul>
+<hr />
 <h3 id="nested_grouping">Nested Grouping <code>()</code><a class="headerlink" href="#nested_grouping" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 Parentheses <code>()</code> are used to group queries, allowing for more complex expressions with combined operators. They let you control the order of operations in a query, much like in mathematical expressions.</p>
-<p><code>(title:"AI" | title:"ML") , content:"deep learning"</code>  </p>
+<p><code>(title:"AI" | title:"ML") , content:"deep learning"</code></p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+<li>Kendra</li>
+</ul>
+<hr />
 <h3 id="or">OR <code>|</code><a class="headerlink" href="#or" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 The <code>|</code> operator allows you to perform an OR operation between two or more terms. It returns documents that contain at least one of the specified terms, making it useful for broad searches.</p>
-<p><code>title:"AI" | title:"machine learning"</code>  </p>
+<p><code>title:"AI" | title:"machine learning"</code> </p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+<li>Kendra</li>
+</ul>
+<hr />
 <h3 id="and">AND <code>,</code><a class="headerlink" href="#and" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 The <code>,</code> operator performs an AND operation, requiring that both terms appear within the specified fields. This is useful when you need to find documents containing multiple specific terms.</p>
-<p><code>title:"AI", content:"neural networks"</code>  </p>
+<p><code>title:"AI", content:"neural networks"</code> </p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+<li>Kendra</li>
+</ul>
+<hr />
 <h3 id="numerical_and_date_comparisons">Numerical and Date Comparisons <code>&gt;, &lt;, &gt;=, &lt;=</code><a class="headerlink" href="#numerical_and_date_comparisons" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 These operators allow for numerical or date comparisons within fields. Use them to search for records within a specific range or threshold of values.</p>
 <p><code>publish_date&gt;=2023-01-01</code><br />
 <code>revision&gt;5, revision&lt;10</code></p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+<li>Kendra</li>
+</ul>
+<hr />
+<h3 id="includes">Includes <code>:</code><a class="headerlink" href="#includes" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>:</code> operator performs a search to see if the specified field includes the given term or phrase. This is a broad match that will return results containing the specified term anywhere within the field.</p>
+<p><code>title:"LLMs"</code>  </p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+</ul>
+<hr />
+<h3 id="does_not_include">Does Not Include <code>:!</code><a class="headerlink" href="#does_not_include" title="Permanent link"></a></h3>
+<p><strong>Description</strong>:<br />
+The <code>:!</code> operator is used to exclude documents that contain a specified term within a field. It is the negation of the <code>:</code> operator and helps filter out unwanted terms.</p>
+<p><code>content:!"profanity"</code> </p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+</ul>
+<hr />
 <h3 id="field_exists">Field Exists <code>:*</code><a class="headerlink" href="#field_exists" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 The <code>:*</code> operator checks if a field is present in a document, regardless of its content. It’s useful for filtering records based on the existence of specific fields.</p>
 <p><code>author:*</code>  </p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+</ul>
+<hr />
 <h3 id="field_does_not_exist">Field Does Not Exist <code>:*!</code><a class="headerlink" href="#field_does_not_exist" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 The <code>:*!</code> operator checks if a field is absent in a document. It’s useful for finding records missing a specific field.</p>
 <p><code>author:*!</code>  </p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+</ul>
+<hr />
 <h3 id="wildcard_operator">Wildcard Operator <code>:*</code><a class="headerlink" href="#wildcard_operator" title="Permanent link"></a></h3>
 <p><strong>Description</strong>:<br />
 The <code>:*</code> operator is used to match any value within a specified field, acting as a wildcard. This operator is helpful for locating records where a field contains any value, rather than a specific one.</p>
 <p><code>author:*</code> </p>
+<p><strong>Supported By</strong>:</p>
+<ul>
+<li>Watson Discovery</li>
+<li>watsonx Discovery</li>
+<li>ElasticSearch</li>
+</ul>
 
 
 

@@ -2790,8 +2790,6 @@
       
         
       
-        
-      
     
     
     
@@ -2868,29 +2866,6 @@
   
   <span class="md-ellipsis">
     Available NeuralSeek Plans
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../more_about_NS/CB_site/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    More About Cerebral Blue
     
   </span>
   
@@ -3066,6 +3041,30 @@
 <tr>
 <td><strong>KnowledgeBase Response Time</strong></td>
 <td>This number indicates the amount of time for the KnowledgeBase to generate a response in seconds.</td>
+</tr>
+<tr>
+<td><strong>Prompt Injection Probability</strong></td>
+<td>User input is scored against an internal model to identify potential prompt injection attempts. Problematic words are filtered out, and the entire input can be blocked based on the probability of prompt injection.</td>
+</tr>
+<tr>
+<td><strong>Category Selection Time</strong></td>
+<td>Category selection time in milliseconds</td>
+</tr>
+<tr>
+<td><strong>Prompt Injection Time</strong></td>
+<td>The amount of time for the user input to be scored against the internal model to identify potential prompt injection atempts.</td>
+</tr>
+<tr>
+<td><strong>Scoring Time</strong></td>
+<td>Total processing time in milliseconds for how long the internal model runs to compare the answer to the source documentation.</td>
+</tr>
+<tr>
+<td><strong>Intent</strong></td>
+<td>The intent of the answer.</td>
+</tr>
+<tr>
+<td><strong>Category ID/Answer ID</strong></td>
+<td>The category ID of the answer. Use this to refer to it from other endpoints, such as the Rating endpoint.</td>
 </tr>
 <tr>
 <td><strong>KnowledgeBase Results</strong></td>

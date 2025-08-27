@@ -1,0 +1,226 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="28.0.7">
+  <diagram name="Page-1" id="o25PLQqG7ZknX_9k60jI">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-27" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="964.77" y="970" as="sourcePoint" />
+            <mxPoint x="964" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-25" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="628.77" y="970" as="sourcePoint" />
+            <mxPoint x="628" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-23" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="279.77" y="970" as="sourcePoint" />
+            <mxPoint x="279" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-16" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40.77" y="970" as="sourcePoint" />
+            <mxPoint x="39.99999999999999" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="160" width="40" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-18" value="(Customer)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="25" y="50" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-22" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="259" y="160" width="40" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="608" y="160" width="40" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-26" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="944" y="160" width="40" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-28" value="CXone Studio" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="244" y="60" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-29" value="Virtual Agent&lt;br&gt;Hub" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="593" y="60" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-30" value="mAIstro Agent endpoint" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="929" y="60" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-31" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.018;entryY=0.052;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="CNHhTjcgMfgpGSYnp6Ld-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="60" y="200" as="sourcePoint" />
+            <mxPoint x="217" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-32" value="user invokes POC by calling&#xa;(IVR script launched)" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="62" y="162" width="180" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-34" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.039;entryY=0.075;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="CNHhTjcgMfgpGSYnp6Ld-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="299" y="218" as="sourcePoint" />
+            <mxPoint x="349" y="168" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-35" value="userlnput: AUTOMATED_TEXT (&quot;WELCOME&quot;)&#xa;{ExternallntegrationBotExchangeRequest}" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="324" y="174.5" width="280" height="35.5" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-37" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.021;entryY=0.104;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="648" y="249" as="sourcePoint" />
+            <mxPoint x="943.1599999999999" y="248.03999999999996" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-38" value="NeuralSeek Maistro - API&#xa;IF REQUIRED (AUTOMATED_TEXT -&gt; 5)&#xa;{ &quot;userInputType&quot;: 5, &quot;userInput&quot;: &quot;WELCOME&quot; }" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="655.75" y="193" width="288.25" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-44" value="{ transcript: &quot;Welcome to CareHaven Health, What can I do for you? &quot; }" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="659" y="292" width="260" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-45" value="NeuralSeek Maistro - API" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="729" y="275" width="143.5" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-51" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;entryX=0.996;entryY=0.156;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="CNHhTjcgMfgpGSYnp6Ld-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="943" y="279" as="sourcePoint" />
+            <mxPoint x="839" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-53" value="branchName: PromptAndCollectNextResponse&#xa;nextPromptSequence: with transcript and textToSpeech&#xa;{CustomExchangeResponse_V3}" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="304" y="294" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-55" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;entryX=1.023;entryY=0.173;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="CNHhTjcgMfgpGSYnp6Ld-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="609" y="291.13" as="sourcePoint" />
+            <mxPoint x="314" y="291.13" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-56" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;entryX=1.023;entryY=0.173;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.051;exitY=0.195;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220.55999999999995" y="307.3599999999999" as="sourcePoint" />
+            <mxPoint x="60.08000000000001" y="307.44" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-57" value="Bot response displayed" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="79" y="307" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-59" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.066;entryY=0.343;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.962;exitY=0.343;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-14" target="CNHhTjcgMfgpGSYnp6Ld-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="60" y="421" as="sourcePoint" />
+            <mxPoint x="217" y="421" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-60" value="User reply&#xa;&quot;I need to schedule an appointment&quot;" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="62" y="380" width="198" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-61" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.033;entryY=0.366;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.005;exitY=0.368;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-22" target="CNHhTjcgMfgpGSYnp6Ld-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="299" y="439" as="sourcePoint" />
+            <mxPoint x="610" y="438" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-62" value="userlnput: &quot;I need to schedule an appointment&quot;&#xa;{ExternallntegrationBotExchangeRequest}" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="324" y="395.5" width="280" height="35.5" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-63" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.054;entryY=0.394;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.993;exitY=0.395;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-24" target="CNHhTjcgMfgpGSYnp6Ld-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="648" y="461" as="sourcePoint" />
+            <mxPoint x="943" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-64" value="NeuralSeek Maistro - API&#xa;(TEXT -&gt; 1)&#xa;{ &quot;userInputType&quot;: 1, &quot;userInput&quot;: &quot;I need to schedule an appointment&quot; }" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="655.75" y="390" width="288.25" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-65" value="{ transcript : &quot;I can help you schedule an appointment. Could you please provide me with the following details: - Your email address - The medical specialty you need (e.g., Cardiology, Pediatrics, Dermatology) - Your preferred date for the appointment -&#xa;Your preferred time for theappointment &quot; }" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="658.92" y="510" width="281.08" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-66" value="NeuralSeek Maistro - API" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="728.92" y="493" width="143.5" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-67" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;entryX=1.01;entryY=0.443;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.034;exitY=0.442;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-26" target="CNHhTjcgMfgpGSYnp6Ld-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="942.9200000000001" y="497" as="sourcePoint" />
+            <mxPoint x="647.92" y="497" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-68" value="branchName: PromptAndCollectNextResponse&#xa;nextPromptSequence: with transcript and textToSpeech&#xa;{CustomExchangeResponse_V3}" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="303.91999999999996" y="512" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-69" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;entryX=1.004;entryY=0.459;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.018;exitY=0.459;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-24" target="CNHhTjcgMfgpGSYnp6Ld-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="608.92" y="509.13" as="sourcePoint" />
+            <mxPoint x="299.91999999999996" y="509" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-70" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;entryX=1.014;entryY=0.482;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.022;exitY=0.482;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-22" target="CNHhTjcgMfgpGSYnp6Ld-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="256.91999999999996" y="526" as="sourcePoint" />
+            <mxPoint x="60" y="525.44" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-71" value="Bot response displayed" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="78.91999999999999" y="525" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-72" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.004;entryY=0.684;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.997;exitY=0.685;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-14" target="CNHhTjcgMfgpGSYnp6Ld-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="60" y="681" as="sourcePoint" />
+            <mxPoint x="264" y="681" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-73" value="User reply&#xa;&quot;I need a Physiatry appointment, my email is email@example.com, it fits&#xa;for me the 5 of august of2025 at 3:OOPM&quot;" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="62" y="597" width="198" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-74" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.018;entryY=0.709;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.952;exitY=0.709;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-22" target="CNHhTjcgMfgpGSYnp6Ld-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="301" y="700" as="sourcePoint" />
+            <mxPoint x="609" y="698" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-75" value="userlnput: &quot;I need a Physiatry appointment, my email is email@example.com, it fits&#xa;for me the 5 of august of2025 at 3:OOPM&quot;{ExternallntegrationBotExchangeRequest}" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="324" y="631.5" width="280" height="58.5" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-76" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.034;entryY=0.739;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.975;exitY=0.737;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-24" target="CNHhTjcgMfgpGSYnp6Ld-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="720" as="sourcePoint" />
+            <mxPoint x="948" y="719" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-77" value="NeuralSeek Maistro - API&#xa;(TEXT -&gt; 1)&#xa;{ &quot;userInputType&quot;: 1, &quot;userInput&quot;: &quot;I need a Physiatry appointment, my email is email@example.com, it fits&#xa;for me the 5 of august of2025 at 3:OOPM&quot; }" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="657.75" y="639" width="288.25" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-78" value="NeuralSeek Maistro - API&#xa;{ transcript : &#xa;&quot;Email: email@example.com&#xa;Doctor Specialty: Physiatry&#xa;Preferred Date: 2025-08-05&#xa;Preferred Time: 15:00&quot; }" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="663" y="758" width="267" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-79" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;entryX=1.01;entryY=0.787;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.018;exitY=0.788;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-26" target="CNHhTjcgMfgpGSYnp6Ld-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="940" y="760" as="sourcePoint" />
+            <mxPoint x="645" y="761" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-80" value="branchName: PromptAndCollectNextResponse&#xa;nextPromptSequence: with transcript and textToSpeech&#xa;{CustomExchangeResponse_V3}" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="300.91999999999996" y="776" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-81" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;entryX=1.039;entryY=0.806;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.016;exitY=0.807;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-24" target="CNHhTjcgMfgpGSYnp6Ld-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="606" y="773" as="sourcePoint" />
+            <mxPoint x="296" y="773" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-82" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;entryX=1.049;entryY=0.829;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.03;exitY=0.829;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CNHhTjcgMfgpGSYnp6Ld-22" target="CNHhTjcgMfgpGSYnp6Ld-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="255" y="790" as="sourcePoint" />
+            <mxPoint x="58" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNHhTjcgMfgpGSYnp6Ld-83" value="Bot response displayed" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="75.91999999999996" y="789" width="130" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

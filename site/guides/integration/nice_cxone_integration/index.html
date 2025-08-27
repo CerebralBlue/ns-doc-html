@@ -1,0 +1,3665 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Integrates NICE CXone CCaaS/WEM with NeuralSeek to enable governance and control over AI-generated content. Adds support for semantic scoring, prompt injection detection, PII redaction, profanity filtering (HAP), attribute protection, confidence thresholds, and length constraints using scalable Agentic AI.
+">
+      
+      
+      
+        <link rel="canonical" href="https://documentation.neuralseek.com/guides/integration/nice_cxone_integration/">
+      
+      
+        <link rel="prev" href="../implementing_feedback/">
+      
+      
+        <link rel="next" href="../../models/multimodal/">
+      
+      
+      <link rel="icon" href="../../../assets/ns-new.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>NICE CXone Integration - NeuralSeek Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+    
+      
+    
+    <script type="module">
+    import { NsChat } from 'https://stagingapi.neuralseek.com/src/chatSDK.js';
+
+    const chatConfig = {
+      "userId": "",
+      "chatElement": "chat",
+      "chatHistoryElement": "chathistory",
+      "chatOverlayToggleButtonElement": "chat-toggle-btn",
+      "enableChatHistory": false,
+      "enableChatOverlayToggleButton": true,
+      "chatOverlayHeaderTitle": "NeuralSeek",
+      "includeUrlInResponse": true,
+      "urlDisplayText": "See more here",
+      "apiServer": "https://stagingapi.neuralseek.com",
+      "loadingAnimationURL": "https://stagingapi.neuralseek.com/images/ns-loader-chat.svg",
+      "chatTimeout": 23000,
+      "instanceId": "NS-ES-V2",
+      "embedCode": 656054868,
+      "streaming": true,
+      "maistroLed": false,
+      "maistroFlow": "",
+      "enableDrop": true,
+      "allowedFiles": [
+        ".png",
+        ".jpg",
+        ".jpeg"
+      ],
+      "welcomeMessage": "Welcome to NeuralSeek!",
+      "welcomeBotMessages": [
+        "How can we help?"
+      ],
+      "welcomeButtons": [
+        "Tell me about NeuralSeek"
+      ],
+      "turnHistoryLimit": 1,
+      "includeRequired": true
+    }
+    const chat = new NsChat(chatConfig);
+    </script>
+
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/chatbot.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-LE5XX6X6Z7"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-LE5XX6X6Z7",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-LE5XX6X6Z7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="NICE CXone Integration - NeuralSeek Documentation" >
+      
+        <meta  property="og:description"  content="Integrates NICE CXone CCaaS/WEM with NeuralSeek to enable governance and control over AI-generated content. Adds support for semantic scoring, prompt injection detection, PII redaction, profanity filtering (HAP), attribute protection, confidence thresholds, and length constraints using scalable Agentic AI.
+" >
+      
+        <meta  property="og:image"  content="https://documentation.neuralseek.com/assets/images/social/guides/integration/nice_cxone_integration/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://documentation.neuralseek.com/guides/integration/nice_cxone_integration/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="NICE CXone Integration - NeuralSeek Documentation" >
+      
+        <meta  name="twitter:description"  content="Integrates NICE CXone CCaaS/WEM with NeuralSeek to enable governance and control over AI-generated content. Adds support for semantic scoring, prompt injection detection, PII redaction, profanity filtering (HAP), attribute protection, confidence thresholds, and length constraints using scalable Agentic AI.
+" >
+      
+        <meta  name="twitter:image"  content="https://documentation.neuralseek.com/assets/images/social/guides/integration/nice_cxone_integration/index.png" >
+      
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture_overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="NeuralSeek Documentation" class="md-header__button md-logo" aria-label="NeuralSeek Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/ns-new.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NeuralSeek Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NICE CXone Integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="NeuralSeek Documentation" class="md-nav__button md-logo" aria-label="NeuralSeek Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/ns-new.png" alt="logo">
+
+    </a>
+    NeuralSeek Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ui/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Explore the Interface
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Explore the Interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/home/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/configure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ui/integrate/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Integrate
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Integrate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Platform Integrations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Platform Integrations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/integrate/integrations/supported_knowledgebases/supported_knowledgebases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KnowledgeBases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/integrate/integrations/supported_llms/supported_llms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supported LLMs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/integrate/integrations/supported_virtual_agents/supported_virtual_agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supported Virtual Agents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/extract/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extract
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/load/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Load
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ui/maistro/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    mAIstro
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            mAIstro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_2" id="__nav_2_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NTL Functions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            NTL Functions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/get_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/upload_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upload Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/generate_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/local_cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Local Cache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/extract_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extract Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/multi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multi-Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/control_flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/rag_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RAG Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/guardrails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GuardRails
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/system_variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/sandboxes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sandboxes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_2_12" id="__nav_2_7_2_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Modify Data
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            Modify Data
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/modify_data/code_toolbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Toolbox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/modify_data/json_toolbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JSON Toolbox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/modify_data/string_toolbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    String Toolbox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/modify_data/transform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/modify_data/xml_toolbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XML Toolbox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/send_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Send Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_2_14" id="__nav_2_7_2_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integrations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_2_14">
+            <span class="md-nav__icon md-icon"></span>
+            Integrations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/aws_s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS S3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Databases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Github
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/google_drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Drive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/jira/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jira
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/knowledgebases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KnowledgeBases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/sharepoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sharepoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/slack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/trello/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trello
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/watsonx.governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    watsonx.governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/maistro/features/ntl_functions/integrations/web_searches/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Searches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/seek/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Seek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/curate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Curate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui/governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Guides & Walkthroughs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides & Walkthroughs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../data/proposals/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Proposals
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Proposals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../data/tuning_guide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Tuning Guide
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tuning Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../data/dynamic_filters/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Dynamic Filters
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Dynamic Filters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../data/virtual_kb/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    VirtualKB
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            VirtualKB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../data/doc_ingestion/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Document Ingestion
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Document Ingestion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../data/replay_guide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Replay
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            Replay
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../chat_sdk_integration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chat SDK
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Chat SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../training_virtual_agents/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Training Virtual Agents
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Training Virtual Agents
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../backup_and_restore/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Backup and Restore
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Backup and Restore
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../elasticsearch_vector_model/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ElasticSearch Vector Model
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            ElasticSearch Vector Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../pinecone_configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Pinecone Configuration
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Pinecone Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../providing_context/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Passing Conversational Context
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Passing Conversational Context
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../wa_context_guide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    mAIstro Streaming Endpoint with Watsonx
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            mAIstro Streaming Endpoint with Watsonx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../implementing_feedback/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Implementing Feedback
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Implementing Feedback
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    NICE CXone
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            NICE CXone
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Models
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../models/multimodal/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Multimodal LLM Configuration
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Multimodal LLM Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../models/semantic_model/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Semantic Model Tuning
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Semantic Model Tuning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../more_about_NS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    More About NeuralSeek
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            More About NeuralSeek
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../more_about_NS/partners/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NeuralSeek Partnerships
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../more_about_NS/plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Available NeuralSeek Plans
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../more_about_NS/data_security_and_privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Security and Privacy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture_overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cxone_configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CXone Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nice_cxone_studio_script" class="md-nav__link">
+    <span class="md-ellipsis">
+      NICE CXone Studio script
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NICE CXone Studio script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acd_chat_configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACD Chat Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service_endpoint_authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Endpoint Authorization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service Endpoint Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorization_method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorization Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required_header" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Header
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual_agent_hub_configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Agent Hub Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Agent Hub Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webhook_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhook URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom_headers_required_for_neuralseek" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Headers (Required for NeuralSeek)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_and_oauth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorization and OAuth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy_tunnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proxy Tunnel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proxy Tunnel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hosting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization_and_expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization and Expansion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failover_strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failover Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neuralseek_template_language_ntl" class="md-nav__link">
+    <span class="md-ellipsis">
+      NeuralSeek Template Language (NTL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntl_code_example" class="md-nav__link">
+    <span class="md-ellipsis">
+      NTL Code Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neuralseek_maistro_agent_use_case" class="md-nav__link">
+    <span class="md-ellipsis">
+      NeuralSeek mAIstro Agent use case
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NeuralSeek mAIstro Agent use case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance_and_guardrails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance and guardrails
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+    
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">Gintegrate</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">guide</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">integration</span>
+      
+    
+  </nav>
+
+
+
+  <h1>NICE CXone Integration</h1>
+
+<h2 id="architecture_overview">Architecture Overview<a class="headerlink" href="#architecture_overview" title="Permanent link"></a></h2>
+<p>The following diagram illustrates the end-to-end flow from the Chat Point of Contact within NICE CXone to your NeuralSeek mAIstro Agent via the Custom Exchange Endpoint.</p>
+<p><a class="glightbox" href="images/nice_cxone_integration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Architecture Overview" src="images/nice_cxone_integration.png" /></a></p>
+<details class="abstract">
+<summary>Chat Point of Contact</summary>
+<p>The entry point where the customer initiates a conversation, typically via webchat, mobile app, or messaging platforms, connecting directly to NICE CXone.</p>
+</details>
+<details class="abstract">
+<summary>Studio Script</summary>
+<p>NICE CXone Studio Script controls the flow of interactions, integrating the Custom Exchange Endpoint to send and receive user messages dynamically.</p>
+</details>
+<details class="abstract">
+<summary>Custom Exchange Endpoint</summary>
+<p>Acts as the HTTP interface between CXone and external services, forwarding user requests to your Proxy Tunnel and handling responses from the Virtual Agent.</p>
+</details>
+<details class="abstract">
+<summary>Proxy Tunnel</summary>
+<p>A secure communication channel used to connect NICE CXone’s environment to your backend services and Virtual Agent without exposing public endpoints.</p>
+</details>
+<details class="abstract">
+<summary>Virtual Agent</summary>
+<p>Your AI-based chatbot or Virtual Assistant that processes user inputs and returns context-aware responses, integrated with NICE CXone through the Proxy Tunnel.</p>
+</details>
+<h2 id="cxone_configuration">CXone Configuration<a class="headerlink" href="#cxone_configuration" title="Permanent link"></a></h2>
+<p>This section outlines the required CXone configuration settings for the Point of Contact integration.</p>
+<h2 id="nice_cxone_studio_script">NICE CXone Studio script<a class="headerlink" href="#nice_cxone_studio_script" title="Permanent link"></a></h2>
+<p>For the NeuralSeek integration test, you will use the standard <code>VAHSampleChatScript</code> provided by NICE CXone. This script handles the communication between CXone Studio and your Virtual Agent via the Virtual Agent Hub (VAH) Custom Exchange Endpoint.</p>
+<p>You can download the Studio Script from the official NICE CXone resources here: </p>
+<!-- [Download Chat Sample Script](scripts/TDD_TEXT_VAHSampleChatScript.json){ .md-button .md-button--primary .ext-download-file } -->
+<p><a href="scripts/TDD_TEXT_VAHSampleChatScript.json" download="VAHSampleChatScript.json" class="md-button md-button--primary">
+  Download sample chat script
+</a></p>
+<p><a class="glightbox" href="images/virtual_agent_hub_sample_chat_script.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="NICE CXone sample script for Chat" src="images/virtual_agent_hub_sample_chat_script.png" /></a>
+<a class="glightbox" href="images/text_bot_welcome_message_flow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Virtual Agent Hub Text Bot Welcome intent flow" src="images/text_bot_welcome_message_flow.png" /></a>
+<a class="glightbox" href="images/text_bot_conversational_flow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Virtual Agent Hub Text Bot conversational flow" src="images/text_bot_conversational_flow.png" /></a></p>
+<p>The script manages:</p>
+<ul>
+<li>Handling inbound chat requests via ACD Chat channel.</li>
+<li>Exchanging messages with your NeuralSeek Virtual Agent through the VAH endpoint.</li>
+<li>Managing session flow and error handling within the CXone Studio environment.</li>
+</ul>
+<p>The first part of the flow handles the welcome message intent, and the latter handles the following conversational flow between the user and the NeuralSeek mAIstro agent.</p>
+<details class="note">
+<summary>Studio script for production</summary>
+<p>No custom modifications to the script are required for basic integration testing with NeuralSeek. For production environments, you can extend or modify the script based on your specific business logic.</p>
+</details>
+<h3 id="acd_chat_configuration">ACD Chat Configuration<a class="headerlink" href="#acd_chat_configuration" title="Permanent link"></a></h3>
+<p><a class="glightbox" href="images/nice_cxone_sample_configuration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ACD configuration Sidebar" src="images/nice_cxone_sample_configuration.png" /></a></p>
+<details class="example">
+<summary>Sample Configuration</summary>
+<div class="language-md highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Campaign: 
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Campaign Name: Hospital Patient Digital Engagement
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Skill:
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Media Type: Chat
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Skill Name: Chat - Appointment Scheduling
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Campaign: Hospital Patient Digital Engagement
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Chat Profile:
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Profile Name: Chat Widget V2
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Interface: V2 (HTML5)
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Point of Contact:
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Media Type: Chat
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Name: Chat - Home Page
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Point of Contact:
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Skill: Chat - Appointment Scheduling
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Script: VAHSampleChatScript
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Chat Profile: Chat Widget V2
+</span></code></pre></div>
+</details>
+<h2 id="service_endpoint_authorization">Service Endpoint Authorization<a class="headerlink" href="#service_endpoint_authorization" title="Permanent link"></a></h2>
+<p>The authorization mechanism for accessing the NeuralSeek Virtual Agent service endpoint is based on an API key passed through a custom request header.</p>
+<p><a class="glightbox" href="images/maistro_endpoint.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="NeuralSeek mAIstro endpoint" src="images/maistro_endpoint.png" /></a></p>
+<h3 id="authorization_method">Authorization Method<a class="headerlink" href="#authorization_method" title="Permanent link"></a></h3>
+<p><strong>Header-based API Key authentication</strong> is used. This ensures secure and straightforward access control.</p>
+<h3 id="required_header">Required Header<a class="headerlink" href="#required_header" title="Permanent link"></a></h3>
+<ul>
+<li><code>apiKey</code>: <code>&lt;your-neuralseek-api-key&gt;</code></li>
+</ul>
+<p>The API key value will vary depending on the client and environment (staging or production).</p>
+<p>No additional authentication mechanisms (such as OAuth) are required. This simplifies integration while maintaining secure access through per-client API key management.</p>
+<h2 id="virtual_agent_hub_configuration">Virtual Agent Hub Configuration<a class="headerlink" href="#virtual_agent_hub_configuration" title="Permanent link"></a></h2>
+<p>This section defines the necessary configuration for the Virtual Agent Hub (VAH) to connect with your NeuralSeek mAIstro Agent.</p>
+<p><a class="glightbox" href="images/virtual_agent_hub_configuration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Virtual Agent Hub Configuration for NeuralSeek mAIstro Agent" src="images/virtual_agent_hub_configuration.png" /></a></p>
+<h3 id="webhook_url">Webhook URL<a class="headerlink" href="#webhook_url" title="Permanent link"></a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://api.neuralseek.com/v1/&lt;your-neuralseek-instance&gt;/maistro
+</span></code></pre></div>
+<h3 id="endpoint_parameters">Endpoint Parameters<a class="headerlink" href="#endpoint_parameters" title="Permanent link"></a></h3>
+<ul>
+<li>None required.</li>
+</ul>
+<h3 id="custom_headers_required_for_neuralseek">Custom Headers (Required for NeuralSeek)<a class="headerlink" href="#custom_headers_required_for_neuralseek" title="Permanent link"></a></h3>
+<ul>
+<li><code>apiKey</code>: <code>&lt;your-neuralseek-api-key&gt;</code>  </li>
+<li><code>overrideschema</code>: <code>"true"</code> – Accepts the request schema coming from Virtual Agent Hub.  </li>
+<li><code>overrideagent</code>: <code>proxy_tunnel_v3_agent</code> – The mAistro agent.  </li>
+<li><code>debug</code>: <code>"true"</code> – Recommended during setup to include debug details; disable for production.</li>
+</ul>
+<h3 id="timeout">Timeout<a class="headerlink" href="#timeout" title="Permanent link"></a></h3>
+<ul>
+<li>No change needed.</li>
+</ul>
+<h3 id="integration_version">Integration Version<a class="headerlink" href="#integration_version" title="Permanent link"></a></h3>
+<ul>
+<li>Version <strong>3.0.0</strong> is recommended for this integration.</li>
+</ul>
+<h3 id="authorization_and_oauth">Authorization and OAuth<a class="headerlink" href="#authorization_and_oauth" title="Permanent link"></a></h3>
+<ul>
+<li>No authorization header or OAuth configuration required.</li>
+</ul>
+<details class="note">
+<summary>Note</summary>
+<p>Make sure that each TextBot Exchange action in your NICE CXone script is linked to the Neuralkseek virtual agent. You’ll know it’s selected when you see the green check mark next to its name in the Virtual Agent Hub.</p>
+</details>
+<h2 id="proxy_tunnel">Proxy Tunnel<a class="headerlink" href="#proxy_tunnel" title="Permanent link"></a></h2>
+<p>The NeuralSeek integration uses a pre-configured proxy tunnel agent called <code>proxy_tunnel_v3_agent</code>.<br />
+This agent is designed to be compatible with CXone Textbot Exchange version 3.0, and also supports versions 1.0 and 2.0.<br />
+Version 3.0 is recommended for optimal flexibility and feature support.</p>
+<p><a class="glightbox" href="images/proxy_tunnel_maistro_agent.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Proxy tunnel mAIstro Agent" src="images/proxy_tunnel_maistro_agent.png" /></a></p>
+<h3 id="hosting">Hosting<a class="headerlink" href="#hosting" title="Permanent link"></a></h3>
+<p>The proxy tunnel is hosted directly within NeuralSeek as a <strong>no-code Maistro agent</strong>, requiring no additional infrastructure from the client side.<br />
+This setup reduces maintenance overhead and allows for rapid customization.</p>
+<h3 id="customization_and_expansion">Customization and Expansion<a class="headerlink" href="#customization_and_expansion" title="Permanent link"></a></h3>
+<p>The <code>proxy_tunnel_v3_agent</code> can be customized and extended within NeuralSeek to accommodate specific client use cases and workflows.</p>
+<h3 id="failover_strategy">Failover Strategy<a class="headerlink" href="#failover_strategy" title="Permanent link"></a></h3>
+<p>As the proxy tunnel is managed within NeuralSeek's cloud infrastructure, standard cloud resilience applies.<br />
+Clients do not need to set up a separate failover mechanism.</p>
+<h3 id="neuralseek_template_language_ntl">NeuralSeek Template Language (NTL)<a class="headerlink" href="#neuralseek_template_language_ntl" title="Permanent link"></a></h3>
+<p><strong>NTL (NeuralSeek Template Language)</strong> is a simple, declarative language used to define NeuralSeek agents.<br />
+It allows you to easily share, customize, and extend agent behavior without writing complex code.</p>
+<p>Below is the NTL configuration for the <code>proxy_tunnel_v3_agent</code> used in this integration:</p>
+<h3 id="ntl_code_example">NTL Code Example<a class="headerlink" href="#ntl_code_example" title="Permanent link"></a></h3>
+<p>Below is an example of NeuralSeek Template Language (NTL) code.<br />
+You can copy it easily using the button provided.</p>
+<details class="example">
+<summary>Proxy tunnel mAIstro agent NTL (NeuralSeek Template Language)</summary>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> botSessionState<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> jsonToVars  <span class="p">}}</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: userInputType &gt;&gt;&#39; == &#39;5&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;nextPromptSequence&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;prompts\&quot;:[{\&quot;transcript\&quot;:\&quot;Welcome to CareHaven Health, What can I do for you?\&quot;}]}&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;intentInfo&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;Slots\&quot;: {},\&quot;intent\&quot;:\&quot;Welcome\&quot;,\&quot;intentConfidence\&quot;:\&quot;100\&quot;}&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: userInputType &gt;&gt;&#39; == &#39;1&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> seek  <span class="p">|</span> <span class="na">query</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: followUpCategory, prompt: false &gt;&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s">&lt;&lt; name: followUpQuery, prompt: false &gt;&gt;&lt;&lt; name: userInput, prompt: false &gt;&gt;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s">&lt;&lt; name: followUpContext, prompt: false &gt;&gt;&lt;&lt; name: dataPoints, prompt: false &gt;&gt;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;seekResult&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> seekResult<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> jsonToVars  <span class="p">}}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: intentInfo.Slots, prompt: false &gt;&gt;&#39; == &#39;[object Object]&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;Slots&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{}&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: botSessionState.dataPoints, prompt: false &gt;&gt;&#39; == &#39;[object Object]&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;dataPoints&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&#39;&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: botSessionState.isCompleted, prompt: false &gt;&gt;&#39; = &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;isCompleted&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">{{</span> varsToJSON  <span class="p">|</span> <span class="na">path</span><span class="p">:</span> <span class="s">&quot;botSessionState.dataPoints&quot;</span> <span class="p">|</span> <span class="na">variable</span><span class="p">:</span> <span class="s">&quot;botSessionStateDataPoints&quot;</span> <span class="p">|</span> <span class="na">includePath</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">output</span><span class="p">:</span> <span class="s">&quot;&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">{{</span> varsToJSON  <span class="p">|</span> <span class="na">path</span><span class="p">:</span> <span class="s">&quot;botSessionState.isCompleted&quot;</span> <span class="p">|</span> <span class="na">variable</span><span class="p">:</span> <span class="s">&quot;botSessionStateIsCompleted&quot;</span> <span class="p">|</span> <span class="na">includePath</span><span class="p">:</span> <span class="s">&quot;false&quot;</span> <span class="p">|</span> <span class="na">output</span><span class="p">:</span> <span class="s">&quot;&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: seek.categoryName &gt;&gt;&#39; == &#39;FAQ&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;nextPromptSequence&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;prompts\&quot;:[{\&quot;transcript\&quot;:\&quot;&lt;&lt; name: seekResult&gt;&gt;\&quot;,\&quot;textToSpeech\&quot;:\&quot;&lt;&lt; name: seekResult &gt;&gt;\&quot;}]}&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;intentInfo&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;Slots\&quot;: {},\&quot;intent\&quot;:\&quot;NLU_NEEDED\&quot;,\&quot;intentConfidence\&quot;:\&quot;100\&quot;}&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: seek.category &gt;&gt; == 706287&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;nextPromptSequence&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;prompts\&quot;:[{\&quot;transcript\&quot;:\&quot;&lt;&lt; name: nextPromptSequence.prompts[0].transcript, prompt: false &gt;&gt;\&quot;,\&quot;textToSpeech\&quot;:\&quot;&lt;&lt; name: nextPromptSequence.prompts[0].textToSpeech, prompt: false &gt;&gt;\&quot;}]}&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;intentInfo&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;Slots\&quot;: {},\&quot;intent\&quot;:\&quot;NLU_NEEDED\&quot;,\&quot;intentConfidence\&quot;:\&quot;100\&quot;}&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;botSessionState&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;lastIntent\&quot;:\&quot;&lt;&lt; name: seek.intent, prompt: false &gt;&gt;\&quot;,\&quot;followUpQuery\&quot;:\&quot;&lt;&lt; name: botSessionState.followUpQuery, prompt: false &gt;&gt;\&quot;,\&quot;followUpCategory\&quot;:\&quot;&lt;&lt; name: botSessionState.followUpCategory, prompt: false &gt;&gt;\&quot;,\&quot;followUpTurn\&quot;:\&quot;&lt;&lt; name: botSessionState.followUpTurn, prompt: false &gt;&gt;\&quot;,\&quot;dataPoints\&quot;:\&quot;&lt;&lt; name: botSessionStateDataPoints, prompt: false &gt;&gt;\&quot;,\&quot;isCompleted\&quot;:\&quot;&lt;&lt; name: botSessionState.isCompleted, prompt: false &gt;&gt;\&quot;}&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: userInputType &gt;&gt;&#39; == &#39;2&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;AND(&#39;&lt;&lt; name: base64WavFile &gt;&gt;&#39; == &#39;&#39;)&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">TREATMENT</span><span class="p">:</span><span class="w"> </span><span class="n">base64</span><span class="w"> </span><span class="n">audio</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;nextPromptSequence&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;prompts\&quot;:[{\&quot;transcript\&quot;:\&quot;No audio found\&quot;}]}&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: userInputType &gt;&gt;&#39; == &#39;0&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;AND(&#39;&lt;&lt; name: mediaType &gt;&gt;&#39; == &#39;voip&#39;)&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="n">TREATMENT</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">input</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;nextPromptSequence&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;prompts\&quot;:[{\&quot;base64EncodedG711ulawWithWavHeader\&quot;:\&quot;&lt;&lt; name: base64WavFile &gt;&gt;\&quot;}]}&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: userInputType &gt;&gt;&#39; == &#39;0&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;AND(&#39;&lt;&lt; name: mediaType &gt;&gt;&#39; != &#39;voip&#39;)&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="n">TREATMENT</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">input</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;intentInfo&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;Slots\&quot;: {},\&quot;intent\&quot;:\&quot;NLU_NEEDED\&quot;,\&quot;intentConfidence\&quot;:\&quot;100\&quot;}&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: botSessionState, prompt: false &gt;&gt;&#39; == &#39;&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;botSessionState&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{}&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;errorDetails&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{\&quot;errorBehaviour\&quot;:0,\&quot;errorPromptSequence\&quot;:{\&quot;prompts\&quot;:[{}]}}&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;nextPromptBehaviours&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;null&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;customPayload&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;{}&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;branchName&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;PromptAndCollectNextResponse&quot;</span> <span class="p">}}</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="err">{</span><span class="s">&quot;branchName&quot;</span><span class="p">:</span><span class="s">&quot;&lt;&lt; name: branchName, prompt: false &gt;&gt;&quot;</span><span class="p">,</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="s">&quot;nextPromptSequence&quot;</span><span class="p">:&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> nextPromptSequence<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;,</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="s">&quot;intentInfo&quot;</span><span class="p">:&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> intentInfo<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;,</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="s">&quot;nextPromptBehaviours&quot;</span><span class="p">:&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> nextPromptBehaviours<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;,</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="s">&quot;errorDetails&quot;</span><span class="p">:&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> errorDetails<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;,</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="s">&quot;customPayload&quot;</span><span class="p">:&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> customPayload<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;,</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="s">&quot;botSessionState&quot;</span><span class="p">:&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> botSessionState<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="err">}</span><span class="w">   </span>
+</span></code></pre></div>
+</details>
+<h2 id="neuralseek_maistro_agent_use_case">NeuralSeek mAIstro Agent use case<a class="headerlink" href="#neuralseek_maistro_agent_use_case" title="Permanent link"></a></h2>
+<p>The NeuralSeek mAIstro Agent demonstrates how CXone can orchestrate multi‑turn conversations using NeuralSeek’s agentic AI framework. In this use case, the agent is configured to handle appointment scheduling by collecting all required user inputs, maintaining session state, and generating structured JSON outputs compatible with Virtual Agent Hub. The workflow leverages NeuralSeek Template Language (NTL) to define conversation logic, enforce required fields, and determine when the session is complete, ensuring the Virtual Agent can pass validated data back to downstream CXone systems.</p>
+<p><a class="glightbox" href="images/sample_appointment_scheduling_agent.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="NeuralSeek Appointment Scheduling Use Case" src="images/sample_appointment_scheduling_agent.png" /></a>
+<a class="glightbox" href="images/nice_cxone_neuralseek_use_case.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="NeuralSeek mAIstro Agent Use Case" src="images/nice_cxone_neuralseek_use_case.png" /></a></p>
+<p>The diagram and accompanying NTL example illustrate how the mAIstro Agent manages the full appointment scheduling workflow. Incoming user input is evaluated, missing fields are requested in a single prompt to minimize conversation turns, and session state is continuously updated in botSessionState. When all required fields are collected, the agent generates a final JSON response that includes a structured summary for CXone, while clearing the session state to prepare for the next interaction.</p>
+<details class="example">
+<summary>Appointment scheduling Agent NTL (NeuralSeek Template Language)</summary>
+<div class="language-ntl highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{{</span> seekIn  <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;seekInput&quot;</span> <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&lt;&lt; name: seekIn.originalQuery, prompt: false &gt;&gt;&quot;</span> <span class="p">|</span> <span class="na">mode</span><span class="p">:</span> <span class="s">&quot;overwrite&quot;</span> <span class="p">}}</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;You are CareHaven Health&#39;s virtual scheduling assistant. Your job is to collect all required patient details to book healthcare appointments.</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s">**Required Fields**: Email, DoctorSpecialty, PreferredDate, PreferredTime  </span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s">**Response**: Return valid JSON (no markdown).</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s">**Schema**:</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="s">{</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="s">\&quot;nextPromptSequence\&quot;:{\&quot;prompts\&quot;:[{\&quot;transcript\&quot;:\&quot;\&quot;,\&quot;textToSpeech\&quot;:\&quot;\&quot;}]},</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="s">\&quot;intentInfo\&quot;:{\&quot;Slots\&quot;:{},\&quot;intent\&quot;:\&quot;\&quot;},</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="s">\&quot;botSessionState\&quot;:{\&quot;lastIntent\&quot;:\&quot;&lt;&lt; name: seek.intent, prompt: false &gt;&gt;\&quot;,\&quot;followUpQuery\&quot;:\&quot;User input: \&quot;,\&quot;followUpCategory\&quot;:\&quot;Category: Appointments\&quot;,\&quot;followUpTurn\&quot;:\&quot;Last collected data: \&quot;,\&quot;dataPoints\&quot;:{},\&quot;isCompleted\&quot;:false}</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="s">}</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="s">**Instructions**:</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="s">- Always return valid JSON matching the type.</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="s">- Use dataPoints to pre-fill Slots.</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="s">- Do not modify the values of followUpQuery, followUpCategory, or followUpTurn.</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="s">- **CRITICAL**: If ANY fields are missing, ask for ALL missing fields in a SINGLE message in the transcript. Do not ask for fields one by one - gather all missing information at once to minimize conversation turns.</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="s">- Only set isCompleted: true when ALL required fields (Email, DoctorSpecialty, PreferredDate, PreferredTime) are provided.</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="s">- If all fields are filled, isCompleted: true and transcript confirms booking.</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="s">**Input**: </span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="s">&lt;&lt; name: seekInput, prompt: false &gt;&gt;</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="s">**Important**</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="s">- Always return a complete JSON with all closed braces.</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="s">- Ask for multiple missing fields together, not individually.&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;true&quot;</span> <span class="p">|</span> <span class="na">stream</span><span class="p">:</span> <span class="s">&quot;disable_streaming&quot;</span> <span class="p">|</span> <span class="na">modelCard</span><span class="p">:</span> <span class="s">&quot;ns-claude3.5-haiku&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;llmResponse&quot;</span> <span class="p">}}</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> llmResponse<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span><span class="o">=&gt;</span><span class="p">{{</span> jsonToVars  <span class="p">}}</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">{{</span> condition  <span class="p">|</span> <span class="na">value</span><span class="p">:</span> <span class="s">&quot;&#39;&lt;&lt; name: botSessionState.isCompleted, prompt: false &gt;&gt;&#39; == &#39;true&#39;&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> LLM  <span class="p">|</span> <span class="na">prompt</span><span class="p">:</span> <span class="s">&quot;Create a clean summary with the appointment details provided below. Return the summary in the required JSON format.</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="s">**Response**: Return valid JSON (no markdown).</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="s">**Schema**:</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="s">{</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="s">\&quot;nextPromptSequence\&quot;:{\&quot;prompts\&quot;:[{\&quot;transcript\&quot;:\&quot;\&quot;,\&quot;textToSpeech\&quot;:\&quot;\&quot;}]},</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="s">\&quot;intentInfo\&quot;:{\&quot;Slots\&quot;:{},\&quot;intent\&quot;:\&quot;\&quot;},</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="s">\&quot;botSessionState\&quot;:{}</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="s">}</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="s">**Instructions**:</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="s">- Always return valid JSON matching the exact schema above.</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="s">- Put the appointment summary in the transcript field</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="s">- Format the summary with each detail on a separate line: Email, Doctor Specialty, Preferred Date, Preferred Time</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="s">- Use the format: \&quot;Email: [value]\&quot; for each line</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="s">- Leave botSessionState as an empty object {}</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="s">- Leave intentInfo.Slots and intentInfo.intent as empty</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="s">&lt;&lt; name: botSessionState.dataPoints.Email, prompt: false &gt;&gt;</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="s">&lt;&lt; name: botSessionState.dataPoints.PreferredDate, prompt: false &gt;&gt;</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="s">&lt;&lt; name: botSessionState.dataPoints.PreferredTime, prompt: false &gt;&gt;</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="s">&lt;&lt; name: botSessionState.dataPoints.DoctorSpecialty, prompt: false &gt;&gt;</span>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="s">**Important**</span>
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="s">- Always return a complete JSON with all closed braces.</span>
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="s">- The summary goes in the transcript field, not as separate text.</span>
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="s">- botSessionState must be empty: {}&quot;</span> <span class="p">|</span> <span class="na">cache</span><span class="p">:</span> <span class="s">&quot;true&quot;</span> <span class="p">|</span> <span class="na">stream</span><span class="p">:</span> <span class="s">&quot;disable_streaming&quot;</span> <span class="p">|</span> <span class="na">modelCard</span><span class="p">:</span> <span class="s">&quot;ns-claude3.5-haiku&quot;</span> <span class="p">}}</span><span class="o">=&gt;</span><span class="p">{{</span> variable  <span class="p">|</span> <span class="na">name</span><span class="p">:</span> <span class="s">&quot;llmResponse&quot;</span> <span class="p">}}</span>
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="p">&lt;&lt;</span> <span class="nv">name</span><span class="p">:</span> llmResponse<span class="p">,</span> <span class="nv">prompt</span><span class="p">:</span> false <span class="p">&gt;&gt;</span>
+</span></code></pre></div>
+</details>
+<h3 id="governance_and_guardrails">Governance and guardrails<a class="headerlink" href="#governance_and_guardrails" title="Permanent link"></a></h3>
+<p>The NeuralSeek mAIstro Agent demonstrates a reference implementation of an agent-driven workflow using NeuralSeek’s NTL (NeuralSeek Template Language). This use case focuses on an appointment scheduling scenario, where the agent manages multi-turn conversations, captures required data fields, and maintains session state across interactions. The mAIstro Agent executes LLM-driven responses under strict governance controls, including PII redaction, prompt injection detection, semantic scoring, and length constraints. All collected data is structured in JSON for compatibility with CXone’s Virtual Agent Hub, enabling downstream automation such as scheduling, logging, or analytics.</p>
+<p><a class="glightbox" href="images/maistro_no_code_seek_node_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="mAIstro seek node settings" src="images/maistro_no_code_seek_node_settings.png" /></a>
+<a class="glightbox" href="images/multi_agent_seek_flows.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="multi agent seek flows" src="images/multi_agent_seek_flows.png" /></a></p>
+<p>In this Agentic AI architecture, Governance configurations and guardrail settings can be modified for each agent flow. The NICE CXone hits the proxy tunnel mAIstro agent using the mAIstro API, and this agent calls Seek with the required context, where it can be properly routed to the appropriate agent, such as Appointments, FAQ, etc.</p>
+<p><a class="glightbox" href="images/agent_governance_configuration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="NeuralSeek agent custom configurations" src="images/agent_governance_configuration.png" /></a>
+<a class="glightbox" href="images/agent_guardrails_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="NeuralSeek agent custom guardrails" src="images/agent_guardrails_settings.png" /></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+<div id="chat" style="position: fixed; right: 20px; bottom: 20px; width: 450px; display: none; max-height: 60vh; min-height: max(160px, -10px + min(250px, 100vh)); height: calc(-140px + 100vh);"></div>
+<div id="chat-toggle-btn" style="position: fixed; right: 20px; bottom: 20px; display: block;"></div>
+<div id="chathistory"></div>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Ⓒ 2024 NeuralSeek, all rights reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

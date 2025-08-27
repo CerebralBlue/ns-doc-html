@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/ns-new.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -2477,6 +2477,8 @@
       
         
       
+        
+      
     
     
     
@@ -2943,6 +2945,62 @@
           <label class="md-nav__title" for="__nav_3_2_8">
             <span class="md-nav__icon md-icon"></span>
             Implementing Feedback
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../guides/integration/nice_cxone_integration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    NICE CXone
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            NICE CXone
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3681,7 +3739,18 @@
 <li><strong>Return the document instead of passages (only enable this if all of your documents are short)</strong> Users can enable return the document instead of passages in order to get an output that is a full document. This should only be enabled if all of the documents in the search are short.</li>
 <li><strong>Filter Field:</strong> Select document metadata field to use for filtering. For example, you can filter on a 'document_type' field for only 'PDF' types.</li>
 <li><strong>Static Default Filter Value (when no runtime filter is passed)</strong> The value a filter uses as its default setting. This value can differ when a runtime filter is passed.</li>
-<li><strong>Re-Sort Values List:</strong> Users are able to enter a prioritized list of values that you want to re-rank above other results, regardless of KB score. Click the light bulb icon to add a new row and enter the value of priority.</li>
+<li><strong>Re‑Sort Values List:</strong> Users can enter a prioritized list of values that will re‑rank documents and URLs above other results, regardless of KB score. Click the light bulb icon to add a new row and enter the priority value.</li>
+</ul>
+<details class="info">
+<summary>How to Use Re‑Sort Values</summary>
+<ol>
+<li>Go to <strong>KnowledgeBase → Connection Settings</strong>.</li>
+<li>Click the light bulb icon to <strong>add a new Re‑Sort value</strong> (e.g., <code>priority-topic</code> or <code>critical-url</code>).</li>
+<li>Tag relevant <strong>documents or URLs</strong> in your KnowledgeBase with this value.</li>
+<li>Run a <strong>Seek</strong> query to verify that items with this value appear higher in the results.</li>
+</ol>
+</details>
+<ul>
 <li><strong>Enable Advanced Schema</strong> Enabling Advanced Schema allows users to get a more narrow search based on the Value List inputs.</li>
 </ul>
 </details>
@@ -4129,10 +4198,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});

@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,7 +17,7 @@
       
       
       <link rel="icon" href="../../../assets/ns-new.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
@@ -28,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -87,7 +84,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -113,42 +110,43 @@
     
     
       
-        <meta  property="og:type"  content="website" >
+        <meta property="og:type" content="website">
       
-        <meta  property="og:title"  content="Passing Conversational Context - NeuralSeek Documentation" >
+        <meta property="og:title" content="Passing Conversational Context - NeuralSeek Documentation">
       
-        <meta  property="og:description"  content="Enhance your AI interactions with NeuralSeek by leveraging conversational context. Learn how to pass context using Watsonx Assistant and API for more personalized, relevant responses." >
+        <meta property="og:description" content="Enhance your AI interactions with NeuralSeek by leveraging conversational context. Learn how to pass context using Watsonx Assistant and API for more personalized, relevant responses.">
       
-        <meta  property="og:image"  content="https://documentation.neuralseek.com/assets/images/social/guides/integration/providing_context/index.png" >
+        <meta property="og:image" content="https://documentation.neuralseek.com/assets/images/social/guides/integration/providing_context/index.png">
       
-        <meta  property="og:image:type"  content="image/png" >
+        <meta property="og:image:type" content="image/png">
       
-        <meta  property="og:image:width"  content="1200" >
+        <meta property="og:image:width" content="1200">
       
-        <meta  property="og:image:height"  content="630" >
+        <meta property="og:image:height" content="630">
       
-        <meta  property="og:url"  content="https://documentation.neuralseek.com/guides/integration/providing_context/" >
+        <meta property="og:url" content="https://documentation.neuralseek.com/guides/integration/providing_context/">
       
-        <meta  name="twitter:card"  content="summary_large_image" >
+        <meta name="twitter:card" content="summary_large_image">
       
-        <meta  name="twitter:title"  content="Passing Conversational Context - NeuralSeek Documentation" >
+        <meta name="twitter:title" content="Passing Conversational Context - NeuralSeek Documentation">
       
-        <meta  name="twitter:description"  content="Enhance your AI interactions with NeuralSeek by leveraging conversational context. Learn how to pass context using Watsonx Assistant and API for more personalized, relevant responses." >
+        <meta name="twitter:description" content="Enhance your AI interactions with NeuralSeek by leveraging conversational context. Learn how to pass context using Watsonx Assistant and API for more personalized, relevant responses.">
       
-        <meta  name="twitter:image"  content="https://documentation.neuralseek.com/assets/images/social/guides/integration/providing_context/index.png" >
+        <meta name="twitter:image" content="https://documentation.neuralseek.com/assets/images/social/guides/integration/providing_context/index.png">
       
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -190,7 +188,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -215,20 +213,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
       </label>
     
   
@@ -244,7 +242,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -253,20 +251,20 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -304,7 +302,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -386,7 +384,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -487,7 +485,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -542,7 +540,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2">
         
           
           <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
@@ -719,7 +717,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -796,7 +794,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2">
         
           
           <label class="md-nav__link" for="__nav_2_7_2" id="__nav_2_7_2_label" tabindex="0">
@@ -1099,7 +1097,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_12">
         
           
           <label class="md-nav__link" for="__nav_2_7_2_12" id="__nav_2_7_2_12_label" tabindex="0">
@@ -1307,7 +1305,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_14">
         
           
           <label class="md-nav__link" for="__nav_2_7_2_14" id="__nav_2_7_2_14_label" tabindex="0">
@@ -1739,7 +1737,7 @@
   
   
   <span class="md-ellipsis">
-    Guides & Walkthroughs
+    Guides &amp; Walkthroughs
     
   </span>
   
@@ -1750,7 +1748,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Guides & Walkthroughs
+            Guides &amp; Walkthroughs
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1783,7 +1781,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1">
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -1827,7 +1825,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1883,7 +1881,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1939,7 +1937,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1995,7 +1993,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2051,7 +2049,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2107,7 +2105,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2231,7 +2229,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2287,7 +2285,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2343,7 +2341,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2399,7 +2397,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2455,7 +2453,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2569,7 +2567,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2625,7 +2623,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2681,7 +2679,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2745,7 +2743,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
         
           
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
@@ -2789,7 +2787,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2845,7 +2843,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2922,7 +2920,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -3060,7 +3058,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -3118,7 +3116,7 @@
     
                   
 
-  <nav class="md-tags" >
+  <nav class="md-tags">
     
       
       
@@ -3163,27 +3161,27 @@
 <li>Make sure a NeuralSeek Extension is already set up for watsonx Assistant to use it.</li>
 <li>Select the created NeuralSeek Extension, choose the 'Seek an answer from NeuralSeek' operation, and set the <code>question</code> parameter with the <code>query_text</code> session variable.</li>
 </ol>
-<p><a class="glightbox" href="images/extension_config.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="extension_config" src="images/extension_config.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/extension_config.png" data-desc-position="bottom"><img alt="extension_config" src="images/extension_config.png"></a></p>
 <ol start="3">
 <li>Display the 'Optional parameters' list.</li>
 </ol>
-<p><a class="glightbox" href="images/optional_params.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="optional_params" src="images/optional_params.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/optional_params.png" data-desc-position="bottom"><img alt="optional_params" src="images/optional_params.png"></a></p>
 <ol start="4">
 <li>Look for the <code>options.lastTurn</code> parameter and set it to <code>Session History</code> in the 'Assistant Variables' dropdown.</li>
 </ol>
-<p><a class="glightbox" href="images/session_history.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="session_history" src="images/session_history.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/session_history.png" data-desc-position="bottom"><img alt="session_history" src="images/session_history.png"></a></p>
 <ol start="5">
 <li>Finally, hit 'Apply' and the configured extension will look like this. Remember to save the action.</li>
 </ol>
-<p><a class="glightbox" href="images/configured_extension.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="configured_extension" src="images/configured_extension.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/configured_extension.png" data-desc-position="bottom"><img alt="configured_extension" src="images/configured_extension.png"></a></p>
 <ol start="6">
 <li>You can attempt a first question, such as "How can NeuralSeek help businesses in different industries with Gen AI?" in the chatbot preview.</li>
 </ol>
-<p><a class="glightbox" href="images/first_attempt.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="first_attempt" src="images/first_attempt.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/first_attempt.png" data-desc-position="bottom"><img alt="first_attempt" src="images/first_attempt.png"></a></p>
 <ol start="7">
 <li>For a second attempt, try asking a follow-up question related to the first one. NeuralSeek will use the <code>lastTurn</code> parameter to infer the context of your intent.</li>
 </ol>
-<p><a class="glightbox" href="images/context_attempt.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="context_attempt" src="images/context_attempt.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/context_attempt.png" data-desc-position="bottom"><img alt="context_attempt" src="images/context_attempt.png"></a></p>
 <h2 id="passing_conversational_context_via_api">Passing Conversational Context via API<a class="headerlink" href="#passing_conversational_context_via_api" title="Permanent link"></a></h2>
 <p>The <code>lastTurn</code> parameter allows NeuralSeek API to incorporate the context of a previous conversation when generating responses. This is especially useful when a sequence of related questions or follow-ups is asked, as it helps NeuralSeek understand the progression of the conversation.</p>
 <ol>
@@ -3191,12 +3189,12 @@
 <li>Send a request to the <code>/seek</code> endpoint. The <code>lastTurn</code> field should be an empty structure, since there is no prior context to reference. For example:</li>
 </ol>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;How NeuralSeek can help businesses in different industries with Gen AI?&quot;</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;lastTurn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How NeuralSeek can help businesses in different industries with Gen AI?"</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">"lastTurn"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="p">{</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">"input"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p">}</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">]</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p">}</span>
@@ -3204,7 +3202,7 @@
 </span></code></pre></div>
 <p>The answer will look like the one below. We should keep this <code>answer</code> value and the current user question for our next request.</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek can help your business harness the power of generative AI. Our no-code platform connects to large language models and your company&#39;s data, making it much easier to deploy AI-powered solutions like virtual agents, content gen eration, and more. With NeuralSeek, you can create an AI agent, connect it to your knowledge base, and quickly generate intents and responses to automate customer support and share information with employees. This can enhance customer experiences and boost internal productivity across various functions. NeuralSeek is especially valuable for Fortune 500 companies looking to streamline their operations with AI. We&#39;ve already partnered with multiple Fortune 500 businesses to help them rapidly implement AI without the typical complexity. I&#39;d encourage you to explore some of these resources to learn more about how NeuralSeek can drive results in your industry: - Understanding NeuralSeek and Its Business Applications: https://ceoweekly.com/neuralseek-wh y-businesses-need-more-than-gen-ai-chatbots/ - NeuralSeek: The Future of AI Integration for Fortune 500 Companies: https://11mr eporter.com/posts/neuralseek-the-future-of-ai-integration-for-fortune-500-companies/&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NeuralSeek can help your business harness the power of generative AI. Our no-code platform connects to large language models and your company's data, making it much easier to deploy AI-powered solutions like virtual agents, content gen eration, and more. With NeuralSeek, you can create an AI agent, connect it to your knowledge base, and quickly generate intents and responses to automate customer support and share information with employees. This can enhance customer experiences and boost internal productivity across various functions. NeuralSeek is especially valuable for Fortune 500 companies looking to streamline their operations with AI. We've already partnered with multiple Fortune 500 businesses to help them rapidly implement AI without the typical complexity. I'd encourage you to explore some of these resources to learn more about how NeuralSeek can drive results in your industry: - Understanding NeuralSeek and Its Business Applications: https://ceoweekly.com/neuralseek-wh y-businesses-need-more-than-gen-ai-chatbots/ - NeuralSeek: The Future of AI Integration for Fortune 500 Companies: https://11mr eporter.com/posts/neuralseek-the-future-of-ai-integration-for-fortune-500-companies/"</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol start="3">
@@ -3212,12 +3210,12 @@
 </ol>
 <p>Example of a follow-up request with context:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;What about a pharmaceutical business?&quot;</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;lastTurn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What about a pharmaceutical business?"</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">"lastTurn"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="p">{</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;How NeuralSeek can help businesses in different industries with Gen AI?&quot;</span><span class="p">,</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NeuralSeek can help your business harness the power of generative AI. Our no-code platform connects to large language models and your company&#39;s data, making it much easier to deploy AI-powered solutions like virtual agents, content gen eration, and more. With NeuralSeek, you can create an AI agent, connect it to your knowledge base, and quickly generate intents and responses to automate customer support and share information with employees. This can enhance customer experiences and boost internal productivity across various functions. NeuralSeek is especially valuable for Fortune 500 companies looking to streamline their operations with AI. We&#39;ve already partnered with multiple Fortune 500 businesses to help them rapidly implement AI without the typical complexity. I&#39;d encourage you to explore some of these resources to learn more about how NeuralSeek can drive results in your industry: - Understanding NeuralSeek and Its Business Applications: https://ceoweekly.com/neuralseek-wh y-businesses-need-more-than-gen-ai-chatbots/ - NeuralSeek: The Future of AI Integration for Fortune 500 Companies: https://11mr eporter.com/posts/neuralseek-the-future-of-ai-integration-for-fortune-500-companies/&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nt">"input"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How NeuralSeek can help businesses in different industries with Gen AI?"</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NeuralSeek can help your business harness the power of generative AI. Our no-code platform connects to large language models and your company's data, making it much easier to deploy AI-powered solutions like virtual agents, content gen eration, and more. With NeuralSeek, you can create an AI agent, connect it to your knowledge base, and quickly generate intents and responses to automate customer support and share information with employees. This can enhance customer experiences and boost internal productivity across various functions. NeuralSeek is especially valuable for Fortune 500 companies looking to streamline their operations with AI. We've already partnered with multiple Fortune 500 businesses to help them rapidly implement AI without the typical complexity. I'd encourage you to explore some of these resources to learn more about how NeuralSeek can drive results in your industry: - Understanding NeuralSeek and Its Business Applications: https://ceoweekly.com/neuralseek-wh y-businesses-need-more-than-gen-ai-chatbots/ - NeuralSeek: The Future of AI Integration for Fortune 500 Companies: https://11mr eporter.com/posts/neuralseek-the-future-of-ai-integration-for-fortune-500-companies/"</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="p">}</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">]</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">}</span>
@@ -3225,7 +3223,7 @@
 </span></code></pre></div>
 <p>In this follow-up request, the <code>lastTurn</code> provides context by including the previous question about generative AI and its response. This helps NeuralSeek better understand and address the new question about the pharmaceutical business in light of the prior exchange.</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The pharmaceutical industry is a complex and highly regulated sector that discovers, develops, produces, and markets drugs for use as medications to be administered to patie nts. It&#39;s one of the fastest-growing economic sectors worldwide with sales exceeding $1 trillion, as a pharmaceutical business, you likely face challenges around drug development, clinical trials, regulatory compliance, patents, and commercialization. Utilizing AI and analytics at scale could help accelerate innovation and time-to-market for new therapies. NeuralSeek&#39;s no-code AI platform could enable your pharmaceutical company to:  - Automate customer support and medical information sharing - Generate content like scientific publications and regulatory documents - Streamline drug discovery and clinical trial processes - Personalize HCP and patient engagement  - Optimize supply chain and manufacturing operations. By connecting NeuralSeek to your company&#39;s proprietary data and systems, you can rapidly deploy AI solutions tailored to your specific needs and workflows as a pharma business. This can drive efficiencies, reduce costs, and ultimately help bring life-saving treatments to patients faster. I&#39;d suggest checking out these resources to dive deeper into AI use cases fo r_pharma:  - The future of the pharmaceutical industry: https://www2.deloitte.com/us/en/insights/industry/health-care/future-of-pharmaceutical-industry.html - Pharma trends 2824: Sha ping the future landscape: https://www.zs.com/insights/trends-shaping-pharmaceutical-landscape-2824-and-beyond Let me know if you have any other questions!&quot;</span><span class="p">,</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The pharmaceutical industry is a complex and highly regulated sector that discovers, develops, produces, and markets drugs for use as medications to be administered to patie nts. It's one of the fastest-growing economic sectors worldwide with sales exceeding $1 trillion, as a pharmaceutical business, you likely face challenges around drug development, clinical trials, regulatory compliance, patents, and commercialization. Utilizing AI and analytics at scale could help accelerate innovation and time-to-market for new therapies. NeuralSeek's no-code AI platform could enable your pharmaceutical company to:  - Automate customer support and medical information sharing - Generate content like scientific publications and regulatory documents - Streamline drug discovery and clinical trial processes - Personalize HCP and patient engagement  - Optimize supply chain and manufacturing operations. By connecting NeuralSeek to your company's proprietary data and systems, you can rapidly deploy AI solutions tailored to your specific needs and workflows as a pharma business. This can drive efficiencies, reduce costs, and ultimately help bring life-saving treatments to patients faster. I'd suggest checking out these resources to dive deeper into AI use cases fo r_pharma:  - The future of the pharmaceutical industry: https://www2.deloitte.com/us/en/insights/industry/health-care/future-of-pharmaceutical-industry.html - Pharma trends 2824: Sha ping the future landscape: https://www.zs.com/insights/trends-shaping-pharmaceutical-landscape-2824-and-beyond Let me know if you have any other questions!"</span><span class="p">,</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
 </span></code></pre></div>
 
@@ -3259,7 +3257,7 @@
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -3298,10 +3296,10 @@
       <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -7,7 +7,9 @@ description: Discover the latest updates in NeuralSeek's changelog! From new out
 
 **New features**
 
-  - Announcing NeuralEdit! NeuralEdit is our chat-assisted file & document creation and editing tool. It leverages mAIstro agents under the covers to deep research, take actions, and create and edit documents. 
+  - Announcing NeuralEdit! NeuralEdit is our chat-assisted file & document creation and editing tool. It leverages mAIstro agents under the covers to deep research, take actions, and create and edit documents.
+  - Agent Visualizer. Now you can see all mAIstro agent realationships and inter-dependencies on a visual flow diagram.
+  - New LLM's from Google, OpenAI, and Anthropic
 
     
 ## April - 2026 

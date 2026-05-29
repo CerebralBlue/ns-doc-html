@@ -3,11 +3,20 @@ title: Changelog
 description: Discover the latest updates in NeuralSeek's changelog! From new out-of-the-box integrations supporting the market's leading models, to new no-code toolsets for building AI Agents in mAIstro, stay in the know on NeuralSeek's powerful new releases that elevate your AI experience.
 ---
 
+## June - 2026 
+
+**New features**
+
+  - API key expiration and custom scoping.
+  - mAIstro breakpoint / step debugger - single-step thru a flow to debug.
+  - Image-based PII redaction
+
 ## May - 2026 
 
 **New features**
 
   - Announcing NeuralEdit! NeuralEdit is our chat-assisted file & document creation and editing tool. It leverages mAIstro agents under the covers to deep research, take actions, and create and edit documents.
+  - Excel file generation
   - Agent Visualizer. Now you can see all mAIstro agent realationships and inter-dependencies on a visual flow diagram.
   - New LLM's from Google, OpenAI, and Anthropic
 

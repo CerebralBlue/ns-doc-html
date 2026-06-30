@@ -3,6 +3,14 @@ title: Changelog
 description: Discover the latest updates in NeuralSeek's changelog! From new out-of-the-box integrations supporting the market's leading models, to new no-code toolsets for building AI Agents in mAIstro, stay in the know on NeuralSeek's powerful new releases that elevate your AI experience.
 ---
 
+## July - 2026 
+
+**New features**
+
+  - Updated Governance charting and dozens of new charts.
+  - neuralEdit enhancements for rich text & HTML editing.
+  - mAIstro auto-enhance
+    
 ## June - 2026 
 
 **New features**

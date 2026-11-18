@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/ns-new.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
       
@@ -28,10 +28,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -2124,6 +2124,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#red_team_testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Red Team Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3894,6 +3905,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#red_team_testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Red Team Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4333,6 +4355,67 @@
 <p><strong>Model Cost Comparison</strong></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/model-cost.png" data-desc-position="bottom"><img alt="model-cost-comparison" src="images/model-cost.png"></a></p>
 <p>This bar chart compares the costs associated with different models used within NeuralSeek. Easily compare your selected model cost against other popular models.</p>
+<h3 id="red_team_testing">Red Team Testing<a class="headerlink" href="#red_team_testing" title="Permanent link"></a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/red-team-testing.png" data-desc-position="bottom"><img alt="red-team-testing" src="images/red-team-testing.png"></a></p>
+<p><strong>What is it?</strong></p>
+<ul>
+<li>Red Team Testing attacks one of your mAIstro agents on purpose and reports how well it held up. The other Governance dashboards watch an agent in production. Red Team Testing actively tries to break it, then returns an overall security score, a result per attack category, the risks it found, recommended mitigations and the evidence behind them.</li>
+</ul>
+<p><strong>What does it cover?</strong></p>
+<ul>
+<li><strong>mAIstro agents only</strong>, one agent per test. It does not test Seek answers. Seek is protected by its own guardrails in Configure, such as prompt injection protection.</li>
+<li>Each test checks five attack categories:<ul>
+<li><strong>Prompt Injection</strong>: attempts to override the agent's instructions.</li>
+<li><strong>Data Exfiltration</strong>: attempts to make the agent reveal data it should not.</li>
+<li><strong>SQL Injection</strong>: attempts to inject queries through the agent's inputs.</li>
+<li><strong>Unauthorized Access</strong>: attempts to reach data or actions the user is not allowed to.</li>
+<li><strong>Service Disruption</strong>: attempts to make the agent fail or stop responding.</li>
+</ul>
+</li>
+</ul>
+<p><strong>When to use it</strong></p>
+<ul>
+<li>Before you expose an agent to end users or untrusted input.</li>
+<li>Again after you change the agent's prompt, tools or connections, so a fix is confirmed rather than assumed.</li>
+</ul>
+<p><strong>How to run a test</strong></p>
+<ol>
+<li>Go to <strong>Governance</strong> and, under <strong>mAIstro Governance</strong>, select <strong>Red Team Testing</strong>.</li>
+<li>In the <strong>Agent</strong> picker, search for the agent or select <strong>Show agents</strong> to see the full list.</li>
+<li>Select <strong>Run Test</strong>. The button stays disabled until an agent is selected.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Before you run a test</p>
+<ul>
+<li>Tests run against the <strong>real agent</strong>, with the knowledge base and connections it is wired to. If the agent can write to a database or call external services, choose a time and a target where that is acceptable.</li>
+<li>Tests are <strong>billed</strong>. A test is planned, each attack is run against the agent, and the results are graded. Each step is billed as an LLM run.</li>
+<li>Write a clear agent description that says what the agent does and what it can change. The planner uses it to design the attacks. If the description is shorter than 30 characters, NeuralSeek generates one first. That step is billed, and the generated description is not saved to the agent.</li>
+</ul>
+</div>
+<p><strong>Reading the results</strong></p>
+<p>Select the agent, then pick a run in the <strong>Test run</strong> picker next to <strong>Test Results</strong>. The page keeps the 30 most recent runs per agent, so you can compare a run from before a fix with one from after it.</p>
+<div class="admonition example">
+<p class="admonition-title">Values</p>
+<ul>
+<li><strong>Overall score</strong>: a single security score for the selected run.</li>
+<li><strong>Summary</strong>: a written overview of the assessment.</li>
+<li><strong>Test categories</strong>: one card per attack category, with a status badge and a result line.</li>
+<li><strong>Risks</strong>: the potential vulnerabilities the assessment found.</li>
+<li><strong>Recommended strategies</strong>: suggested mitigations and security improvements.</li>
+<li><strong>Test logs</strong>: the evidence behind the result. Each log opens that step (the plan, each attack and the review) in <a href="../../features/replay_feature/">Replay</a>.</li>
+</ul>
+</div>
+<p>Read <strong>Risks</strong> and <strong>Recommended strategies</strong> together: the first says what was found, the second says what to change. After you change the agent, run the test again to confirm the risk is gone.</p>
+<div class="admonition tip">
+<p class="admonition-title">Logging and audit evidence</p>
+<p>Test runs are saved per agent and stay available in the <strong>Test run</strong> picker. Results are viewed in the console and can't be exported as a file. <strong>Test logs</strong> are only recorded when Corporate Logging is turned on at the time the test runs, so turn it on before testing if you need the evidence for an audit, for example for NIST AI RMF MEASURE 2.7.</p>
+</div>
+<p><strong>Troubleshooting</strong></p>
+<ul>
+<li><strong>Run Test is greyed out.</strong> No agent is selected. Choose one in <strong>Agent</strong>.</li>
+<li><strong>Test run is greyed out and shows only "Select a test".</strong> The picker lists runs for the selected agent, so it stays disabled until you choose an agent.</li>
+<li><strong>Test logs is empty.</strong> Corporate Logging was off when the test ran. Turn it on and run the test again.</li>
+</ul>
 <h2 id="system_governance">System Governance<a class="headerlink" href="#system_governance" title="Permanent link"></a></h2>
 <h3 id="system_performance">System Performance<a class="headerlink" href="#system_performance" title="Permanent link"></a></h3>
 <p>This provides an overview of the performance insights for NeuralSeek. The insights are visualized using line charts, each representing different aspects of instance and universe performance over time.</p>
@@ -4410,10 +4493,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   
